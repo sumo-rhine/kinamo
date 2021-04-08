@@ -5,7 +5,8 @@ const firebaseConfig = {
     storageBucket: "kinamo-3ec0e.appspot.com",
     messagingSenderId: "830223469999",
     appId: "1:830223469999:web:6f232d85befa495d6e335a",
-    databaseURL: ""
+    databaseURL: "",
+    measurementId: "G-1YEXG8KFZF"
   };
 
   export default firebaseConfig;
