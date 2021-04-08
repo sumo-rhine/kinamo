@@ -16,6 +16,7 @@ used.
 - `/src/layouts`  -  high level Layout components that implement a different routing. Right now, this is only the App itself and Permalinks
 - `/src/models`  -  application-wide interfaces and types that are not bound to a specific API
 - `/src/pages`  -  Content Pages. Each file is basically containing the Scaffold for one page of the application
+- `/src/store`  -  Redux implementation. Anything that is about the application state goes here
 
 ## Install
 
