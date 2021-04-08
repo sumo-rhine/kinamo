@@ -4,10 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Load Redux and inject the Provider at higher level than App
+// in order to make App load the data, as there is no authentication
+// that has to take place first
+import { Provider } from 'react-redux';
+import store from './store/store';
+
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
