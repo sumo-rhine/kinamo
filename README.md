@@ -1,6 +1,34 @@
-# Getting Started with Create React App
+# Kinamo
 
+[description text]
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## App Structure
+
+As we are using React > v16, we use React hooks. There is no need to mix Class based and functional 
+components. Thus, we only implement functional components and make use of hooks. I don't see any 
+usecase for lifecycle hooks. Thus we should not mix things up and use React as it was meant to be 
+used.
+
+### root level folders:
+
+- `/src/components`  -  containes all components that do not make a page on their own and are pontentially reused
+- `/src/layouts`  -  high level Layout components that implement a different routing. Right now, this is only the App itself and Permalinks
+- `/src/models`  -  application-wide interfaces and types that are not bound to a specific API
+- `/src/pages`  -  Content Pages. Each file is basically containing the Scaffold for one page of the application
+
+## Install
+
+```bash
+# download repo
+git clone git@github.com:sumo-rhine/kinamo.git
+cd kinamo
+npm install
+
+# install firebase-tools globally - you may need sudo on linux
+npm i -g firebase-tools
+firebase login
+```
 
 ## Available Scripts
 
@@ -14,10 +42,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -29,18 +53,24 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Deploy to the LIVE firebase hosting site:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+firebase deploy --only=hosting
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Depoly to a preview channel**
+```bash
+firebase hosting:channel:deploy <preview_name>
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Where we should a semantic versioning tag of the previewed **minor** version, 
+i.e.: `v0.2`.  
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Firebase
 
-## Learn More
+New firebase rules and indices can be deployed like:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+firebase deploy --only=firebase
+```
