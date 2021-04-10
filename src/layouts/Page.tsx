@@ -1,5 +1,7 @@
-import { PageHeader } from "antd";
-import React from "react";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+
+// import all pages that are available at this level
+import SamplePage from "../pages/SamplePage";
 
 /**
  * The Page component is a slim wrapper around the usual page navigation that
@@ -9,10 +11,15 @@ import React from "react";
  * If a new page is added, put the routing here.
  */
 const Page: React.FC = () => (
-    <React.Fragment>
-        <PageHeader title="Hello from Kinamo" />
-        <h1>This is the &lt;Page /&gt; component that routes the actual application</h1>
-    </React.Fragment>
+    <BrowserRouter>
+        <Switch>
+            {/* Dev only  - replace with the real pages*/}
+            <Route path="/sample" render={() => <SamplePage />} />
+
+            {/* If no other route matched, redirect i.e. to a /home or /dashboard */}
+            <Route path="/" render={() => <Redirect to="/sample" />}/>
+        </Switch>
+    </BrowserRouter>
 )
 
 export default Page;
