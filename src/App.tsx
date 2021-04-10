@@ -2,6 +2,12 @@ import React, { useEffect } from 'react';
 import { Dispatch } from 'redux';
 import { loadData } from './store/actions';
 import { connect } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+// load the different Pages for routing
+import Permalink from './layouts/Permalink';
+import Page from './layouts/Page';
+
 // This is mandatory because App.css loads the ant-design css globally
 import './App.css';
 
@@ -18,11 +24,6 @@ import { FirestoreProvider } from '@react-firebase/firestore';
 import firebase from 'firebase/app';
 import 'firebase/firestore';        // this is needed once, so that firebase.app().firestore() is not null anymore
 
-// THIS is only development and will be removed later
-// HERE the react-router is needed to load one of the layouts:
-// - Page layout
-// - Permalink layout
-import { PageHeader } from 'antd';
 
 // interface of the props the App receives
 interface AppProps {
@@ -38,8 +39,18 @@ const App: React.FC<AppProps> = props =>  {
 
   return (
     <FirestoreProvider {...config} firebase={firebase}>
-      <PageHeader title="Hello From Kinamo" />
-      <h3>there is no content so far</h3>
+      <BrowserRouter>
+        {/* The Switch is important as otherwise the permalink would always load BOTH Routes */}
+        <Switch>
+          {/* /permalink/* is all redirected to the Permalink component */}
+          <Route path="/permalink" render={() => <Permalink />} />
+          
+          {/* Here we could instread redirect anything to /app, which loads the Page. 
+              This would enable us in the future to have two layout like: /app and /mobile 
+            */}
+          <Route path="/" render={() => <Page />}  />
+        </Switch>
+      </BrowserRouter>
     </FirestoreProvider>
   );
 }
