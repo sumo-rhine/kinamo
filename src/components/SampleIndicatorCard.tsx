@@ -1,5 +1,6 @@
 import { Card, Statistic } from "antd";
 import { ArrowUpOutlined } from "@ant-design/icons";
+import LinkBuilder from "./LinkBuilder";
 
 /**
  * Sample Indicator Card
@@ -7,9 +8,14 @@ import { ArrowUpOutlined } from "@ant-design/icons";
  * can be composed. This sample will be used for a few performance tests
  * to decide on data flow pattern into the component, as well as state
  * management for the component.
+ * @todo - the extra has to be a different link, depending on the route
  */
 const SampleIndicatorCard: React.FC = () => (
-    <Card title="Sample Indicator" extra={<a href="/permalink" target="_blank">Permalink</a>} style={{maxWidth: '400px', width: '100%'}}>
+    <Card 
+        title="Sample Indicator" 
+        extra={<LinkBuilder componentName="sample" appRoute="/sample" />} 
+        style={{maxWidth: '400px', width: '100%'}}
+    >
         <Statistic 
             title="Awesomeness"
             value={42}
