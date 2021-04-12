@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import PermalinkResolver from '../components/PermalinkResolver';
 
+
 /**
  * The Permalink Layout is the main component that loads the necessary
  * components to compile a single self-contained Figure or Table.

@@ -24,7 +24,6 @@ import { FirestoreProvider } from '@react-firebase/firestore';
 import firebase from 'firebase/app';
 import 'firebase/firestore';        // this is needed once, so that firebase.app().firestore() is not null anymore
 
-
 // interface of the props the App receives
 interface AppProps {
   loadData: () => void;
