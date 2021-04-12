@@ -10,6 +10,10 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './store/store';
 
+// initialize Firebase Analytics
+import * as analytics from './analytics';
+analytics.init();
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
