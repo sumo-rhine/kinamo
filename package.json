@@ -1,6 +1,6 @@
 {
   "name": "kinamo",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
