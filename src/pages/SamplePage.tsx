@@ -2,12 +2,7 @@ import { PageHeader } from "antd";
 import React from "react";
 import SampleIndicatorCard from "../components/SampleIndicatorCard";
 
-// dev only
-import * as analytics from '../analytics';
-
 const SamplePage: React.FC = () => {
-    // TODO: DEVELOPMENT ONLY - use a cusotm route to implement this behavior
-    analytics.pageview('Sample Page');
     
     return (
     <React.Fragment>
