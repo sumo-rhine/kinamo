@@ -16,14 +16,15 @@ const PermalinkResolver: React.FC = () => {
     const searchParams = new URLSearchParams(window.location.search);
     // this is what we want to have
     const params: LinkableProps = {};
-    searchParams.forEach((key: string, value: string) => {
+    searchParams.forEach((parValue: string, parKey: string) => {   // for some odd reasons they come as value, key !?
         // if the key aleady exists, it's an array-type
-        if (params[key]) {
-            (params[key] as string[]).push(value);
+        if (params[parKey]) {
+            (params[parKey] as string[]).push(parValue);
         } else {
-            params[key] = value;
+            params[parKey] = parValue;
         }
     });
+    console.log(params);
     
     // get the correct class
     const Component: React.ComponentType<LinkableProps> = LINKABLE_COMPONENTS[component];

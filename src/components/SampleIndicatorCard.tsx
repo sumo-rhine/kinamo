@@ -27,7 +27,7 @@ const SampleIndicatorCard: React.FC<SampleIndicatorCardProps> = props => {
     return (
         <Card 
             title="Sample Indicator" 
-            extra={<LinkBuilder componentName="sample" appRoute="/sample" params={props} />} 
+            extra={<LinkBuilder componentName="sample" appRoute="/sample" params={{city: props.city}} />} 
             style={{maxWidth: '400px', width: '100%'}}
         >
             <Statistic 
