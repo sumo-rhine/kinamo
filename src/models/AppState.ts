@@ -9,4 +9,5 @@ import { FullDataset } from "./FullDataset";
  */
 export interface AppState {
     data: FullDataset;
+    loading: boolean;       // we need this one, as the data comes in asynchronosly, but the landing page might depend on it
 }
