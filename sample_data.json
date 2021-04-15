@@ -1,0 +1,55 @@
+{
+  "cities": [
+    {
+      "id": 123556,
+      "name": "Freiburg im Breisgau",
+      "population": 230000,
+      "size": 80000,
+      "indicators": {
+        "pedestrian_friendliness": {
+          "value": 8,
+          "name": "Pedestrian friendliness",
+          "description": "Pedestrian friendliness is super important because ... ",
+          "sub_indicators": {
+            "speed_limit": {
+              "value": 60,
+              "name": "Share of streets with speed limit below 30 kph",
+              "description": "Speed limit is ...",
+              "unit": "%"
+            },
+            "streets_density": {
+              "value": 4.5,
+              "name": "Density of accessible streets by walking",
+              "description": "Density is important because ...",
+              "unit": "km / km^2"
+            },
+            "traffic": {
+              "value": 40,
+              "name": "Share of streets with low traffic volume",
+              "description": "Density is important because ...",
+              "unit": "%"
+            },
+            "share_green": {
+              "value": 30,
+              "name": "Share of the green urban area",
+              "description": "Green is super ...",
+              "unit": "%"
+            },
+            "car_free_area": {
+              "value": 70,
+              "name": "Share of car-free streets",
+              "description": "Car-free streets are ...",
+              "unit": "%"
+            },
+            "facilities": {
+              "value": 23,
+              "name": "Density of Cafés, Restaurants, Bars, Convenience Store, Grocery Store, Playground",
+              "description": "Cafés are ...",
+              "unit": "no / km^2"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
