@@ -5,6 +5,7 @@ import firebase from 'firebase/app';
 
 import * as actions from './actionTypes';
 import { FullDataset } from "../../models/FullDataset";
+import { syncLoadingFinished } from "./appAction";
 
 /* --------------------------------------------------------------------
  * Redux is synchronous only. Thus, for any asynchornous action
@@ -47,6 +48,7 @@ export const loadData = () => (dispatch: ThunkDispatch<AppState, {}, AnyAction>)
             
             // dispatch the synchronous action
             dispatch(syncData(data));
+            dispatch(syncLoadingFinished());
         }
     })
     .catch(error => console.log(`Cant reach firebase: ${error}`));

@@ -1,29 +1,37 @@
 // load all Components that can be linked
 import React from "react";
 import { useParams } from "react-router";
-import SampleIndicatorCard from "./SampleIndicatorCard";
 
-/**
- * This is just a suggestion and we might want to refactor this in the future.
- * For the beginning this is fine. 
- * A global config object that maps URL routes to the component to be loaded
- * We can set multi level url params if needed. But I would rather parse 
- * query strings as that is more flexible (passing many citites etc.)
- */
- const LINKABLE_COMPONENTS: {[key: string]: React.ComponentType<any>} = {
-    'sample': SampleIndicatorCard
-};
+import { LinkableProps, LINKABLE_COMPONENTS } from '../share-links';
+
 
 const PermalinkResolver: React.FC = () => {
     // load the url component name
-    const {component } = useParams<{component: string}>();
+    const { component } = useParams<{component: string}>();
 
+    // get the URL search query params
+    // This is the native implementation, which will not work on IE
+    // TODO: once LinkableProps is finished - replace by any library
+    // that has polyfills
+    const searchParams = new URLSearchParams(window.location.search);
+    // this is what we want to have
+    const params: LinkableProps = {};
+    searchParams.forEach((parValue: string, parKey: string) => {   // for some odd reasons they come as value, key !?
+        // if the key aleady exists, it's an array-type
+        if (params[parKey]) {
+            (params[parKey] as string[]).push(parValue);
+        } else {
+            params[parKey] = parValue;
+        }
+    });
+    console.log(params);
+    
     // get the correct class
-    const Component: React.ComponentType<any> = LINKABLE_COMPONENTS[component];
+    const Component: React.ComponentType<LinkableProps> = LINKABLE_COMPONENTS[component];
     
     // render the component - no data handling implemented.
     return (
-        <Component />
+        <Component {...params}/>
     );
 }
 

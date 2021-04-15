@@ -1,4 +1,5 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import PageViewRoute from "../components/PageViewRoute";
 
 // import all pages that are available at this level
 import SamplePage from "../pages/SamplePage";
@@ -14,7 +15,7 @@ const Page: React.FC = () => (
     <BrowserRouter>
         <Switch>
             {/* Dev only  - replace with the real pages*/}
-            <Route path="/sample" render={() => <SamplePage />} />
+            <PageViewRoute title="Sample Page" path="/sample" render={() => <SamplePage />} />
 
             {/* If no other route matched, redirect i.e. to a /home or /dashboard */}
             <Route path="/" render={() => <Redirect to="/sample" />}/>

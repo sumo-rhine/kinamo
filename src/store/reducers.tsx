@@ -7,7 +7,8 @@ import * as actions from './actions/actionTypes';
  * anything has ever happened to it.
  */
 const initialState: AppState = {
-    data: {foo: 'bar'}
+    data: {cities: []},
+    loading: true
 };
 
 
@@ -21,6 +22,11 @@ export const reducer: Reducer = (state: AppState= initialState, action) => {
             return {
                 ...state,
                 data: JSON.parse(JSON.stringify(action.data))
+            }
+        case actions.SYNC_LOADING_FINISHED:
+            return {
+                ...state,
+                loading: false
             }
     }
     // return the new state
