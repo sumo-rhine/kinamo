@@ -1,10 +1,21 @@
+import { LinkableProps } from "../share-links";
+
 interface LinkBuilderProps {
     componentName: string;
     appRoute: string;
-    params?: {[key: string]: any}
+    params?: LinkableProps
 }
 
-
+/**
+ * The LinkBuilder generates the URLs needed to embed a component into another
+ * page. It will turn into a backlink if the the URL actually is a /permalink
+ * URL. 
+ * With the current implementation it renders the actual anchor-tag that 
+ * references the page or the component.
+ * @todo Implement a Popover or something to *show* the link
+ * @param props - LinkableProps - to make the component self contained 
+ * @returns 
+ */
 const LinkBuilder: React.FC<LinkBuilderProps> = props => {
     // use the window to check the current location
     // TODO: not sure if the useLocation hook has any advantages here
