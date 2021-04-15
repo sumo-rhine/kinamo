@@ -9,7 +9,9 @@ const SamplePage: React.FC = () => {
         <PageHeader title="Sample Component" />
         <h1>Sample content</h1>
         <h3>Section with child <code>component</code></h3>
-        <SampleIndicatorCard />
+        {/* Here, we would consume a page-wide state or an application wide setting, which city to show */}
+        <SampleIndicatorCard city="Karlsruhe"/>
+        <SampleIndicatorCard city="Freiburg"/>
     </React.Fragment>
 )};
 
