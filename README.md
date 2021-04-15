@@ -1,8 +1,14 @@
 # Kinamo
 
 [description text]
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Changelog
+
+Find the changelog for all minor versions here: [Changelog](Changelog.md) 
 ## App Structure
 
 As we are using React > v16, we use React hooks. There is no need to mix Class based and functional 
