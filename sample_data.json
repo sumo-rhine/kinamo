@@ -3,21 +3,22 @@
     {
       "id": 123556,
       "name": "Freiburg im Breisgau",
+      "description": "Freiburg is the second best city after Karlsruhe...",
       "population": 230000,
       "size": 80000,
       "indicators": {
-        "pedestrian_friendliness": {
+        "pedestrian": {
           "value": 8,
           "name": "Pedestrian friendliness",
           "description": "Pedestrian friendliness is super important because ... ",
-          "sub_indicators": {
-            "speed_limit": {
+          "subIndicators": {
+            "speedLimit": {
               "value": 60,
               "name": "Share of streets with speed limit below 30 kph",
               "description": "Speed limit is ...",
               "unit": "%"
             },
-            "streets_density": {
+            "streetsDensity": {
               "value": 4.5,
               "name": "Density of accessible streets by walking",
               "description": "Density is important because ...",
@@ -29,13 +30,13 @@
               "description": "Density is important because ...",
               "unit": "%"
             },
-            "share_green": {
+            "shareGreen": {
               "value": 30,
               "name": "Share of the green urban area",
               "description": "Green is super ...",
               "unit": "%"
             },
-            "car_free_area": {
+            "carFreeArea": {
               "value": 70,
               "name": "Share of car-free streets",
               "description": "Car-free streets are ...",
