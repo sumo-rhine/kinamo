@@ -6,11 +6,20 @@
 // load firebase admin SDK
 const admin = require('firebase-admin');
 
-// load the service account
-const serviceAccount = require('./service-accounts/firebase-admin.json');
-
 // load file module
 const fs = require('fs');
+
+// load the service account
+const path = './service-accounts/firebase-admin.json';
+let serviceAccount;
+if (fs.existsSync(path)) {
+    serviceAccount = require(path);
+} else if (process.env.FIREBASE_CREDENTIALS) {
+    serviceAccount = JSON.parse(process.env.FIREBASE_CREDENTIALS);
+} else {
+    process.stderr.write('Create a path to a service account or store it as an environment variable (preferred).');
+    process.exit();
+}
 
 // load crypto 
 const crypto = require('crypto');
