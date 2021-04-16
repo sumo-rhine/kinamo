@@ -50,6 +50,7 @@ export interface PedestrianIndicator extends Indicator {
 export interface City {
     id: number;
     name: string;
+    description: string;
     population: number;
     size: number;
     // HERE WE HAVE BASICALLY THE SAME OPTIONS TO INCLUDE THE MAIN INDICATORS
