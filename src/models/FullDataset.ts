@@ -18,42 +18,35 @@ interface Indicator {
 export type SubIndicator = Indicator;
 
 /**
- * HERE WE HAVE TWO POSSIBILITIES TO IMPLEMENT THE INTERFACE
- */
-
-/**
- * SOLUTION ONE: 
- * subIndicators are actually an array: way more flexible, 
- * very easy interface, more implementation work
- */
-export interface MainIndicator extends Indicator {
-    subIndicators: SubIndicator[];
-}
-
-/**
- * The other possibility:
- * 
- * not flexible at all, we can never change anythin, complex
- * interface, very easy implementation work
+ * Pedestiran indices
  */
 export interface PedestrianIndicator extends Indicator {
-    speedLimit: SubIndicator;
-    streetDensity: SubIndicator;
-    traffic: SubIndicator;
+    subIndicators: {
+        speedLimit: SubIndicator;
+        streetsDensity: SubIndicator;
+        traffic: SubIndicator;
+        shareGreen: SubIndicator;
+        carFreeArea: SubIndicator;
+        facilities: SubIndicator;
+    }
 }
 
+export interface MainIndicators {
+    pedestrian: PedestrianIndicator
+}
 /**
  * City
  * A city represents a full set of indicators. 
  * Cities are guaranteed to look always the same
  */
 export interface City {
+    // general city info
     id: number;
     name: string;
     description: string;
     population: number;
     size: number;
-    // HERE WE HAVE BASICALLY THE SAME OPTIONS TO INCLUDE THE MAIN INDICATORS
+    indicators: MainIndicators;
 }
 
 /**
@@ -61,6 +54,7 @@ export interface City {
  * @todo implement this
  */
 export interface FullDataset {
-    cities: City[];                 // TODO I need more here. This is a really important part
-    [key: string]: any;             // TODO: BAD IDEA! This needs to be replaced with the actual data model 
+    cities: City[];
+    lastUpdate: {seconds: number, nanoseconds: number};
+    md5sum: string;
 }
