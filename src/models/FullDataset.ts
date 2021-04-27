@@ -2,7 +2,7 @@
  * Common Indicator interface.
  * Do not use directly
  */
-interface Indicator {
+export interface Indicator {
     value: number;
     name: string;
     description: string;
@@ -34,6 +34,13 @@ export interface PedestrianIndicator extends Indicator {
 export interface MainIndicators {
     pedestrian: PedestrianIndicator
 }
+
+/**
+ * This can be used as a placeholder whenever any kind of indicator is
+ * needed, at any level of nesting. 
+ */
+export type AnyIndicator = SubIndicator | PedestrianIndicator;
+
 /**
  * City
  * A city represents a full set of indicators. 
