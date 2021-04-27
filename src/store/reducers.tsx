@@ -7,7 +7,11 @@ import * as actions from './actions/actionTypes';
  * anything has ever happened to it.
  */
 const initialState: AppState = {
-    data: {cities: []},
+    data: {
+        cities: [],
+        lastUpdate: {seconds: new Date('1987-09-08T14:42:42').getTime(), nanoseconds: 42},
+        md5sum: '335c146a85259d2093e0932e24ed75f4'
+    },
     loading: true
 };
 
