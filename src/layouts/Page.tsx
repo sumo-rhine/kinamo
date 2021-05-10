@@ -12,15 +12,19 @@ import SamplePage from "../pages/SamplePage";
  * If a new page is added, put the routing here.
  */
 const Page: React.FC = () => (
-    <BrowserRouter>
-        <Switch>
-            {/* Dev only  - replace with the real pages*/}
-            <PageViewRoute title="Sample Page" path="/sample" render={() => <SamplePage />} />
+  <BrowserRouter>
+    <Switch>
+      {/* Dev only  - replace with the real pages*/}
+      <PageViewRoute
+        title="Sample Page"
+        path="/sample"
+        render={() => <SamplePage />}
+      />
 
-            {/* If no other route matched, redirect i.e. to a /home or /dashboard */}
-            <Route path="/" render={() => <Redirect to="/sample" />}/>
-        </Switch>
-    </BrowserRouter>
-)
+      {/* If no other route matched, redirect i.e. to a /home or /dashboard */}
+      <Route path="/" render={() => <Redirect to="/sample" />} />
+    </Switch>
+  </BrowserRouter>
+);
 
 export default Page;
