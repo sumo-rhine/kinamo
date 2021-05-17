@@ -1,4 +1,4 @@
-import SampleIndicatorCard from "./components/SampleIndicatorCard";
+import SamplePaper from "./components/SamplePaper";
 
 /**
  * This is just a suggestion and we might want to refactor this in the future.
@@ -9,7 +9,7 @@ import SampleIndicatorCard from "./components/SampleIndicatorCard";
  */
 export const LINKABLE_COMPONENTS: { [key: string]: React.ComponentType<any> } =
   {
-    sample: SampleIndicatorCard,
+    sample: SamplePaper,
   };
 
 /**
