@@ -37,26 +37,25 @@ const syncData = (data: FullDataset): AnyAction => {
  * Asynchronously load data from firestore. The whole /public/data
  * document is loaded.
  */
-export const loadData = () => (
-  dispatch: ThunkDispatch<AppState, {}, AnyAction>
-) => {
-  // reach out to firebase and load /public/data
-  firebase
-    .app()
-    .firestore()
-    .doc("/public/data")
-    .get()
-    .then((doc) => {
-      if (!doc.exists) {
-        console.log("The data can't be found in firestore.");
-      } else {
-        // fetch the document data
-        const data = doc.data() as FullDataset;
+export const loadData =
+  () => (dispatch: ThunkDispatch<AppState, {}, AnyAction>) => {
+    // reach out to firebase and load /public/data
+    firebase
+      .app()
+      .firestore()
+      .doc("/public/data")
+      .get()
+      .then((doc) => {
+        if (!doc.exists) {
+          console.log("The data can't be found in firestore.");
+        } else {
+          // fetch the document data
+          const data = doc.data() as FullDataset;
 
-        // dispatch the synchronous action
-        dispatch(syncData(data));
-        dispatch(syncLoadingFinished());
-      }
-    })
-    .catch((error) => console.log(`Cant reach firebase: ${error}`));
-};
+          // dispatch the synchronous action
+          dispatch(syncData(data));
+          dispatch(syncLoadingFinished());
+        }
+      })
+      .catch((error) => console.log(`Cant reach firebase: ${error}`));
+  };

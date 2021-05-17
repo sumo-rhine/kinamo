@@ -3,10 +3,10 @@
  * Do not use directly
  */
 export interface Indicator {
-    value: number;
-    name: string;
-    description: string;
-    unit: '%' | 'km / km^2' | 'no / km^2'
+  value: number;
+  name: string;
+  description: string;
+  unit: "%" | "km / km^2" | "no / km^2";
 }
 
 /**
@@ -21,39 +21,39 @@ export type SubIndicator = Indicator;
  * Pedestiran indices
  */
 export interface PedestrianIndicator extends Indicator {
-    subIndicators: {
-        speedLimit: SubIndicator;
-        streetsDensity: SubIndicator;
-        traffic: SubIndicator;
-        shareGreen: SubIndicator;
-        carFreeArea: SubIndicator;
-        facilities: SubIndicator;
-    }
+  subIndicators: {
+    speedLimit: SubIndicator;
+    streetsDensity: SubIndicator;
+    traffic: SubIndicator;
+    shareGreen: SubIndicator;
+    carFreeArea: SubIndicator;
+    facilities: SubIndicator;
+  };
 }
 
 export interface MainIndicators {
-    pedestrian: PedestrianIndicator
+  pedestrian: PedestrianIndicator;
 }
 
 /**
  * This can be used as a placeholder whenever any kind of indicator is
- * needed, at any level of nesting. 
+ * needed, at any level of nesting.
  */
 export type AnyIndicator = SubIndicator | PedestrianIndicator;
 
 /**
  * City
- * A city represents a full set of indicators. 
+ * A city represents a full set of indicators.
  * Cities are guaranteed to look always the same
  */
 export interface City {
-    // general city info
-    id: number;
-    name: string;
-    description: string;
-    population: number;
-    size: number;
-    indicators: MainIndicators;
+  // general city info
+  id: number;
+  name: string;
+  description: string;
+  population: number;
+  size: number;
+  indicators: MainIndicators;
 }
 
 /**
@@ -61,7 +61,7 @@ export interface City {
  * @todo implement this
  */
 export interface FullDataset {
-    cities: City[];
-    lastUpdate: {seconds: number, nanoseconds: number};
-    md5sum: string;
+  cities: City[];
+  lastUpdate: { seconds: number; nanoseconds: number };
+  md5sum: string;
 }

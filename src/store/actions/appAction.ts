@@ -1,6 +1,5 @@
 import { AnyAction } from "redux";
-import * as actions from './actionTypes';
-
+import * as actions from "./actionTypes";
 
 /**
  * Inform the application, that the data from firebase has been loaded.
@@ -8,7 +7,7 @@ import * as actions from './actionTypes';
  * @returns AnyAction
  */
 export const syncLoadingFinished = (): AnyAction => {
-    return {
-        type: actions.SYNC_LOADING_FINISHED
-    };
-}
+  return {
+    type: actions.SYNC_LOADING_FINISHED,
+  };
+};

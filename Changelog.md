@@ -1,9 +1,10 @@
 # Changelog
 
-Collect the minor version changes here. 
+Collect the minor version changes here.
 
 ## Version 0.2
-- *put stuff here*
+
+- _put stuff here_
 
 ## Version 0.1
 

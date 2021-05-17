@@ -1,3 +1,1 @@
-export {
-    loadData
-} from './firebaseActions';
+export { loadData } from "./firebaseActions";
