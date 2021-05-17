@@ -11,6 +11,7 @@ import LandingPage from "../pages/LandingPage";
  * Header etc.
  * If a new page is added, put the routing here.
  */
+
 const Page: React.FC = () => (
   <BrowserRouter>
     <Switch>
