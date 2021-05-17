@@ -2,7 +2,7 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import PageViewRoute from "../components/PageViewRoute";
 
 // import all pages that are available at this level
-import SamplePage from "../pages/SamplePage";
+import LandingPage from "../pages/LandingPage";
 
 /**
  * The Page component is a slim wrapper around the usual page navigation that
@@ -16,13 +16,13 @@ const Page: React.FC = () => (
     <Switch>
       {/* Dev only  - replace with the real pages*/}
       <PageViewRoute
-        title="Sample Page"
-        path="/sample"
-        render={() => <SamplePage />}
+        title="LandingPage"
+        path="/home"
+        render={() => <LandingPage />}
       />
 
       {/* If no other route matched, redirect i.e. to a /home or /dashboard */}
-      <Route path="/" render={() => <Redirect to="/sample" />} />
+      <Route path="/" render={() => <Redirect to="/home" />} />
     </Switch>
   </BrowserRouter>
 );
