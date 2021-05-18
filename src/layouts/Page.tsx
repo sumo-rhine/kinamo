@@ -3,6 +3,7 @@ import PageViewRoute from "../components/PageViewRoute";
 
 // import all pages that are available at this level
 import LandingPage from "../pages/LandingPage";
+import TestPage from "../pages/TestPage";
 
 /**
  * The Page component is a slim wrapper around the usual page navigation that
@@ -21,6 +22,7 @@ const Page: React.FC = () => (
         path="/home"
         render={() => <LandingPage />}
       />
+      <PageViewRoute title="Test" path="/test" render={() => <TestPage />} />
 
       {/* If no other route matched, redirect i.e. to a /home or /dashboard */}
       <Route path="/" render={() => <Redirect to="/home" />} />
