@@ -1,4 +1,5 @@
 import { Home } from "@material-ui/icons";
+import ArrowDropDownOutlinedIcon from "@material-ui/icons/ArrowDropDownOutlined";
 import {
   AppBar,
   Toolbar,
@@ -23,6 +24,9 @@ const useStyles = makeStyles({
     height: 35,
     display: "block",
   },
+  button: {
+    color: "white",
+  },
 });
 
 const Header = () => {
@@ -44,7 +48,13 @@ const Header = () => {
           </Box>
           <Typography variant="h5">KINaMo</Typography>
           <Box ml={3}>
-            <Button variant="contained" color="secondary">
+            <Button
+              size="large"
+              className={classes.button}
+              // variant="outlined"
+              color="text.primary"
+              endIcon={<ArrowDropDownOutlinedIcon></ArrowDropDownOutlinedIcon>}
+            >
               Select your City
             </Button>
           </Box>
