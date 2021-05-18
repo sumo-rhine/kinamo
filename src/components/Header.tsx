@@ -1,5 +1,4 @@
 import { Home } from "@material-ui/icons";
-import ArrowDropDownOutlinedIcon from "@material-ui/icons/ArrowDropDownOutlined";
 import {
   AppBar,
   Toolbar,
@@ -11,7 +10,7 @@ import {
   Typography,
   Divider,
 } from "@material-ui/core";
-
+import SelectCityModalButton from "../components/SelectCityModal";
 const useStyles = makeStyles({
   mainContainer: {
     display: `flex`,
@@ -48,15 +47,15 @@ const Header = () => {
           </Box>
           <Typography variant="h5">KINaMo</Typography>
           <Box ml={3}>
-            <Button
+            <SelectCityModalButton></SelectCityModalButton>
+            {/* <Button
               size="large"
               className={classes.button}
-              // variant="outlined"
               color="text.primary"
               endIcon={<ArrowDropDownOutlinedIcon></ArrowDropDownOutlinedIcon>}
-            >
-              Select your City
-            </Button>
+            /> 
+               Select your City
+             </Button> */}
           </Box>
         </Box>
       </Toolbar>
