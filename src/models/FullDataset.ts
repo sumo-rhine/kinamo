@@ -2,44 +2,65 @@
  * Common Indicator interface.
  * Do not use directly
  */
-export interface Indicator {
+export interface BaseIndicator {
+  short_name: string;
   value: number;
-  name: string;
+  description?: string;
+}
+
+
+/**
+ * Main Indicator. 
+ * These interfaces describe objects, which are child members
+ * of each city instance. They contain 'KeyFigures' aka. Subindicators.
+ */
+export interface Indicator extends BaseIndicator {
+  rank: number;
+  keyFigures: KeyFigure[];
+}
+
+
+/**
+ * KeyFigures are 'SubIndicators'
+ */
+export interface KeyFigure extends BaseIndicator {
+  long_name: string;
+  definition: string;
+  unit: "%" | "km/km^2" | "no/km^2";
+  points: number;
+  data_source: string[];
+}
+
+
+/**
+ * Common interface to describe additional City properties, which are
+ * not inheriting from BaseIndicators
+ */
+export interface CityProperty {
+  value: number;
   description: string;
-  unit: "%" | "km / km^2" | "no / km^2";
+  unit: "Inhabitants" | "km^2" | "%";
 }
 
-/**
- * SubIndicator
- * technically the same as Indicator.
- * This is the exported member to tell SubIndicators
- * and MainIndicators apart
- */
-export type SubIndicator = Indicator;
 
 /**
- * Pedestiran indices
+ * Common interface to all Indicators available to each city.
  */
-export interface PedestrianIndicator extends Indicator {
-  subIndicators: {
-    speedLimit: SubIndicator;
-    streetsDensity: SubIndicator;
-    traffic: SubIndicator;
-    shareGreen: SubIndicator;
-    carFreeArea: SubIndicator;
-    facilities: SubIndicator;
-  };
-}
-
 export interface MainIndicators {
-  pedestrian: PedestrianIndicator;
+  walkability: Indicator;
+  bikeability: Indicator;
+  public_transport: Indicator;
+  car_integration: Indicator;
+  noise_pollution: Indicator;
+  land_use: Indicator;
+  traffic_safety: Indicator;
+  emissions: Indicator;
+  cross_border: Indicator;
+  functional_diversity: Indicator;
+  accessibility: Indicator;
+  behavior: Indicator;
 }
 
-/**
- * This can be used as a placeholder whenever any kind of indicator is
- * needed, at any level of nesting.
- */
-export type AnyIndicator = SubIndicator | PedestrianIndicator;
 
 /**
  * City
@@ -49,10 +70,10 @@ export type AnyIndicator = SubIndicator | PedestrianIndicator;
 export interface City {
   // general city info
   id: number;
-  name: string;
-  description: string;
-  population: number;
-  size: number;
+  city: string;
+  population: CityProperty;
+  area: CityProperty;
+  urban_area: CityProperty;
   indicators: MainIndicators;
 }
 
