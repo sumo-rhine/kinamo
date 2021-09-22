@@ -5,7 +5,6 @@
 export interface BaseIndicator {
   short_name: string;
   value: number;
-  description?: string;
 }
 
 
@@ -15,6 +14,7 @@ export interface BaseIndicator {
  * of each city instance. They contain 'KeyFigures' aka. Subindicators.
  */
 export interface Indicator extends BaseIndicator {
+  description: string;
   rank: number;
   keyFigures: KeyFigure[];
 }
