@@ -31,7 +31,6 @@ const useStyles = makeStyles({
     // display: `flex`,
     // justifyContent: `center`,
     // alignContent: `flex-start`,
-
     // width: `4000px`,
     height: `1200px`,
     // overflow: "hidden",
