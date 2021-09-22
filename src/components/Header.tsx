@@ -32,7 +32,7 @@ const useStyles = makeStyles({
 const Header = () => {
   const classes = useStyles();
   return (
-    <AppBar position="sticky">
+    <AppBar position="sticky" style={{ background: "black" }}>
       <Toolbar>
         <Box className={classes.mainContainer}>
           <IconButton edge="start" color="inherit" aria-label="home">
