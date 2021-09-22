@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button, Container, Box } from "@material-ui/core";
+import { Paper, Button, Container, Box, CardMedia } from "@material-ui/core";
+import thumbnail from "../assets/thumbnail/102.png";
 
 // export interface item {
 //   name: string;
@@ -15,10 +16,12 @@ const CityCarousel: React.FC = (props) => {
     {
       name: "Random Name #1",
       description: "Probably the most random thing you have ever seen!",
+      rank: "12 out of 12",
     },
     {
       name: "Random Name #2",
       description: "Probably the most random thing you have ever seen!",
+      rank: "12 out of 12",
     },
   ];
   return (
@@ -39,6 +42,7 @@ interface ItemProps {
   item: {
     name: string;
     description: string;
+    rank: string;
   };
 }
 
@@ -52,20 +56,20 @@ const Item: React.FC<ItemProps> = (props) => {
       }}
     >
       <Box>
-        <Paper>
-          <Box m={2} pt={2}>
-            <h2>{props.item.name}</h2>
-            <p>{props.item.description}</p>
-            <Button className="CheckButton">Check it out!</Button>
-          </Box>
-        </Paper>
+        <Box m={1} pt={2}>
+          <h2>{props.item.name}</h2>
+          <p>{props.item.description}</p>
+          <Button className="CheckButton">Check it out!</Button>
+        </Box>
       </Box>
       <Box>
-        <Paper>
-          <Box m={2} pt={2}>
-            <img src="https://www.fillmurray.com/360/360"></img>
-          </Box>
-        </Paper>
+        <Box m={2} pt={2}>
+          <CardMedia
+            style={{ height: "300px", width: "500px" }}
+            image={thumbnail}
+          />
+          {/* <p>test</p> */}
+        </Box>
       </Box>
     </Container>
   );
