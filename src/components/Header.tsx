@@ -11,6 +11,7 @@ import {
   Divider,
 } from "@material-ui/core";
 import SelectCityModalButton from "../components/SelectCityModal";
+
 const useStyles = makeStyles({
   mainContainer: {
     display: `flex`,

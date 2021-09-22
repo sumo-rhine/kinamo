@@ -35,7 +35,14 @@ const CityCarousel: React.FC = (props) => {
   );
 };
 
-const Item: React.FC = (props) => {
+interface ItemProps {
+  item: {
+    name: string;
+    description: string;
+  };
+}
+
+const Item: React.FC<ItemProps> = (props) => {
   return (
     <Container
       style={{

@@ -1,11 +1,5 @@
 import * as React from "react";
 
-declare global {
-  interface Window {
-    H: any;
-  }
-}
-
 // let H = window.H; // ok now
 
 const Map = () => {
@@ -17,10 +11,11 @@ const Map = () => {
    * While `useEffect` could also be used here, `useLayoutEffect` will render
    * the map sooner
    */
+
   React.useLayoutEffect(() => {
     // `mapRef.current` will be `undefined` when this hook first runs; edge case that
     if (!mapRef.current) return;
-    const H = window.H;
+    const H = (window as any).H;
     const platform = new H.service.Platform({
       apikey: "A8I1uemRKdAgTozu_LVVsxUYFjezdwAXzAk9LQ_lz0Y",
     });
@@ -31,9 +26,9 @@ const Map = () => {
       pixelRatio: window.devicePixelRatio || 1,
     });
 
-    const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(hMap));
+    // const behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(hMap));
 
-    const ui = H.ui.UI.createDefault(hMap, defaultLayers);
+    // const ui = H.ui.UI.createDefault(hMap, defaultLayers);
 
     const view = hMap.getViewModel();
 

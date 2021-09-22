@@ -49,7 +49,7 @@ const SelectCityModalButton = () => {
       <Button
         size="large"
         className={classes.button}
-        color="text.primary"
+        color="primary"
         endIcon={<ArrowDropDownOutlinedIcon></ArrowDropDownOutlinedIcon>}
         onClick={handleOpen}
       >
