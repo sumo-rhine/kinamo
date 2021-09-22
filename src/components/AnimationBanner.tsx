@@ -1,6 +1,6 @@
 import { CardMedia, makeStyles } from "@material-ui/core";
 import { Box, Typography } from "@material-ui/core";
-import map from "../banner/102.png";
+import map from "../assets/banner/102.png";
 const useStyles = makeStyles({
   font: {
     position: "absolute",
