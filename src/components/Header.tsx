@@ -12,7 +12,6 @@ import {
 // https://mui.com/styles/advanced/
 import { makeStyles } from "@mui/styles";
 
-
 import SelectCityModalButton from "../components/SelectCityModal";
 
 const useStyles = makeStyles({
@@ -21,6 +20,7 @@ const useStyles = makeStyles({
     flex: 1,
     justifyContent: `flex-start`,
     alignItems: `center`,
+    color: "white",
   },
   divider: {
     width: 2,
@@ -35,7 +35,7 @@ const useStyles = makeStyles({
 const Header = () => {
   const classes = useStyles();
   return (
-    <AppBar position="sticky">
+    <AppBar position="sticky" style={{ background: "black" }}>
       <Toolbar>
         <Box className={classes.mainContainer}>
           <IconButton edge="start" color="inherit" aria-label="home">
