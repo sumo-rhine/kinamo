@@ -3,15 +3,15 @@ import React from "react";
 import { Box } from "@mui/material";
 
 import Header from "../components/Header";
-import Map from "../components/MapBanner";
-import CityCarousel from "../components/Carousel/Carousel";
-import CityTable from "../components/Table";
 
+import AnimationBanner from "../components/AnimationBanner";
+import CityCarousel from "../components/Carousel";
+import CityTable from "../components/Table";
 const LandingPage: React.FC = () => {
   return (
     <Box>
       <Header></Header>
-      <Map></Map>
+      <AnimationBanner></AnimationBanner>
       <CityCarousel></CityCarousel>
       <CityTable></CityTable>
     </Box>
