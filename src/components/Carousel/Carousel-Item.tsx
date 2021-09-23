@@ -1,15 +1,17 @@
 // import { Container, Box, Paper, Button } from "@material-ui/core";
 import { Button, Container, Box, CardMedia } from "@mui/material";
-import { Item } from "./Carousel-Item.model";
+// import { Item } from "./Carousel-Item.model";
 import thumbnail from "../../assets/thumbnail/102.png";
+import { City } from "../../models/FullDataset";
 
 interface CarouselItemProps {
-  item: Item;
+  city: City;
 }
 
 const CarouselItem: React.FC<CarouselItemProps> = (props) => {
   return (
-    <Container
+    <Box
+      pb={15}
       style={{
         display: "flex",
         justifyContent: "space-around",
@@ -18,8 +20,8 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
     >
       <Box>
         <Box m={1} pt={2}>
-          <h2>{props.item.name}</h2>
-          <p>{props.item.description}</p>
+          <h2>{props.city.city}</h2>
+          <p>{props.city.id}</p>
           <Button className="CheckButton">Check it out!</Button>
         </Box>
       </Box>
@@ -32,7 +34,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
           {/* <p>test</p> */}
         </Box>
       </Box>
-    </Container>
+    </Box>
   );
 };
 

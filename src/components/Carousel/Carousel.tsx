@@ -1,22 +1,20 @@
 import React from "react";
+import { Box } from "@mui/system";
 import Carousel from "react-material-ui-carousel";
 
 import CarouselItem from "./Carousel-Item";
-import { Item } from "./Carousel-Item.model";
+// import { Item } from "./Carousel-Item.model";
+import { connect } from "react-redux";
+import { AppState } from "../../models/AppState";
+import { City } from "../../models/FullDataset";
 
-// DEVELOPMENT ONLY
-const ITEMS: Item[] = [
-  {
-    name: "Random Name #1",
-    description: "Probably the most random thing you have ever seen!",
-  },
-  {
-    name: "Random Name #2",
-    description: "Probably the most random thing you have ever seen!",
-  },
-];
+interface CityCarouselProps {
+  cities: City[];
+  debug: boolean;
+}
 
-const CityCarousel: React.FC = (props) => {
+const CityCarousel: React.FC<CityCarouselProps> = (props) => {
+  if (props.debug) console.log(props.cities);
   return (
     <Carousel
       index={1}
@@ -24,11 +22,18 @@ const CityCarousel: React.FC = (props) => {
       autoPlay={false}
       navButtonsAlwaysVisible={true}
     >
-      {ITEMS.map((item: Item, i: number) => (
-        <CarouselItem key={i} item={item} />
+      {props.cities.map((city) => (
+        <CarouselItem key={city.id} city={city} />
       ))}
     </Carousel>
   );
 };
 
-export default CityCarousel;
+const mapStateToProps = (state: AppState) => {
+  return {
+    cities: state.data.cities,
+    debug: state.debug,
+  };
+};
+
+export default connect(mapStateToProps)(CityCarousel);
