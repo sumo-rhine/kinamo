@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import sortBy from "lodash.sortby";
 
 import { Paper } from "@mui/material";
 import TableContainer from "@mui/material/TableContainer"
@@ -7,6 +9,7 @@ import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
+import TableSortLabel from "@mui/material/TableSortLabel";
 
 
 import { AppState } from "../../models/AppState";
@@ -48,12 +51,51 @@ interface CityTableProps {
 
 
 const CityTable: React.FC<CityTableProps> = (props) => {
-    // transform the cities into the FlatCityInfo interface
-    const flat = transformData(props.cities);
-    // const headers = getHeaders(flat);
+    // define component state
+    const [order, setOrder] = useState<"asc" | "desc">('asc');
+    const [orderBy, setOrderBy] = useState<string>('city');  
 
-    // dev output
-    if (props.debug) console.log(`[CityTable] transformData:`, flat)
+    // transform the cities into the FlatCityInfo interface
+    // as the data needs to be handled by state to sort it, we need the 
+    // useEffect hook to load it only if props changed
+    // otherwise it will be reloaded on EVERY click
+    const [flatData, setFlatData] = useState<FlatCityInfo[]>([]);
+    useEffect(() => {
+        const transformed = sortBy(transformData(props.cities), f => f.city);
+
+        setFlatData(transformed);
+        // dev output
+        if (props.debug) console.log(`[CityTable] transformData:`, transformed)
+    }, [props])
+
+    // do the sorting
+    const sortHandler = (headerId: string) => {
+        // I guess using lodash is the best solution here
+        const orderedFlatData = sortBy(flatData, f => f[headerId]);
+
+        // check the order direction
+        if (order === 'desc') orderedFlatData.reverse()
+
+        // update 
+        setFlatData(orderedFlatData);
+    }
+
+    // handle the sort request
+    const onSortClick = (clickedId: string) => {
+        // check if the current orderby was clicked
+        if (clickedId === orderBy) {
+            // flip direction
+            setOrder(order === 'asc' ? 'desc' : 'asc');
+        } else {
+            // change order by and set to asc
+            setOrderBy(clickedId);
+            setOrder('asc');
+        }
+
+        // all set -> go for sorting
+        sortHandler(clickedId);
+    }
+    
     
     return (
         <TableContainer component={Paper}>
@@ -63,7 +105,15 @@ const CityTable: React.FC<CityTableProps> = (props) => {
                     <TableRow>
                         { HEADCELLS.map(headcell => {
                             return (
-                                <TableCell align={headcell.id === 'city' ? "left": "right"}>{headcell.label}</TableCell>
+                                <TableCell align={headcell.id === 'city' ? "left": "right"}>
+                                    <TableSortLabel
+                                        active={headcell.id === 'walkablility'}
+                                        direction={headcell.id === orderBy ? order : 'asc'}
+                                        onClick={() => onSortClick(headcell.id)}
+                                    >
+                                        {headcell.label}
+                                    </TableSortLabel>
+                                </TableCell>
                             );
                         }) }
                     </TableRow>
@@ -71,7 +121,7 @@ const CityTable: React.FC<CityTableProps> = (props) => {
 
                 {/* TABLE BODY */}
                 <TableBody>
-                    { flat.map((city => {
+                    { flatData.map((city => {
                         return (
                             <TableRow>
                                 <TableCell component="th" scope="row">{city.city}</TableCell>
@@ -99,25 +149,6 @@ const transformData = (cities: City[]): FlatCityInfo[] => {
         return data
     });
 };
-
-
-// const getHeaders = (flatInfo: FlatCityInfo[]): string[] => {
-//     // if there is no data => return empty list
-//     if (flatInfo.length === 0) return []
-
-//     // get only the first element
-//     const flat = flatInfo[0];
-
-//     // filter for everything but id
-//     // TODO: here a more sophisticated model could be built and returned
-//     const names: string[] = [];
-//     Object.keys(flat).forEach(name => {
-//         if (!['id', 'city'].includes(name)) names.push(name)
-//         if(name === 'city') names.unshift(name)
-//     });
-
-//     return names;
-// }
 
 
 const mapStateToProps = (state: AppState) => {
