@@ -7,9 +7,8 @@ export interface BaseIndicator {
   value: number;
 }
 
-
 /**
- * Main Indicator. 
+ * Main Indicator.
  * These interfaces describe objects, which are child members
  * of each city instance. They contain 'KeyFigures' aka. Subindicators.
  */
@@ -18,7 +17,6 @@ export interface Indicator extends BaseIndicator {
   rank: number;
   keyFigures: KeyFigure[];
 }
-
 
 /**
  * KeyFigures are 'SubIndicators'
@@ -31,7 +29,6 @@ export interface KeyFigure extends BaseIndicator {
   data_source: string[];
 }
 
-
 /**
  * Common interface to describe additional City properties, which are
  * not inheriting from BaseIndicators
@@ -41,7 +38,6 @@ export interface CityProperty {
   description: string;
   unit: "Inhabitants" | "km^2" | "%";
 }
-
 
 /**
  * Common interface to all Indicators available to each city.
@@ -61,7 +57,6 @@ export interface MainIndicators {
   behavior: Indicator;
 }
 
-
 /**
  * City
  * A city represents a full set of indicators.
@@ -71,6 +66,7 @@ export interface City {
   // general city info
   id: number;
   city: string;
+  country: string;
   population: CityProperty;
   area: CityProperty;
   urban_area: CityProperty;

@@ -3,14 +3,13 @@ import { connect } from "react-redux";
 import sortBy from "lodash.sortby";
 
 import { Paper } from "@mui/material";
-import TableContainer from "@mui/material/TableContainer"
+import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableSortLabel from "@mui/material/TableSortLabel";
-
 
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
@@ -39,16 +38,14 @@ const HEADCELLS: HeadCell[] = [
 ];
 
 interface FlatCityInfo {
-    city: string;
-    [key: string]: number | string;
+  city: string;
+  [key: string]: number | string;
 }
-
 
 interface CityTableProps {
-    cities: City[];
-    debug: boolean;
+  cities: City[];
+  debug: boolean;
 }
-
 
 const CityTable: React.FC<CityTableProps> = (props) => {
     // define component state
@@ -139,23 +136,22 @@ const CityTable: React.FC<CityTableProps> = (props) => {
     );
 }
 
-
 const transformData = (cities: City[]): FlatCityInfo[] => {
-    return cities.map(city => {
-        const data: any = {city: city.city, id: city.city};
-        Object.entries(city.indicators).forEach(([name, indicator]) => {
-            data[name] = indicator.value;
-        })
-        return data
+  return cities.map((city) => {
+    const data: any = { city: city.city, id: city.city };
+    Object.entries(city.indicators).forEach(([name, indicator]) => {
+      data[name] = indicator.value;
     });
+    return data;
+  });
 };
 
 
 const mapStateToProps = (state: AppState) => {
-    return {
-        cities: state.data.cities,
-        debug: state.debug
-    }
+  return {
+    cities: state.data.cities,
+    debug: state.debug,
+  };
 };
 
 export default connect(mapStateToProps)(CityTable);

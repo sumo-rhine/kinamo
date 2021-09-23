@@ -1,22 +1,11 @@
 import React from "react";
 import { makeStyles, createStyles } from "@mui/styles";
 import ArrowDropDownOutlinedIcon from "@material-ui/icons/ArrowDropDownOutlined";
-import {
-  Modal,
-  Backdrop,
-  Fade,
-  Button,
-  Paper,
-  Box
-} from "@mui/material";
-// import Modal from "@material-ui/core/Modal";
-// import Backdrop from "@material-ui/core/Backdrop";
-// import Fade from "@material-ui/core/Fade";
-// import Button from "@material-ui/core/Button";
-// import Paper from "@material-ui/core/Paper";
-// import Box from "@material-ui/core/Box";
-// import Grid from "@material-ui/core/Grid";
+import { Modal, Backdrop, Fade, Button, Paper, Box } from "@mui/material";
 
+import { connect } from "react-redux";
+import { AppState } from "../models/AppState";
+import { City } from "../models/FullDataset";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -42,7 +31,13 @@ const useStyles = makeStyles(() =>
   })
 );
 
-const SelectCityModalButton = () => {
+interface CityModalProps {
+  cities: City[];
+  debug: boolean;
+}
+
+const SelectCityModalButton: React.FC<CityModalProps> = (props) => {
+  console.log(props.cities);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -82,11 +77,9 @@ const SelectCityModalButton = () => {
               flexDirection="column"
               alignItems="center"
             >
-              <li>Freiburg</li>
-              <li>Freiburg</li>
-              <li>Freiburg</li>
-              <li>Freiburg</li>
-              <li>Freiburg</li>
+              {props.cities.map((city) => (
+                <li>{city.country}</li>
+              ))}
             </Box>
           </Paper>
           {/* <div className={classes.paper}></div> */}
@@ -96,4 +89,10 @@ const SelectCityModalButton = () => {
   );
 };
 
-export default SelectCityModalButton;
+const mapStateToProps = (state: AppState) => {
+  return {
+    cities: state.data.cities,
+    debug: state.debug,
+  };
+};
+export default connect(mapStateToProps)(SelectCityModalButton);
