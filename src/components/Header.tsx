@@ -12,7 +12,6 @@ import {
 // https://mui.com/styles/advanced/
 import { makeStyles } from "@mui/styles";
 
-
 import SelectCityModalButton from "../components/SelectCityModal";
 
 const useStyles = makeStyles({
@@ -21,6 +20,7 @@ const useStyles = makeStyles({
     flex: 1,
     justifyContent: `flex-start`,
     alignItems: `center`,
+    color: "white",
   },
   divider: {
     width: 2,
