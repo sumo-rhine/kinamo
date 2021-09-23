@@ -2,8 +2,7 @@ import React from "react";
 import Carousel from "react-material-ui-carousel";
 
 import CarouselItem from "./Carousel-Item";
-import { Item } from './Carousel-Item.model';
-
+import { Item } from "./Carousel-Item.model";
 
 // DEVELOPMENT ONLY
 const ITEMS: Item[] = [
@@ -14,8 +13,8 @@ const ITEMS: Item[] = [
   {
     name: "Random Name #2",
     description: "Probably the most random thing you have ever seen!",
-  }
-]; 
+  },
+];
 
 const CityCarousel: React.FC = (props) => {
   return (
@@ -31,6 +30,5 @@ const CityCarousel: React.FC = (props) => {
     </Carousel>
   );
 };
-
 
 export default CityCarousel;

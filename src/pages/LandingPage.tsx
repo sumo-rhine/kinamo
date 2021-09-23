@@ -3,9 +3,8 @@ import React from "react";
 import { Box } from "@mui/material";
 
 import Header from "../components/Header";
-
 import AnimationBanner from "../components/AnimationBanner";
-import CityCarousel from "../components/Carousel";
+import CityCarousel from "../components/Carousel/Carousel";
 import CityTable from "../components/Table";
 const LandingPage: React.FC = () => {
   return (
