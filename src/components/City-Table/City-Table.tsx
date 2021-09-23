@@ -13,6 +13,28 @@ import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
 
 
+// define the HeadCell interface and object array
+interface HeadCell {
+    id: string;
+    label: string;
+}
+
+
+const HEADCELLS: HeadCell[] = [
+    { id: 'city', label: 'City' },
+    { id: 'walkability', label: 'Walkability' },
+    { id: 'bikeability', label: 'Bikeability' },
+    { id: 'car_integration', label: 'Car Integration' },
+    { id: 'noise_pollution', label: 'Noise Pollution'},
+    { id: 'land_use', label: 'Landuse'},
+    { id: 'traffic_safety', label: 'Traffic Safety'},
+    { id: 'emissions', label: 'Emissions'},
+    { id: 'cross_border', label: 'Border Patrol'},
+    { id: 'functional_diversity', label: 'Functional Diversity'},
+    { id: 'accessibility', label: 'Accessibility'},
+    { id: 'behavior', label: 'Behavior'}
+];
+
 interface FlatCityInfo {
     city: string;
     [key: string]: number | string;
@@ -28,7 +50,7 @@ interface CityTableProps {
 const CityTable: React.FC<CityTableProps> = (props) => {
     // transform the cities into the FlatCityInfo interface
     const flat = transformData(props.cities);
-    const headers = getHeaders(flat);
+    // const headers = getHeaders(flat);
 
     // dev output
     if (props.debug) console.log(`[CityTable] transformData:`, flat)
@@ -39,9 +61,9 @@ const CityTable: React.FC<CityTableProps> = (props) => {
                 {/* HEADER */}
                 <TableHead>
                     <TableRow>
-                        { headers.map((header, i) => {
+                        { HEADCELLS.map(headcell => {
                             return (
-                                <TableCell align={i === 0 ? "left": "right"}>{header}</TableCell>
+                                <TableCell align={headcell.id === 'city' ? "left": "right"}>{headcell.label}</TableCell>
                             );
                         }) }
                     </TableRow>
@@ -53,9 +75,9 @@ const CityTable: React.FC<CityTableProps> = (props) => {
                         return (
                             <TableRow>
                                 <TableCell component="th" scope="row">{city.city}</TableCell>
-                                { headers.slice(1).map(header => {
+                                { HEADCELLS.slice(1).map(headcell => {
                                     return (
-                                        <TableCell align="right">{city[header]}</TableCell>
+                                        <TableCell align="right">{city[headcell.id]}</TableCell>
                                     );
                                 }) }
                             </TableRow>
@@ -79,23 +101,23 @@ const transformData = (cities: City[]): FlatCityInfo[] => {
 };
 
 
-const getHeaders = (flatInfo: FlatCityInfo[]): string[] => {
-    // if there is no data => return empty list
-    if (flatInfo.length === 0) return []
+// const getHeaders = (flatInfo: FlatCityInfo[]): string[] => {
+//     // if there is no data => return empty list
+//     if (flatInfo.length === 0) return []
 
-    // get only the first element
-    const flat = flatInfo[0];
+//     // get only the first element
+//     const flat = flatInfo[0];
 
-    // filter for everything but id
-    // TODO: here a more sophisticated model could be built and returned
-    const names: string[] = [];
-    Object.keys(flat).forEach(name => {
-        if (!['id', 'city'].includes(name)) names.push(name)
-        if(name === 'city') names.unshift(name)
-    });
+//     // filter for everything but id
+//     // TODO: here a more sophisticated model could be built and returned
+//     const names: string[] = [];
+//     Object.keys(flat).forEach(name => {
+//         if (!['id', 'city'].includes(name)) names.push(name)
+//         if(name === 'city') names.unshift(name)
+//     });
 
-    return names;
-}
+//     return names;
+// }
 
 
 const mapStateToProps = (state: AppState) => {
