@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button, Container, Box, CardMedia } from "@material-ui/core";
+import { Button, Container, Box, CardMedia } from "@mui/material";
 import thumbnail from "../assets/thumbnail/102.png";
 
 // export interface item {
