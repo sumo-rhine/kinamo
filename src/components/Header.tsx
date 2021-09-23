@@ -3,13 +3,16 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  Button,
-  makeStyles,
-  Container,
   Box,
   Typography,
   Divider,
-} from "@material-ui/core";
+} from "@mui/material";
+
+// This is deprecated!!
+// https://mui.com/styles/advanced/
+import { makeStyles } from "@mui/styles";
+
+
 import SelectCityModalButton from "../components/SelectCityModal";
 
 const useStyles = makeStyles({
