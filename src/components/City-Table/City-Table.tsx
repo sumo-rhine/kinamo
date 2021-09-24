@@ -13,6 +13,7 @@ import TableSortLabel from "@mui/material/TableSortLabel";
 
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
+import CityTableCell from "./City-Table-Cell";
 
 
 // define the HeadCell interface and object array
@@ -42,6 +43,17 @@ interface FlatCityInfo {
   [key: string]: number | string;
 }
 
+export interface IndicatorStat {
+    min: number;
+    max: number;
+    median?: number;
+    mean?: number;
+}
+
+interface IndicatorStats {
+    [indicator: string]: IndicatorStat
+}
+
 interface CityTableProps {
   cities: City[];
   debug: boolean;
@@ -50,19 +62,28 @@ interface CityTableProps {
 const CityTable: React.FC<CityTableProps> = (props) => {
     // define component state
     const [order, setOrder] = useState<"asc" | "desc">('asc');
-    const [orderBy, setOrderBy] = useState<string>('city');  
+    const [orderBy, setOrderBy] = useState<string>('city');
+    const [showOption, setShowOption] = useState<"number" | "bar">('bar');
 
     // transform the cities into the FlatCityInfo interface
     // as the data needs to be handled by state to sort it, we need the 
     // useEffect hook to load it only if props changed
     // otherwise it will be reloaded on EVERY click
     const [flatData, setFlatData] = useState<FlatCityInfo[]>([]);
-    useEffect(() => {
-        const transformed = sortBy(transformData(props.cities), f => f.city);
+    const [stats, setStats] = useState<IndicatorStats>({});
 
+    useEffect(() => {
+        // on component mount sort by city asc
+        const transformed = sortBy(transformData(props.cities), f => f.city);
+        const statistics = indicatorStatistics(transformed)
+
+        // set the data the first and the stats the only time
         setFlatData(transformed);
+        setStats(statistics);
+
         // dev output
         if (props.debug) console.log(`[CityTable] transformData:`, transformed)
+        if (props.debug) console.log(`[CityTable] indicatorStatistics:`, statistics)
     }, [props])
 
     // do the sorting
@@ -121,10 +142,16 @@ const CityTable: React.FC<CityTableProps> = (props) => {
                     { flatData.map((city => {
                         return (
                             <TableRow>
-                                <TableCell component="th" scope="row">{city.city}</TableCell>
+                                <TableCell component="th" scope="row">
+                                    <strong>{city.city}</strong>
+                                </TableCell>
                                 { HEADCELLS.slice(1).map(headcell => {
                                     return (
-                                        <TableCell align="right">{city[headcell.id]}</TableCell>
+                                        <CityTableCell 
+                                            value={Number(city[headcell.id])}
+                                            showOption={showOption}
+                                            stats={stats[headcell.id]}
+                                        />
                                     );
                                 }) }
                             </TableRow>
@@ -136,6 +163,7 @@ const CityTable: React.FC<CityTableProps> = (props) => {
     );
 }
 
+
 const transformData = (cities: City[]): FlatCityInfo[] => {
   return cities.map((city) => {
     const data: any = { city: city.city, id: city.city };
@@ -144,6 +172,22 @@ const transformData = (cities: City[]): FlatCityInfo[] => {
     });
     return data;
   });
+};
+
+
+const indicatorStatistics = (flat: FlatCityInfo[]): IndicatorStats => {
+    const stats: IndicatorStats = {};
+
+    HEADCELLS.slice(1).forEach(header => {
+        const stat: IndicatorStat = {min: 99, max: 0};
+        
+        // min and max
+        stat.min = Number(flat.map(f => f[header.id]).reduce((prev, cur) => prev < cur ? prev : cur, 99));
+        stat.max = Number(flat.map(f => f[header.id]).reduce((prev, cur) => prev > cur ? prev : cur, 0));
+
+        stats[header.id] = stat as IndicatorStat;
+    });
+    return stats;
 };
 
 
