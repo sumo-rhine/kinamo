@@ -4,10 +4,10 @@ import Tooltip from "@mui/material/Tooltip";
 import { IndicatorStat } from "./City-Table";
 
 interface CityTableCellProps {
-    value: number;
-    showOption: "number" | "bar";
-    stats: IndicatorStat;
-    align?: "left" | "right" | "center";
+  value: number;
+  showOption: "number" | "bar";
+  stats: IndicatorStat;
+  align?: "left" | "right" | "center";
 }
 
 const CityTableCell: React.FC<CityTableCellProps> = (props) => {
