@@ -1,5 +1,6 @@
 import TableCell from "@mui/material/TableCell";
-import { borderRadius } from "@mui/system";
+import Tooltip from "@mui/material/Tooltip";
+
 import { IndicatorStat } from "./City-Table";
 
 interface CityTableCellProps {
@@ -15,20 +16,22 @@ const CityTableCell: React.FC<CityTableCellProps> = (props) => {
         case 'bar':
             const width =  (props.value - props.stats.min) / (props.stats.max - props.stats.min) * 100
             cell = (
-                <div style={{
-                    width: '100%', 
-                    height: '0.6rem',
-                    backgroundColor: '#C4C4C4',
-                    borderRadius: '.3rem'
-                }}>
+                <Tooltip title={`${props.value.toFixed(1)} [${width.toFixed(0)}% of max]`}>
                     <div style={{
-                        backgroundColor: '#8BC34A',
-                        height: '100%',
-                        width: `${width.toFixed(0)}%`,
+                        width: '100%', 
+                        height: '0.6rem',
+                        backgroundColor: '#C4C4C4',
                         borderRadius: '.3rem'
                     }}>
+                        <div style={{
+                            backgroundColor: '#8BC34A',
+                            height: '100%',
+                            width: `${width.toFixed(0)}%`,
+                            borderRadius: '.3rem'
+                        }}>
+                        </div>
                     </div>
-                    </div>
+                </Tooltip>
             );
             break;
     

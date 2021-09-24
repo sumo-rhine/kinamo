@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import sortBy from "lodash.sortby";
 
-import { Paper } from "@mui/material";
+import { Paper, Typography, Switch, FormControlLabel } from "@mui/material";
+import Toolbar from "@mui/material/Toolbar";
+import Tooltip from "@mui/material/Tooltip";
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
@@ -116,50 +118,64 @@ const CityTable: React.FC<CityTableProps> = (props) => {
     
     
     return (
-        <TableContainer component={Paper}>
-            <Table sx={{width: '100%'}} size="small">
-                {/* HEADER */}
-                <TableHead>
-                    <TableRow>
-                        { HEADCELLS.map(headcell => {
-                            return (
-                                <TableCell align={headcell.id === 'city' ? "left": "right"}>
-                                    <TableSortLabel
-                                        active={headcell.id === 'walkablility'}
-                                        direction={headcell.id === orderBy ? order : 'asc'}
-                                        onClick={() => onSortClick(headcell.id)}
-                                    >
-                                        {headcell.label}
-                                    </TableSortLabel>
-                                </TableCell>
-                            );
-                        }) }
-                    </TableRow>
-                </TableHead>
+        <React.Fragment>
+            
+            <TableContainer component={Paper}>
+                <Toolbar sx={{pl: '2rem'}}>
+                <Typography variant="h6" component="div" sx={{flex: '1 1 100%'}}>
+                    Overview of Cities
+                </Typography>
+                <Tooltip title={showOption === 'number' ? "Switch to barplots" : "Switch to numbers"}>
+                    <FormControlLabel control={(
+                        <Switch size="medium" color="success"  onChange={e =>  setShowOption(e.target.checked ? 'number' : 'bar')} />
+                    )} label="Layout"/>
+                    
+                </Tooltip>
+            </Toolbar>
+                <Table sx={{width: '100%'}} size="small">
+                    {/* HEADER */}
+                    <TableHead>
+                        <TableRow>
+                            { HEADCELLS.map(headcell => {
+                                return (
+                                    <TableCell align={headcell.id === 'city' ? "left": "right"}>
+                                        <TableSortLabel
+                                            active={headcell.id === 'walkablility'}
+                                            direction={headcell.id === orderBy ? order : 'asc'}
+                                            onClick={() => onSortClick(headcell.id)}
+                                        >
+                                            {headcell.label}
+                                        </TableSortLabel>
+                                    </TableCell>
+                                );
+                            }) }
+                        </TableRow>
+                    </TableHead>
 
-                {/* TABLE BODY */}
-                <TableBody>
-                    { flatData.map((city => {
-                        return (
-                            <TableRow>
-                                <TableCell component="th" scope="row">
-                                    <strong>{city.city}</strong>
-                                </TableCell>
-                                { HEADCELLS.slice(1).map(headcell => {
-                                    return (
-                                        <CityTableCell 
-                                            value={Number(city[headcell.id])}
-                                            showOption={showOption}
-                                            stats={stats[headcell.id]}
-                                        />
-                                    );
-                                }) }
-                            </TableRow>
-                        );
-                    })) }
-                </TableBody>
-            </Table> 
-        </TableContainer>
+                    {/* TABLE BODY */}
+                    <TableBody>
+                        { flatData.map((city => {
+                            return (
+                                <TableRow>
+                                    <TableCell component="th" scope="row">
+                                        <strong>{city.city}</strong>
+                                    </TableCell>
+                                    { HEADCELLS.slice(1).map(headcell => {
+                                        return (
+                                            <CityTableCell 
+                                                value={Number(city[headcell.id])}
+                                                showOption={showOption}
+                                                stats={stats[headcell.id]}
+                                            />
+                                        );
+                                    }) }
+                                </TableRow>
+                            );
+                        })) }
+                    </TableBody>
+                </Table> 
+            </TableContainer>
+        </React.Fragment>
     );
 }
 
