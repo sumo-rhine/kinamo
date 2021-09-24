@@ -1,4 +1,5 @@
 import TableCell from "@mui/material/TableCell";
+import { borderRadius } from "@mui/system";
 import { IndicatorStat } from "./City-Table";
 
 interface CityTableCellProps {
@@ -14,14 +15,19 @@ const CityTableCell: React.FC<CityTableCellProps> = (props) => {
         case 'bar':
             const width =  (props.value - props.stats.min) / (props.stats.max - props.stats.min) * 100
             cell = (
-                <div style={{width: '100%', height: '0.9rem'}}>
-                        <div style={{
-                            backgroundColor: 'green',
-                            height: '100%',
-                            width: `${width.toFixed(0)}%`,
-                            borderRadius: '.3rem'
-                        }}>
-                        </div>
+                <div style={{
+                    width: '100%', 
+                    height: '0.6rem',
+                    backgroundColor: '#C4C4C4',
+                    borderRadius: '.3rem'
+                }}>
+                    <div style={{
+                        backgroundColor: '#8BC34A',
+                        height: '100%',
+                        width: `${width.toFixed(0)}%`,
+                        borderRadius: '.3rem'
+                    }}>
+                    </div>
                     </div>
             );
             break;
