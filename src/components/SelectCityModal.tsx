@@ -2,11 +2,7 @@ import React from "react";
 import { makeStyles, createStyles } from "@mui/styles";
 import ArrowDropDownOutlinedIcon from "@material-ui/icons/ArrowDropDownOutlined";
 import { Modal, Backdrop, Fade, Button, Paper, Box } from "@mui/material";
-
-import { connect } from "react-redux";
-import { AppState } from "../models/AppState";
-import { City } from "../models/FullDataset";
-
+import SelectCityTabs from "./SelectCityTabs";
 const useStyles = makeStyles(() =>
   createStyles({
     modal: {
@@ -20,10 +16,10 @@ const useStyles = makeStyles(() =>
       //   justifyContent: "space-around",
     },
     paper: {
-      //   backgroundColor: theme.palette.background.paper,
-      //   border: "2px solid #000",
-      //   boxShadow: theme.shadows[5],
-      //   padding: theme.spacing(2, 4, 3),
+      // backgroundColor: theme.palette.background.paper,
+      // border: "2px solid #000",
+      // boxShadow: theme.shadows[5],
+      // padding: theme.spacing(2, 4, 3),
     },
     button: {
       color: "white",
@@ -31,13 +27,8 @@ const useStyles = makeStyles(() =>
   })
 );
 
-interface CityModalProps {
-  cities: City[];
-  debug: boolean;
-}
-
-const SelectCityModalButton: React.FC<CityModalProps> = (props) => {
-  console.log(props.cities);
+const SelectCityModalButton: React.FC = (props) => {
+  // console.log(props.cities);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -71,16 +62,7 @@ const SelectCityModalButton: React.FC<CityModalProps> = (props) => {
       >
         <Fade in={open}>
           <Paper>
-            <Box
-              display="flex"
-              justifyContent="center"
-              flexDirection="column"
-              alignItems="center"
-            >
-              {props.cities.map((city) => (
-                <li>{city.country}</li>
-              ))}
-            </Box>
+            <SelectCityTabs></SelectCityTabs>
           </Paper>
           {/* <div className={classes.paper}></div> */}
         </Fade>
@@ -89,10 +71,4 @@ const SelectCityModalButton: React.FC<CityModalProps> = (props) => {
   );
 };
 
-const mapStateToProps = (state: AppState) => {
-  return {
-    cities: state.data.cities,
-    debug: state.debug,
-  };
-};
-export default connect(mapStateToProps)(SelectCityModalButton);
+export default SelectCityModalButton;
