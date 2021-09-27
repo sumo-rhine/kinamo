@@ -7,8 +7,8 @@ const useStyles = makeStyles(() =>
   createStyles({
     modal: {
       marginTop: 65,
-      position: "absolute",
-      width: "100%",
+      // position: "absolute",
+      width: "80",
 
       //   display: "flex",
       //   flex: 1,
@@ -55,7 +55,7 @@ const SelectCityModalButton: React.FC = (props) => {
         open={open}
         onClose={handleClose}
         closeAfterTransition
-        BackdropComponent={Backdrop}
+        // BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
         }}

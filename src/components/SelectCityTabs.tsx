@@ -16,61 +16,58 @@ interface CityModalProps {
   debug: boolean;
 }
 
-// interface TabPanelProps {
-//   children?: React.ReactNode;
-//   index: number;
-//   value: number;
-// }
-
-// function a11yProps(index: number) {
-//   return {
-//     id: `vertical-tab-${index}`,
-//     "aria-controls": `vertical-tabpanel-${index}`,
-//   };
-// }
-
-// function TabPanel(props: CityModalProps) {
-//   return <div>{props.cities}</div>;
-// }
-
 const SelectCityTabs: React.FC<CityModalProps> = (props) => {
-  const [value, setValue] = React.useState("1");
-
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
+  const [value, setValue] = React.useState<string>("Germany");
+  const handleChange = (event: React.SyntheticEvent, newCity: string) => {
+    setValue(newCity);
   };
 
   return (
-    <Box sx={{ width: "100%", typography: "body1" }}>
+    <Box
+      sx={{
+        width: "80%",
+        typography: "body1",
+        display: "flex",
+        alignItems: "center",
+        // flexWrap: "wrap",
+        // flexGrow: 1,
+        bgcolor: "background.paper",
+        height: 700,
+      }}
+    >
       <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <TabList onChange={handleChange} aria-label="lab API tabs example">
-            <Tab label="Germany" value="1" />
-            <Tab label="France" value="2" />
-            <Tab label="Switzerland" value="3" />
+        <Box sx={{ borderBottom: 0, borderColor: "divider" }} pl={10}>
+          <TabList
+            onChange={handleChange}
+            aria-label="lab API tabs example"
+            orientation="vertical"
+            centered
+          >
+            <Tab label="Germany" value="Germany" />
+            <Tab label="France" value="France" />
+            <Tab label="Switzerland" value="Switzerland" />
           </TabList>
         </Box>
-        {props.cities
-          .filter((city) => city.country === "Germany")
-          .map((city) => (
-            <TabPanel value="1">{city.city}</TabPanel>
-            //  <TabPanel value="2">{city.city}</TabPanel>
-            //  <TabPanel value="3">{city.city}</TabPanel>
-          ))}
-        {props.cities
-          .filter((city) => city.country === "France")
-          .map((city) => (
-            <TabPanel value="2">{city.city}</TabPanel>
-            //  <TabPanel value="2">{city.city}</TabPanel>
-            //  <TabPanel value="3">{city.city}</TabPanel>
-          ))}
-        {props.cities
-          .filter((city) => city.country === "Switzerland")
-          .map((city) => (
-            <TabPanel value="3">{city.city}</TabPanel>
-            //  <TabPanel value="2">{city.city}</TabPanel>
-            //  <TabPanel value="3">{city.city}</TabPanel>
-          ))}
+        <Box
+          sx={{
+            display: "flex",
+            // flexDirection: "column",
+            flexWrap: "wrap",
+            flexGrow: 1,
+
+            // width: "3px",
+            // height: 224,
+          }}
+          p={10}
+        >
+          {props.cities
+            .filter((city) => city.country === value)
+            .map((city) => (
+              <TabPanel value={value}>
+                {<Button size="large">{city.city}</Button>}
+              </TabPanel>
+            ))}
+        </Box>
       </TabContext>
     </Box>
   );
