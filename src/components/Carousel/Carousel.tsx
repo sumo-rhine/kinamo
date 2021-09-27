@@ -21,6 +21,7 @@ const CityCarousel: React.FC<CityCarouselProps> = (props) => {
       animation="slide"
       autoPlay={false}
       navButtonsAlwaysVisible={true}
+      indicators={false}
     >
       {props.cities.map((city) => (
         <CarouselItem key={city.id} city={city} />
