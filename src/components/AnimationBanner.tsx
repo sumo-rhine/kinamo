@@ -1,6 +1,8 @@
 import { CardMedia, makeStyles } from "@material-ui/core";
 import { Box, Typography } from "@material-ui/core";
-import map from "../assets/banner/102.png";
+import streets from "../assets/banner/102_streets.png";
+import pois from "../assets/banner/102_pois.png";
+import parks from "../assets/banner/102_parks.png";
 const useStyles = makeStyles({
   font: {
     position: "absolute",
@@ -12,6 +14,12 @@ const useStyles = makeStyles({
     backgroundColor: "none",
     // fontFamily: "Roboto,
   },
+  // img: {
+  //   position: "absolute",
+  //   top: "25px",
+  //   left: "25px",
+  //   width: "1600px",
+  // },
   banner: {
     position: "relative",
     perspective: "1200px",
@@ -24,9 +32,40 @@ const useStyles = makeStyles({
     height: `700px`,
     backgroundColor: `rgb(0, 0, 0)`,
   },
-  css_transform: {
-    position: "relative",
+  streets: {
+    // position: "relative",
     top: "-300px",
+    zIndex: 2,
+
+    // display: `flex`,
+    // justifyContent: `center`,
+    // alignContent: `flex-start`,
+    // width: `4000px`,
+    // height: `1200px`,
+    // overflow: "hidden",
+
+    transformOrigin: "55% 50% 0px",
+    animation: `$animation_streets 50s linear infinite normal`,
+  },
+  "@keyframes animation_streets": {
+    "0%": {
+      transform: "rotateX(10deg) rotateY(-1deg) rotateZ(-180deg)",
+      filter: "saturate(0%) contrast(100%) hue-rotate(-180deg)",
+    },
+    "50%": {
+      transform: "rotateX(50deg) rotateY(-4deg) rotateZ(0deg)",
+      filter: "saturate(50%) contrast(50%) hue-rotate(180deg)",
+    },
+    "100%": {
+      transform: "rotateX(10deg) rotateY(-1deg) rotateZ(180deg)",
+      filter: "saturate(0%) contrast(100%) hue-rotate(-180deg)",
+    },
+  },
+
+  pois: {
+    // position: "relative",
+    top: "-300px",
+    zIndex: 10,
 
     // display: `flex`,
     // justifyContent: `center`,
@@ -36,9 +75,9 @@ const useStyles = makeStyles({
     // overflow: "hidden",
 
     transformOrigin: "55% 50% 0px",
-    animation: `$mapRotation 50s linear infinite normal`,
+    animation: `$animation_pois 50s linear infinite normal`,
   },
-  "@keyframes mapRotation": {
+  "@keyframes animation_pois": {
     "0%": {
       transform: "rotateX(10deg) rotateY(-1deg) rotateZ(-180deg)",
       filter: "saturate(0%) contrast(100%) hue-rotate(-180deg)",
@@ -53,12 +92,18 @@ const useStyles = makeStyles({
     },
   },
 });
+// const map = require("../assets/banner/102_parks.png");
 
 const AnimationBanner = () => {
   const classes = useStyles();
   return (
     <Box className={classes.banner}>
-      <CardMedia image={map} className={classes.css_transform} />
+      {/* <img className={classes.streets} src={streets} /> */}
+      <img className={classes.pois} src={pois} />
+      {/* <img className={classes.parks} src={parks} /> */}
+      {/* <CardMedia image={pois} className={classes.pois} /> */}
+      {/* <CardMedia image={streets} className={classes.streets} /> */}
+      {/* <CardMedia image={parks} className={classes.parks} /> */}
       <Box className={classes.font}>
         <Typography gutterBottom variant="h1" component="h1">
           Explore Cities
