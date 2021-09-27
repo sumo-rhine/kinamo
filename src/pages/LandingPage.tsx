@@ -7,7 +7,7 @@ import AnimationBanner from "../components/AnimationBanner";
 import CityCarousel from "../components/Carousel/Carousel";
 import CityTable from "../components/City-Table/City-Table";
 import SelectCityTabs from "../components/SelectCityTabs";
-
+import DividerOverview from "../components/DividerOverview";
 const LandingPage: React.FC = () => {
   return (
     <Box>
@@ -15,6 +15,7 @@ const LandingPage: React.FC = () => {
       {/* <SelectCityTabs></SelectCityTabs> */}
       <AnimationBanner></AnimationBanner>
       <CityCarousel></CityCarousel>
+      <DividerOverview />
       <CityTable />
     </Box>
   );
