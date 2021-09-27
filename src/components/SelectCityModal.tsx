@@ -61,7 +61,7 @@ const SelectCityModalButton: React.FC = (props) => {
         }}
       >
         <Fade in={open}>
-          <Paper>
+          <Paper elevation={6}>
             <SelectCityTabs></SelectCityTabs>
           </Paper>
           {/* <div className={classes.paper}></div> */}

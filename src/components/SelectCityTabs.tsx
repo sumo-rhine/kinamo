@@ -43,7 +43,7 @@ const SelectCityTabs: React.FC<CityModalProps> = (props) => {
             orientation="vertical"
             centered
           >
-            <Tab label="Germany" value="Germany" />
+            <Tab sx={{ width: 200 }} label="Germany" value="Germany" />
             <Tab label="France" value="France" />
             <Tab label="Switzerland" value="Switzerland" />
           </TabList>
