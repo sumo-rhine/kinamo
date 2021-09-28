@@ -1,109 +1,154 @@
-// import { CardMedia, makeStyles } from "@material-ui/core";
-// import { Box, Typography } from "@material-ui/core";
 import { Box, Typography, CardMedia } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-// import streets from "../assets/banner/102_streets.png";
-// import pois from "../assets/banner/102_pois.png";
-// import parks from "../assets/banner/102_parks.png";
+import { indexOf } from "lodash";
+import { useEffect, useState } from "react";
+import Fade from "@mui/material/Fade";
 
 const useStyles = makeStyles({
   font: {
-    // position: "absolute",
-    // top: "30%",
-    // width: "100%",
-    // paddingLeft: "10%",
-    // textAlign: "left",
     color: "white",
-    // backgroundColor: "none",
-    // fontFamily: "Roboto,
   },
 
   banner: {
-    // overflow: "hidden",
-    // perspective: "100%",
-    // "-webkit-perspective": "100%",
-    // height: `900px`,
-    // backgroundColor: `rgb(0, 0, 0)`,
-    // position: "relative",
-    // display: `flex`,
-    // justifyContent: `center`,
-    // overflow: "hidden",
-    // top: "-1000px",
+    position: "relative",
+    perspective: "2000px",
+    "-webkit-perspective": "2000px",
   },
-  image: {
-    position: "absolute",
-    width: "1700px",
-    // top: "20%",
-    backgroundColor: "transparent",
-    // opacity: 0.2,
-    // objectFit: "cover",
-    // width: "100px",
-    // position: "absolute",
-    // top: "25px",
-    // left: "25px",
-    // width: "1200px",
-  },
+
+  // },
   streets: {
-    // zIndex: 2,
-    // transformOrigin: "55% 50% 200px",
-    // animation: `$animation_streets 50s linear infinite normal`,
+    top: "-400px",
+    left: "200px",
+    position: "absolute",
+    width: "1600px",
+    zIndex: 0,
+    transformOrigin: "55% 50% 200px",
+    animation: `$animation_streets 50s linear infinite normal`,
   },
+  pois: {
+    top: "-400px",
+    left: "200px",
+    position: "absolute",
+    width: "1600px",
+    backgroundColor: "transparent",
+    zIndex: 3,
+    transformOrigin: "55% 50% 200px",
+    animation: `$animation_pois 50s linear infinite normal`,
+  },
+  parks: {
+    top: "-400px",
+    left: "200px",
+    position: "absolute",
+    width: "1600px",
+    backgroundColor: "transparent",
+    zIndex: -3,
+    transformOrigin: "55% 50% 200px",
+    animation: `$animation_parks 50s linear infinite normal`,
+  },
+
   "@keyframes animation_streets": {
     "0%": {
-      transform: "rotateX(10deg) rotateY(-1deg) rotateZ(-180deg)",
-      filter: "saturate(0%) contrast(100%) hue-rotate(-180deg)",
+      transform: "rotateX(20deg) rotateY(-1deg) rotateZ(-180deg)",
+      filter: "saturate(1%) contrast(50%)",
+      opacity: 1,
     },
-    "50%": {
-      transform: "rotateX(50deg) rotateY(-4deg) rotateZ(0deg)",
-      filter: "saturate(50%) contrast(50%) hue-rotate(180deg)",
+    "33%": {
+      transform: "rotateX(30deg) rotateY(-1deg) rotateZ(-120deg)",
+      filter: "saturate(100%) contrast(20%)",
+    },
+    "66%": {
+      transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-80deg)",
+      filter: "saturate(100%) contrast(80%)",
     },
     "100%": {
-      transform: "rotateX(10deg) rotateY(-1deg) rotateZ(180deg)",
-      filter: "saturate(0%) contrast(100%) hue-rotate(-180deg)",
+      transform: "rotateX(50deg) rotateY(-1deg) rotateZ(-20deg)",
+      filter: "saturate(1%) contrast(50%)",
     },
   },
 
-  pois: {
-    // zIndex: 10,
-    // transformOrigin: "55% 50% 200px",
-    // animation: `$animation_streets 50s linear infinite normal`,
+  "@keyframes animation_pois": {
+    "0%": {
+      transform: "rotateX(20deg) rotateY(-1deg) rotateZ(-180deg)",
+      filter:
+        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0rem rgb(124, 124, 124))",
+      opacity: 0,
+    },
+    "33%": {
+      transform: "rotateX(30deg) rotateY(-2deg) rotateZ(-120deg)",
+      filter:
+        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0.4rem rgb(240, 196, 196))",
+      opacity: 0,
+    },
+    "66%": {
+      transform: "rotateX(40deg) rotateY(-3deg) rotateZ(-80deg)",
+      filter:
+        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0.1rem rgb(240, 196, 196))",
+      opacity: 1,
+    },
+    "100%": {
+      transform: "rotateX(50deg) rotateY(-4deg) rotateZ(-20deg)",
+      filter:
+        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0rem rgb(124, 124, 124))",
+      opacity: 0,
+    },
   },
-  // "@keyframes animation_pois": {
-  //   "0%": {
-  //     transform: "rotateX(10deg) rotateY(-1deg) rotateZ(-180deg)",
-  //     filter: "saturate(0%) contrast(100%) hue-rotate(-180deg)",
-  //   },
-  //   "50%": {
-  //     transform: "rotateX(50deg) rotateY(-4deg) rotateZ(0deg)",
-  //     filter: "saturate(50%) contrast(50%) hue-rotate(180deg)",
-  //   },
-  //   "100%": {
-  //     transform: "rotateX(10deg) rotateY(-1deg) rotateZ(180deg)",
-  //     filter: "saturate(0%) contrast(100%) hue-rotate(-180deg)",
-  //   },
-  parks: {
-    // zIndex: -3,
-    // transformOrigin: "55% 50% 200px",
-    // animation: `$animation_streets 50s linear infinite normal`,
+  "@keyframes animation_parks": {
+    "0%": {
+      transform: "rotateX(20deg) rotateY(-1deg) rotateZ(-180deg)",
+      filter:
+        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0rem rgb(124, 124, 124))",
+      opacity: 0,
+    },
+    "33%": {
+      transform: "rotateX(30deg) rotateY(-2deg) rotateZ(-120deg)",
+      filter:
+        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0.2rem rgb(240, 196, 196))",
+      opacity: 0.4,
+    },
+    "66%": {
+      transform: "rotateX(40deg) rotateY(-3deg) rotateZ(-80deg)",
+      filter:
+        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0rem rgb(240, 196, 196))",
+      opacity: 0.1,
+    },
+    "100%": {
+      transform: "rotateX(50deg) rotateY(-4deg) rotateZ(-20deg)",
+      filter:
+        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0rem rgb(124, 124, 124))",
+      opacity: 0,
+    },
   },
-  // "@keyframes animation_parks": {
-  //   "0%": {
-  //     transform: "rotateX(10deg) rotateY(-1deg) rotateZ(-180deg)",
-  //     filter: "saturate(0%) contrast(100%) hue-rotate(-180deg)",
-  //   },
-  //   "50%": {
-  //     transform: "rotateX(50deg) rotateY(-4deg) rotateZ(0deg)",
-  //     filter: "saturate(50%) contrast(50%) hue-rotate(180deg)",
-  //   },
-  //   "100%": {
-  //     transform: "rotateX(10deg) rotateY(-1deg) rotateZ(180deg)",
-  //     filter: "saturate(0%) contrast(100%) hue-rotate(-180deg)",
-  //   },
-  // },
 });
-// const map = require("../assets/banner/102_parks.png");
 
 const AnimationBanner = () => {
+  const [index, setIndex] = useState(0);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((index) => index + 1);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
+  if (index > 3) {
+    setIndex(0);
+  }
+  console.log(loading);
+
+  const city_list = [4, 102, 483, 1341, 1502];
+  const pois_path =
+    "assets/banner/" + city_list[index].toString() + "_pois.png";
+  const streets_path =
+    "assets/banner/" + city_list[index].toString() + "_streets.png";
+  const parks_path =
+    "assets/banner/" + city_list[index].toString() + "_parks.png";
+
+  // const onLoadHandler = () => {
+  //   setLoading(true);
+  //   setLoading(false);
+  // };
+
   const classes = useStyles();
   return (
     <Box
@@ -115,18 +160,18 @@ const AnimationBanner = () => {
         overflow: "hidden",
       }}
     >
-      <Box className={classes.banner} sx={{ position: "absolute" }}>
-        <Box>
-          {/* {/* <img className={classes.parks} src="assets/banner/102_parks.png" /> */}
-          <img className={classes.image} src="assets/banner/102_pois.png" />
-          <img className={classes.image} src="assets/banner/102_streets.png" />
-          {/* <CardMedia
-            image="assets/banner/102_pois.png"
-            className={classes.pois}
-          /> */}
-          {/* <CardMedia image={streets} className={classes.streets} /> */}
-          {/* <CardMedia image={parks} className={classes.parks} /> */}
+      <Box sx={{ position: "absolute" }}>
+        {/* <Fade in={loading} timeout={4000}> */}
+        <Box className={classes.banner}>
+          <img className={classes.parks} src={parks_path} />
+          <img className={classes.pois} src={pois_path} />
+          <img
+            className={classes.streets}
+            src={streets_path}
+            // onLoad={onLoadHandler}
+          />
         </Box>
+        {/* </Fade> */}
       </Box>
       <Box
         mt={20}
