@@ -64,7 +64,11 @@ const SelectCityTabs: React.FC<CityModalProps> = (props) => {
             .filter((city) => city.country === value)
             .map((city) => (
               <TabPanel value={value}>
-                {<Button size="large">{city.city}</Button>}
+                {
+                  <Button size="large" style={{ padding: ".5rem" }}>
+                    {city.city}
+                  </Button>
+                }
               </TabPanel>
             ))}
         </Box>

@@ -1,5 +1,6 @@
 import React from "react";
-import { Box } from "@mui/system";
+import { Box } from "@mui/material";
+// import Box
 import Carousel from "react-material-ui-carousel";
 
 import CarouselItem from "./Carousel-Item";

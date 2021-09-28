@@ -1,7 +1,8 @@
 // import { Container, Box, Paper, Button } from "@material-ui/core";
 import { Button, Container, Box, CardMedia, Typography } from "@mui/material";
+// import { Button } from "@material-ui/core";
 // import { Item } from "./Carousel-Item.model";
-import thumbnail from "../../assets/thumbnail/102.png";
+// import thumbnail from "assets/thumbnail/102.png";
 import { City } from "../../models/FullDataset";
 
 interface CarouselItemProps {
@@ -37,7 +38,9 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
             </Typography>
           </Box>
           <Box pt={5}>
-            <Button>Explore</Button>
+            <Button variant="contained" style={{ padding: ".5rem" }}>
+              Explore
+            </Button>
           </Box>
         </Box>
       </Box>
@@ -45,7 +48,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
         <Box m={2} pt={8} pr={10}>
           <CardMedia
             style={{ height: "300px", width: "500px" }}
-            image={thumbnail}
+            image="assets/thumbnail/102.png"
           />
           {/* <p>test</p> */}
         </Box>

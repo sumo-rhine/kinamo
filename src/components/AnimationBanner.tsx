@@ -1,8 +1,11 @@
-import { CardMedia, makeStyles } from "@material-ui/core";
-import { Box, Typography } from "@material-ui/core";
+// import { CardMedia, makeStyles } from "@material-ui/core";
+// import { Box, Typography } from "@material-ui/core";
+import { Box, Typography, CardMedia } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import streets from "../assets/banner/102_streets.png";
 import pois from "../assets/banner/102_pois.png";
 import parks from "../assets/banner/102_parks.png";
+
 const useStyles = makeStyles({
   font: {
     position: "absolute",
@@ -20,21 +23,24 @@ const useStyles = makeStyles({
   //   left: "25px",
   //   width: "1600px",
   // },
-  banner: {
+  animation: {
     position: "relative",
+  },
+  banner: {
     perspective: "1200px",
     "-webkit-perspective": "1200px",
-    overflow: "hidden",
-
-    // display: `flex`,
-    // justifyContent: `center`,
-    // width: `4000px`,
     height: `700px`,
     backgroundColor: `rgb(0, 0, 0)`,
+    display: `flex`,
+    justifyContent: `center`,
+    overflow: "hidden",
+    // top: "-1000px",
+
+    // width: `4000px`,
   },
   streets: {
     // position: "relative",
-    top: "-300px",
+    // top: "-300px",
     zIndex: 2,
 
     // display: `flex`,
@@ -64,14 +70,14 @@ const useStyles = makeStyles({
 
   pois: {
     // position: "relative",
-    top: "-300px",
+    // top: "-300px",
     zIndex: 10,
 
     // display: `flex`,
     // justifyContent: `center`,
     // alignContent: `flex-start`,
     // width: `4000px`,
-    height: `1200px`,
+    // height: `1200px`,
     // overflow: "hidden",
 
     transformOrigin: "55% 50% 0px",
@@ -98,12 +104,14 @@ const AnimationBanner = () => {
   const classes = useStyles();
   return (
     <Box className={classes.banner}>
-      {/* <img className={classes.streets} src={streets} /> */}
-      <img className={classes.pois} src={pois} />
-      {/* <img className={classes.parks} src={parks} /> */}
-      {/* <CardMedia image={pois} className={classes.pois} /> */}
-      {/* <CardMedia image={streets} className={classes.streets} /> */}
-      {/* <CardMedia image={parks} className={classes.parks} /> */}
+      <Box className={classes.animation}>
+        <img className={classes.streets} src="assets/banner/102_streets.png" />
+        <img className={classes.pois} src="assets/banner/102_pois.png" />
+        {/* <img className={classes.parks} src={parks} /> */}
+        {/* <CardMedia image={pois} className={classes.pois} /> */}
+        {/* <CardMedia image={streets} className={classes.streets} /> */}
+        {/* <CardMedia image={parks} className={classes.parks} /> */}
+      </Box>
       <Box className={classes.font}>
         <Typography gutterBottom variant="h1" component="h1">
           Explore Cities

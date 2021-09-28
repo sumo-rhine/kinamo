@@ -12,7 +12,6 @@ const LandingPage: React.FC = () => {
   return (
     <Box>
       <Header></Header>
-      {/* <SelectCityTabs></SelectCityTabs> */}
       <AnimationBanner></AnimationBanner>
       <CityCarousel></CityCarousel>
       <DividerOverview />

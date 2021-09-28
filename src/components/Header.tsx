@@ -1,4 +1,10 @@
-import { Home } from "@material-ui/icons";
+// import { Home } from "@material-ui/icons";
+// import HomeIcon from "@mui/icons-material";
+// import HomeIcon from "@mui/icons-material/HomeIcon";
+import HomeIcon from "@mui/icons-material/Home";
+
+// import IconButton from "@mui/material/IconButton";
+
 import {
   AppBar,
   Toolbar,
@@ -11,7 +17,6 @@ import {
 // This is deprecated!!
 // https://mui.com/styles/advanced/
 import { makeStyles } from "@mui/styles";
-
 import SelectCityModalButton from "../components/SelectCityModal";
 
 const useStyles = makeStyles({
@@ -20,15 +25,16 @@ const useStyles = makeStyles({
     flex: 1,
     justifyContent: `flex-start`,
     alignItems: `center`,
-    color: "white",
+    // color: "white",
   },
   divider: {
-    width: 2,
-    height: 35,
+    fill: "white",
+    // width: 2,
+    // height: 35,
     display: "block",
   },
   button: {
-    color: "white",
+    // color: "white",
   },
 });
 
@@ -39,16 +45,16 @@ const Header = () => {
       <Toolbar>
         <Box className={classes.mainContainer}>
           <IconButton edge="start" color="inherit" aria-label="home">
-            <Home fontSize="large" />
+            <HomeIcon fontSize="large" style={{ fill: "white" }} />
           </IconButton>
-          <Box>
-            <Divider
-              className={classes.divider}
-              orientation="vertical"
-              flexItem
-              variant="middle"
-            />
-          </Box>
+          <Divider
+            orientation="vertical"
+            flexItem
+            variant="middle"
+            className={classes.divider}
+            // light={true}
+            // light
+          />
           <Typography variant="h5">KINaMo</Typography>
           <Box ml={3}>
             <SelectCityModalButton></SelectCityModalButton>

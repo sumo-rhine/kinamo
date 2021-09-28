@@ -1,5 +1,6 @@
 import React from "react";
-import Container from "@material-ui/core/Container";
+// import Container from "@material-ui/core/Container";
+import { Container } from "@mui/material";
 import { loadData } from "../store/actions/firebaseActions";
 
 const data = loadData();
