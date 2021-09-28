@@ -37,7 +37,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
             </Typography>
           </Box>
           <Box pt={5}>
-            <Button>Explore</Button>
+            <Button variant="contained" href={`/city/${props.city.id}`} style={{padding: '.5rem'}}>Explore</Button>
           </Box>
         </Box>
       </Box>
