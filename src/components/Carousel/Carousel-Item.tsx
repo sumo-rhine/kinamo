@@ -30,7 +30,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
             {props.city.city}
           </Typography>
           <Box style={{ display: "flex", alignItems: "flex-end" }}>
-            <Typography pr={2} variant="h3">
+            <Typography pr={0} variant="h3">
               {props.city.indicators.noise_pollution.keyFigures[0].value.toFixed(
                 2
               )}

@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     left: "200px",
     position: "absolute",
     width: "1600px",
-    zIndex: 0,
+    zIndex: 1,
     transformOrigin: "55% 50% 200px",
     animation: `$animation_streets 50s linear infinite normal`,
   },
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     position: "absolute",
     width: "1600px",
     backgroundColor: "transparent",
-    zIndex: 3,
+    zIndex: 1,
     transformOrigin: "55% 50% 200px",
     animation: `$animation_pois 50s linear infinite normal`,
   },
@@ -41,7 +41,7 @@ const useStyles = makeStyles({
     position: "absolute",
     width: "1600px",
     backgroundColor: "transparent",
-    zIndex: -3,
+    zIndex: 1,
     transformOrigin: "55% 50% 200px",
     animation: `$animation_parks 50s linear infinite normal`,
   },
@@ -50,7 +50,7 @@ const useStyles = makeStyles({
     "0%": {
       transform: "rotateX(20deg) rotateY(-1deg) rotateZ(-180deg) ",
       filter:
-        "saturate(1%) contrast(50%) drop-shadow(0 0 0.0rem rgb(124, 124, 124))",
+        "saturate(1%) contrast(10%) drop-shadow(0 0 0.0rem rgb(124, 124, 124))",
       opacity: 1,
     },
     "33%": {
@@ -123,23 +123,27 @@ const useStyles = makeStyles({
     },
   },
 });
+const randomInt = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
 
 const AnimationBanner = () => {
   const [index, setIndex] = useState(0);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((index) => index + 1);
+      setLoading(false);
+      setTimeout(function () {
+        //do what you need here
+      }, 2000);
+      setIndex((index) => randomInt(0, 4));
+      setLoading(true);
     }, 15000);
     return () => clearInterval(interval);
   }, []);
 
-  if (index > 3) {
-    setIndex(0);
-  }
   console.log(loading);
-
   const city_list = [4, 102, 483, 1341, 1502];
   const pois_path =
     "assets/banner/" + city_list[index].toString() + "_pois.png";
@@ -147,11 +151,6 @@ const AnimationBanner = () => {
     "assets/banner/" + city_list[index].toString() + "_streets.png";
   const parks_path =
     "assets/banner/" + city_list[index].toString() + "_parks.png";
-
-  // const onLoadHandler = () => {
-  //   setLoading(true);
-  //   setLoading(false);
-  // };
 
   const classes = useStyles();
   return (
@@ -165,17 +164,17 @@ const AnimationBanner = () => {
       }}
     >
       <Box sx={{ position: "absolute" }}>
-        {/* <Fade in={loading} timeout={4000}> */}
-        <Box className={classes.banner}>
-          <img className={classes.parks} src={parks_path} />
-          <img className={classes.pois} src={pois_path} />
-          <img
-            className={classes.streets}
-            src={streets_path}
-            // onLoad={onLoadHandler}
-          />
-        </Box>
-        {/* </Fade> */}
+        <Fade in={loading} timeout={4000}>
+          <Box className={classes.banner}>
+            <img className={classes.parks} src={parks_path} />
+            <img className={classes.pois} src={pois_path} />
+            <img
+              className={classes.streets}
+              src={streets_path}
+              // onLoad={onLoadHandler}
+            />
+          </Box>
+        </Fade>
       </Box>
       <Box
         mt={20}

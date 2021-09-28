@@ -13,6 +13,7 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import { Box } from "@mui/system";
+import { Button } from "@mui/material";
 
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
@@ -145,10 +146,14 @@ const CityTable: React.FC<CityTableProps> = (props) => {
               />
             </Tooltip>
           </Toolbar>
-          <Table sx={{ width: "100%", tableLayout: "fixed" }} size="small">
+          <Table
+            sx={{ width: "100%", tableLayout: "fixed" }}
+            // stickyHeader={true}
+            size="medium"
+          >
             {/* HEADER */}
             <TableHead>
-              <TableRow>
+              <TableRow sx={{ height: 30 }}>
                 {HEADCELLS.map((headcell) => {
                   return (
                     <TableCell
@@ -172,9 +177,12 @@ const CityTable: React.FC<CityTableProps> = (props) => {
             <TableBody>
               {flatData.map((city) => {
                 return (
-                  <TableRow>
+                  <TableRow sx={{ height: "3px" }}>
                     <TableCell component="th" scope="row">
-                      <strong>{city.city}</strong>
+                      <Button size="small" href={`/city/${city.ID}`}>
+                        {city.city}
+                      </Button>
+                      {/* <strong></strong> */}
                     </TableCell>
                     {HEADCELLS.slice(1).map((headcell) => {
                       return (
@@ -198,7 +206,7 @@ const CityTable: React.FC<CityTableProps> = (props) => {
 
 const transformData = (cities: City[]): FlatCityInfo[] => {
   return cities.map((city) => {
-    const data: any = { city: city.city, id: city.city };
+    const data: any = { city: city.city, id: city.city, ID: city.id };
     Object.entries(city.indicators).forEach(([name, indicator]) => {
       data[name] = indicator.value;
     });
