@@ -12,6 +12,7 @@ import TableBody from "@mui/material/TableBody";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableSortLabel from "@mui/material/TableSortLabel";
+import { Box } from "@mui/system";
 
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
@@ -84,7 +85,8 @@ const CityTable: React.FC<CityTableProps> = (props) => {
 
     // dev output
     if (props.debug) console.log(`[CityTable] transformData:`, transformed);
-    if (props.debug) console.log(`[CityTable] indicatorStatistics:`, statistics);
+    if (props.debug)
+      console.log(`[CityTable] indicatorStatistics:`, statistics);
   }, [props]);
 
   // do the sorting
@@ -112,70 +114,87 @@ const CityTable: React.FC<CityTableProps> = (props) => {
     }
     // all set -> go for sorting
     sortHandler(clickedId);
-  };   
-    
-    return (
-        <React.Fragment>
-            
-            <TableContainer component={Paper}>
-                <Toolbar sx={{pl: '2rem'}}>
-                <Typography variant="h6" component="div" sx={{flex: '1 1 100%'}}>
-                    Overview of Cities
-                </Typography>
-                <Tooltip title={showOption === 'number' ? "Switch to barplots" : "Switch to numbers"}>
-                    <FormControlLabel control={(
-                        <Switch size="medium" color="success"  onChange={e =>  setShowOption(e.target.checked ? 'number' : 'bar')} />
-                    )} label="Layout"/>
-                    
-                </Tooltip>
-            </Toolbar>
-                <Table sx={{width: '100%'}} size="small">
-                    {/* HEADER */}
-                    <TableHead>
-                        <TableRow>
-                            { HEADCELLS.map(headcell => {
-                                return (
-                                    <TableCell align={headcell.id === 'city' ? "left": "right"}>
-                                        <TableSortLabel
-                                            active={headcell.id === 'walkablility'}
-                                            direction={headcell.id === orderBy ? order : 'asc'}
-                                            onClick={() => onSortClick(headcell.id)}
-                                        >
-                                            {headcell.label}
-                                        </TableSortLabel>
-                                    </TableCell>
-                                );
-                            }) }
-                        </TableRow>
-                    </TableHead>
+  };
 
-                    {/* TABLE BODY */}
-                    <TableBody>
-                        { flatData.map((city => {
-                            return (
-                                <TableRow>
-                                    <TableCell component="th" scope="row">
-                                        <strong>{city.city}</strong>
-                                    </TableCell>
-                                    { HEADCELLS.slice(1).map(headcell => {
-                                        return (
-                                            <CityTableCell 
-                                                value={Number(city[headcell.id])}
-                                                showOption={showOption}
-                                                stats={stats[headcell.id]}
-                                            />
-                                        );
-                                    }) }
-                                </TableRow>
-                            );
-                        })) }
-                    </TableBody>
-                </Table> 
-            </TableContainer>
-        </React.Fragment>
-    );
-}
+  return (
+    <React.Fragment>
+      <Box sx={{ width: "98%", margin: "auto" }}>
+        <TableContainer component={Paper}>
+          <Toolbar sx={{ pl: "2rem" }}>
+            <Typography variant="h6" component="div" sx={{ flex: "1 1 100%" }}>
+              Overview of Cities
+            </Typography>
+            <Tooltip
+              title={
+                showOption === "number"
+                  ? "Switch to barplots"
+                  : "Switch to numbers"
+              }
+            >
+              <FormControlLabel
+                control={
+                  <Switch
+                    size="medium"
+                    color="success"
+                    onChange={(e) =>
+                      setShowOption(e.target.checked ? "number" : "bar")
+                    }
+                  />
+                }
+                label="Layout"
+              />
+            </Tooltip>
+          </Toolbar>
+          <Table sx={{ width: "100%", tableLayout: "fixed" }} size="small">
+            {/* HEADER */}
+            <TableHead>
+              <TableRow>
+                {HEADCELLS.map((headcell) => {
+                  return (
+                    <TableCell
+                      align={headcell.id === "city" ? "left" : "center"}
+                      width={headcell.id === "city" ? "10%" : "6%"}
+                    >
+                      <TableSortLabel
+                        active={headcell.id === "walkablility"}
+                        direction={headcell.id === orderBy ? order : "asc"}
+                        onClick={() => onSortClick(headcell.id)}
+                      >
+                        {headcell.label}
+                      </TableSortLabel>
+                    </TableCell>
+                  );
+                })}
+              </TableRow>
+            </TableHead>
 
+            {/* TABLE BODY */}
+            <TableBody>
+              {flatData.map((city) => {
+                return (
+                  <TableRow>
+                    <TableCell component="th" scope="row">
+                      <strong>{city.city}</strong>
+                    </TableCell>
+                    {HEADCELLS.slice(1).map((headcell) => {
+                      return (
+                        <CityTableCell
+                          value={Number(city[headcell.id])}
+                          showOption={showOption}
+                          stats={stats[headcell.id]}
+                        />
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
+    </React.Fragment>
+  );
+};
 
 const transformData = (cities: City[]): FlatCityInfo[] => {
   return cities.map((city) => {

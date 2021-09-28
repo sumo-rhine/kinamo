@@ -55,7 +55,9 @@ const Header = () => {
             // light={true}
             // light
           />
-          <Typography variant="h5">KINaMo</Typography>
+          <Typography variant="h5" fontWeight="fontWeightLight">
+            KINaMo
+          </Typography>
           <Box ml={3}>
             <SelectCityModalButton></SelectCityModalButton>
             {/* <Button

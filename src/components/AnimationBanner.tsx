@@ -48,21 +48,25 @@ const useStyles = makeStyles({
 
   "@keyframes animation_streets": {
     "0%": {
-      transform: "rotateX(20deg) rotateY(-1deg) rotateZ(-180deg)",
-      filter: "saturate(1%) contrast(50%)",
+      transform: "rotateX(20deg) rotateY(-1deg) rotateZ(-180deg) ",
+      filter:
+        "saturate(1%) contrast(50%) drop-shadow(0 0 0.0rem rgb(124, 124, 124))",
       opacity: 1,
     },
     "33%": {
-      transform: "rotateX(30deg) rotateY(-1deg) rotateZ(-120deg)",
-      filter: "saturate(100%) contrast(20%)",
+      transform: "rotateX(30deg) rotateY(-1deg) rotateZ(-120deg) ",
+      filter:
+        "saturate(100%) contrast(20%) drop-shadow(0 0 0.rem rgb(124, 124, 124))",
     },
     "66%": {
-      transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-80deg)",
-      filter: "saturate(100%) contrast(80%)",
+      transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-80deg) ",
+      filter:
+        "saturate(100%) contrast(80%) drop-shadow(0 0 0.rem rgb(124, 124, 124))",
     },
     "100%": {
-      transform: "rotateX(50deg) rotateY(-1deg) rotateZ(-20deg)",
-      filter: "saturate(1%) contrast(50%)",
+      transform: "rotateX(50deg) rotateY(-1deg) rotateZ(-20deg) ",
+      filter:
+        "saturate(1%) contrast(50%) drop-shadow(0 0 0.rem rgb(124, 124, 124))",
     },
   },
 
@@ -127,7 +131,7 @@ const AnimationBanner = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((index) => index + 1);
-    }, 10000);
+    }, 15000);
     return () => clearInterval(interval);
   }, []);
 
@@ -156,7 +160,7 @@ const AnimationBanner = () => {
         width: "100%",
         height: 700,
         position: "relative",
-        backgroundColor: "black",
+        backgroundColor: "#111213",
         overflow: "hidden",
       }}
     >
@@ -178,14 +182,27 @@ const AnimationBanner = () => {
         ml={15}
         className={classes.font}
         sx={{ position: "absolute" }}
+        fontWeight="fontWeightLight"
       >
-        <Typography variant="h1" component="h1">
+        <Typography variant="h1" component="h1" fontWeight="fontWeightLight">
           Explore Cities
         </Typography>
-        <Typography mt={2} ml={1} variant="h3" component="h3">
+        <Typography
+          mt={2}
+          ml={1}
+          variant="h3"
+          component="h3"
+          fontWeight="fontWeightLight"
+        >
           in the Upper Rhine Region
         </Typography>
-        <Typography mt={10} ml={1} variant="h5" component="h5">
+        <Typography
+          mt={15}
+          ml={5}
+          variant="h5"
+          component="h5"
+          fontWeight="fontWeightLight"
+        >
           Follow the the transition to sustainable mobility
         </Typography>
       </Box>

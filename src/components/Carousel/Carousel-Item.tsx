@@ -21,7 +21,12 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
     >
       <Box pt={8}>
         <Box m={2} pl={15}>
-          <Typography pb={15} variant="h3" component="h2">
+          <Typography
+            pb={15}
+            variant="h3"
+            component="h2"
+            fontWeight="fontWeightLight"
+          >
             {props.city.city}
           </Typography>
           <Box style={{ display: "flex", alignItems: "flex-end" }}>
@@ -37,9 +42,9 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
               {props.city.indicators.noise_pollution.keyFigures[0].definition}
             </Typography>
           </Box>
-          <Box pt={5}>
+          <Box pt={2}>
             <Button
-              variant="contained"
+              // variant="contained"
               href={`/city/${props.city.id}`}
               style={{ padding: ".5rem" }}
             >
