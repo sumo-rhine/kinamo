@@ -11,7 +11,7 @@ const SamplePage: React.FC = () => {
     <Box>
       <Header cityName={"testCity"}></Header>
       <AnimationBanner cityId={102}></AnimationBanner>
-      <CityTab></CityTab>
+      {/* <CityTab></CityTab> */}
     </Box>
   );
 };

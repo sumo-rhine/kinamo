@@ -84,8 +84,3 @@ const mapStateToProps = (state: AppState) => {
   };
 };
 export default connect(mapStateToProps)(SelectCityTabs);
-
-// {props.cities
-//   .filter((city) => city.country === "Germany")
-//   .map((city) => (
-//     <li>{city.city}</li>

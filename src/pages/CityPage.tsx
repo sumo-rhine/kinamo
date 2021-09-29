@@ -48,13 +48,13 @@ const CityPage: React.FC<CityPageProps> = (props) => {
   return (
     <Box>
       <Header cityName={city?.city} />
-      <AnimationBanner cityId={city?.id}></AnimationBanner>
-      {/* <CityTab city={city}></CityTab> */}
       {
         /* Switch the city variable - if null, no city is (yet) loaded */
         city ? (
           <Box>
-            <pre>{JSON.stringify(city, undefined, 4)}</pre>
+            <AnimationBanner cityId={city.id}></AnimationBanner>
+            <CityTab city={city}></CityTab>
+            {/* <pre>{JSON.stringify(city, undefined, 4)}</pre> */}
           </Box>
         ) : (
           <CircularProgress
