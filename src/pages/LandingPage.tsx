@@ -2,7 +2,7 @@ import React from "react";
 
 import { Box } from "@mui/material";
 
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import AnimationBanner from "../components/AnimationBanner";
 import CityCarousel from "../components/Carousel/Carousel";
 import CityTable from "../components/City-Table/City-Table";
@@ -11,7 +11,7 @@ import DividerOverview from "../components/DividerOverview";
 const LandingPage: React.FC = () => {
   return (
     <Box>
-      <Header></Header>
+      <Header cityName="select City"></Header>
       <AnimationBanner></AnimationBanner>
       <CityCarousel></CityCarousel>
       <DividerOverview />

@@ -3,7 +3,8 @@ import { makeStyles, createStyles } from "@mui/styles";
 // import ArrowDropDownOutlinedIcon from "@material-ui/icons/ArrowDropDownOutlined";
 import ArrowDropDownOutlinedIcon from "@mui/material/Icon";
 import { Modal, Backdrop, Fade, Button, Paper, Box } from "@mui/material";
-import SelectCityTabs from "./SelectCityTabs";
+import SelectCityTabs from "../SelectCityTabs";
+import { CityNameProps } from "./SelectCity.model";
 const useStyles = makeStyles(() =>
   createStyles({
     modal: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles(() =>
   })
 );
 
-const SelectCityModalButton: React.FC = (props) => {
+const SelectCityModalButton: React.FC<CityNameProps> = (props) => {
   // console.log(props.cities);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
@@ -49,7 +50,7 @@ const SelectCityModalButton: React.FC = (props) => {
         endIcon={<ArrowDropDownOutlinedIcon></ArrowDropDownOutlinedIcon>}
         onClick={handleOpen}
       >
-        Select your City
+        {props.cityName}
       </Button>
       <Modal
         className={classes.modal}

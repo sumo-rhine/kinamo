@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     width: "1600px",
     zIndex: 1,
     transformOrigin: "55% 50% 200px",
-    animation: `$animation_streets 50s linear infinite normal`,
+    animation: `$animation_streets 100s linear infinite normal`,
   },
   pois: {
     top: "-400px",
@@ -33,7 +33,7 @@ const useStyles = makeStyles({
     backgroundColor: "transparent",
     zIndex: 1,
     transformOrigin: "55% 50% 200px",
-    animation: `$animation_pois 50s linear infinite normal`,
+    animation: `$animation_pois 100s linear infinite normal`,
   },
   parks: {
     top: "-400px",
@@ -43,7 +43,7 @@ const useStyles = makeStyles({
     backgroundColor: "transparent",
     zIndex: 1,
     transformOrigin: "55% 50% 200px",
-    animation: `$animation_parks 50s linear infinite normal`,
+    animation: `$animation_parks 100s linear infinite normal`,
   },
 
   "@keyframes animation_streets": {

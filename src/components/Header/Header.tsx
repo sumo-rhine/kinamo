@@ -2,7 +2,7 @@
 // import HomeIcon from "@mui/icons-material";
 // import HomeIcon from "@mui/icons-material/HomeIcon";
 import HomeIcon from "@mui/icons-material/Home";
-
+import { CityNameProps } from "./SelectCity.model";
 // import IconButton from "@mui/material/IconButton";
 
 import {
@@ -17,7 +17,7 @@ import {
 // This is deprecated!!
 // https://mui.com/styles/advanced/
 import { makeStyles } from "@mui/styles";
-import SelectCityModalButton from "../components/SelectCityModal";
+import SelectCityModalButton from "./SelectCityModal";
 
 const useStyles = makeStyles({
   mainContainer: {
@@ -38,7 +38,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Header = () => {
+const Header: React.FC<CityNameProps> = (props) => {
   const classes = useStyles();
   return (
     <AppBar position="sticky" style={{ background: "black" }}>
@@ -59,7 +59,9 @@ const Header = () => {
             KINaMo
           </Typography>
           <Box ml={3}>
-            <SelectCityModalButton></SelectCityModalButton>
+            <SelectCityModalButton
+              cityName={props.cityName}
+            ></SelectCityModalButton>
             {/* <Button
               size="large"
               className={classes.button}
