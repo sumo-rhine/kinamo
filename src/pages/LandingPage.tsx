@@ -11,7 +11,7 @@ import DividerOverview from "../components/DividerOverview";
 const LandingPage: React.FC = () => {
   return (
     <Box>
-      <Header cityName="select City"></Header>
+      <Header cityName="select your City"></Header>
       <AnimationBanner></AnimationBanner>
       <CityCarousel></CityCarousel>
       <DividerOverview />
