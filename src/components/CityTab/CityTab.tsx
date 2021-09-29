@@ -24,19 +24,21 @@ const CityTab: React.FC<CityTabProps> = (props) => {
   return (
     <Box mt={5} sx={{ width: "90%", height: 700 }}>
       <TabContext value={indicator}>
-        <Tabs
-          onChange={handleChange}
-          aria-label="lab API tabs example"
-          //   orientation="vertical"
-          centered
-          variant="scrollable"
-          scrollButtons="auto"
-        >
-          {Object.keys(props.city.indicators).map((ind) => (
-            //   <Button></Button>
-            <Tab label={ind} value={ind} />
-          ))}
-        </Tabs>
+        <Box sx={{ borderBottom: 0, borderColor: "divider" }}>
+          <Tabs
+            onChange={handleChange}
+            aria-label="lab API tabs example"
+            //   orientation="vertical"
+            centered
+            variant="scrollable"
+            scrollButtons="auto"
+          >
+            {Object.keys(props.city.indicators).map((ind) => (
+              //   <Button></Button>
+              <Tab label={ind} value={ind} />
+            ))}
+          </Tabs>
+        </Box>
         <Box>
           {Object.keys(props.city.indicators).map((ind) => (
             <TabPanel value={ind}>
@@ -50,9 +52,10 @@ const CityTab: React.FC<CityTabProps> = (props) => {
               >
                 {(props.city.indicators as any)[ind].keyFigures.map(
                   (keyFigure: any) => (
+                    //   if
                     //   <p>{keyFigure.long_name}</p>
                     <KeyFigureCard
-                      description={keyFigure.description}
+                      description={keyFigure.long_name}
                       value={keyFigure.value}
                       unit={keyFigure.unit}
                     ></KeyFigureCard>

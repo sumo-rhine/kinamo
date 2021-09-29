@@ -22,7 +22,7 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
             {props.unit}
           </Typography>
           <Typography variant="h5" component="div">
-            {props.value}
+            {props.value === null ? "Na" : props.value.toFixed(2)}
           </Typography>
           <Typography variant="body2">{props.description}</Typography>
         </CardContent>
