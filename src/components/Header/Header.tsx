@@ -44,7 +44,12 @@ const Header: React.FC<CityNameProps> = (props) => {
     <AppBar position="sticky" style={{ background: "black" }}>
       <Toolbar>
         <Box className={classes.mainContainer}>
-          <IconButton edge="start" color="inherit" aria-label="home">
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="home"
+            href="/home"
+          >
             <HomeIcon fontSize="large" style={{ fill: "white" }} />
           </IconButton>
           <Divider
