@@ -15,7 +15,7 @@ interface CityPageProps {
 const CityPage: React.FC<CityPageProps> = (props) => {
   // load the city id from the url
   const { cityId } = useParams<{ cityId: string }>();
-
+  // #58
   // state for storing the current city
   const [city, setCity] = useState<City | null>(null);
 
@@ -44,6 +44,7 @@ const CityPage: React.FC<CityPageProps> = (props) => {
   // return the page
   return (
     <Box>
+      {/* TODO #58 TS Issues - Why do I need to defines the props as undefined */}
       <Header cityName={city?.city} />
       {
         /* Switch the city variable - if null, no city is (yet) loaded */
