@@ -1,8 +1,8 @@
 import React from "react";
 import { Modal, Backdrop, Fade, Button, Paper, Box } from "@mui/material";
 import { connect } from "react-redux";
-import { AppState } from "../models/AppState";
-import { City } from "../models/FullDataset";
+import { AppState } from "../../models/AppState";
+import { City } from "../../models/FullDataset";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";

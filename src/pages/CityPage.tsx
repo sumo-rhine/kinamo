@@ -1,3 +1,4 @@
+import AnimationBanner from "../components/AnimationBanner/AnimationBanner";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router";
@@ -7,6 +8,7 @@ import { Box, CircularProgress } from "@mui/material";
 import Header from "../components/Header/Header";
 import { AppState } from "../models/AppState";
 import { City } from "../models/FullDataset";
+import CityTab from "../components/CityTab/CityTab";
 
 interface CityPageProps {
   cities: City[];
@@ -41,11 +43,13 @@ const CityPage: React.FC<CityPageProps> = (props) => {
     filterCity();
   }, [cityId, props]);
 
+  console.log(city);
   // return the page
   return (
     <Box>
-      {/* TODO #58 TS Issues - Why do I need to defines the props as undefined */}
       <Header cityName={city?.city} />
+      <AnimationBanner cityId={city?.id}></AnimationBanner>
+      {/* <CityTab city={city}></CityTab> */}
       {
         /* Switch the city variable - if null, no city is (yet) loaded */
         city ? (

@@ -4,7 +4,8 @@ import PageViewRoute from "../components/PageViewRoute";
 // import all pages that are available at this level
 import LandingPage from "../pages/LandingPage";
 import CityPage from "../pages/CityPage";
-import TestPage from "../pages/TestPage";
+// import TestPage from "../pages/TestPage";
+import SamplePage from "../pages/SamplePage";
 
 /**
  * The Page component is a slim wrapper around the usual page navigation that
@@ -23,10 +24,14 @@ const Page: React.FC = () => (
         render={() => <LandingPage />}
       />
       {/* all cities are routed as /city/cityId, alternatively, we can change this to /c/cityId for shorter urls */}
-      <PageViewRoute title="City" path="/city/:cityId" render={() => <CityPage />} />
-      
+      <PageViewRoute
+        title="City"
+        path="/city/:cityId"
+        render={() => <CityPage />}
+      />
+
       {/* DEV ONLY: we can keep the test page, but maybe use a different url */}
-      <PageViewRoute title="Test" path="/test" render={() => <TestPage />} />
+      <PageViewRoute title="Test" path="/test" render={() => <SamplePage />} />
 
       {/* If no other route matched, redirect i.e. to a /home or /dashboard */}
       <Route path="/" render={() => <Redirect to="/home" />} />
