@@ -70,6 +70,8 @@ export interface City {
   population: CityProperty;
   area: CityProperty;
   urban_area: CityProperty;
+  two_best_keyFigures: string[];
+  two_worst_keyFigures: string[];
   indicators: MainIndicators;
 }
 
