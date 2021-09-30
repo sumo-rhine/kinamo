@@ -1,15 +1,14 @@
+import { Box } from "@mui/system";
+
 const KeyFigureBar = () => {
   return (
-    <div
+    <Box
       style={{
         width: "100%",
         height: "0.6rem",
         backgroundColor: "#C4C4C4",
       }}
-    >
-      {" "}
-      test
-    </div>
+    ></Box>
   );
 };
 

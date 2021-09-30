@@ -4,7 +4,7 @@
  */
 export interface BaseIndicator {
   short_name: string;
-  value: number;
+  value: number | null;
 }
 
 /**
@@ -24,8 +24,8 @@ export interface Indicator extends BaseIndicator {
 export interface KeyFigure extends BaseIndicator {
   long_name: string;
   definition: string;
-  unit: "%" | "km/km^2" | "no/km^2";
-  id: "string";
+  unit: string;
+  id: string;
   points: number;
   data_source: string[];
 }
@@ -37,7 +37,7 @@ export interface KeyFigure extends BaseIndicator {
 export interface CityProperty {
   value: number;
   description: string;
-  unit: "Inhabitants" | "km^2" | "%";
+  unit: string;
 }
 
 /**
