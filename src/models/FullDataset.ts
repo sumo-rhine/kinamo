@@ -25,6 +25,7 @@ export interface KeyFigure extends BaseIndicator {
   long_name: string;
   definition: string;
   unit: "%" | "km/km^2" | "no/km^2";
+  id: "string";
   points: number;
   data_source: string[];
 }
