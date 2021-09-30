@@ -17,11 +17,12 @@ interface CityInfoData {
   keyFigureDescription: string;
   keyFigureValue: number;
   keyFigureUnit: string;
+  keyFigurePoints: number;
 }
 
 const CarouselItem: React.FC<CarouselItemProps> = (props) => {
   const [data, setData] = useState<CityInfoData>();
-  // console.log(props.city);
+  console.log(props.city);
 
   useEffect(() => {
     const cityInfo: any = { cityName: props.city.city };
@@ -36,6 +37,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
           cityInfo["shortName"] = fig.short_name;
           cityInfo["keyFigureValue"] = fig.value;
           cityInfo["keyFigureUnit"] = fig.unit;
+          cityInfo["KeyFigurePoints"] = fig.points;
         }
       });
     });
@@ -76,15 +78,18 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
             <Typography variant="h6" fontWeight="fontWeightLight">
               {data?.keyFigureDescription}
             </Typography>
-            <Box>
-              <KeyFigureBar></KeyFigureBar>
-            </Box>
           </Box>
-          <Box pt={2}>
+          <Box pt={4} style={{ width: 400 }}>
+            <KeyFigureBar
+              points={data?.keyFigurePoints!.toFixed(1)}
+            ></KeyFigureBar>
+          </Box>
+          <Box pt={4}>
             <Button
               // variant="contained"
               href={`/city/${props.city.id}`}
               style={{ padding: ".5rem" }}
+              variant="outlined"
             >
               Explore
             </Button>

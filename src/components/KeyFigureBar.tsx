@@ -1,6 +1,9 @@
 import { Box } from "@mui/system";
-
-const KeyFigureBar = () => {
+interface KeyFigureBarProps {
+  points: number | undefined;
+}
+const KeyFigureBar: React.FC<KeyFigureBarProps> = (props) => {
+  console.log(props);
   return (
     <Box
       style={{
@@ -8,7 +11,18 @@ const KeyFigureBar = () => {
         height: "0.6rem",
         backgroundColor: "#C4C4C4",
       }}
-    ></Box>
+    >
+      <Box
+        style={{
+          backgroundColor: "#8BC34A",
+          height: "100%",
+          width: `${(props.points! / 36) * 100}%`,
+          // borderRadius: '.3rem'
+        }}
+      >
+        {props.points}
+      </Box>
+    </Box>
   );
 };
 
