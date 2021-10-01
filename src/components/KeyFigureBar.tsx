@@ -10,6 +10,7 @@ const KeyFigureBar: React.FC<KeyFigureBarProps> = (props) => {
         width: "100%",
         height: "0.6rem",
         backgroundColor: "#C4C4C4",
+        transitionDuration: "1.7s",
       }}
     >
       <Box
@@ -17,10 +18,11 @@ const KeyFigureBar: React.FC<KeyFigureBarProps> = (props) => {
           backgroundColor: "#8BC34A",
           height: "100%",
           width: `${(props.points! / 36) * 100}%`,
+          transitionDuration: "1s",
           // borderRadius: '.3rem'
         }}
       >
-        {props.points}
+        {/* {props.points} */}
       </Box>
     </Box>
   );
