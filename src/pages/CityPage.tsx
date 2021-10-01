@@ -57,7 +57,7 @@ const CityPage: React.FC<CityPageProps> = (props) => {
               cityName={city.city}
               cityId={city.id}
             ></AnimationBanner>
-            <CityOverview></CityOverview>
+            <CityOverview city={city}></CityOverview>
             <CityTab city={city}></CityTab>
             {/* <pre>{JSON.stringify(city, undefined, 4)}</pre> */}
           </Box>
