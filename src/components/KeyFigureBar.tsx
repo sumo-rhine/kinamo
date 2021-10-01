@@ -1,6 +1,6 @@
 import { Box } from "@mui/system";
 interface KeyFigureBarProps {
-  points: number | undefined;
+  points: number;
 }
 const KeyFigureBar: React.FC<KeyFigureBarProps> = (props) => {
   console.log(props);

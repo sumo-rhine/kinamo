@@ -45,6 +45,10 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
     setData(cityInfo);
   }, [props]);
 
+  if (!data) {
+    return (<p>404</p>)
+  }
+
   return (
     <Box
       pb={20}
@@ -80,10 +84,9 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
             </Typography>
           </Box>
           <Box pt={4} style={{ width: 400 }}>
-            {/* <KeyFigureBar
-              //TODO #65
-              points={data?.keyFigurePoints!.toFixed(1)}
-            ></KeyFigureBar> */}
+           <KeyFigureBar
+              points={data.keyFigurePoints}
+            ></KeyFigureBar>
           </Box>
           <Box pt={4}>
             <Button
