@@ -6,6 +6,7 @@ import Fade from "@mui/material/Fade";
 
 interface CityIdProps {
   cityId: any;
+  cityName: string;
 }
 const AnimationBanner: React.FC<CityIdProps> = (props) => {
   // const [id, setId] = useState(0);
@@ -46,32 +47,33 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
         {/* </Fade> */}
       </Box>
       <Box
-        mt={20}
+        mt={15}
         ml={15}
         className={classes.font}
         sx={{ position: "absolute" }}
         fontWeight="fontWeightLight"
       >
-        <Typography variant="h1" component="h1" fontWeight="fontWeightLight">
-          Explore Cities
-        </Typography>
+        <Box
+          sx={{ display: "flex", alignItems: "flex-end", fontWeight: "light" }}
+          mt={5}
+        >
+          <Typography variant="h2">Explore the state of mobility in</Typography>
+          {/* <Typography
+            mt={2}
+            ml={1}
+            variant="h3"
+            fontWeight="fontWeightLight"
+          >
+            the state of mobility in
+          </Typography> */}
+        </Box>
         <Typography
-          mt={2}
-          ml={1}
-          variant="h3"
-          component="h3"
+          mt={5}
+          // ml={5}
+          variant="h1"
           fontWeight="fontWeightLight"
         >
-          in the Upper Rhine Region
-        </Typography>
-        <Typography
-          mt={15}
-          ml={5}
-          variant="h5"
-          component="h5"
-          fontWeight="fontWeightLight"
-        >
-          Follow the the transition to sustainable mobility
+          {props.cityName}
         </Typography>
       </Box>
     </Box>

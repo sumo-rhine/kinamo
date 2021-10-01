@@ -1,4 +1,5 @@
 import AnimationBanner from "../components/AnimationBanner/AnimationBanner";
+import CityOverview from "../components/City-Overview/CityOverview";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router";
@@ -52,7 +53,11 @@ const CityPage: React.FC<CityPageProps> = (props) => {
         /* Switch the city variable - if null, no city is (yet) loaded */
         city ? (
           <Box>
-            <AnimationBanner cityId={city.id}></AnimationBanner>
+            <AnimationBanner
+              cityName={city.city}
+              cityId={city.id}
+            ></AnimationBanner>
+            <CityOverview city={city}></CityOverview>
             <CityTab city={city}></CityTab>
             {/* <pre>{JSON.stringify(city, undefined, 4)}</pre> */}
           </Box>

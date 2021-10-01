@@ -53,6 +53,7 @@ const StackedBar: React.FC<StackedBarProps> = (props) => {
     setIndicatorWidth(fullWidth);
     setStackWidths(stackWidths);
   }, [props]);
+  console.log(props);
 
   return (
     <Box
