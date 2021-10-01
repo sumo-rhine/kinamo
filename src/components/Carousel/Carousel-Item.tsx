@@ -81,6 +81,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
           </Box>
           <Box pt={4} style={{ width: 400 }}>
             <KeyFigureBar
+              //TODO #65
               points={data?.keyFigurePoints!.toFixed(1)}
             ></KeyFigureBar>
           </Box>
