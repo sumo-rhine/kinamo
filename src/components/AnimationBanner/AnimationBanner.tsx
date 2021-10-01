@@ -47,7 +47,7 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
         {/* </Fade> */}
       </Box>
       <Box
-        mt={20}
+        mt={15}
         ml={15}
         className={classes.font}
         sx={{ position: "absolute" }}
@@ -55,7 +55,7 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
       >
         <Box
           sx={{ display: "flex", alignItems: "flex-end", fontWeight: "light" }}
-          mt={10}
+          mt={5}
         >
           <Typography variant="h2">Explore the state of mobility in</Typography>
           {/* <Typography
@@ -68,9 +68,9 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
           </Typography> */}
         </Box>
         <Typography
-          mt={10}
+          mt={5}
           // ml={5}
-          variant="h2"
+          variant="h1"
           fontWeight="fontWeightLight"
         >
           {props.cityName}
