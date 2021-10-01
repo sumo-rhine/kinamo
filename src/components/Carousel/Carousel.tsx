@@ -16,19 +16,23 @@ interface CityCarouselProps {
 
 const CityCarousel: React.FC<CityCarouselProps> = (props) => {
   if (props.debug) console.log(props.cities);
-  return (
-    <Carousel
-      index={1}
-      animation="slide"
-      autoPlay={false}
-      navButtonsAlwaysVisible={true}
-      indicators={false}
-    >
-      {props.cities.map((city) => (
-        <CarouselItem key={city.id} city={city} />
-      ))}
-    </Carousel>
-  );
+  if (!props.cities) {
+    return <div>Site is loading !!!!</div>;
+  } else {
+    return (
+      <Carousel
+        index={1}
+        animation="slide"
+        autoPlay={false}
+        navButtonsAlwaysVisible={true}
+        indicators={false}
+      >
+        {props.cities.map((city) => (
+          <CarouselItem key={city.id} city={city} />
+        ))}
+      </Carousel>
+    );
+  }
 };
 
 const mapStateToProps = (state: AppState) => {

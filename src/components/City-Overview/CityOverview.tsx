@@ -27,54 +27,56 @@ const CityOverview: React.FC<CityOverviewProps> = (props) => {
       </Divider>
 
       <Box mt={10} sx={{ display: "flex" }}>
-        <Box m={5} pt={10} sx={{ width: "30%" }}>
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <Typography variant="h4" pr={3} component="div">
-              {props.city.country}
-            </Typography>
-            <Typography variant="h5" color="text.secondary">
-              Country
-            </Typography>
-          </Box>
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <Typography variant="h4" pt={2} pr={3}>
-              {props.city.population.value}
-            </Typography>
-            <Typography variant="h5" color="text.secondary" component="div">
-              {props.city.population.unit}
-            </Typography>
-          </Box>
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <Typography variant="h4" pt={2} pr={0}>
-              {props.city.area.value.toFixed(1)}
-            </Typography>
-            <Typography variant="h5" component="div">
-              {props.city.area.unit}
-            </Typography>
-            <Typography
-              pl={3}
-              color="text.secondary"
-              variant="h5"
-              component="div"
-            >
-              {props.city.area.description}
-            </Typography>
-          </Box>
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <Typography variant="h4" pt={2} pr={0}>
-              {props.city.urban_area.value.toFixed(1)}
-            </Typography>
-            <Typography variant="h5" component="div">
-              {props.city.urban_area.unit}
-            </Typography>
-            <Typography
-              pl={3}
-              color="text.secondary"
-              variant="h5"
-              component="div"
-            >
-              {props.city.urban_area.description}
-            </Typography>
+        <Box pl={10} sx={{ width: "30%" }}>
+          <Box>
+            <Box>
+              <Typography variant="h5" color="text.secondary" pb={3}>
+                Info
+              </Typography>
+            </Box>
+            <Box sx={{}}>
+              <Typography variant="h5" pr={3} component="div">
+                {props.city.country}
+              </Typography>
+              <Typography variant="h6" color="text.secondary">
+                Country
+              </Typography>
+            </Box>
+            <Box sx={{}}>
+              <Typography variant="h5" pt={2} pr={3}>
+                {props.city.population.value}
+              </Typography>
+              <Typography variant="h6" color="text.secondary" component="div">
+                {props.city.population.unit}
+              </Typography>
+            </Box>
+            <Box sx={{}}>
+              <Typography variant="h5" pt={2} pr={0}>
+                {props.city.area.value.toFixed(1)}km²
+              </Typography>
+              <Typography variant="h6" component="div"></Typography>
+              <Typography
+                // pl={3}
+                color="text.secondary"
+                variant="h6"
+                component="div"
+              >
+                {props.city.area.description}
+              </Typography>
+            </Box>
+            <Box sx={{}}>
+              <Typography variant="h5" pt={2} pr={0}>
+                {props.city.urban_area.value.toFixed(1)}%
+              </Typography>
+              <Typography
+                // pl={3}
+                color="text.secondary"
+                variant="h6"
+                component="div"
+              >
+                {props.city.urban_area.description}
+              </Typography>
+            </Box>
           </Box>
         </Box>
         <Box

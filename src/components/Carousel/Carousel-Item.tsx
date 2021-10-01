@@ -46,71 +46,72 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
   }, [props]);
 
   if (!data) {
-    return (<p>404</p>)
-  }
-
-  return (
-    <Box
-      pb={20}
-      style={{
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "center",
-        flexDirection: "row",
-        width: "100%",
-        height: "500px",
-        // alignItems: "flex-start",
-      }}
-    >
-      <Box pt={8}>
-        <Box>
-          <Typography
-            pb={15}
-            variant="h3"
-            component="h2"
-            fontWeight="fontWeightLight"
-          >
-            {data?.cityName}
-          </Typography>
-          <Box style={{ display: "flex", alignItems: "flex-end" }}>
-            <Typography pr={1} variant="h3">
-              {data?.keyFigureValue.toFixed(1)}
-            </Typography>
-            <Typography pr={3} variant="h4">
-              {data?.keyFigureUnit}
-            </Typography>
-            <Typography variant="h6" fontWeight="fontWeightLight">
-              {data?.keyFigureDescription}
-            </Typography>
-          </Box>
-          <Box pt={4} style={{ width: 400 }}>
-           <KeyFigureBar
-              points={data.keyFigurePoints}
-            ></KeyFigureBar>
-          </Box>
-          <Box pt={4}>
-            <Button
-              // variant="contained"
-              href={`/city/${props.city.id}`}
-              style={{ padding: ".5rem" }}
-              variant="outlined"
+    return <p>404</p>;
+  } else {
+    return (
+      <Box
+        pb={20}
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "center",
+          flexDirection: "row",
+          width: "100%",
+          height: "500px",
+          // alignItems: "flex-start",
+        }}
+      >
+        <Box pt={8}>
+          <Box>
+            <Typography
+              pb={15}
+              variant="h3"
+              component="h2"
+              fontWeight="fontWeightLight"
             >
-              Explore
-            </Button>
+              {data?.cityName}
+            </Typography>
+            <Box style={{}}>
+              <Typography pr={1} variant="h5">
+                {data?.keyFigureValue.toFixed(1)}
+                {data?.keyFigureUnit}
+              </Typography>
+              <Typography
+                variant="h6"
+                color="text.secondary"
+                fontWeight="fontWeightLight"
+              >
+                {data?.keyFigureDescription}
+              </Typography>
+            </Box>
+            <Box pt={4} style={{ width: 400 }}>
+              {/* <KeyFigureBar points={data.keyFigurePoints}></KeyFigureBar> */}
+              {data.keyFigurePoints} of 36 Cities
+            </Box>
+            <Box pt={4}>
+              <Button
+                // variant="contained"
+                href={`/city/${props.city.id}`}
+                style={{ padding: ".5rem" }}
+                variant="outlined"
+              >
+                Explore
+              </Button>
+            </Box>
+          </Box>
+        </Box>
+        <Box>
+          <Box>
+            <CardMedia
+              style={{ width: 500, height: 400 }}
+              image="assets/thumbnail/102.png"
+            />
+            {/* <p>test</p> */}
           </Box>
         </Box>
       </Box>
-      <Box>
-        <Box>
-          <CardMedia
-            style={{ width: 500, height: 400 }}
-            image="assets/thumbnail/102.png"
-          />
-          {/* <p>test</p> */}
-        </Box>
-      </Box>
-    </Box>
-  );
+    );
+  }
 };
 
 export default CarouselItem;
