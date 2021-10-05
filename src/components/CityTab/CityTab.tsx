@@ -32,7 +32,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
               aria-label="lab API tabs example"
               //   orientation="vertical"
               centered
-              variant="scrollable"
+              // variant="scrollable"
               scrollButtons="auto"
             >
               {Object.keys(props.city.indicators).map((ind) => (
