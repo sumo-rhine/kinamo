@@ -3,7 +3,6 @@ import CityOverview from "../components/City-Overview/CityOverview";
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router";
-
 import { Box, CircularProgress } from "@mui/material";
 
 import Header from "../components/Header/Header";
@@ -44,7 +43,7 @@ const CityPage: React.FC<CityPageProps> = (props) => {
     filterCity();
   }, [cityId, props]);
 
-  console.log(city);
+  // console.log(city);
   // return the page
   return (
     <Box>
@@ -53,10 +52,7 @@ const CityPage: React.FC<CityPageProps> = (props) => {
         /* Switch the city variable - if null, no city is (yet) loaded */
         city ? (
           <Box>
-            <AnimationBanner
-              cityName={city.city}
-              cityId={city.id}
-            ></AnimationBanner>
+            <AnimationBanner city={city}></AnimationBanner>
             <CityOverview city={city}></CityOverview>
             <CityTab city={city}></CityTab>
             {/* <pre>{JSON.stringify(city, undefined, 4)}</pre> */}

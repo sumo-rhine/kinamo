@@ -3,10 +3,10 @@ import { Box, Typography, CardMedia } from "@mui/material";
 import { indexOf } from "lodash";
 import { useEffect, useState } from "react";
 import Fade from "@mui/material/Fade";
-
+import { City } from "../../models/FullDataset";
+import KeyFigureBanner from "../KeyFigureBanner/KeyFigureBanner";
 interface CityIdProps {
-  cityId: any;
-  cityName: string;
+  city: City;
 }
 const AnimationBanner: React.FC<CityIdProps> = (props) => {
   // const [id, setId] = useState(0);
@@ -18,9 +18,9 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
   const pois_path = "assets/banner/" + id.toString() + "_pois.png";
   const streets_path = "assets/banner/" + id.toString() + "_streets.png";
   const parks_path = "assets/banner/" + id.toString() + "_parks.png";
-  console.log(props.cityId);
-  console.log(id);
-  console.log(parks_path);
+  // console.log(props.city.city);
+  // console.log(id);
+  // console.log(parks_path);
 
   const classes = useStyles();
   return (
@@ -28,6 +28,7 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
       sx={{
         width: "100%",
         height: 700,
+        display: "flex",
         position: "relative",
         backgroundColor: "#111213",
         overflow: "hidden",
@@ -73,9 +74,10 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
           variant="h1"
           fontWeight="fontWeightLight"
         >
-          {props.cityName}
+          {props.city.city}
         </Typography>
       </Box>
+      <KeyFigureBanner city={props.city}></KeyFigureBanner>
     </Box>
   );
 };

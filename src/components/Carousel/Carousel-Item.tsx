@@ -22,12 +22,12 @@ interface CityInfoData {
 
 const CarouselItem: React.FC<CarouselItemProps> = (props) => {
   const [data, setData] = useState<CityInfoData>();
-  console.log(props.city);
+  // console.log(props.city);
 
   useEffect(() => {
     const cityInfo: any = { cityName: props.city.city };
     const best = props.city.two_best_keyFigures[0];
-    console.log(best);
+    // console.log(best);
     // const worst = props.city.two_worst_keyFigures[0];
     Object.entries(props.city.indicators).forEach(([name, indicator]) => {
       indicator.keyFigures.map((fig: any) => {
@@ -41,7 +41,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
         }
       });
     });
-    console.log(cityInfo);
+    // console.log(cityInfo);
     setData(cityInfo);
   }, [props]);
 
