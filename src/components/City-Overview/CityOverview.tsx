@@ -22,9 +22,9 @@ const CityOverview: React.FC<CityOverviewProps> = (props) => {
       }}
       mt={10}
     >
-      <Divider sx={{ width: "100%" }} textAlign="left">
+      {/* <Divider sx={{ width: "100%" }} textAlign="left">
         <Typography variant="h2">{props.city.city}</Typography>
-      </Divider>
+      </Divider> */}
 
       <Box mt={10} sx={{ display: "flex" }}>
         <Box pl={10} sx={{ width: "30%" }}>

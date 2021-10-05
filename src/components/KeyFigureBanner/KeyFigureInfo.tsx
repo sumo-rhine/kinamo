@@ -7,7 +7,7 @@ interface KeyFigureInfoProps {
 
 const KeyFigureInfo: React.FC<KeyFigureInfoProps> = (props) => {
   return (
-    <Box pl={3} pr={3} sx={{ color: "white" }}>
+    <Box pl={3} pr={3} sx={{ color: "#eeeeee" }}>
       <Typography variant="subtitle2" color="grey" fontWeight="fontWeightLight">
         {props.info?.shortName}
       </Typography>
