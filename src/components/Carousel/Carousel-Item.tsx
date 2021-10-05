@@ -37,7 +37,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
           cityInfo["shortName"] = fig.short_name;
           cityInfo["keyFigureValue"] = fig.value;
           cityInfo["keyFigureUnit"] = fig.unit;
-          cityInfo["KeyFigurePoints"] = fig.points;
+          cityInfo["keyFigurePoints"] = fig.points;
         }
       });
     });

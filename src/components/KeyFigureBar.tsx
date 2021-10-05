@@ -19,7 +19,6 @@ const KeyFigureBar: React.FC<KeyFigureBarProps> = (props) => {
           height: "100%",
           width: `${(props.points! / 36) * 100}%`,
           transitionDuration: "1s",
-          // borderRadius: '.3rem'
         }}
       >
         {/* {props.points} */}

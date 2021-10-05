@@ -29,7 +29,7 @@ const StackedBarRow: React.FC<StackedBarRow> = (props) => {
           indicator={props.indicator}
           shadow={false}
           rounded={false}
-          background="white"
+          background="#C4C4C4"
           height={0.8}
           animation="3s"
         />

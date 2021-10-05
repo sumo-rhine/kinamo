@@ -24,6 +24,7 @@ const PermalinkResolver: React.FC = () => {
       params[parKey] = parValue;
     }
   });
+
   console.log(params);
 
   // get the correct class
