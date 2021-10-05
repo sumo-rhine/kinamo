@@ -3,7 +3,7 @@ interface KeyFigureBarProps {
   points: number;
 }
 const KeyFigureBar: React.FC<KeyFigureBarProps> = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
     <Box
       style={{

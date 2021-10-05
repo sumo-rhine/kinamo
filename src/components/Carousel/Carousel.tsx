@@ -15,7 +15,7 @@ interface CityCarouselProps {
 }
 
 const CityCarousel: React.FC<CityCarouselProps> = (props) => {
-  if (props.debug) console.log(props.cities);
+  // if (props.debug) console.log(props.cities);
   if (!props.cities) {
     return <div>Site is loading !!!!</div>;
   } else {

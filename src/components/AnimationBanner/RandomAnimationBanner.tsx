@@ -24,7 +24,7 @@ const RandomAnimationBanner: React.FC = (props) => {
     return () => clearInterval(interval);
   }, []);
 
-  console.log(loading);
+  // console.log(loading);
   const city_list = [4, 102, 483, 1341, 1502];
   const pois_path =
     "assets/banner/" + city_list[index].toString() + "_pois.png";
@@ -32,7 +32,7 @@ const RandomAnimationBanner: React.FC = (props) => {
     "assets/banner/" + city_list[index].toString() + "_streets.png";
   const parks_path =
     "assets/banner/" + city_list[index].toString() + "_parks.png";
-  console.log(parks_path);
+  // console.log(parks_path);
   const classes = useStyles();
   return (
     <Box
