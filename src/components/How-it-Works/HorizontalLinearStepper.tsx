@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import StepContent from "@mui/material/StepContent";
 import { Button, Stack } from "@mui/material";
 import { ClosedCaptionDisabledOutlined } from "@mui/icons-material";
 import { AboutSuMoProject, AboutIndicators, AboutKeyFigures } from "./About";
@@ -23,7 +22,7 @@ const HorizontalLinearStepper = () => {
     setActiveStep(activeStep - 1);
   };
 
-  console.log(activeStep);
+  // console.log(activeStep);
 
   return (
     <Box
