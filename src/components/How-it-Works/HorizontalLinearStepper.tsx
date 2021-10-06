@@ -4,10 +4,14 @@ import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import StepContent from "@mui/material/StepContent";
-import { Button } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 import { ClosedCaptionDisabledOutlined } from "@mui/icons-material";
 import { AboutSuMoProject, AboutIndicators, AboutKeyFigures } from "./About";
-const steps = ["What is the SuMo Rhine Project?", "Indicators", "Key Figures"];
+const steps = [
+  "What is the SuMo Rhine Project?",
+  "How to measure Sustainable Mobility?",
+  "Key Figures",
+];
 
 const HorizontalLinearStepper = () => {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -38,16 +42,24 @@ const HorizontalLinearStepper = () => {
             </Step>
           ))}
         </Stepper>
-        <Box mt={15}>
-          <Button disabled={activeStep > 1} onClick={handleNext}>
-            Next
-          </Button>
-          <Button disabled={activeStep < 1} onClick={handleBack}>
+        <Stack mt={10} direction="row" spacing={2}>
+          <Button
+            variant="contained"
+            disabled={activeStep < 1}
+            onClick={handleBack}
+          >
             Back
           </Button>
-        </Box>
+          <Button
+            variant="contained"
+            disabled={activeStep > 1}
+            onClick={handleNext}
+          >
+            Next
+          </Button>
+        </Stack>
       </Box>
-      <Box>
+      <Box sx={{ maxWidth: 500 }}>
         {(() => {
           if (activeStep === 0) {
             return (
