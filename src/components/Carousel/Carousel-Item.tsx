@@ -72,16 +72,16 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
               {data?.cityName}
             </Typography>
             <Box style={{}}>
-              <Typography pr={1} variant="h5">
-                {data?.keyFigureValue.toFixed(1)}
-                {data?.keyFigureUnit}
-              </Typography>
               <Typography
                 variant="h6"
                 color="text.secondary"
                 fontWeight="fontWeightLight"
               >
                 {data?.keyFigureDescription}
+              </Typography>
+              <Typography pr={1} variant="h5">
+                {data?.keyFigureValue.toFixed(1)}
+                {data?.keyFigureUnit}
               </Typography>
             </Box>
             <Box pt={4} style={{ width: 400 }}>

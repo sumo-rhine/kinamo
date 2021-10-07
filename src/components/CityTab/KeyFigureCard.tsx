@@ -21,8 +21,8 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
     <Box p={3}>
       <Card sx={{ minWidth: 300, height: 190 }}>
         <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            {props.short_name}
+          <Typography color="text.secondary" gutterBottom>
+            {props.description}
           </Typography>
           <Box sx={{ display: "flex", alignItems: "flex-end" }}>
             <Typography variant="h5" component="div">
@@ -32,10 +32,10 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
               {props.unit}
             </Typography>
           </Box>
-          <Typography variant="subtitle1" color="text.secondary">
+          {/* <Typography variant="subtitle1" color="text.secondary">
             {props.description}
-          </Typography>
-          <Box pt={2} sx={{ width: 200 }}>
+          </Typography> */}
+          <Box pt={4} sx={{ width: 200 }}>
             <KeyFigureBar points={props.points} />
           </Box>
         </CardContent>
