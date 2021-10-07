@@ -6,6 +6,7 @@ import { Button, Container, Box, CardMedia, Typography } from "@mui/material";
 // import thumbnail from "assets/thumbnail/102.png";
 import { City } from "../../models/FullDataset";
 import KeyFigureBar from "../KeyFigureBar";
+import { Link } from "react-router-dom";
 
 interface CarouselItemProps {
   city: City;
@@ -72,16 +73,16 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
               {data?.cityName}
             </Typography>
             <Box style={{}}>
-              <Typography pr={1} variant="h5">
-                {data?.keyFigureValue.toFixed(1)}
-                {data?.keyFigureUnit}
-              </Typography>
               <Typography
                 variant="h6"
                 color="text.secondary"
                 fontWeight="fontWeightLight"
               >
                 {data?.keyFigureDescription}
+              </Typography>
+              <Typography pr={1} variant="h5">
+                {data?.keyFigureValue.toFixed(1)}
+                {data?.keyFigureUnit}
               </Typography>
             </Box>
             <Box pt={4} style={{ width: 400 }}>
@@ -91,7 +92,9 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
             <Box pt={4}>
               <Button
                 // variant="contained"
-                href={`/city/${props.city.id}`}
+                // href={`/city/${props.city.id}`}
+                component={Link}
+                to={`/city/${props.city.id}`}
                 style={{ padding: ".5rem" }}
                 variant="outlined"
               >

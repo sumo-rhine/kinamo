@@ -14,6 +14,7 @@ import StackedBar from "../StackedBar";
 interface CityTabProps {
   city: City;
 }
+
 const CityTab: React.FC<CityTabProps> = (props) => {
   // console.log(Object.keys(props.city.indicators));
   // console.log(props.city);
@@ -27,19 +28,25 @@ const CityTab: React.FC<CityTabProps> = (props) => {
       <Box m={5}>
         <TabContext value={indicator}>
           <Box sx={{ borderBottom: 0, borderColor: "divider" }}>
-            <Tabs
+            <TabList
               onChange={handleChange}
               aria-label="lab API tabs example"
-              //   orientation="vertical"
-              centered
-              // variant="scrollable"
-              scrollButtons="auto"
+              variant="scrollable"
             >
+              {/* <Tabs
+                // onChange={handleChange}
+                aria-label="lab API tabs example"
+                //   orientation="vertical"
+                centered
+                // variant="scrollable"
+                scrollButtons="auto"
+              > */}
               {Object.keys(props.city.indicators).map((ind) => (
                 //   <Button></Button>
                 <Tab label={ind} value={ind} />
               ))}
-            </Tabs>
+              {/* </Tabs> */}
+            </TabList>
           </Box>
           <Box>
             {Object.keys(props.city.indicators).map((ind) => (
