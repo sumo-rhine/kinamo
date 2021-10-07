@@ -38,13 +38,13 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
   if (props.cities.length > 0) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Box>
+        <Box pl={5} sx={{ display: "flex" }}>
           <IconButton disabled={index < 1} onClick={handleBack}>
             <NavigateBefore></NavigateBefore>
           </IconButton>
         </Box>
         <CarouselItem city={SelectedCity} />
-        <Box>
+        <Box pr={5} sx={{ display: "flex" }}>
           <IconButton disabled={index > 36} onClick={handleNext}>
             <NavigateNext></NavigateNext>
           </IconButton>
