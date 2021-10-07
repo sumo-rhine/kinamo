@@ -32,7 +32,8 @@ const RandomAnimationBanner: React.FC = (props) => {
     "assets/banner/" + city_list[index].toString() + "_streets.png";
   const parks_path =
     "assets/banner/" + city_list[index].toString() + "_parks.png";
-  // console.log(parks_path);
+
+  console.log("path of random animation banner: ", parks_path);
   const classes = useStyles();
   return (
     <Box

@@ -16,7 +16,8 @@ const LandingPage: React.FC = () => {
       <Header cityName="select your City"></Header>
       <RandomAnimationBanner></RandomAnimationBanner>
       {/* <AnimationBanner cityId={102} /> */}
-      <CityCarousel></CityCarousel>
+      {/* <CityCarousel></CityCarousel> */}
+      <CityStepper />
       {/* <CityStepper /> */}
       <About />
       <DividerOverview />

@@ -26,11 +26,15 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
   //     setActiveStep(0);
   //   }, [props]);
   console.log(props.cities);
-  return (
-    <Box>
-      <CarouselItem city={(props.cities as any)[activeStep]} />
-    </Box>
-  );
+  if (props.cities.length > 0) {
+    return (
+      <Box>
+        <CarouselItem city={props.cities[activeStep]} />
+      </Box>
+    );
+  } else {
+    return <div>loading</div>;
+  }
 };
 
 const mapStateToProps = (state: AppState) => {
