@@ -9,13 +9,15 @@ import TabPanel from "@mui/lab/TabPanel";
 import React, { useState } from "react";
 import { Button } from "@mui/material";
 import KeyFigureCard from "./KeyFigureCard";
+import Icon from "@mui/material/Icon";
 import StackedBar from "../StackedBar";
-
+// import { makeStyles } from "@mui/styles";
 interface CityTabProps {
   city: City;
 }
 
 const CityTab: React.FC<CityTabProps> = (props) => {
+  // const classes = useStyles();
   // console.log(Object.keys(props.city.indicators));
   // console.log(props.city);
   const [indicator, setIndicator] = useState("walkability");
@@ -33,6 +35,162 @@ const CityTab: React.FC<CityTabProps> = (props) => {
               aria-label="lab API tabs example"
               variant="scrollable"
             >
+              <Tab
+                icon={
+                  <Icon>
+                    <img
+                      src={"/assets/icons/walkability.svg"}
+                      height={25}
+                      // width={25}
+                    />
+                  </Icon>
+                }
+                value="walkability"
+                label="walkability"
+              />
+              <Tab
+                icon={
+                  <Icon>
+                    <img
+                      src={"/assets/icons/bikeability.svg"}
+                      height={25}
+                      // width={25}
+                    />
+                  </Icon>
+                }
+                value="bikeability"
+                label="bikeability"
+              />
+              <Tab
+                icon={
+                  <Icon>
+                    <img
+                      src={"/assets/icons/pt.svg"}
+                      height={25}
+                      // width={25}
+                    />
+                  </Icon>
+                }
+                value="public_transport"
+                label="Public Transport"
+              />
+              <Tab
+                icon={
+                  <Icon>
+                    <img
+                      src={"/assets/icons/car.svg"}
+                      height={25}
+                      // width={25}
+                    />
+                  </Icon>
+                }
+                value="car_integration"
+                label="car integration"
+              />
+              <Tab
+                icon={
+                  <Icon>
+                    <img
+                      src={"/assets/icons/spatial-structur.svg"}
+                      height={25}
+                      // width={25}
+                    />
+                  </Icon>
+                }
+                value="functional_diversity"
+                label="spatial structure"
+              />
+              <Tab
+                icon={
+                  <Icon>
+                    <img
+                      src={"/assets/icons/accessibility.svg"}
+                      height={25}
+                      // width={30}
+                    />
+                  </Icon>
+                }
+                value="accessibility"
+                label="accessibility"
+              />
+              <Tab
+                icon={
+                  <Icon>
+                    <img
+                      src={"/assets/icons/commuting.svg"}
+                      height={25}
+                      // width={25}
+                    />
+                  </Icon>
+                }
+                value="cross_border"
+                label="Commuting"
+              />
+              <Tab
+                icon={
+                  <Icon>
+                    <img
+                      src={"/assets/icons/land-consumption.svg"}
+                      height={25}
+                      // width={25}
+                    />
+                  </Icon>
+                }
+                value="land_use"
+                label="Land Use"
+              />
+              <Tab
+                icon={
+                  <Icon>
+                    <img
+                      src={"/assets/icons/air-pollution.svg"}
+                      height={25}
+                      // width={25}
+                    />
+                  </Icon>
+                }
+                value="emissions"
+                label="emissions"
+              />
+              <Tab
+                icon={
+                  <Icon>
+                    <img
+                      src={"/assets/icons/traffic-noise.svg"}
+                      height={25}
+                      // width={25}
+                    />
+                  </Icon>
+                }
+                value="noise_pollution"
+                label="Noise Pollution"
+              />
+              <Tab
+                icon={
+                  <Icon>
+                    <img
+                      src={"/assets/icons/safety.svg"}
+                      height={25}
+                      // width={25}
+                    />
+                  </Icon>
+                }
+                value="traffic_safety"
+                label="Safety"
+              />
+              <Tab
+                icon={
+                  <Icon>
+                    <img
+                      src={"/assets/icons/modal-choice.svg"}
+                      height={25}
+                      // width={25}
+                    />
+                  </Icon>
+                }
+                value="behavior"
+                label="Behavior"
+              />
               {/* <Tabs
                 // onChange={handleChange}
                 aria-label="lab API tabs example"
@@ -41,10 +199,10 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                 // variant="scrollable"
                 scrollButtons="auto"
               > */}
-              {Object.keys(props.city.indicators).map((ind) => (
+              {/* {Object.keys(props.city.indicators).map((ind) => (
                 //   <Button></Button>
                 <Tab label={ind} value={ind} />
-              ))}
+              ))} */}
               {/* </Tabs> */}
             </TabList>
           </Box>

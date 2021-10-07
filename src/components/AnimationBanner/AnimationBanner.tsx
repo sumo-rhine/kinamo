@@ -15,9 +15,9 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
   // as long as we dont have all cities maps in public I use only one
   const id = 4;
 
-  const pois_path = "assets/banner/" + id.toString() + "_pois.png";
-  const streets_path = "assets/banner/" + id.toString() + "_streets.png";
-  const parks_path = "assets/banner/" + id.toString() + "_parks.png";
+  const pois_path = "/assets/banner/" + id.toString() + "_pois.png";
+  const streets_path = "/assets/banner/" + id.toString() + "_streets.png";
+  const parks_path = "/assets/banner/" + id.toString() + "_parks.png";
   // console.log(props.city.city);
   // console.log(id);
   console.log("path of animationBanner:", parks_path);

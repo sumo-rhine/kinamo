@@ -5,6 +5,10 @@ import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
+import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import { NavigateNext, NavigateBefore } from "@mui/icons-material";
 import StepLabel from "@mui/material/StepLabel";
 import CarouselItem from "./Carousel-Item";
 import { connect } from "react-redux";
@@ -14,22 +18,37 @@ interface CityStepperProps {
 }
 
 const CityStepper: React.FC<CityStepperProps> = (props) => {
-  const [activeStep, setActiveStep] = React.useState(0);
+  const [index, setIndex] = React.useState(0);
+  const [SelectedCity, setCity] = React.useState<City>(props.cities[index]);
 
   const handleNext = () => {
-    setActiveStep(activeStep + 1);
+    setIndex(index + 1);
+    setCity(props.cities[index]);
+    // console.log(index);
   };
   const handleBack = () => {
-    setActiveStep(activeStep - 1);
+    setIndex(index - 1);
+    setCity(props.cities[index]);
+    // console.log(index);
   };
   //   useEffect(() => {
   //     setActiveStep(0);
   //   }, [props]);
-  console.log(props.cities);
+  console.log(SelectedCity);
   if (props.cities.length > 0) {
     return (
-      <Box>
-        <CarouselItem city={props.cities[activeStep]} />
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box>
+          <IconButton disabled={index < 1} onClick={handleBack}>
+            <NavigateBefore></NavigateBefore>
+          </IconButton>
+        </Box>
+        <CarouselItem city={SelectedCity} />
+        <Box>
+          <IconButton disabled={index > 36} onClick={handleNext}>
+            <NavigateNext></NavigateNext>
+          </IconButton>
+        </Box>
       </Box>
     );
   } else {
