@@ -31,7 +31,7 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
     setIndex(index - 1);
   };
 
-  if (MediaCapabilities.length > 0) {
+  if (cities.length > 0) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Box pl={5} sx={{ display: "flex" }}>
