@@ -38,7 +38,7 @@ const RandomAnimationBanner: React.FC = (props) => {
     <Box
       sx={{
         width: "100%",
-        height: 700,
+        height: 550,
         position: "relative",
         backgroundColor: "#111213",
         overflow: "hidden",
@@ -58,7 +58,7 @@ const RandomAnimationBanner: React.FC = (props) => {
         {/* </Fade> */}
       </Box>
       <Box
-        mt={20}
+        mt={15}
         ml={15}
         className={classes.font}
         sx={{ position: "absolute" }}
@@ -77,7 +77,7 @@ const RandomAnimationBanner: React.FC = (props) => {
           in the Upper Rhine Region
         </Typography>
         <Typography
-          mt={15}
+          mt={10}
           ml={5}
           variant="h5"
           component="h5"

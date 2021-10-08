@@ -17,7 +17,7 @@ const LandingPage: React.FC = () => {
       <RandomAnimationBanner></RandomAnimationBanner>
       {/* <AnimationBanner cityId={102} /> */}
       {/* <CityCarousel></CityCarousel> */}
-      {/* <CityStepper /> */}
+      <CityStepper />
       <About />
       <DividerOverview />
       <CityTable />

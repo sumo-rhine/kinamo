@@ -34,7 +34,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
           cityInfo["shortName"] = fig.short_name;
           cityInfo["keyFigureValue"] = fig.value;
           cityInfo["keyFigureUnit"] = fig.unit;
-          cityInfo["keyFigurePoints"] = fig.points;
+          cityInfo["keyFigurePoints"] = Math.abs(fig.points - 37);
         }
       });
     });
@@ -46,21 +46,21 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
   } else {
     return (
       <Box
-        pb={20}
+        pb={15}
         style={{
           display: "flex",
           justifyContent: "space-around",
           alignItems: "center",
           flexDirection: "row",
           width: "100%",
-          height: "500px",
+          height: "300px",
           // alignItems: "flex-start",
         }}
       >
-        <Box pt={8}>
+        <Box pt={10}>
           <Box>
             <Typography
-              pb={15}
+              pb={8}
               variant="h3"
               component="h2"
               fontWeight="fontWeightLight"
@@ -84,14 +84,14 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
               {/* <KeyFigureBar points={data.keyFigurePoints}></KeyFigureBar> */}
               {data.keyFigurePoints} of 36 Cities
             </Box>
-            <Box pt={4}>
+            <Box pt={1}>
               <Button
                 // variant="contained"
                 // href={`/city/${props.city.id}`}
                 component={Link}
                 to={`/city/${props.city.id}`}
                 style={{ padding: ".5rem" }}
-                variant="outlined"
+                // variant="outlined"
               >
                 Explore
               </Button>
@@ -99,7 +99,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
           </Box>
         </Box>
         <Box>
-          <Box>
+          <Box pt={15}>
             <CardMedia
               style={{ width: 500, height: 400 }}
               image="assets/thumbnail/102.png"
