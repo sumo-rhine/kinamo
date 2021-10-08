@@ -7,7 +7,7 @@ import { Button, Stack } from "@mui/material";
 import { ClosedCaptionDisabledOutlined } from "@mui/icons-material";
 import { AboutSuMoProject, AboutIndicators, AboutKeyFigures } from "./About";
 const steps = [
-  "What is the SuMo Rhine Project?",
+  "What is KINaMo and how to use it?",
   "How to measure Sustainable Mobility?",
   "Key Figures",
 ];
@@ -56,7 +56,7 @@ const HorizontalLinearStepper = () => {
           </Button>
         </Stack>
       </Box>
-      <Box sx={{ maxWidth: 500 }}>
+      <Box sx={{ maxWidth: 700 }}>
         {(() => {
           if (activeStep === 0) {
             return (
