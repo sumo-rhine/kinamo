@@ -7,11 +7,6 @@ const data = loadData();
 console.log(data);
 
 const StoreTest: React.FC = () => {
-  // console.log(AppState);
-  // console.log(AppState);
-  // console.log(AppState);
-  // console.log(AppState);
-
   return (
     <Container>
       <p>Store Test</p>

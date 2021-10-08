@@ -24,12 +24,10 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
   const handleNext = () => {
     setIndex(index + 1);
     setCity(props.cities[index]);
-    // console.log(index);
   };
   const handleBack = () => {
     setIndex(index - 1);
     setCity(props.cities[index]);
-    // console.log(index);
   };
   //   useEffect(() => {
   //     setActiveStep(0);

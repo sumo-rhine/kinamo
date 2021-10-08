@@ -22,8 +22,6 @@ const HorizontalLinearStepper = () => {
     setActiveStep(activeStep - 1);
   };
 
-  // console.log(activeStep);
-
   return (
     <Box
       sx={{

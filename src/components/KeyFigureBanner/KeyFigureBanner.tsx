@@ -17,18 +17,13 @@ const getKeyFigure = (city: City, keyFigureName: string): any => {
   const keyFigureInfo: any = { name: city.city };
   //   const test = city.area;
   Object.entries(city.indicators).forEach(([name, indicator]) => {
-    // console.log(indicator);
-    // console.log(keyFigureName);
     indicator.keyFigures.map((fig: any) => {
       if (fig.id === keyFigureName) {
-        // console.log("found");
-        // console.log(fig);
         keyFigureInfo["description"] = fig.long_name;
         keyFigureInfo["shortName"] = fig.short_name;
         keyFigureInfo["value"] = fig.value;
         keyFigureInfo["unit"] = fig.unit;
         keyFigureInfo["points"] = Math.abs(fig.points - 37);
-        // console.log(keyFigureInfo);
       }
     });
   });

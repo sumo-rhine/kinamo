@@ -18,8 +18,6 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
   const pois_path = "/assets/banner/" + id.toString() + "_pois.png";
   const streets_path = "/assets/banner/" + id.toString() + "_streets.png";
   const parks_path = "/assets/banner/" + id.toString() + "_parks.png";
-  // console.log(props.city.city);
-  // console.log(id);
   console.log("path of animationBanner:", parks_path);
 
   const classes = useStyles();

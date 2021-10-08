@@ -18,8 +18,6 @@ interface CityTabProps {
 
 const CityTab: React.FC<CityTabProps> = (props) => {
   // const classes = useStyles();
-  // console.log(Object.keys(props.city.indicators));
-  // console.log(props.city);
   const [indicator, setIndicator] = useState("walkability");
   const handleChange = (event: React.SyntheticEvent, newIndicator: string) => {
     setIndicator(newIndicator);

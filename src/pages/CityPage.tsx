@@ -43,7 +43,6 @@ const CityPage: React.FC<CityPageProps> = (props) => {
     filterCity();
   }, [cityId, props]);
 
-  // console.log(city);
   // return the page
   return (
     <Box>

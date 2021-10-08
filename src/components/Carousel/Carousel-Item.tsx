@@ -23,17 +23,13 @@ interface CityInfoData {
 
 const CarouselItem: React.FC<CarouselItemProps> = (props) => {
   const [data, setData] = useState<CityInfoData>();
-  // console.log(props.city);
 
   useEffect(() => {
     const cityInfo: any = { cityName: props.city.city };
     const best = props.city.two_best_keyFigures[0];
-    // console.log(best);
-    // const worst = props.city.two_worst_keyFigures[0];
     Object.entries(props.city.indicators).forEach(([name, indicator]) => {
       indicator.keyFigures.map((fig: any) => {
         if (fig.id === best) {
-          // console.log(fig);
           cityInfo["keyFigureDescription"] = fig.long_name;
           cityInfo["shortName"] = fig.short_name;
           cityInfo["keyFigureValue"] = fig.value;
@@ -42,7 +38,6 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
         }
       });
     });
-    // console.log(cityInfo);
     setData(cityInfo);
   }, [props]);
 

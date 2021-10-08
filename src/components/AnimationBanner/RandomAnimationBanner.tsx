@@ -24,7 +24,6 @@ const RandomAnimationBanner: React.FC = (props) => {
     return () => clearInterval(interval);
   }, []);
 
-  // console.log(loading);
   const city_list = [4, 102, 483, 1341, 1502];
   const pois_path =
     "assets/banner/" + city_list[index].toString() + "_pois.png";
