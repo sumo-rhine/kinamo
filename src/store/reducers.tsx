@@ -16,7 +16,7 @@ const initialState: AppState = {
     md5sum: "335c146a85259d2093e0932e24ed75f4",
   },
   loading: true,
-  debug: true    // set to true during development to debug the application
+  debug: false    // set to true during development to debug the application
 };
 
 // Main Redux Reducer

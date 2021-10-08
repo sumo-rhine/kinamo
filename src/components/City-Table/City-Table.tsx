@@ -157,6 +157,7 @@ const CityTable: React.FC<CityTableProps> = (props) => {
                 {HEADCELLS.map((headcell) => {
                   return (
                     <TableCell
+                      key={headcell.id}
                       align={headcell.id === "city" ? "left" : "center"}
                       width={headcell.id === "city" ? "10%" : "6%"}
                     >
