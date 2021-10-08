@@ -25,7 +25,7 @@ const useStyles = makeStyles(() =>
       // padding: theme.spacing(2, 4, 3),
     },
     button: {
-      color: "white",
+      color: "black",
     },
   })
 );

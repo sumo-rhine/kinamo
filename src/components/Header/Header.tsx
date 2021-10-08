@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     // color: "white",
   },
   divider: {
-    fill: "white",
+    // fill: "white",
     // width: 2,
     // height: 35,
     display: "block",
@@ -43,7 +43,7 @@ const useStyles = makeStyles({
 const Header: React.FC<CityNameProps> = (props) => {
   const classes = useStyles();
   return (
-    <AppBar position="sticky" style={{ background: "black" }}>
+    <AppBar position="sticky" style={{ background: "white" }}>
       <Toolbar>
         <Box className={classes.mainContainer}>
           <IconButton
@@ -55,7 +55,7 @@ const Header: React.FC<CityNameProps> = (props) => {
             // routerLink="home"
             // href="/home"
           >
-            <HomeIcon fontSize="large" style={{ fill: "white" }} />
+            <HomeIcon fontSize="large" style={{ fill: "black" }} />
           </IconButton>
           <Divider
             orientation="vertical"
@@ -65,9 +65,15 @@ const Header: React.FC<CityNameProps> = (props) => {
             // light={true}
             // light
           />
-          <Typography variant="h5" fontWeight="fontWeightLight">
-            KINaMo
-          </Typography>
+          <Box pl={1.5}>
+            <Typography
+              style={{ color: "black" }}
+              variant="h5"
+              fontWeight="fontWeightLight"
+            >
+              KINaMo
+            </Typography>
+          </Box>
           <Box ml={3}>
             <SelectCityModalButton
               cityName={props.cityName}

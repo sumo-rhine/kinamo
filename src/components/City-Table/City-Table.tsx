@@ -35,7 +35,7 @@ const HEADCELLS: HeadCell[] = [
   { id: "land_use", label: "Landuse" },
   { id: "traffic_safety", label: "Safety" },
   { id: "emissions", label: "Emissions" },
-  { id: "cross_border", label: "Border Patrol" },
+  { id: "cross_border", label: "Commuting" },
   { id: "functional_diversity", label: "Functional Diversity" },
   { id: "accessibility", label: "Accessibility" },
   { id: "behavior", label: "Behavior" },
