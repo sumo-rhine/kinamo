@@ -37,6 +37,7 @@ const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
   const [worst2, setWorst2] = useState<KeyFigure>();
 
   useEffect(() => {
+    console.log(props.city)
     setBest1(getKeyFigure(props.city, props.city.two_best_keyFigures[0]));
     setBest2(getKeyFigure(props.city, props.city.two_best_keyFigures[1]));
     setWorst1(getKeyFigure(props.city, props.city.two_worst_keyFigures[0]));

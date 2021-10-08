@@ -1,10 +1,9 @@
 import { Box } from "@mui/system";
-import StackedBar from "../StackedBar";
 import { City } from "../../models/FullDataset";
 import { Typography } from "@mui/material";
 import StackedBarRow from "./StackedBarRow";
-import Divider from "@mui/material/Divider";
-import CityTab from "../CityTab/CityTab";
+
+
 interface CityOverviewProps {
   city: City;
 }
