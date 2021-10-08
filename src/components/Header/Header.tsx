@@ -52,8 +52,6 @@ const Header: React.FC<CityNameProps> = (props) => {
             aria-label="home"
             component={Link}
             to="/home"
-            // routerLink="home"
-            // href="/home"
           >
             <HomeIcon fontSize="large" style={{ fill: "black" }} />
           </IconButton>

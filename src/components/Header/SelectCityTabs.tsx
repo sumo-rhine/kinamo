@@ -6,7 +6,7 @@ import { City } from "../../models/FullDataset";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
-
+import { Link } from "react-router-dom";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
@@ -65,7 +65,7 @@ const SelectCityTabs: React.FC<CityModalProps> = (props) => {
             .map((city) => (
               <TabPanel value={value}>
                 {
-                  <Button size="large" href={`/city/${city.id}`}>
+                  <Button size="large" component={Link} to={`/city/${city.id}`}>
                     {city.city}
                   </Button>
                 }

@@ -18,7 +18,7 @@ import { Button } from "@mui/material";
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
 import CityTableCell from "./City-Table-Cell";
-
+import { Link } from "react-router-dom";
 // define the HeadCell interface and object array
 interface HeadCell {
   id: string;
@@ -179,7 +179,11 @@ const CityTable: React.FC<CityTableProps> = (props) => {
                 return (
                   <TableRow sx={{ height: "3px" }}>
                     <TableCell component="th" scope="row">
-                      <Button size="small" href={`/city/${city.ID}`}>
+                      <Button
+                        size="small"
+                        component={Link}
+                        to={`/city/${city.ID}`}
+                      >
                         {city.city}
                       </Button>
                       {/* <strong></strong> */}
