@@ -1,39 +1,37 @@
-import * as React from "react";
 import { Box } from "@mui/system";
 import { useState, useEffect } from "react";
-import { AppState } from "../../models/AppState";
-import { City } from "../../models/FullDataset";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import Paper from "@mui/material/Paper";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import { NavigateNext, NavigateBefore } from "@mui/icons-material";
-import StepLabel from "@mui/material/StepLabel";
-import CarouselItem from "./Carousel-Item";
 import { connect } from "react-redux";
+
+import CarouselItem from "./Carousel-Item";
+import { AppState } from "../../models/AppState";
+import { City } from "../../models/FullDataset";
+
 
 interface CityStepperProps {
   cities: City[];
 }
 
 const CityStepper: React.FC<CityStepperProps> = (props) => {
-  const [index, setIndex] = React.useState(0);
-  const [SelectedCity, setCity] = React.useState<City>(props.cities[index]);
+  const [index, setIndex] = useState(0);
+  const [cities, setCities] = useState<City[]>([]);
+
+  const [SelectedCity, setCity] = useState<City | null>(null);
+
+  useEffect(() => {
+    setIndex(0);
+    setCities(props.cities);
+  }, [props])
 
   const handleNext = () => {
     setIndex(index + 1);
-    setCity(props.cities[index]);
   };
   const handleBack = () => {
     setIndex(index - 1);
-    setCity(props.cities[index]);
   };
-  //   useEffect(() => {
-  //     setActiveStep(0);
-  //   }, [props]);
-  console.log(SelectedCity);
-  if (props.cities.length > 0) {
+
+  if (MediaCapabilities.length > 0) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Box pl={5} sx={{ display: "flex" }}>
@@ -41,7 +39,7 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
             <NavigateBefore></NavigateBefore>
           </IconButton>
         </Box>
-        <CarouselItem city={SelectedCity} />
+        <CarouselItem city={cities[index]} />
         <Box pr={5} sx={{ display: "flex" }}>
           <IconButton disabled={index > 36} onClick={handleNext}>
             <NavigateNext></NavigateNext>
