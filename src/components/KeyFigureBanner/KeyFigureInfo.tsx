@@ -1,9 +1,12 @@
 import { Box } from "@mui/system";
 import KeyFigure from "./keyFigureInfo.model";
 import { Typography } from "@mui/material";
+
+
 interface KeyFigureInfoProps {
   info: KeyFigure | undefined;
 }
+
 
 const KeyFigureInfo: React.FC<KeyFigureInfoProps> = (props) => {
   return (

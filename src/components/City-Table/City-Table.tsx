@@ -157,6 +157,7 @@ const CityTable: React.FC<CityTableProps> = (props) => {
                 {HEADCELLS.map((headcell) => {
                   return (
                     <TableCell
+                      key={headcell.id}
                       align={headcell.id === "city" ? "left" : "center"}
                       width={headcell.id === "city" ? "10%" : "6%"}
                     >
@@ -177,7 +178,7 @@ const CityTable: React.FC<CityTableProps> = (props) => {
             <TableBody>
               {flatData.map((city) => {
                 return (
-                  <TableRow sx={{ height: "3px" }}>
+                  <TableRow key={city.city} sx={{ height: "3px" }}>
                     <TableCell component="th" scope="row">
                       <Button
                         size="small"
@@ -186,11 +187,11 @@ const CityTable: React.FC<CityTableProps> = (props) => {
                       >
                         {city.city}
                       </Button>
-                      {/* <strong></strong> */}
                     </TableCell>
                     {HEADCELLS.slice(1).map((headcell) => {
                       return (
                         <CityTableCell
+                          key={headcell.id}
                           value={Number(city[headcell.id])}
                           showOption={showOption}
                           stats={stats[headcell.id]}
