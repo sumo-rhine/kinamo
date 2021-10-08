@@ -20,7 +20,7 @@ import {
 // https://mui.com/styles/advanced/
 import { makeStyles } from "@mui/styles";
 import SelectCityModalButton from "./SelectCityModal";
-
+import { AboutProps } from "../How-it-Works/About.model";
 const useStyles = makeStyles({
   mainContainer: {
     display: `flex`,
@@ -40,7 +40,12 @@ const useStyles = makeStyles({
   },
 });
 
-const Header: React.FC<CityNameProps> = (props) => {
+interface HeaderProps {
+  cityName: CityNameProps;
+  aboutHover: AboutProps;
+}
+
+const Header: React.FC<CityNameProps & AboutProps> = (props) => {
   const classes = useStyles();
   return (
     <AppBar position="sticky" style={{ background: "white" }}>
@@ -72,7 +77,13 @@ const Header: React.FC<CityNameProps> = (props) => {
               KINaMo
             </Typography>
           </Box>
-          <Box ml={3}>
+          <Box
+            ml={3}
+            sx={{
+              backgroundColor: props.value ? "grey.500" : "white",
+              borderRadius: 30,
+            }}
+          >
             <SelectCityModalButton
               cityName={props.cityName}
             ></SelectCityModalButton>

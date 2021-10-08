@@ -2,11 +2,9 @@ import { Box } from "@mui/system";
 import KeyFigure from "./keyFigureInfo.model";
 import { Typography } from "@mui/material";
 
-
 interface KeyFigureInfoProps {
   info: KeyFigure | undefined;
 }
-
 
 const KeyFigureInfo: React.FC<KeyFigureInfoProps> = (props) => {
   return (
@@ -25,7 +23,9 @@ const KeyFigureInfo: React.FC<KeyFigureInfoProps> = (props) => {
       </Box>
       <Box sx={{ display: "flex", alignItems: "flex-end" }}>
         <Typography pr={1} variant="h5">
-          {props.info?.value.toFixed(1)}
+          {props.info?.value != null
+            ? props.info?.value.toFixed(1)
+            : "No Value"}
         </Typography>
         <Typography pr={1} variant="subtitle1" fontWeight="fontWeightLight">
           {props.info?.unit}

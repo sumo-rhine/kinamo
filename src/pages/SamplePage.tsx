@@ -821,7 +821,7 @@ const sampleCity: City = {
 const SamplePage: React.FC = () => {
   return (
     <Box>
-      <Header cityName={sampleCity.city}></Header>
+      {/* <Header cityName={sampleCity.city}></Header> */}
       {/* <AnimationBanner cityId={102}></AnimationBanner> */}
       {/* <CityTab></CityTab> */}
       <Box sx={{ width: "400px", p: 3 }}>

@@ -6,13 +6,14 @@ import StepLabel from "@mui/material/StepLabel";
 import { Button, Stack } from "@mui/material";
 import { ClosedCaptionDisabledOutlined } from "@mui/icons-material";
 import { AboutSuMoProject, AboutIndicators, AboutKeyFigures } from "./About";
+import { AboutProps } from "./About.model";
 const steps = [
   "What is KINaMo and how to use it?",
   "How to measure Sustainable Mobility?",
   "Key Figures",
 ];
 
-const HorizontalLinearStepper = () => {
+const HorizontalLinearStepper: React.FC<AboutProps> = (props) => {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -61,7 +62,7 @@ const HorizontalLinearStepper = () => {
           if (activeStep === 0) {
             return (
               <Box>
-                <AboutSuMoProject />
+                <AboutSuMoProject value={props.value} setter={props.setter} />
               </Box>
             );
           }

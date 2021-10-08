@@ -10,12 +10,15 @@ import Header from "../components/Header/Header";
 import { AppState } from "../models/AppState";
 import { City } from "../models/FullDataset";
 import CityTab from "../components/CityTab/CityTab";
-
+// import AboutProps from "../components/How-it-Works/About.model";
 interface CityPageProps {
   cities: City[];
+  // stuff: AboutProps;
 }
 
 const CityPage: React.FC<CityPageProps> = (props) => {
+  const [active, setActive] = useState(false);
+
   // load the city id from the url
   const { cityId } = useParams<{ cityId: string }>();
   // #58
@@ -49,7 +52,7 @@ const CityPage: React.FC<CityPageProps> = (props) => {
   // return the page
   return (
     <Box>
-      <Header cityName={city?.city} />
+      <Header value={true} setter={setActive} cityName={city?.city} />
       {
         /* Switch the city variable - if null, no city is (yet) loaded */
         city ? (

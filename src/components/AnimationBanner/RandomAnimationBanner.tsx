@@ -58,7 +58,7 @@ const RandomAnimationBanner: React.FC = (props) => {
         {/* </Fade> */}
       </Box>
       <Box
-        mt={15}
+        mt={19}
         ml={15}
         className={classes.font}
         sx={{ position: "absolute" }}

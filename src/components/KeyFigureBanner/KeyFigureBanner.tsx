@@ -68,9 +68,9 @@ const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
     <Stack
       mt={70}
       mb={4}
-      sx={{ width: "100" }}
+      sx={{ width: "200" }}
       direction="row"
-      spacing={10}
+      spacing={5}
       justifyContent="space-around"
       alignItems="flex-end"
       divider={
