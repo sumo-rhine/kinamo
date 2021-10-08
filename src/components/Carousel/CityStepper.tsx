@@ -8,7 +8,6 @@ import CarouselItem from "./Carousel-Item";
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
 
-
 interface CityStepperProps {
   cities: City[];
 }
@@ -17,12 +16,12 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
   const [index, setIndex] = useState(0);
   const [cities, setCities] = useState<City[]>([]);
 
-  const [SelectedCity, setCity] = useState<City | null>(null);
+  // const [SelectedCity, setCity] = useState<City | null>(null);
 
   useEffect(() => {
     setIndex(0);
     setCities(props.cities);
-  }, [props])
+  }, [props]);
 
   const handleNext = () => {
     setIndex(index + 1);

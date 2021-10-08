@@ -31,7 +31,9 @@ const CityPage: React.FC<CityPageProps> = (props) => {
     //DEV: here we could add handling for unknown cities, as the user might just change the url
     // maybe the props.cities is mutated somewhere, then we need the slower but saver cloneDeep Aproach
     // const city = cloneDeep(props.cities).filter((city) => city.id === Number(cityId)).pop();
-    const city = props.cities.filter(city => city.id === Number(cityId)).pop();
+    const city = props.cities
+      .filter((city) => city.id === Number(cityId))
+      .pop();
 
     // we can replace the setCity(null) with setCity(errorMessage) for the case
     // that a city was requested, that does not exist
