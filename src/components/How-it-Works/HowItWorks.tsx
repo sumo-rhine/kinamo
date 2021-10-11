@@ -5,12 +5,12 @@ import { AboutProps } from "./About.model";
 
 const About: React.FC<AboutProps> = (props) => {
   return (
-    <Box sx={{ width: "100%", height: 500 }}>
+    <Box sx={{ width: "100%", height: 700 }}>
       <Divider sx={{ width: "100%" }} textAlign="left">
         <Typography variant="h2">KINaMo</Typography>
       </Divider>
       {/* <Box pt={10} sx={{ display: "flex", justifyContent: "center" }}> */}
-      <HorizontalLinearStepper value={props.value} setter={props.setter} />
+      <HorizontalLinearStepper />
       {/* </Box> */}
     </Box>
   );

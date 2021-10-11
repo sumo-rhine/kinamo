@@ -5,24 +5,31 @@ import { Typography } from "@mui/material";
 import { Link } from "@mui/material";
 import { City } from "../../models/FullDataset";
 import Tabs from "@mui/material/Tabs";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import Paper from "@mui/material/Paper";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import Icon from "@mui/material/Icon";
 import React, { useState } from "react";
-import { AboutProps } from "./About.model";
-interface CityTabProps {
+import Grid from "@mui/material/Grid";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+
+// import { AboutProps } from "./About.model";
+interface AboutProps {
   city: City;
 }
 
-export const AboutSuMoProject: React.FC<AboutProps> = (props) => {
+export const AboutSuMoProject = () => {
   return (
     <Box>
-      <Typography variant="h5">
+      <Typography variant="h4" fontWeight="fontWeightLight">
         KINaMo - Information System for Municipal Mobility
       </Typography>
-      <Typography mt={4} fontWeight="fontWeightLight" variant="subtitle1">
+      <Typography mt={4} fontWeight="fontWeightLight" variant="h6">
         KINaMo provides detailed
         <Box fontWeight="bold" display="inline">
           {" "}
@@ -36,7 +43,7 @@ export const AboutSuMoProject: React.FC<AboutProps> = (props) => {
           component="div"
           fontWeight="fontWeightLight"
           mt={4}
-          variant="subtitle1"
+          variant="h6"
         >
           A primary goal of KINaMo is to simplify the evaluation of municipal
           mobility by utilizing an automated, data-based approach that will make
@@ -51,21 +58,22 @@ export const AboutSuMoProject: React.FC<AboutProps> = (props) => {
           .
         </Typography>
       </Box>
-      <Stack mt={6} direction="row" spacing={2}>
+      {/* <Stack mt={6} direction="row" spacing={2}>
         <Button
-          onMouseEnter={() => props.setter(true)}
-          onMouseLeave={() => props.setter(false)}
-          variant="outlined"
+        // onMouseEnter={() => props.setter(true)}
+        // onMouseLeave={() => props.setter(false)}
+        // variant="outlined"
         >
           Select City
         </Button>
         <Button variant="outlined">Overview</Button>
-      </Stack>
+      </Stack> */}
     </Box>
   );
 };
 
-export const AboutIndicators = () => {
+export const AboutIndicators: React.FC<AboutProps> = (props) => {
+  // console.log(props.city);
   const [indicator, setIndicator] = useState("walkability");
   const handleChange = (event: React.SyntheticEvent, newIndicator: string) => {
     setIndicator(newIndicator);
@@ -73,18 +81,27 @@ export const AboutIndicators = () => {
 
   return (
     <Box>
-      {/* <Typography variant="h5">
-        Measure Sustainable Mobility with Indicators
-      </Typography>{" "}
-      <Typography mt={4} fontWeight="fontWeightLight">
-        The assessment is based on
+      <Typography variant="h4" fontWeight="fontWeightLight">
+        KINaMo - Indicator System
+      </Typography>
+      <Typography mt={4} fontWeight="fontWeightLight" variant="h6">
+        To evaluate Mobility KINaMo uses
         <Box fontWeight="bold" display="inline">
           {" "}
-          11 indicators{" "}
+          12 Indicators{" "}
         </Box>
+        which are composed of
+        <Box fontWeight="bold" display="inline">
+          {" "}
+          Key Figures
+        </Box>
+      </Typography>
+      {/* <Typography variant="h5" fontWeight="fontWeightLight">
+        Indicators
       </Typography> */}
+
       <TabContext value={indicator}>
-        <Box sx={{ borderBottom: 0, borderColor: "divider" }}>
+        <Box mt={6} sx={{ borderBottom: 0, borderColor: "divider" }}>
           <TabList
             onChange={handleChange}
             aria-label="lab API tabs example"
@@ -248,7 +265,78 @@ export const AboutIndicators = () => {
             />
           </TabList>
         </Box>
-        <Box>Indicator Description</Box>
+        <Box>
+          {Object.keys(props.city.indicators).map((ind) => (
+            <TabPanel value={ind}>
+              <Box m={5}>
+                <Box
+                  mt={4}
+                  mb={5}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "50%",
+                  }}
+                >
+                  <Typography fontWeight="fontWeightLight" variant="h5">
+                    {/* {(props.city.indicators as any)[ind].short_name} */}
+                    Key Figures
+                  </Typography>
+                  {/* <StackedBar
+                    indicator={(props.city.indicators as any)[ind]}
+                    shadow={false}
+                    rounded={false}
+                    background="white"
+                    height={0.8}
+                    animation="1s"
+                  /> */}
+                  <Box>
+                    <Typography fontWeight="fontWeightLight" variant="h6">
+                      {(props.city.indicators as any)[ind].description}
+                    </Typography>
+                  </Box>
+                </Box>
+                <Paper elevation={3} square>
+                  <Box p={2}>
+                    <Grid
+                      container
+                      spacing={2}
+                      columns={12}
+
+                      // spacing={{ xs: 2, md: 3 }}
+                      // columns={{ xs: 8 }}
+                    >
+                      {(props.city.indicators as any)[ind].keyFigures.map(
+                        (keyFigure: any) => (
+                          <Grid item xs={4}>
+                            <Paper>
+                              <Box
+                                p={1}
+                                sx={{
+                                  display: "flex",
+                                  justifyContent: "space-between",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <Typography
+                                  fontWeight="fontWeightLight"
+                                  variant="h6"
+                                >
+                                  {keyFigure.short_name}
+                                </Typography>
+                                <HelpOutlineIcon />
+                              </Box>
+                            </Paper>
+                          </Grid>
+                        )
+                      )}
+                    </Grid>
+                  </Box>
+                </Paper>
+              </Box>
+            </TabPanel>
+          ))}
+        </Box>
       </TabContext>
     </Box>
   );

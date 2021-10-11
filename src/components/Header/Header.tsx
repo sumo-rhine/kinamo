@@ -80,7 +80,8 @@ const Header: React.FC<CityNameProps & AboutProps> = (props) => {
           <Box
             ml={3}
             sx={{
-              backgroundColor: props.value ? "grey.500" : "white",
+              // backgroundColor: props.value ? "grey.500" : "white",
+
               borderRadius: 30,
             }}
           >
