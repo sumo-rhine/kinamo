@@ -18,6 +18,7 @@ import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import Slider from "@mui/material/Slider";
+import { setTextRange } from "typescript";
 
 // import { AboutProps } from "./About.model";
 interface AboutProps {
@@ -351,20 +352,23 @@ export const AboutKeyFigures = () => {
     number | string | Array<number | string>
   >(30);
 
+  const [speedLimitRank, setSpeedLimitRank] = useState(70 / (100 / 36));
+
   const handleSliderChangeSpeedLimit = (
     event: Event,
     newValue: number | number[]
   ) => {
     setSpeedLimit(newValue);
-    setSpeedLimitRest(100 - (newValue as any));
+    setSpeedLimitRest(100 - (newValue as number));
+    setSpeedLimitRank((newValue as number) / (100 / 36));
   };
 
-  console.log(speedLimit);
+  // console.log(speedLimit);
 
   return (
     <Box>
       <Typography variant="h4" fontWeight="fontWeightLight">
-        KINaMo - Information System for Municipal Mobility
+        How are the Indicators computed?
       </Typography>
       <Typography mt={4} fontWeight="fontWeightLight" variant="h6">
         KINaMo provides detailed
@@ -384,17 +388,21 @@ export const AboutKeyFigures = () => {
               <Box sx={{ display: "flex" }}>
                 <Box
                   sx={{
-                    width: speedLimit,
+                    width: (speedLimit as number) * 2,
                     backgroundColor: "#1A4613",
-                    height: 20,
+                    height: 25,
                   }}
                 ></Box>
                 <Box
-                  sx={{ width: 250, backgroundColor: "#226A2A", height: 20 }}
+                  sx={{ width: 200, backgroundColor: "#226A2A", height: 25 }}
                 ></Box>
 
                 <Box
-                  sx={{ width: 100, backgroundColor: "#d3d3d3", height: 20 }}
+                  sx={{
+                    width: 400 - ((speedLimit as number) * 2 + 200),
+                    backgroundColor: "#d3d3d3",
+                    height: 25,
+                  }}
                 ></Box>
                 <Box>9</Box>
               </Box>
@@ -402,9 +410,9 @@ export const AboutKeyFigures = () => {
             </Box>
           </Grid>
           <Grid xs={6} item>
-            <Box sx={{ display: "flex", alignItems: "flex-start" }}>
+            <Box ml={20}>
               <Typography pr={3} variant="h5" fontWeight="fontWeightLight">
-                {speedLimit} OF 36 CITES
+                {speedLimit} % Speed limit
               </Typography>
               <Box sx={{ width: 300 }}>
                 <Slider
@@ -419,31 +427,31 @@ export const AboutKeyFigures = () => {
           <Grid xs={6} item>
             <Box>
               <Typography variant="h5" fontWeight="fontWeightLight">
-                {speedLimit} OF 36 CITES
+                {speedLimitRank.toFixed(0)} OF 36 CITES
               </Typography>
 
               <Box sx={{ display: "flex" }}>
                 <Box
                   sx={{
-                    width: speedLimit,
+                    width: (speedLimit as number) * 2,
                     backgroundColor: "#1A4613",
-                    height: 20,
+                    height: 10,
                   }}
                 ></Box>
                 <Box
                   sx={{
-                    width: speedLimitRest,
+                    width: (speedLimitRest as number) * 2,
                     backgroundColor: "#d3d3d3",
-                    height: 20,
+                    height: 10,
                   }}
                 ></Box>
               </Box>
             </Box>
           </Grid>
           <Grid xs={6} item>
-            <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+            <Box ml={20}>
               <Typography pr={3} variant="h5" fontWeight="fontWeightLight">
-                8 OF 36 CITES
+                Streets with Low Traffic
               </Typography>
               <Box sx={{ width: 300 }}>
                 <Slider
@@ -462,10 +470,10 @@ export const AboutKeyFigures = () => {
               </Typography>
               <Box sx={{ display: "flex" }}>
                 <Box
-                  sx={{ width: 250, backgroundColor: "#226A2A", height: 20 }}
+                  sx={{ width: 250, backgroundColor: "#226A2A", height: 10 }}
                 ></Box>
                 <Box
-                  sx={{ width: 40, backgroundColor: "#d3d3d3", height: 20 }}
+                  sx={{ width: 40, backgroundColor: "#d3d3d3", height: 10 }}
                 ></Box>
               </Box>
             </Box>
