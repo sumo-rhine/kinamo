@@ -5,7 +5,7 @@ import { AboutProps } from "./About.model";
 
 const About: React.FC<AboutProps> = (props) => {
   return (
-    <Box sx={{ width: "100%", height: 700 }}>
+    <Box sx={{ width: "100%" }}>
       <Divider sx={{ width: "100%" }} textAlign="left">
         <Typography variant="h2">KINaMo</Typography>
       </Divider>

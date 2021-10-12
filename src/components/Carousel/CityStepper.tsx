@@ -24,33 +24,47 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
   useEffect(() => {
     console.log(slideIn);
     setIndex(0);
-    // setSlideIn(false);
+    setSlideIn(false);
     setCities(props.cities);
   }, [props]);
 
   const handleNext = () => {
     setIndex(index + 1);
-    // setSlideDirection("left");
-    // setSlideIn(true);
+    setSlideDirection("left");
+    setSlideIn(true);
   };
   const handleBack = () => {
     setIndex(index - 1);
-    // setSlideDirection("right");
-    // setSlideIn(true);
+    setSlideDirection("right");
+    setSlideIn(true);
   };
 
   if (cities.length > 0) {
     return (
       <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Box pl={5} sx={{ display: "flex" }}>
+        <Box
+          pl={5}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+          }}
+        >
           <IconButton disabled={index < 1} onClick={handleBack}>
             <NavigateBefore></NavigateBefore>
           </IconButton>
         </Box>
-        {/* <Slide direction="right" in={slideIn}> */}
-        <CarouselItem city={cities[index]} />
-        {/* </Slide> */}
-        <Box pr={5} sx={{ display: "flex" }}>
+        <Slide direction="right" in={slideIn}>
+          <CarouselItem city={cities[index]} />
+        </Slide>
+        <Box
+          pr={5}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+          }}
+        >
           <IconButton disabled={index > 36} onClick={handleNext}>
             <NavigateNext></NavigateNext>
           </IconButton>

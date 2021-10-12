@@ -35,70 +35,82 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
 
   return (
     <Box
-      sx={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "space-around",
-        // alignItems: "center",
-      }}
+      sx={
+        {
+          // width: "100%",
+          // display: "flex",
+          // justifyContent: "space-around",
+          // height: 1200,
+          // alignItems: "center",
+        }
+      }
     >
-      <Box mt={10}>
-        <Stepper activeStep={activeStep} orientation="vertical">
-          {steps.map((label) => (
-            <Step key={label}>
-              <StepLabel>
-                {
-                  <Typography variant="h6" fontWeight="fontWeightLight">
-                    {label}
-                  </Typography>
-                }
-              </StepLabel>
-            </Step>
-          ))}
-        </Stepper>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-start",
+          height: 700,
+          width: "100%",
+        }}
+      >
+        <Box mt={10} sx={{}}>
+          <Stepper activeStep={activeStep} orientation="vertical">
+            {steps.map((label) => (
+              <Step key={label}>
+                <StepLabel>
+                  {
+                    <Typography variant="h6" fontWeight="fontWeightLight">
+                      {label}
+                    </Typography>
+                  }
+                </StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+        </Box>
+        <Box sx={{}}>
+          <Box>
+            {(() => {
+              if (activeStep === 0) {
+                return (
+                  <Box>
+                    <AboutSuMoProject />
+                  </Box>
+                );
+              }
+              if (activeStep === 1)
+                return (
+                  <Box>
+                    <AboutIndicators city={props.cities[0]} />
+                  </Box>
+                );
+              if (activeStep === 2)
+                return (
+                  <Box>
+                    <AboutKeyFigures />
+                  </Box>
+                );
+            })()}
+          </Box>
+        </Box>
       </Box>
-      <Box sx={{ maxWidth: 1000 }}>
-        <Box>
-          {(() => {
-            if (activeStep === 0) {
-              return (
-                <Box>
-                  <AboutSuMoProject />
-                </Box>
-              );
-            }
-            if (activeStep === 1)
-              return (
-                <Box>
-                  <AboutIndicators city={props.cities[0]} />
-                </Box>
-              );
-            if (activeStep === 2)
-              return (
-                <Box>
-                  <AboutKeyFigures />
-                </Box>
-              );
-          })()}
-        </Box>
-        <Box mb={10}>
-          <Stack mt={10} direction="row" spacing={2}>
-            <Button
-              variant="contained"
-              disabled={activeStep < 1}
-              onClick={handleBack}
-            >
-              Back
-            </Button>
-            <Button
-              variant="contained"
-              disabled={activeStep > 1}
-              onClick={handleNext}
-            >
-              Next
-            </Button>
-          </Stack>
-        </Box>
+      <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
+        <Stack mt={10} direction="row" spacing={2}>
+          <Button
+            variant="contained"
+            disabled={activeStep < 1}
+            onClick={handleBack}
+          >
+            Back
+          </Button>
+          <Button
+            variant="contained"
+            disabled={activeStep > 1}
+            onClick={handleNext}
+          >
+            Next
+          </Button>
+        </Stack>
       </Box>
     </Box>
   );
