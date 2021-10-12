@@ -14,9 +14,10 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import Icon from "@mui/material/Icon";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import Slider from "@mui/material/Slider";
 
 // import { AboutProps } from "./About.model";
 interface AboutProps {
@@ -343,5 +344,134 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
 };
 
 export const AboutKeyFigures = () => {
-  return <Box>About KeyFigures</Box>;
+  const [speedLimit, setSpeedLimit] = React.useState<
+    number | string | Array<number | string>
+  >(30);
+  const [speedLimitRest, setSpeedLimitRest] = React.useState<
+    number | string | Array<number | string>
+  >(30);
+
+  const handleSliderChangeSpeedLimit = (
+    event: Event,
+    newValue: number | number[]
+  ) => {
+    setSpeedLimit(newValue);
+    setSpeedLimitRest(100 - (newValue as any));
+  };
+
+  console.log(speedLimit);
+
+  return (
+    <Box>
+      <Typography variant="h4" fontWeight="fontWeightLight">
+        KINaMo - Information System for Municipal Mobility
+      </Typography>
+      <Typography mt={4} fontWeight="fontWeightLight" variant="h6">
+        KINaMo provides detailed
+        <Box fontWeight="bold" display="inline">
+          {" "}
+          assessment of municipal mobility{" "}
+        </Box>
+        for the Upper Rhine region and is part of the{" "}
+        {<Link href="https://sumo-rhine.com/en/">SuMo Rhine Project</Link>}.
+      </Typography>
+      <Box>
+        <Grid mt={10} container spacing={2} columns={12}>
+          <Grid xs={6} item></Grid>
+          <Grid xs={6} item>
+            <Box>
+              0
+              <Box sx={{ display: "flex" }}>
+                <Box
+                  sx={{
+                    width: speedLimit,
+                    backgroundColor: "#1A4613",
+                    height: 20,
+                  }}
+                ></Box>
+                <Box
+                  sx={{ width: 250, backgroundColor: "#226A2A", height: 20 }}
+                ></Box>
+
+                <Box
+                  sx={{ width: 100, backgroundColor: "#d3d3d3", height: 20 }}
+                ></Box>
+                <Box>9</Box>
+              </Box>
+              10
+            </Box>
+          </Grid>
+          <Grid xs={6} item>
+            <Box sx={{ display: "flex", alignItems: "flex-start" }}>
+              <Typography pr={3} variant="h5" fontWeight="fontWeightLight">
+                {speedLimit} OF 36 CITES
+              </Typography>
+              <Box sx={{ width: 300 }}>
+                <Slider
+                  defaultValue={70}
+                  aria-label="Small"
+                  valueLabelDisplay="auto"
+                  onChange={handleSliderChangeSpeedLimit}
+                />
+              </Box>
+            </Box>
+          </Grid>
+          <Grid xs={6} item>
+            <Box>
+              <Typography variant="h5" fontWeight="fontWeightLight">
+                {speedLimit} OF 36 CITES
+              </Typography>
+
+              <Box sx={{ display: "flex" }}>
+                <Box
+                  sx={{
+                    width: speedLimit,
+                    backgroundColor: "#1A4613",
+                    height: 20,
+                  }}
+                ></Box>
+                <Box
+                  sx={{
+                    width: speedLimitRest,
+                    backgroundColor: "#d3d3d3",
+                    height: 20,
+                  }}
+                ></Box>
+              </Box>
+            </Box>
+          </Grid>
+          <Grid xs={6} item>
+            <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              <Typography pr={3} variant="h5" fontWeight="fontWeightLight">
+                8 OF 36 CITES
+              </Typography>
+              <Box sx={{ width: 300 }}>
+                <Slider
+                  defaultValue={70}
+                  aria-label="Small"
+                  valueLabelDisplay="auto"
+                />
+              </Box>
+            </Box>
+          </Grid>
+
+          <Grid item xs={6}>
+            <Box>
+              <Typography variant="h5" fontWeight="fontWeightLight">
+                8 OF 36 CITES
+              </Typography>
+              <Box sx={{ display: "flex" }}>
+                <Box
+                  sx={{ width: 250, backgroundColor: "#226A2A", height: 20 }}
+                ></Box>
+                <Box
+                  sx={{ width: 40, backgroundColor: "#d3d3d3", height: 20 }}
+                ></Box>
+              </Box>
+            </Box>
+          </Grid>
+        </Grid>
+      </Box>
+    </Box>
+  );
 };

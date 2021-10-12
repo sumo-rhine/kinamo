@@ -7,7 +7,7 @@ import Slide from "@mui/material/Slide";
 import CarouselItem from "./Carousel-Item";
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
-import { Slider } from "@mui/material";
+// import { Slider } from "@mui/material";
 
 interface CityStepperProps {
   cities: City[];
@@ -16,11 +16,20 @@ interface CityStepperProps {
 const CityStepper: React.FC<CityStepperProps> = (props) => {
   const [index, setIndex] = useState(0);
   const [cities, setCities] = useState<City[]>([]);
-  const [slideIn, setSlideIn] = useState(false);
+  const [slideIn, setSlideIn] = useState(true);
   const [slideDirection, setSlideDirection] = useState("right");
 
   // const [SelectedCity, setCity] = useState<City | null>(null);
 
+  const handleNext = () => {
+    setSlideIn(false);
+
+    setTimeout(() => {
+      setIndex(index + 1);
+      setSlideDirection("left");
+      setSlideIn(true);
+    }, 500);
+  };
   useEffect(() => {
     console.log(slideIn);
     setIndex(0);
@@ -28,11 +37,6 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
     setCities(props.cities);
   }, [props]);
 
-  const handleNext = () => {
-    setIndex(index + 1);
-    setSlideDirection("left");
-    setSlideIn(true);
-  };
   const handleBack = () => {
     setIndex(index - 1);
     setSlideDirection("right");
@@ -54,9 +58,9 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
             <NavigateBefore></NavigateBefore>
           </IconButton>
         </Box>
-        <Slide direction="right" in={slideIn}>
-          <CarouselItem city={cities[index]} />
-        </Slide>
+        {/* <Slide direction="right" in={slideIn} mountOnEnter unmountOnExit> */}
+        <CarouselItem city={cities[index]} />
+        {/* </Slide> */}
         <Box
           pr={5}
           sx={{

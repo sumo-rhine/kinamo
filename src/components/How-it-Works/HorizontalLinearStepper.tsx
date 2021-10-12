@@ -13,8 +13,8 @@ import { connect } from "react-redux";
 // import { AboutProps } from "./About.model";
 const steps = [
   "What is KINaMo and how to use it?",
-  "How to measure Sustainable Mobility?",
-  "Key Figures",
+  "Indicators and Key Figures",
+  "Scoring",
 ];
 
 interface HorizontalLinearStepperProps {
@@ -46,14 +46,15 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
       }
     >
       <Box
+        mb={9}
         sx={{
           display: "flex",
           justifyContent: "flex-start",
-          height: 700,
+          // height: 700,
           width: "100%",
         }}
       >
-        <Box mt={10} sx={{}}>
+        <Box mt={10} ml={5}>
           <Stepper activeStep={activeStep} orientation="vertical">
             {steps.map((label) => (
               <Step key={label}>
@@ -67,50 +68,48 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
               </Step>
             ))}
           </Stepper>
-        </Box>
-        <Box sx={{}}>
-          <Box>
-            {(() => {
-              if (activeStep === 0) {
-                return (
-                  <Box>
-                    <AboutSuMoProject />
-                  </Box>
-                );
-              }
-              if (activeStep === 1)
-                return (
-                  <Box>
-                    <AboutIndicators city={props.cities[0]} />
-                  </Box>
-                );
-              if (activeStep === 2)
-                return (
-                  <Box>
-                    <AboutKeyFigures />
-                  </Box>
-                );
-            })()}
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Stack mt={10} direction="row" spacing={2}>
+              <Button
+                variant="contained"
+                disabled={activeStep < 1}
+                onClick={handleBack}
+              >
+                Back
+              </Button>
+              <Button
+                variant="contained"
+                disabled={activeStep > 1}
+                onClick={handleNext}
+              >
+                Next
+              </Button>
+            </Stack>
           </Box>
         </Box>
-      </Box>
-      <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
-        <Stack mt={10} direction="row" spacing={2}>
-          <Button
-            variant="contained"
-            disabled={activeStep < 1}
-            onClick={handleBack}
-          >
-            Back
-          </Button>
-          <Button
-            variant="contained"
-            disabled={activeStep > 1}
-            onClick={handleNext}
-          >
-            Next
-          </Button>
-        </Stack>
+        <Box mt={10} ml={10} sx={{ width: "70%" }}>
+          {(() => {
+            if (activeStep === 0) {
+              return (
+                <Box>
+                  <AboutSuMoProject />
+                </Box>
+              );
+            }
+            if (activeStep === 1)
+              return (
+                <Box>
+                  <AboutIndicators city={props.cities[0]} />
+                </Box>
+              );
+            if (activeStep === 2)
+              return (
+                <Box>
+                  <AboutKeyFigures />
+                </Box>
+              );
+          })()}
+        </Box>
       </Box>
     </Box>
   );
