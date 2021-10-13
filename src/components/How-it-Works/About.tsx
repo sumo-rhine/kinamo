@@ -605,7 +605,6 @@ export const AboutKeyFigures = () => {
               </Box>
             </Box>
           </Grid>
-
           <Grid item xs={6}>
             <Box>
               <Typography variant="h5" fontWeight="fontWeightLight">
