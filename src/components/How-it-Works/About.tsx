@@ -345,25 +345,48 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
 };
 
 export const AboutKeyFigures = () => {
+  const initSpeedLimit = 70;
+  const barWidthFactor = 3;
+  const nCities = 36;
+  const ratingInPercent = 100 / nCities;
+  const initBicycleAccidents = 70;
+
   const [speedLimit, setSpeedLimit] = React.useState<
     number | string | Array<number | string>
   >(30);
-  const [speedLimitRest, setSpeedLimitRest] = React.useState<
+  // const [speedLimitRest, setSpeedLimitRest] = React.useState<
+  //   number | string | Array<number | string>
+  // >(30);
+
+  const [bicycleAccidents, setBicycleAccidents] = useState<
     number | string | Array<number | string>
   >(30);
 
-  const [speedLimitRank, setSpeedLimitRank] = useState(70 / (100 / 36));
+  const [bicycleAccidentsRating, setBicycleAccidentsRating] = useState(
+    initBicycleAccidents / ratingInPercent
+  );
+  const [speedLimitRank, setSpeedLimitRank] = useState(
+    initSpeedLimit / ratingInPercent
+  );
 
   const handleSliderChangeSpeedLimit = (
     event: Event,
     newValue: number | number[]
   ) => {
     setSpeedLimit(newValue);
-    setSpeedLimitRest(100 - (newValue as number));
-    setSpeedLimitRank((newValue as number) / (100 / 36));
+    // setSpeedLimitRest(100 - (newValue as number));
+    setSpeedLimitRank((newValue as number) / ratingInPercent);
   };
 
-  // console.log(speedLimit);
+  const handleSliderChangeBicycleAccidents = (
+    event: Event,
+    newValue: number | number[]
+  ) => {
+    setBicycleAccidents(newValue);
+    setBicycleAccidentsRating((newValue as number) / ratingInPercent);
+  };
+
+  // console.log(200 - ((speedLimit as number) + 100));
 
   return (
     <Box>
@@ -388,20 +411,33 @@ export const AboutKeyFigures = () => {
               <Box sx={{ display: "flex" }}>
                 <Box
                   sx={{
-                    width: (speedLimit as number) * 2,
+                    width: Number((speedLimit as number) * barWidthFactor),
                     backgroundColor: "#1A4613",
-                    height: 25,
+                    height: 20,
                   }}
                 ></Box>
                 <Box
-                  sx={{ width: 200, backgroundColor: "#226A2A", height: 25 }}
+                  sx={{
+                    width: Number(
+                      (bicycleAccidents as number) * barWidthFactor
+                    ),
+                    backgroundColor: "#226A2A",
+                    height: 20,
+                  }}
                 ></Box>
 
                 <Box
                   sx={{
-                    width: 400 - ((speedLimit as number) * 2 + 200),
+                    width: Number(
+                      (200 -
+                        ((speedLimit as number) +
+                          (bicycleAccidents as number))) *
+                        barWidthFactor
+                    ),
+                    // width: 1,
+
                     backgroundColor: "#d3d3d3",
-                    height: 25,
+                    height: 20,
                   }}
                 ></Box>
                 <Box>9</Box>
@@ -433,14 +469,14 @@ export const AboutKeyFigures = () => {
               <Box sx={{ display: "flex" }}>
                 <Box
                   sx={{
-                    width: (speedLimit as number) * 2,
+                    width: (speedLimit as number) * barWidthFactor,
                     backgroundColor: "#1A4613",
                     height: 10,
                   }}
                 ></Box>
                 <Box
                   sx={{
-                    width: (speedLimitRest as number) * 2,
+                    width: (100 - (speedLimit as number)) * barWidthFactor,
                     backgroundColor: "#d3d3d3",
                     height: 10,
                   }}
@@ -451,13 +487,14 @@ export const AboutKeyFigures = () => {
           <Grid xs={6} item>
             <Box ml={20}>
               <Typography pr={3} variant="h5" fontWeight="fontWeightLight">
-                Streets with Low Traffic
+                {bicycleAccidents} Bicycle Accidents
               </Typography>
               <Box sx={{ width: 300 }}>
                 <Slider
                   defaultValue={70}
                   aria-label="Small"
                   valueLabelDisplay="auto"
+                  onChange={handleSliderChangeBicycleAccidents}
                 />
               </Box>
             </Box>
@@ -466,14 +503,25 @@ export const AboutKeyFigures = () => {
           <Grid item xs={6}>
             <Box>
               <Typography variant="h5" fontWeight="fontWeightLight">
-                8 OF 36 CITES
+                {bicycleAccidentsRating.toFixed(0)} OF 36 CITES
               </Typography>
               <Box sx={{ display: "flex" }}>
                 <Box
-                  sx={{ width: 250, backgroundColor: "#226A2A", height: 10 }}
+                  sx={{
+                    width: Number(
+                      (bicycleAccidents as number) * barWidthFactor
+                    ),
+                    backgroundColor: "#226A2A",
+                    height: 10,
+                  }}
                 ></Box>
                 <Box
-                  sx={{ width: 40, backgroundColor: "#d3d3d3", height: 10 }}
+                  sx={{
+                    width:
+                      (100 - (bicycleAccidents as number)) * barWidthFactor,
+                    backgroundColor: "#d3d3d3",
+                    height: 10,
+                  }}
                 ></Box>
               </Box>
             </Box>
