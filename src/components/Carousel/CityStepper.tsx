@@ -8,6 +8,7 @@ import CarouselItem from "./Carousel-Item";
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
 // import { Slider } from "@mui/material";
+import { cloneDeep } from "lodash";
 
 interface CityStepperProps {
   cities: City[];
@@ -16,31 +17,44 @@ interface CityStepperProps {
 const CityStepper: React.FC<CityStepperProps> = (props) => {
   const [index, setIndex] = useState(0);
   const [cities, setCities] = useState<City[]>([]);
-  const [slideIn, setSlideIn] = useState(true);
-  const [slideDirection, setSlideDirection] = useState("right");
+  const [slideIn, setSlideIn] = useState(false);
+  const [slideDirection, setSlideDirection] = useState<"left" | "right">("right");
 
   // const [SelectedCity, setCity] = useState<City | null>(null);
+  const [city, setCity] = useState<City | null>(null);
 
   const handleNext = () => {
+    // This defines how to exit the current slide:
+    // in=false == fly out; to the left
+    setSlideDirection("left");
     setSlideIn(false);
 
+    // 500ms later the Transition is started AGAIN:
+    // in = true == fly in; from the right
     setTimeout(() => {
       setIndex(index + 1);
-      setSlideDirection("left");
+      setSlideDirection("right");
       setSlideIn(true);
     }, 500);
   };
   useEffect(() => {
     console.log(slideIn);
     setIndex(0);
-    setSlideIn(false);
+    setSlideIn(true);
     setCities(props.cities);
   }, [props]);
 
   const handleBack = () => {
-    setIndex(index - 1);
+    // exit action -> fly out to the right
     setSlideDirection("right");
-    setSlideIn(true);
+    setSlideIn(false);
+
+    // 500ms later in action -> fly in from left
+    setTimeout(() => {
+      setIndex(index - 1);
+      setSlideDirection("left");
+      setSlideIn(true);
+    }, 500);
   };
 
   if (cities.length > 0) {
@@ -58,9 +72,13 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
             <NavigateBefore></NavigateBefore>
           </IconButton>
         </Box>
-        {/* <Slide direction="right" in={slideIn} mountOnEnter unmountOnExit> */}
-        <CarouselItem city={cities[index]} />
-        {/* </Slide> */}
+        <Slide direction={slideDirection} in={slideIn}>
+        <Box sx={{width: 1}}>
+          <CarouselItem city={cities[index]} />
+        </Box>
+        {/* <CarouselItem city={cloneDeep(cities[index])} /> */}
+        {/* <h1>Hello Wolrd</h1> */}
+        </Slide>
         <Box
           pr={5}
           sx={{
