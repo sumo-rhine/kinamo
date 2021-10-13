@@ -349,24 +349,114 @@ export const AboutKeyFigures = () => {
   const barWidthFactor = 3;
   const nCities = 36;
   const ratingInPercent = 100 / nCities;
-  const initBicycleAccidents = 70;
+  const initBicycleAccidents = 4;
+  const maxSpeedLimit = 88;
+  const minSpeedLimit = 22;
+  const maxBicycleAccidents = 11.7;
+  const minBicycleAccidents = 0.05;
+
+  const initSpeedLimitBarWidth = (initSpeedLimit - minSpeedLimit) * (100 / 66);
+  // const initBicycleAccidentsBarWidth;
+
+  const marksSpeedLimit = [
+    {
+      value: 22,
+      label: "22%",
+    },
+    // {
+    //   value: 30,
+    //   label: "30%",
+    // },
+    {
+      value: 40,
+      label: "40%",
+    },
+    // {
+    //   value: 50,
+    //   label: "50%",
+    // },
+    {
+      value: 60,
+      label: "60%",
+    },
+    // {
+    //   value: 70,
+    //   label: "70%",
+    // },
+    {
+      value: 80,
+      label: "80%",
+    },
+    {
+      value: 88,
+      label: "88%",
+    },
+  ];
+
+  const marksBicycleAccidents = [
+    {
+      value: minBicycleAccidents,
+      label: "0",
+    },
+    // {
+    //   value: 30,
+    //   label: "30%",
+    // },
+    {
+      value: 3,
+      label: "3",
+    },
+    // {
+    //   value: 50,
+    //   label: "50%",
+    // },
+    {
+      value: 6,
+      label: "6",
+    },
+    // {
+    //   value: 70,
+    //   label: "70%",
+    // },
+    {
+      value: 9,
+      label: "9",
+    },
+    {
+      value: maxBicycleAccidents,
+      label: "11.7",
+    },
+  ];
+
+  function valueTextSpeedLimit(value: number) {
+    return `${value}%`;
+  }
 
   const [speedLimit, setSpeedLimit] = React.useState<
     number | string | Array<number | string>
-  >(30);
+  >(initSpeedLimit);
+  const [speedLimitRank, setSpeedLimitRank] = useState(
+    initSpeedLimit / ratingInPercent
+  );
+
+  const [speedLimitBarWidth, setSpeedLimitBarWidth] = useState(
+    (initSpeedLimit - minSpeedLimit) * (100 / 66) // speed limit goes from 22 ro 88
+  );
+
   // const [speedLimitRest, setSpeedLimitRest] = React.useState<
   //   number | string | Array<number | string>
   // >(30);
 
   const [bicycleAccidents, setBicycleAccidents] = useState<
     number | string | Array<number | string>
-  >(30);
+  >(initBicycleAccidents);
 
   const [bicycleAccidentsRating, setBicycleAccidentsRating] = useState(
-    initBicycleAccidents / ratingInPercent
+    initBicycleAccidents * (36 / maxBicycleAccidents)
   );
-  const [speedLimitRank, setSpeedLimitRank] = useState(
-    initSpeedLimit / ratingInPercent
+
+  const [bicycleAccidentsBarWidth, setBicycleAccidentsBarWidth] = useState(
+    initBicycleAccidents * (100 / maxBicycleAccidents) // speed limit goes from 22 ro 88
   );
 
   const handleSliderChangeSpeedLimit = (
@@ -374,8 +464,10 @@ export const AboutKeyFigures = () => {
     newValue: number | number[]
   ) => {
     setSpeedLimit(newValue);
-    // setSpeedLimitRest(100 - (newValue as number));
-    setSpeedLimitRank((newValue as number) / ratingInPercent);
+    setSpeedLimitBarWidth(((newValue as number) - minSpeedLimit) * (100 / 66));
+    const speedLimitRankingNew =
+      (speedLimitBarWidth as number) / ratingInPercent;
+    setSpeedLimitRank(speedLimitRankingNew === 0 ? 1 : speedLimitRankingNew);
   };
 
   const handleSliderChangeBicycleAccidents = (
@@ -383,7 +475,12 @@ export const AboutKeyFigures = () => {
     newValue: number | number[]
   ) => {
     setBicycleAccidents(newValue);
-    setBicycleAccidentsRating((newValue as number) / ratingInPercent);
+    setBicycleAccidentsBarWidth(bicycleAccidentsRating * ratingInPercent);
+    const bicycleAccidentsRankNew =
+      (newValue as number) * (36 / maxBicycleAccidents);
+    setBicycleAccidentsRating(
+      bicycleAccidentsRankNew === 0 ? 1 : bicycleAccidentsRankNew
+    );
   };
 
   // console.log(200 - ((speedLimit as number) + 100));
@@ -411,7 +508,7 @@ export const AboutKeyFigures = () => {
               <Box sx={{ display: "flex" }}>
                 <Box
                   sx={{
-                    width: Number((speedLimit as number) * barWidthFactor),
+                    width: speedLimitBarWidth * barWidthFactor,
                     backgroundColor: "#1A4613",
                     height: 20,
                   }}
@@ -419,7 +516,7 @@ export const AboutKeyFigures = () => {
                 <Box
                   sx={{
                     width: Number(
-                      (bicycleAccidents as number) * barWidthFactor
+                      (bicycleAccidentsBarWidth as number) * barWidthFactor
                     ),
                     backgroundColor: "#226A2A",
                     height: 20,
@@ -430,8 +527,8 @@ export const AboutKeyFigures = () => {
                   sx={{
                     width: Number(
                       (200 -
-                        ((speedLimit as number) +
-                          (bicycleAccidents as number))) *
+                        ((speedLimitBarWidth as number) +
+                          (bicycleAccidentsBarWidth as number))) *
                         barWidthFactor
                     ),
                     // width: 1,
@@ -452,10 +549,14 @@ export const AboutKeyFigures = () => {
               </Typography>
               <Box sx={{ width: 300 }}>
                 <Slider
-                  defaultValue={70}
+                  defaultValue={initSpeedLimit}
                   aria-label="Small"
                   valueLabelDisplay="auto"
                   onChange={handleSliderChangeSpeedLimit}
+                  getAriaValueText={valueTextSpeedLimit}
+                  min={minSpeedLimit}
+                  max={maxSpeedLimit}
+                  marks={marksSpeedLimit}
                 />
               </Box>
             </Box>
@@ -469,14 +570,15 @@ export const AboutKeyFigures = () => {
               <Box sx={{ display: "flex" }}>
                 <Box
                   sx={{
-                    width: (speedLimit as number) * barWidthFactor,
+                    width: (speedLimitBarWidth as number) * barWidthFactor,
                     backgroundColor: "#1A4613",
                     height: 10,
                   }}
                 ></Box>
                 <Box
                   sx={{
-                    width: (100 - (speedLimit as number)) * barWidthFactor,
+                    width:
+                      (100 - (speedLimitBarWidth as number)) * barWidthFactor,
                     backgroundColor: "#d3d3d3",
                     height: 10,
                   }}
@@ -487,14 +589,18 @@ export const AboutKeyFigures = () => {
           <Grid xs={6} item>
             <Box ml={20}>
               <Typography pr={3} variant="h5" fontWeight="fontWeightLight">
-                {bicycleAccidents} Bicycle Accidents
+                {(bicycleAccidents as number).toFixed(1)} Bicycle Accidents
               </Typography>
               <Box sx={{ width: 300 }}>
                 <Slider
-                  defaultValue={70}
+                  defaultValue={initBicycleAccidents}
                   aria-label="Small"
                   valueLabelDisplay="auto"
                   onChange={handleSliderChangeBicycleAccidents}
+                  step={maxBicycleAccidents / 100}
+                  min={minBicycleAccidents}
+                  max={maxBicycleAccidents}
+                  marks={marksBicycleAccidents}
                 />
               </Box>
             </Box>
@@ -509,7 +615,7 @@ export const AboutKeyFigures = () => {
                 <Box
                   sx={{
                     width: Number(
-                      (bicycleAccidents as number) * barWidthFactor
+                      (bicycleAccidentsBarWidth as number) * barWidthFactor
                     ),
                     backgroundColor: "#226A2A",
                     height: 10,
@@ -518,7 +624,8 @@ export const AboutKeyFigures = () => {
                 <Box
                   sx={{
                     width:
-                      (100 - (bicycleAccidents as number)) * barWidthFactor,
+                      (100 - (bicycleAccidentsBarWidth as number)) *
+                      barWidthFactor,
                     backgroundColor: "#d3d3d3",
                     height: 10,
                   }}
