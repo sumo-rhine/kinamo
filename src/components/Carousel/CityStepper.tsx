@@ -18,7 +18,9 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
   const [index, setIndex] = useState(0);
   const [cities, setCities] = useState<City[]>([]);
   const [slideIn, setSlideIn] = useState(false);
-  const [slideDirection, setSlideDirection] = useState<"left" | "right">("right");
+  const [slideDirection, setSlideDirection] = useState<"left" | "right">(
+    "right"
+  );
 
   // const [SelectedCity, setCity] = useState<City | null>(null);
   const [city, setCity] = useState<City | null>(null);
@@ -38,7 +40,7 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
     }, 500);
   };
   useEffect(() => {
-    console.log(slideIn);
+    // console.log(slideIn);
     setIndex(0);
     setSlideIn(true);
     setCities(props.cities);
@@ -73,11 +75,9 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
           </IconButton>
         </Box>
         <Slide direction={slideDirection} in={slideIn}>
-        <Box sx={{width: 1}}>
-          <CarouselItem city={cities[index]} />
-        </Box>
-        {/* <CarouselItem city={cloneDeep(cities[index])} /> */}
-        {/* <h1>Hello Wolrd</h1> */}
+          <Box sx={{ width: 1 }}>
+            <CarouselItem city={cities[index]} />
+          </Box>
         </Slide>
         <Box
           pr={5}

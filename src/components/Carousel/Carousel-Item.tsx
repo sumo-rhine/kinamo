@@ -80,13 +80,23 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
                 {data?.keyFigureUnit}
               </Typography>
             </Box>
-            <Box pt={4} style={{ width: 400 }}>
+            <Box
+              pt={4}
+              style={{
+                display: "flex",
+                width: 400,
+                alignItems: "flex-end",
+              }}
+            >
+              <Typography mr={1} variant="h5" fontWeight="fontWeightLight">
+                {data.keyFigurePoints}
+              </Typography>
+              <Box mb={0.4}>OF 36 CITIES</Box>
               {/* <KeyFigureBar points={data.keyFigurePoints}></KeyFigureBar> */}
-              {data.keyFigurePoints} of 36 Cities
             </Box>
-            <Box pt={1}>
+            <Box pt={2}>
               <Button
-                // variant="contained"
+                variant="outlined"
                 // href={`/city/${props.city.id}`}
                 component={Link}
                 to={`/city/${props.city.id}`}

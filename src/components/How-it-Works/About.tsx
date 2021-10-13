@@ -20,6 +20,8 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import Slider from "@mui/material/Slider";
 import { setTextRange } from "typescript";
 
+import SelectCityModalButton from "../Header/SelectCityModal";
+
 // import { AboutProps } from "./About.model";
 interface AboutProps {
   city: City;
@@ -27,11 +29,11 @@ interface AboutProps {
 
 export const AboutSuMoProject = () => {
   return (
-    <Box>
+    <Box sx={{ maxWidth: 800 }}>
       <Typography variant="h4" fontWeight="fontWeightLight">
         KINaMo - Information System for Municipal Mobility
       </Typography>
-      <Typography mt={4} fontWeight="fontWeightLight" variant="h6">
+      <Typography mt={6} fontWeight="fontWeightLight" variant="h5">
         KINaMo provides detailed
         <Box fontWeight="bold" display="inline">
           {" "}
@@ -45,7 +47,7 @@ export const AboutSuMoProject = () => {
           component="div"
           fontWeight="fontWeightLight"
           mt={4}
-          variant="h6"
+          variant="h5"
         >
           A primary goal of KINaMo is to simplify the evaluation of municipal
           mobility by utilizing an automated, data-based approach that will make
@@ -60,6 +62,19 @@ export const AboutSuMoProject = () => {
           .
         </Typography>
       </Box>
+      <Box mt={10}>
+        <Grid container spacing={2} columns={12}>
+          <Grid item xs={6}>
+            <Typography variant="h6" fontWeight="fontWeightLight">
+              For more Details Explore a City
+            </Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <SelectCityModalButton cityName="Select your City"></SelectCityModalButton>
+          </Grid>
+        </Grid>
+      </Box>
+
       {/* <Stack mt={6} direction="row" spacing={2}>
         <Button
         // onMouseEnter={() => props.setter(true)}
@@ -383,10 +398,10 @@ export const AboutKeyFigures = () => {
     //   value: 70,
     //   label: "70%",
     // },
-    {
-      value: 80,
-      label: "80%",
-    },
+    // {
+    //   value: 80,
+    //   label: "80%",
+    // },
     {
       value: 88,
       label: "88%",
@@ -501,10 +516,37 @@ export const AboutKeyFigures = () => {
       </Typography>
       <Box>
         <Grid mt={10} container spacing={2} columns={12}>
-          <Grid xs={6} item></Grid>
           <Grid xs={6} item>
-            <Box>
-              0
+            <Box
+              sx={{
+                display: "flex",
+                // alignItems: "flex-end",
+                justifyContent: "center",
+              }}
+              // mt={2}
+              // ml={5}
+            >
+              <Typography fontWeight="fontWeightLight" variant="h2">
+                Indicator
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid xs={6} item>
+            <Box mb={6}>
+              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+                <Typography mr={1} fontWeight="fontWeightLight" variant="h3">
+                  {(
+                    (speedLimitBarWidth + bicycleAccidentsBarWidth) /
+                    20
+                  ).toFixed(1)}
+                </Typography>
+                <Typography mr={1} fontWeight="fontWeightLight" variant="h6">
+                  OUT OF
+                </Typography>
+                <Typography fontWeight="fontWeightLight" variant="h4">
+                  10
+                </Typography>
+              </Box>
               <Box sx={{ display: "flex" }}>
                 <Box
                   sx={{
@@ -537,42 +579,88 @@ export const AboutKeyFigures = () => {
                     height: 20,
                   }}
                 ></Box>
-                <Box>9</Box>
               </Box>
-              10
-            </Box>
-          </Grid>
-          <Grid xs={6} item>
-            <Box ml={20}>
-              <Typography pr={3} variant="h5" fontWeight="fontWeightLight">
-                {speedLimit} % Speed limit
-              </Typography>
-              <Box sx={{ width: 300 }}>
-                <Slider
-                  defaultValue={initSpeedLimit}
-                  aria-label="Small"
-                  valueLabelDisplay="auto"
-                  onChange={handleSliderChangeSpeedLimit}
-                  getAriaValueText={valueTextSpeedLimit}
-                  min={minSpeedLimit}
-                  max={maxSpeedLimit}
-                  marks={marksSpeedLimit}
-                />
-              </Box>
-            </Box>
-          </Grid>
-          <Grid xs={6} item>
-            <Box>
-              <Typography variant="h5" fontWeight="fontWeightLight">
-                {speedLimitRank.toFixed(0)} OF 36 CITES
-              </Typography>
-
               <Box sx={{ display: "flex" }}>
+                {/* <Box>
+                  <Typography variant="h6" fontWeight="fontWeightLight">
+                    0
+                  </Typography>
+                </Box> */}
+                <Box
+                  sx={{
+                    width:
+                      (speedLimitBarWidth + bicycleAccidentsBarWidth) *
+                      barWidthFactor,
+                  }}
+                >
+                  <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+                    <Typography variant="h4" fontWeight="fontWeightLight">
+                      {(speedLimitRank + bicycleAccidentsRating).toFixed(0)}
+                    </Typography>
+                  </Box>
+                </Box>
+                {/* <Box ml={27}>
+                  <Typography variant="h6" fontWeight="fontWeightLight">
+                    72
+                  </Typography>
+                </Box> */}
+              </Box>
+            </Box>
+          </Grid>
+          <Grid xs={6} item>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-end",
+              }}
+              mr={5}
+            >
+              <Typography pr={6} variant="h6" fontWeight="fontWeightLight">
+                Streets with Speed limit below 30Km/h
+              </Typography>
+              <Box sx={{ display: "flex" }}>
+                <Typography pr={3} variant="h3" fontWeight="fontWeightLight">
+                  {speedLimit}%
+                </Typography>
+
+                <Box mt={2} mr={11} sx={{ width: 200 }}>
+                  <Slider
+                    defaultValue={initSpeedLimit}
+                    aria-label="Small"
+                    valueLabelDisplay="auto"
+                    onChange={handleSliderChangeSpeedLimit}
+                    getAriaValueText={valueTextSpeedLimit}
+                    min={minSpeedLimit}
+                    max={maxSpeedLimit}
+                    marks={marksSpeedLimit}
+                  />
+                </Box>
+              </Box>
+            </Box>
+          </Grid>
+          <Grid xs={6} item>
+            <Box mt={0.5}>
+              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+                <Typography variant="h3" fontWeight="fontWeightLight">
+                  {speedLimitRank.toFixed(0)}{" "}
+                </Typography>
+                <Typography mb={0.3} variant="h6" fontWeight="fontWeightLight">
+                  TH OF 36 CITES
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  boxShadow: 3,
+                  bgcolor: "background.paper",
+                }}
+              >
                 <Box
                   sx={{
                     width: (speedLimitBarWidth as number) * barWidthFactor,
                     backgroundColor: "#1A4613",
-                    height: 10,
+                    height: 7,
                   }}
                 ></Box>
                 <Box
@@ -580,36 +668,53 @@ export const AboutKeyFigures = () => {
                     width:
                       (100 - (speedLimitBarWidth as number)) * barWidthFactor,
                     backgroundColor: "#d3d3d3",
-                    height: 10,
+                    height: 7,
                   }}
                 ></Box>
               </Box>
             </Box>
           </Grid>
           <Grid xs={6} item>
-            <Box ml={20}>
-              <Typography pr={3} variant="h5" fontWeight="fontWeightLight">
-                {(bicycleAccidents as number).toFixed(1)} Bicycle Accidents
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-end",
+              }}
+              mr={5}
+            >
+              <Typography variant="h6" fontWeight="fontWeightLight">
+                Bicycle Accidents per 1000 Inhabitants
               </Typography>
-              <Box sx={{ width: 300 }}>
-                <Slider
-                  defaultValue={initBicycleAccidents}
-                  aria-label="Small"
-                  valueLabelDisplay="auto"
-                  onChange={handleSliderChangeBicycleAccidents}
-                  step={maxBicycleAccidents / 100}
-                  min={minBicycleAccidents}
-                  max={maxBicycleAccidents}
-                  marks={marksBicycleAccidents}
-                />
+              <Box sx={{ display: "flex" }}>
+                <Typography pr={3} variant="h3" fontWeight="fontWeightLight">
+                  {(bicycleAccidents as number).toFixed()}
+                </Typography>
+                <Box mt={2} mr={11} sx={{ width: 200 }}>
+                  <Slider
+                    defaultValue={initBicycleAccidents}
+                    aria-label="Small"
+                    valueLabelDisplay="auto"
+                    onChange={handleSliderChangeBicycleAccidents}
+                    step={maxBicycleAccidents / 100}
+                    min={minBicycleAccidents}
+                    max={maxBicycleAccidents}
+                    marks={marksBicycleAccidents}
+                  />
+                </Box>
               </Box>
             </Box>
           </Grid>
           <Grid item xs={6}>
-            <Box>
-              <Typography variant="h5" fontWeight="fontWeightLight">
-                {bicycleAccidentsRating.toFixed(0)} OF 36 CITES
-              </Typography>
+            <Box mt={0.5}>
+              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+                <Typography mr={0} variant="h3" fontWeight="fontWeightLight">
+                  {bicycleAccidentsRating.toFixed(0)}
+                </Typography>
+                <Typography mb={0.3} variant="h6" fontWeight="fontWeightLight">
+                  TH OF 36 CITES
+                </Typography>
+              </Box>
               <Box sx={{ display: "flex" }}>
                 <Box
                   sx={{
@@ -617,7 +722,7 @@ export const AboutKeyFigures = () => {
                       (bicycleAccidentsBarWidth as number) * barWidthFactor
                     ),
                     backgroundColor: "#226A2A",
-                    height: 10,
+                    height: 7,
                   }}
                 ></Box>
                 <Box
@@ -626,7 +731,7 @@ export const AboutKeyFigures = () => {
                       (100 - (bicycleAccidentsBarWidth as number)) *
                       barWidthFactor,
                     backgroundColor: "#d3d3d3",
-                    height: 10,
+                    height: 7,
                   }}
                 ></Box>
               </Box>

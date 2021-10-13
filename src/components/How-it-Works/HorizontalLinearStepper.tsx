@@ -10,6 +10,9 @@ import { AboutSuMoProject, AboutIndicators, AboutKeyFigures } from "./About";
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
 import { connect } from "react-redux";
+import Fade from "@mui/material/Fade";
+import { useEffect } from "react";
+
 // import { AboutProps } from "./About.model";
 const steps = [
   "What is KINaMo and how to use it?",
@@ -25,12 +28,29 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
   props
 ) => {
   const [activeStep, setActiveStep] = React.useState(0);
+  const [slide, setSlide] = React.useState(true);
 
   const handleNext = () => {
-    setActiveStep(activeStep + 1);
+    setSlide(false);
+    setTimeout(() => {
+      setActiveStep(activeStep + 1);
+      setSlide(true);
+    }, 300);
   };
+  useEffect(() => {
+    // console.log(slideIn);
+    // setIndex(0);
+    // setSlide(true);
+    // setCities(props.cities);
+  }, [props]);
+
   const handleBack = () => {
-    setActiveStep(activeStep - 1);
+    setSlide(false);
+    // setSlide(true);
+    setTimeout(() => {
+      setActiveStep(activeStep - 1);
+      setSlide(true);
+    }, 300);
   };
 
   return (
@@ -57,17 +77,17 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
             </Step>
           ))}
         </Stepper>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box sx={{ display: "flex", justifyContent: "flex-start" }}>
           <Stack mt={10} direction="row" spacing={2}>
             <Button
-              variant="contained"
+              variant="outlined"
               disabled={activeStep < 1}
               onClick={handleBack}
             >
               Back
             </Button>
             <Button
-              variant="contained"
+              variant="outlined"
               disabled={activeStep > 1}
               onClick={handleNext}
             >
@@ -81,20 +101,32 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
           if (activeStep === 0) {
             return (
               <Box>
-                <AboutSuMoProject />
+                <Fade in={slide}>
+                  <Box>
+                    <AboutSuMoProject />
+                  </Box>
+                </Fade>
               </Box>
             );
           }
           if (activeStep === 1)
             return (
               <Box>
-                <AboutIndicators city={props.cities[0]} />
+                <Fade in={slide}>
+                  <Box>
+                    <AboutIndicators city={props.cities[0]} />
+                  </Box>
+                </Fade>
               </Box>
             );
           if (activeStep === 2)
             return (
               <Box>
-                <AboutKeyFigures />
+                <Fade in={slide}>
+                  <Box>
+                    <AboutKeyFigures />
+                  </Box>
+                </Fade>
               </Box>
             );
         })()}
