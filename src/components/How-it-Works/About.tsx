@@ -19,6 +19,10 @@ import Grid from "@mui/material/Grid";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import Slider from "@mui/material/Slider";
 import { setTextRange } from "typescript";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 import SelectCityModalButton from "../Header/SelectCityModal";
 
@@ -29,25 +33,17 @@ interface AboutProps {
 
 export const AboutSuMoProject = () => {
   return (
-    <Box sx={{ maxWidth: 800 }}>
+    <Box sx={{}}>
       <Typography variant="h4" fontWeight="fontWeightLight">
         KINaMo - Information System for Municipal Mobility
       </Typography>
-      <Typography mt={6} fontWeight="fontWeightLight" variant="h5">
-        KINaMo provides detailed
-        <Box fontWeight="bold" display="inline">
-          {" "}
-          assessment of municipal mobility{" "}
-        </Box>
-        for the Upper Rhine region and is part of the{" "}
-        {<Link href="https://sumo-rhine.com/en/">SuMo Rhine Project</Link>}.
-      </Typography>
+
       <Box sx={{ display: "flex" }}>
         <Typography
           component="div"
           fontWeight="fontWeightLight"
           mt={4}
-          variant="h5"
+          variant="h6"
         >
           A primary goal of KINaMo is to simplify the evaluation of municipal
           mobility by utilizing an automated, data-based approach that will make
@@ -62,8 +58,8 @@ export const AboutSuMoProject = () => {
           .
         </Typography>
       </Box>
-      <Box mt={10}>
-        <Grid container spacing={2} columns={12}>
+      <Box mt={4}>
+        {/* <Grid container spacing={2} columns={12}>
           <Grid item xs={6}>
             <Typography variant="h6" fontWeight="fontWeightLight">
               For more Details Explore a City
@@ -72,9 +68,12 @@ export const AboutSuMoProject = () => {
           <Grid item xs={6}>
             <SelectCityModalButton cityName="Select your City"></SelectCityModalButton>
           </Grid>
-        </Grid>
+        </Grid> */}
       </Box>
-
+      <img
+        style={{ height: 500 }}
+        src="/assets/image/kinamo-diagram-crop.jpg"
+      />
       {/* <Stack mt={6} direction="row" spacing={2}>
         <Button
         // onMouseEnter={() => props.setter(true)}
@@ -85,6 +84,15 @@ export const AboutSuMoProject = () => {
         </Button>
         <Button variant="outlined">Overview</Button>
       </Stack> */}
+      <Typography mt={6} fontWeight="fontWeightLight" variant="h6">
+        KINaMo provides detailed
+        <Box fontWeight="bold" display="inline">
+          {" "}
+          assessment of municipal mobility{" "}
+        </Box>
+        for the Upper Rhine region and is part of the{" "}
+        {<Link href="https://sumo-rhine.com/en/">SuMo Rhine Project</Link>}.
+      </Typography>
     </Box>
   );
 };
@@ -297,7 +305,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
                 >
                   <Typography fontWeight="fontWeightLight" variant="h5">
                     {/* {(props.city.indicators as any)[ind].short_name} */}
-                    Key Figures
+                    KEY FIGURES
                   </Typography>
                   {/* <StackedBar
                     indicator={(props.city.indicators as any)[ind]}
@@ -313,7 +321,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
                     </Typography>
                   </Box>
                 </Box>
-                <Paper elevation={3} square>
+                <Paper elevation={1} square>
                   <Box p={2}>
                     <Grid
                       container
@@ -326,7 +334,20 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
                       {(props.city.indicators as any)[ind].keyFigures.map(
                         (keyFigure: any) => (
                           <Grid item xs={4}>
-                            <Paper>
+                            <Accordion>
+                              <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1a-content"
+                                id="panel1a-header"
+                              >
+                                <Typography>{keyFigure.short_name}</Typography>
+                              </AccordionSummary>
+                              <AccordionDetails>
+                                <Typography>{keyFigure.long_name}</Typography>
+                              </AccordionDetails>
+                            </Accordion>
+
+                            {/* <Paper>
                               <Box
                                 p={1}
                                 sx={{
@@ -343,7 +364,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
                                 </Typography>
                                 <HelpOutlineIcon />
                               </Box>
-                            </Paper>
+                            </Paper> */}
                           </Grid>
                         )
                       )}
@@ -581,9 +602,19 @@ export const AboutKeyFigures = () => {
                 ></Box>
               </Box>
               <Box sx={{ display: "flex" }}>
-                {/* <Box>
+                {/* <Box
+                // sx={{
+                //   display: "flex",
+                //   justifyContent: "space-between",
+                //   width: 200 * barWidthFactor,
+                //   position: "relative",
+                // }}
+                >
                   <Typography variant="h6" fontWeight="fontWeightLight">
                     0
+                  </Typography>
+                  <Typography variant="h6" fontWeight="fontWeightLight">
+                    72
                   </Typography>
                 </Box> */}
                 <Box
@@ -593,9 +624,23 @@ export const AboutKeyFigures = () => {
                       barWidthFactor,
                   }}
                 >
-                  <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-                    <Typography variant="h4" fontWeight="fontWeightLight">
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                      alignItems: "flex-end",
+                      minWidth: 150,
+                    }}
+                  >
+                    <Typography
+                      mr={1}
+                      variant="h4"
+                      fontWeight="fontWeightLight"
+                    >
                       {(speedLimitRank + bicycleAccidentsRating).toFixed(0)}
+                    </Typography>
+                    <Typography variant="h6" fontWeight="fontWeightLight">
+                      OUT OF 72
                     </Typography>
                   </Box>
                 </Box>

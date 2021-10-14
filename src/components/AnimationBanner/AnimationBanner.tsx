@@ -6,7 +6,6 @@ import Fade from "@mui/material/Fade";
 import { City } from "../../models/FullDataset";
 import KeyFigureBanner from "../KeyFigureBanner/KeyFigureBanner";
 
-
 interface CityIdProps {
   city: City;
 }
