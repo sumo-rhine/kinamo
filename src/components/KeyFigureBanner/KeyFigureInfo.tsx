@@ -8,16 +8,12 @@ interface KeyFigureInfoProps {
 
 const KeyFigureInfo: React.FC<KeyFigureInfoProps> = (props) => {
   return (
-    <Box pl={3} pr={3} sx={{ color: "#eeeeee" }}>
+    <Box pl={0} pr={20} sx={{ zIndex: 1, color: "#eeeeee" }}>
       {/* <Typography variant="subtitle2" color="grey" fontWeight="fontWeightLight">
         {props.info?.shortName}
       </Typography> */}
       <Box>
-        <Typography
-          variant="subtitle2"
-          color="grey"
-          fontWeight="fontWeightLight"
-        >
+        <Typography variant="h6" fontWeight="fontWeightLight">
           {props.info?.description}
         </Typography>
       </Box>
@@ -27,12 +23,14 @@ const KeyFigureInfo: React.FC<KeyFigureInfoProps> = (props) => {
             ? props.info?.value.toFixed(1)
             : "No Value"}
         </Typography>
-        <Typography pr={1} variant="subtitle1" fontWeight="fontWeightLight">
+        <Typography pr={1} variant="h6" fontWeight="fontWeightLight">
           {props.info?.unit}
         </Typography>
       </Box>
       <Box>
-        <Typography>{props.info?.points} OF 36 CITIES</Typography>
+        <Typography fontWeight="fontWeightLight" variant="h6">
+          {props.info?.points} OF 36 CITIES
+        </Typography>
       </Box>
     </Box>
   );

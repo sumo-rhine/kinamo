@@ -31,7 +31,8 @@ const CityTab: React.FC<CityTabProps> = (props) => {
             <TabList
               onChange={handleChange}
               aria-label="lab API tabs example"
-              variant="scrollable"
+              variant="fullWidth"
+              sx={{ width: "100%" }}
             >
               <Tab
                 icon={

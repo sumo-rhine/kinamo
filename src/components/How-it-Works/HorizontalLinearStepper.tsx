@@ -96,7 +96,7 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
           </Stack>
         </Box>
       </Box>
-      <Box mt={10} ml={10} sx={{ width: "60%" }}>
+      <Box mt={10} ml={10} sx={{ width: "70%" }}>
         {(() => {
           if (activeStep === 0) {
             return (

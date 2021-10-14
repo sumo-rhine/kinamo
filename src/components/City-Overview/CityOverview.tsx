@@ -3,7 +3,6 @@ import { City } from "../../models/FullDataset";
 import { Typography } from "@mui/material";
 import StackedBarRow from "./StackedBarRow";
 
-
 interface CityOverviewProps {
   city: City;
 }
@@ -26,7 +25,14 @@ const CityOverview: React.FC<CityOverviewProps> = (props) => {
       </Divider> */}
 
       <Box mt={10} sx={{ display: "flex" }}>
-        <Box pl={10} sx={{ width: "30%" }}>
+        <Box
+          sx={{
+            width: "30%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Box>
             <Box>
               <Typography variant="h5" color="text.secondary" pb={3}>

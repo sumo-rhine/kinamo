@@ -10,6 +10,7 @@ import Header from "../components/Header/Header";
 import { AppState } from "../models/AppState";
 import { City } from "../models/FullDataset";
 import CityTab from "../components/CityTab/CityTab";
+import KeyFigureBanner from "../components/KeyFigureBanner/KeyFigureBanner";
 // import AboutProps from "../components/How-it-Works/About.model";
 interface CityPageProps {
   cities: City[];
@@ -59,6 +60,8 @@ const CityPage: React.FC<CityPageProps> = (props) => {
           <Box>
             <AnimationBanner city={city}></AnimationBanner>
             <CityOverview city={city}></CityOverview>
+            <KeyFigureBanner city={city} />
+
             <CityTab city={city}></CityTab>
             {/* <pre>{JSON.stringify(city, undefined, 4)}</pre> */}
           </Box>

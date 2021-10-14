@@ -130,7 +130,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
           <TabList
             onChange={handleChange}
             aria-label="lab API tabs example"
-            variant="scrollable"
+            variant="fullWidth"
           >
             <Tab
               icon={

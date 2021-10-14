@@ -46,48 +46,81 @@ const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
   }, [props]);
 
   return (
-    // <Box
-    //   sx={{
-    //     display: "flex",
-    //     width: "100%",
-    //     height: 650,
-    //     justifyContent: "space-around",
-    //     alignItems: "flex-end",
-    //     paddingBottom: 10,
-    //   }}
-    // >
-    // <Box sx={{ width: "100%", height: 650 }}>
-    // <Box
-    // sx={{
-    //   width: "100%",
-    //   height: 100,
-    //   display: "flex",
-    //   alignItems: "flex-end",
-    // }}
-    // >
-    <Stack
-      mt={70}
-      mb={4}
-      sx={{ width: "200" }}
-      direction="row"
-      spacing={5}
-      justifyContent="space-around"
-      alignItems="flex-end"
-      divider={
-        <Divider
-          style={{ background: "#bcbcbc" }}
-          orientation="vertical"
-          flexItem
-        />
-      }
-    >
-      <KeyFigureInfo info={best1}></KeyFigureInfo>
-      <KeyFigureInfo info={best2}></KeyFigureInfo>
-      <KeyFigureInfo info={worst1}></KeyFigureInfo>
-      <KeyFigureInfo info={worst2}></KeyFigureInfo>
-    </Stack>
+    <Box sx={{ width: "100%" }}>
+      <Stack
+        mt={74}
+        // mb={2}
+        // sx={{ width: "200" }}
+        direction="row"
+        // spacing={5}
+        justifyContent="space-around"
+        // alignItems="flex-start"
+        divider={
+          <Divider
+            style={{ background: "#bcbcbc" }}
+            orientation="vertical"
+            variant="middle"
+            light={true}
+            flexItem
+          />
+        }
+      >
+        <KeyFigureInfo info={best1}></KeyFigureInfo>
+        <KeyFigureInfo info={best2}></KeyFigureInfo>
+        <KeyFigureInfo info={worst1}></KeyFigureInfo>
+        <KeyFigureInfo info={worst2}></KeyFigureInfo>
+      </Stack>
+    </Box>
     // </Box>
   );
 };
 
-export default KeyFigureBanner;
+export KeyFigureBanner;
+
+
+const KeyFigureBannerLight: React.FC<KeyFigureProps> = (props) => {
+  const [best1, setBest1] = useState<KeyFigure>();
+  const [best2, setBest2] = useState<KeyFigure>();
+  const [worst1, setWorst1] = useState<KeyFigure>();
+  const [worst2, setWorst2] = useState<KeyFigure>();
+
+  useEffect(() => {
+    setBest1(getKeyFigure(props.city, props.city.two_best_keyFigures[0]));
+    setBest2(getKeyFigure(props.city, props.city.two_best_keyFigures[1]));
+    setWorst1(getKeyFigure(props.city, props.city.two_worst_keyFigures[0]));
+    setWorst2(getKeyFigure(props.city, props.city.two_worst_keyFigures[1]));
+    //   console.log(best);
+    //   console.log("test banner");
+  }, [props]);
+
+  return (
+    <Box sx={{ width: "100%" }}>
+      <Stack
+        mt={74}
+        // mb={2}
+        // sx={{ width: "200" }}
+        direction="row"
+        // spacing={5}
+        justifyContent="space-around"
+        // alignItems="flex-start"
+        divider={
+          <Divider
+            style={{ background: "#bcbcbc" }}
+            orientation="vertical"
+            variant="middle"
+            light={true}
+            flexItem
+          />
+        }
+      >
+        <KeyFigureInfo info={best1}></KeyFigureInfo>
+        <KeyFigureInfo info={best2}></KeyFigureInfo>
+        <KeyFigureInfo info={worst1}></KeyFigureInfo>
+        <KeyFigureInfo info={worst2}></KeyFigureInfo>
+      </Stack>
+    </Box>
+    // </Box>
+  );
+};
+
+export KeyFigureBannerLight

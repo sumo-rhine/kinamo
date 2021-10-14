@@ -4,7 +4,7 @@ import { indexOf } from "lodash";
 import { useEffect, useState } from "react";
 import Fade from "@mui/material/Fade";
 import { City } from "../../models/FullDataset";
-import KeyFigureBanner from "../KeyFigureBanner/KeyFigureBanner";
+import KeyFigureBannerLight from "../KeyFigureBanner/KeyFigureBanner";
 
 interface CityIdProps {
   city: City;
@@ -78,7 +78,7 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
           {props.city.city}
         </Typography>
       </Box>
-      <KeyFigureBanner city={props.city}></KeyFigureBanner>
+      <KeyFigureBannerLight city={props.city}></KeyFigureBannerLight>
     </Box>
   );
 };
