@@ -33,6 +33,7 @@ const CityTableCell: React.FC<CityTableCellProps> = (props) => {
             <div
               style={{
                 backgroundColor: "#8BC34A",
+                // width < 25 ? "#C26A4A" : width > 75 ? "#8BC34A" : "#4AC29A",
                 height: "100%",
                 width: `${width.toFixed(0)}%`,
                 // borderRadius: '.3rem'

@@ -119,10 +119,15 @@ const CityTable: React.FC<CityTableProps> = (props) => {
 
   return (
     <React.Fragment>
-      <Box sx={{ width: "98%", margin: "auto" }}>
-        <TableContainer component={Paper}>
+      <Box sx={{ width: "100%", margin: "auto" }}>
+        <TableContainer>
           <Toolbar sx={{ pl: "2rem" }}>
-            <Typography variant="h6" component="div" sx={{ flex: "1 1 100%" }}>
+            <Typography
+              variant="h5"
+              fontWeight="fontWeightLight"
+              component="div"
+              sx={{ flex: "1 1 100%" }}
+            >
               Overview of Cities
             </Typography>
             <Tooltip
@@ -152,7 +157,13 @@ const CityTable: React.FC<CityTableProps> = (props) => {
             size="small"
           >
             {/* HEADER */}
-            <TableHead>
+            <TableHead
+              sx={{
+                "& .MuiTableCell-head": {
+                  fontWeight: 400,
+                },
+              }}
+            >
               <TableRow sx={{ height: 30 }}>
                 {HEADCELLS.map((headcell) => {
                   return (
@@ -166,7 +177,7 @@ const CityTable: React.FC<CityTableProps> = (props) => {
                         direction={headcell.id === orderBy ? order : "asc"}
                         onClick={() => onSortClick(headcell.id)}
                       >
-                        {headcell.label}
+                        {headcell.label.toUpperCase()}
                       </TableSortLabel>
                     </TableCell>
                   );
@@ -181,7 +192,13 @@ const CityTable: React.FC<CityTableProps> = (props) => {
                   <TableRow key={city.city} sx={{ height: "3px" }}>
                     <TableCell component="th" scope="row">
                       <Button
+                        sx={{
+                          width: 200,
+                          borderRadius: 0,
+                          justifyContent: "flex-start",
+                        }}
                         size="small"
+                        // variant="outlined"
                         component={Link}
                         to={`/city/${city.ID}`}
                       >

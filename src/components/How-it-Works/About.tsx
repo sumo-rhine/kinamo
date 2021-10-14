@@ -688,7 +688,7 @@ export const AboutKeyFigures = () => {
             <Box mt={0.5}>
               <Box sx={{ display: "flex", alignItems: "flex-end" }}>
                 <Typography variant="h3" fontWeight="fontWeightLight">
-                  {speedLimitRank.toFixed(0)}{" "}
+                  {Math.abs(speedLimitRank - 37).toFixed(0)}{" "}
                 </Typography>
                 <Typography mb={0.3} variant="h6" fontWeight="fontWeightLight">
                   TH OF 36 CITES
@@ -754,7 +754,9 @@ export const AboutKeyFigures = () => {
             <Box mt={0.5}>
               <Box sx={{ display: "flex", alignItems: "flex-end" }}>
                 <Typography mr={0} variant="h3" fontWeight="fontWeightLight">
-                  {bicycleAccidentsRating.toFixed(0)}
+                  {bicycleAccidentsRating < 1
+                    ? 36
+                    : Math.abs(bicycleAccidentsRating - 37).toFixed(0)}
                 </Typography>
                 <Typography mb={0.3} variant="h6" fontWeight="fontWeightLight">
                   TH OF 36 CITES
