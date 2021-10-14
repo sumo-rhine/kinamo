@@ -19,29 +19,73 @@ interface KeyFigureCardProps {
 const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
   return (
     <Box p={3}>
-      <Card sx={{ minWidth: 300, height: 190 }}>
+      <Card>
         <CardContent>
-          <Typography color="text.secondary" gutterBottom>
-            {props.description}
-          </Typography>
-          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-            <Typography variant="h5" component="div">
-              {props.value === null ? "Na" : props.value.toFixed(2)}
-            </Typography>
-            <Typography ml={2} mb={0.2} color="text.secondary" component="div">
-              {props.unit}
-            </Typography>
-          </Box>
-          {/* <Typography variant="subtitle1" color="text.secondary">
-            {props.description}
+          <Box
+          // sx={{
+          //   display: "flex",
+          //   flexDirection: "column",
+          //   justifyContent: "flex-start",
+          // }}
+          >
+            {/* <Typography
+            color="text.secondary"
+            // fontWeight="fontWeightLight"
+            gutterBottom
+            variant="h6"
+          >
+            {props.short_name.toUpperCase()}
           </Typography> */}
-          <Box pt={4} sx={{ width: 200 }}>
-            <KeyFigureBar points={props.points} />
+            <Box mb={2}>
+              <Typography
+                // color="text.secondary"
+                fontWeight="fontWeightLight"
+                gutterBottom
+                variant="h6"
+              >
+                {props.description}
+              </Typography>
+            </Box>
+
+            <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              <Typography
+                variant="h4"
+                fontWeight="fontWeightLight"
+                component="div"
+              >
+                {props.value === null ? "Na" : props.value.toFixed(2)}
+              </Typography>
+              <Typography
+                // ml={0}
+                mb={0.3}
+                variant="h5"
+                fontWeight="fontWeightLight"
+                component="div"
+              >
+                {props.unit}
+              </Typography>
+            </Box>
+            <Box sx={{ width: 300 }}>
+              <KeyFigureBar points={props.points} />
+            </Box>
           </Box>
+          {/* <CardActions> */}
+          <Box mt={2}>
+            <Button size="small">Learn More</Button>
+          </Box>
+          {/* </CardActions> */}
+          {/* 
+          <Typography
+            mt={1}
+            // mb={0.3}
+            variant="h6"
+            fontWeight="fontWeightLight"
+            component="div"
+          >
+            {props.points} OF 36
+          </Typography> */}
+          {/* </Box>  */}
         </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
       </Card>
     </Box>
   );

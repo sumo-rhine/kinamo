@@ -4,7 +4,7 @@ import { indexOf } from "lodash";
 import { useEffect, useState } from "react";
 import Fade from "@mui/material/Fade";
 import { City } from "../../models/FullDataset";
-import KeyFigureBannerLight from "../KeyFigureBanner/KeyFigureBanner";
+import { KeyFigureBannerLight } from "../KeyFigureBanner/KeyFigureBanner";
 
 interface CityIdProps {
   city: City;

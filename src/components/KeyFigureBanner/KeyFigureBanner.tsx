@@ -30,7 +30,7 @@ const getKeyFigure = (city: City, keyFigureName: string): any => {
   return keyFigureInfo;
 };
 
-const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
+export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
   const [best1, setBest1] = useState<KeyFigure>();
   const [best2, setBest2] = useState<KeyFigure>();
   const [worst1, setWorst1] = useState<KeyFigure>();
@@ -46,9 +46,13 @@ const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
   }, [props]);
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box
+      mt={15}
+      p={3}
+      sx={{ width: "100%", backgroundColor: "#2b2e28", color: "#f0f5eb" }}
+    >
       <Stack
-        mt={74}
+        // mt={74}
         // mb={2}
         // sx={{ width: "200" }}
         direction="row"
@@ -75,10 +79,7 @@ const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
   );
 };
 
-export KeyFigureBanner;
-
-
-const KeyFigureBannerLight: React.FC<KeyFigureProps> = (props) => {
+export const KeyFigureBannerLight: React.FC<KeyFigureProps> = (props) => {
   const [best1, setBest1] = useState<KeyFigure>();
   const [best2, setBest2] = useState<KeyFigure>();
   const [worst1, setWorst1] = useState<KeyFigure>();
@@ -94,14 +95,15 @@ const KeyFigureBannerLight: React.FC<KeyFigureProps> = (props) => {
   }, [props]);
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%", color: "white" }}>
       <Stack
         mt={74}
         // mb={2}
         // sx={{ width: "200" }}
         direction="row"
-        // spacing={5}
-        justifyContent="space-around"
+        spacing={10}
+        ml={18}
+        // justifyContent=""
         // alignItems="flex-start"
         divider={
           <Divider
@@ -114,13 +116,11 @@ const KeyFigureBannerLight: React.FC<KeyFigureProps> = (props) => {
         }
       >
         <KeyFigureInfo info={best1}></KeyFigureInfo>
-        <KeyFigureInfo info={best2}></KeyFigureInfo>
+        {/* <KeyFigureInfo info={best2}></KeyFigureInfo> */}
         <KeyFigureInfo info={worst1}></KeyFigureInfo>
-        <KeyFigureInfo info={worst2}></KeyFigureInfo>
+        {/* <KeyFigureInfo info={worst2}></KeyFigureInfo> */}
       </Stack>
     </Box>
     // </Box>
   );
 };
-
-export KeyFigureBannerLight

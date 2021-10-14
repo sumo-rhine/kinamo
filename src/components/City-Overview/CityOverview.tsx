@@ -12,7 +12,7 @@ const CityOverview: React.FC<CityOverviewProps> = (props) => {
     <Box
       sx={{
         width: "100%",
-        height: 800,
+        // height: 800,
         // display: "flex",
         // alignItems: "center",
         // justifyContent: "center",

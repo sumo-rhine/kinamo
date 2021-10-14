@@ -24,7 +24,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box mt={15} sx={{ width: "100%" }}>
       <Box m={5}>
         <TabContext value={indicator}>
           <Box sx={{ borderBottom: 0, borderColor: "divider" }}>
@@ -217,7 +217,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                       indicator={(props.city.indicators as any)[ind]}
                       shadow={false}
                       rounded={false}
-                      background="white"
+                      background="#C4C4C4"
                       height={0.8}
                       animation="1s"
                     />
@@ -232,6 +232,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                   sx={{
                     display: "flex",
                     flexWrap: "wrap",
+                    justifyContent: "space-between",
                     // justifyContent: "space-between",
                     // alignContent: "space-between",
                   }}

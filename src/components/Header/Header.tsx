@@ -48,7 +48,7 @@ interface HeaderProps {
 const Header: React.FC<CityNameProps & AboutProps> = (props) => {
   const classes = useStyles();
   return (
-    <AppBar position="sticky" style={{ background: "white" }}>
+    <AppBar position="sticky" style={{ background: "#131413" }}>
       <Toolbar>
         <Box className={classes.mainContainer}>
           <IconButton
@@ -58,7 +58,7 @@ const Header: React.FC<CityNameProps & AboutProps> = (props) => {
             component={Link}
             to="/home"
           >
-            <HomeIcon fontSize="large" style={{ fill: "black" }} />
+            <HomeIcon fontSize="large" style={{ fill: "#d9ebda" }} />
           </IconButton>
           <Divider
             orientation="vertical"
@@ -70,7 +70,7 @@ const Header: React.FC<CityNameProps & AboutProps> = (props) => {
           />
           <Box pl={1.5}>
             <Typography
-              style={{ color: "black" }}
+              style={{ color: "#d9ebda" }}
               variant="h5"
               fontWeight="fontWeightLight"
             >
