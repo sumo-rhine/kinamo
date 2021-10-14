@@ -101,9 +101,9 @@ export const KeyFigureBannerLight: React.FC<KeyFigureProps> = (props) => {
         // mb={2}
         // sx={{ width: "200" }}
         direction="row"
-        spacing={10}
+        // spacing={10}
         ml={18}
-        // justifyContent=""
+        justifyContent="space-around"
         // alignItems="flex-start"
         divider={
           <Divider
