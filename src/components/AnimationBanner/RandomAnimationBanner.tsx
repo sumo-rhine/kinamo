@@ -17,10 +17,10 @@ const RandomAnimationBanner: React.FC = (props) => {
       setLoading(false);
       setTimeout(function () {
         //do what you need here
-      }, 2000);
+      }, 20000);
       setIndex((index) => randomInt(0, 4));
       setLoading(true);
-    }, 15000);
+    }, 20000);
     return () => clearInterval(interval);
   }, []);
 

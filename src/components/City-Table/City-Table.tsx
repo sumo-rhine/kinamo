@@ -121,15 +121,17 @@ const CityTable: React.FC<CityTableProps> = (props) => {
     <React.Fragment>
       <Box sx={{ width: "100%", margin: "auto" }}>
         <TableContainer>
-          <Toolbar sx={{ pl: "2rem" }}>
-            <Typography
+          <Toolbar
+            sx={{ pl: "2rem", display: "flex", justifyContent: "flex-end" }}
+          >
+            {/* <Typography
               variant="h5"
               fontWeight="fontWeightLight"
               component="div"
               sx={{ flex: "1 1 100%" }}
             >
               Overview of Cities
-            </Typography>
+            </Typography> */}
             <Tooltip
               title={
                 showOption === "number"

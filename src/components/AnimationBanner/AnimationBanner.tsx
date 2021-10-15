@@ -26,7 +26,7 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
     <Box
       sx={{
         width: "100%",
-        height: 700,
+        height: 600,
         display: "flex",
         position: "relative",
         backgroundColor: "#111213",
@@ -78,7 +78,7 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
           {props.city.city}
         </Typography>
       </Box>
-      <KeyFigureBannerLight city={props.city}></KeyFigureBannerLight>
+      {/* <KeyFigureBannerLight city={props.city}></KeyFigureBannerLight> */}
     </Box>
   );
 };

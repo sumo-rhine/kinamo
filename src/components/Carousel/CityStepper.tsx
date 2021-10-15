@@ -61,7 +61,13 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
 
   if (cities.length > 0) {
     return (
-      <Box sx={{ display: "flex", justifyContent: "center" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          backgroundColor: "#F8F8F8",
+        }}
+      >
         <Box
           pl={5}
           sx={{

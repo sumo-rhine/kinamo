@@ -33,7 +33,7 @@ interface AboutProps {
 
 export const AboutSuMoProject = () => {
   return (
-    <Box sx={{}}>
+    <Box sx={{ maxWidth: 1000 }}>
       <Typography variant="h4" fontWeight="fontWeightLight">
         KINaMo - Information System for Municipal Mobility
       </Typography>
@@ -70,10 +70,7 @@ export const AboutSuMoProject = () => {
           </Grid>
         </Grid> */}
       </Box>
-      <img
-        style={{ height: 500 }}
-        src="/assets/image/kinamo-diagram-crop.jpg"
-      />
+      <img style={{ height: 500 }} src="/assets/image/diagram-crop.png" />
       {/* <Stack mt={6} direction="row" spacing={2}>
         <Button
         // onMouseEnter={() => props.setter(true)}
@@ -321,7 +318,15 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
                     </Typography>
                   </Box>
                 </Box>
-                <Paper elevation={1} square>
+                <Box
+                  sx={{
+                    borderRadius: 0,
+                    // backgroundColor: "#F8F8F8",
+                    // maxWidth: 900,
+                  }}
+                  // elevation={1}
+                  // square
+                >
                   <Box p={2}>
                     <Grid
                       container
@@ -334,16 +339,34 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
                       {(props.city.indicators as any)[ind].keyFigures.map(
                         (keyFigure: any) => (
                           <Grid item xs={4}>
-                            <Accordion>
+                            <Accordion
+                              square
+                              sx={{
+                                // borderRadius: 0,
+                                backgroundColor: "#F8F8F8",
+                                minHeight: 65,
+                              }}
+                              elevation={6}
+                            >
                               <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                               >
-                                <Typography>{keyFigure.short_name}</Typography>
+                                <Typography
+                                  variant="h6"
+                                  fontWeight="fontWeightLight"
+                                >
+                                  {keyFigure.short_name}
+                                </Typography>
                               </AccordionSummary>
                               <AccordionDetails>
-                                <Typography>{keyFigure.long_name}</Typography>
+                                <Typography
+                                  variant="h6"
+                                  fontWeight="fontWeightLight"
+                                >
+                                  {keyFigure.long_name}
+                                </Typography>
                               </AccordionDetails>
                             </Accordion>
 
@@ -370,7 +393,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
                       )}
                     </Grid>
                   </Box>
-                </Paper>
+                </Box>
               </Box>
             </TabPanel>
           ))}
@@ -536,16 +559,19 @@ export const AboutKeyFigures = () => {
         {<Link href="https://sumo-rhine.com/en/">SuMo Rhine Project</Link>}.
       </Typography>
       <Box>
-        <Grid mt={10} container spacing={2} columns={12}>
+        <Grid mt={5} container spacing={2} columns={12}>
           <Grid xs={6} item>
             <Box
+              ml={15}
+              // mb={}
               sx={{
+                width: "100%",
+                height: "100%",
                 display: "flex",
                 // alignItems: "flex-end",
                 justifyContent: "center",
+                alignItems: "center",
               }}
-              // mt={2}
-              // ml={5}
             >
               <Typography fontWeight="fontWeightLight" variant="h2">
                 Indicator
@@ -553,56 +579,57 @@ export const AboutKeyFigures = () => {
             </Box>
           </Grid>
           <Grid xs={6} item>
-            <Box mb={6}>
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                <Typography mr={1} fontWeight="fontWeightLight" variant="h3">
-                  {(
-                    (speedLimitBarWidth + bicycleAccidentsBarWidth) /
-                    20
-                  ).toFixed(1)}
-                </Typography>
-                <Typography mr={1} fontWeight="fontWeightLight" variant="h6">
-                  OUT OF
-                </Typography>
-                <Typography fontWeight="fontWeightLight" variant="h4">
-                  10
-                </Typography>
-              </Box>
-              <Box sx={{ display: "flex" }}>
-                <Box
-                  sx={{
-                    width: speedLimitBarWidth * barWidthFactor,
-                    backgroundColor: "#1A4613",
-                    height: 20,
-                  }}
-                ></Box>
-                <Box
-                  sx={{
-                    width: Number(
-                      (bicycleAccidentsBarWidth as number) * barWidthFactor
-                    ),
-                    backgroundColor: "#226A2A",
-                    height: 20,
-                  }}
-                ></Box>
+            <Paper square sx={{ backgroundColor: "#F8F8F8" }} elevation={7}>
+              <Box p={3}>
+                <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+                  <Typography mr={1} fontWeight="fontWeightLight" variant="h3">
+                    {(
+                      (speedLimitBarWidth + bicycleAccidentsBarWidth) /
+                      20
+                    ).toFixed(1)}
+                  </Typography>
+                  <Typography mr={1} fontWeight="fontWeightLight" variant="h6">
+                    OUT OF
+                  </Typography>
+                  <Typography fontWeight="fontWeightLight" variant="h4">
+                    10
+                  </Typography>
+                </Box>
+                <Box sx={{ display: "flex" }}>
+                  <Box
+                    sx={{
+                      width: speedLimitBarWidth * barWidthFactor,
+                      backgroundColor: "#1A4613",
+                      height: 20,
+                    }}
+                  ></Box>
+                  <Box
+                    sx={{
+                      width: Number(
+                        (bicycleAccidentsBarWidth as number) * barWidthFactor
+                      ),
+                      backgroundColor: "#226A2A",
+                      height: 20,
+                    }}
+                  ></Box>
 
-                <Box
-                  sx={{
-                    width: Number(
-                      (200 -
-                        ((speedLimitBarWidth as number) +
-                          (bicycleAccidentsBarWidth as number))) *
-                        barWidthFactor
-                    ),
-                    // width: 1,
+                  <Box
+                    sx={{
+                      width: Number(
+                        (200 -
+                          ((speedLimitBarWidth as number) +
+                            (bicycleAccidentsBarWidth as number))) *
+                          barWidthFactor
+                      ),
+                      // width: 1,
 
-                    backgroundColor: "#d3d3d3",
-                    height: 20,
-                  }}
-                ></Box>
-              </Box>
-              <Box sx={{ display: "flex" }}>
-                {/* <Box
+                      backgroundColor: "#d3d3d3",
+                      height: 20,
+                    }}
+                  ></Box>
+                </Box>
+                <Box sx={{ display: "flex" }}>
+                  {/* <Box
                 // sx={{
                 //   display: "flex",
                 //   justifyContent: "space-between",
@@ -617,42 +644,43 @@ export const AboutKeyFigures = () => {
                     72
                   </Typography>
                 </Box> */}
-                <Box
-                  sx={{
-                    width:
-                      (speedLimitBarWidth + bicycleAccidentsBarWidth) *
-                      barWidthFactor,
-                  }}
-                >
                   <Box
                     sx={{
-                      display: "flex",
-                      justifyContent: "flex-end",
-                      alignItems: "flex-end",
-                      minWidth: 150,
+                      width:
+                        (speedLimitBarWidth + bicycleAccidentsBarWidth) *
+                        barWidthFactor,
                     }}
                   >
-                    <Typography
-                      mr={1}
-                      variant="h4"
-                      fontWeight="fontWeightLight"
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        alignItems: "flex-end",
+                        minWidth: 150,
+                      }}
                     >
-                      {(speedLimitRank + bicycleAccidentsRating).toFixed(0)}
-                    </Typography>
-                    <Typography variant="h6" fontWeight="fontWeightLight">
-                      OUT OF 72
-                    </Typography>
+                      <Typography
+                        mr={1}
+                        variant="h4"
+                        fontWeight="fontWeightLight"
+                      >
+                        {(speedLimitRank + bicycleAccidentsRating).toFixed(0)}
+                      </Typography>
+                      <Typography variant="h6" fontWeight="fontWeightLight">
+                        OUT OF 72
+                      </Typography>
+                    </Box>
                   </Box>
-                </Box>
-                {/* <Box ml={27}>
+                  {/* <Box ml={27}>
                   <Typography variant="h6" fontWeight="fontWeightLight">
                     72
                   </Typography>
                 </Box> */}
+                </Box>
               </Box>
-            </Box>
+            </Paper>
           </Grid>
-          <Grid xs={6} item>
+          <Grid xs={6} mt={10} item>
             <Box
               sx={{
                 display: "flex",
@@ -665,7 +693,7 @@ export const AboutKeyFigures = () => {
                 Streets with Speed limit below 30Km/h
               </Typography>
               <Box sx={{ display: "flex" }}>
-                <Typography pr={3} variant="h3" fontWeight="fontWeightLight">
+                <Typography pr={1} variant="h3" fontWeight="fontWeightLight">
                   {speedLimit}%
                 </Typography>
 
@@ -684,7 +712,7 @@ export const AboutKeyFigures = () => {
               </Box>
             </Box>
           </Grid>
-          <Grid xs={6} item>
+          <Grid xs={6} mt={10} item>
             <Box mt={0.5}>
               <Box sx={{ display: "flex", alignItems: "flex-end" }}>
                 <Typography variant="h3" fontWeight="fontWeightLight">
@@ -728,12 +756,12 @@ export const AboutKeyFigures = () => {
               }}
               mr={5}
             >
-              <Typography variant="h6" fontWeight="fontWeightLight">
+              <Typography pr={6} variant="h6" fontWeight="fontWeightLight">
                 Bicycle Accidents per 1000 Inhabitants
               </Typography>
               <Box sx={{ display: "flex" }}>
                 <Typography pr={3} variant="h3" fontWeight="fontWeightLight">
-                  {(bicycleAccidents as number).toFixed()}
+                  {(bicycleAccidents as number).toFixed(1)}
                 </Typography>
                 <Box mt={2} mr={11} sx={{ width: 200 }}>
                   <Slider

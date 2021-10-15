@@ -59,43 +59,41 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
       >
         <Box pt={10}>
           <Box>
-            <Typography
-              pb={8}
-              variant="h3"
-              component="h2"
-              fontWeight="fontWeightLight"
-            >
+            <Typography pb={5} variant="h4" fontWeight="fontWeightLight">
               {data?.cityName}
             </Typography>
-            <Box style={{}}>
-              <Typography
-                variant="h6"
-                color="text.secondary"
-                fontWeight="fontWeightLight"
-              >
-                {data?.keyFigureDescription}
-              </Typography>
-              <Typography pr={1} variant="h5">
+            <Typography
+              variant="h6"
+              // color="text.secondary"
+              fontWeight="fontWeightLight"
+            >
+              {data?.keyFigureDescription}
+            </Typography>
+            <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              <Typography pr={1} variant="h3" fontWeight="fontWeightLight">
                 {data?.keyFigureValue.toFixed(1)}
+              </Typography>
+              <Typography variant="h5" fontWeight="fontWeightLight">
                 {data?.keyFigureUnit}
               </Typography>
             </Box>
             <Box
-              pt={4}
+              pt={1}
               style={{
                 display: "flex",
                 width: 400,
                 alignItems: "flex-end",
               }}
             >
-              <Typography mr={1} variant="h5" fontWeight="fontWeightLight">
-                {data.keyFigurePoints}
+              <Typography variant="h5" fontWeight="fontWeightLight">
+                {data.keyFigurePoints} OF 36 CITIES
               </Typography>
-              <Box mb={0.4}>OF 36 CITIES</Box>
+              {/* <Box mb={0.4}></Box> */}
               {/* <KeyFigureBar points={data.keyFigurePoints}></KeyFigureBar> */}
             </Box>
-            <Box pt={2}>
+            <Box pt={8}>
               <Button
+                sx={{ borderRadius: 0 }}
                 variant="outlined"
                 // href={`/city/${props.city.id}`}
                 component={Link}
@@ -112,7 +110,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
           <Box pt={15}>
             <CardMedia
               style={{ width: 500, height: 400 }}
-              image="assets/thumbnail/102.png"
+              image="assets/thumbnail/102_.png"
             />
             {/* <p>test</p> */}
           </Box>

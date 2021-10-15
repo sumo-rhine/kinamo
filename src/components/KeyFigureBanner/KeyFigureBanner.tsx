@@ -47,14 +47,21 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
 
   return (
     <Box
-      mt={15}
-      p={3}
-      sx={{ width: "100%", backgroundColor: "#2b2e28", color: "#f0f5eb" }}
+      // mt={15}
+      // p={3}
+      sx={{
+        width: "100%",
+        backgroundColor: "#383C45",
+        color: "#f0f5eb",
+        height: 250,
+        display: "flex",
+        alignItems: "center",
+      }}
     >
       <Stack
         // mt={74}
         // mb={2}
-        // sx={{ width: "200" }}
+        sx={{ width: "100%" }}
         direction="row"
         // spacing={5}
         justifyContent="space-around"
@@ -75,7 +82,6 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
         <KeyFigureInfo info={worst2}></KeyFigureInfo>
       </Stack>
     </Box>
-    // </Box>
   );
 };
 

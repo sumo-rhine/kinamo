@@ -24,8 +24,8 @@ const CityTab: React.FC<CityTabProps> = (props) => {
   };
 
   return (
-    <Box mt={15} sx={{ width: "100%" }}>
-      <Box m={5}>
+    <Box pt={15} sx={{ width: "100%", backgroundColor: "#F8F8F8" }}>
+      <Box p={5}>
         <TabContext value={indicator}>
           <Box sx={{ borderBottom: 0, borderColor: "divider" }}>
             <TabList

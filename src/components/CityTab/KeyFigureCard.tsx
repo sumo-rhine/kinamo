@@ -19,7 +19,7 @@ interface KeyFigureCardProps {
 const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
   return (
     <Box p={3}>
-      <Card>
+      <Card sx={{ borderRadius: 0, minWidth: 350 }} elevation={6}>
         <CardContent>
           <Box
           // sx={{
@@ -36,7 +36,7 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
           >
             {props.short_name.toUpperCase()}
           </Typography> */}
-            <Box mb={2}>
+            <Box>
               <Typography
                 // color="text.secondary"
                 fontWeight="fontWeightLight"
@@ -65,14 +65,14 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
                 {props.unit}
               </Typography>
             </Box>
-            <Box sx={{ width: 300 }}>
+            <Box mt={3} sx={{ width: 200 }}>
               <KeyFigureBar points={props.points} />
             </Box>
           </Box>
           {/* <CardActions> */}
-          <Box mt={2}>
-            <Button size="small">Learn More</Button>
-          </Box>
+          {/* <Box mt={2}>
+            <Button size="small">Info</Button>
+          </Box> */}
           {/* </CardActions> */}
           {/* 
           <Typography

@@ -12,13 +12,15 @@ const CityOverview: React.FC<CityOverviewProps> = (props) => {
     <Box
       sx={{
         width: "100%",
+        backgroundColor: "#F8F8F8",
         // height: 800,
         // display: "flex",
         // alignItems: "center",
         // justifyContent: "center",
         // flexDirection: "row",
       }}
-      mt={10}
+      pt={10}
+      pb={20}
     >
       {/* <Divider sx={{ width: "100%" }} textAlign="left">
         <Typography variant="h2">{props.city.city}</Typography>
