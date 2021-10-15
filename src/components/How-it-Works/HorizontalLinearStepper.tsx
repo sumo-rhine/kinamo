@@ -60,7 +60,7 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
       }}
     >
       <Box mt={40} ml={10}>
-        <Stepper activeStep={activeStep} orientation="vertical">
+        <Stepper activeStep={activeStep} orientation="vertical" nonLinear>
           {steps.map((label) => (
             <Step key={label}>
               <StepLabel>

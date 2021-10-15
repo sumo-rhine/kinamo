@@ -77,7 +77,7 @@ const RandomAnimationBanner: React.FC = (props) => {
           in the Upper Rhine Region
         </Typography>
         <Typography
-          mt={10}
+          mt={5}
           ml={5}
           variant="h5"
           component="h5"

@@ -59,7 +59,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
       >
         <Box pt={10}>
           <Box>
-            <Typography pb={5} variant="h4" fontWeight="fontWeightLight">
+            <Typography pl={2} pb={5} variant="h4" fontWeight="fontWeightLight">
               {data?.cityName}
             </Typography>
             <Typography
@@ -91,7 +91,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
               {/* <Box mb={0.4}></Box> */}
               {/* <KeyFigureBar points={data.keyFigurePoints}></KeyFigureBar> */}
             </Box>
-            <Box pt={8}>
+            <Box pt={5}>
               <Button
                 sx={{ borderRadius: 0 }}
                 variant="outlined"
