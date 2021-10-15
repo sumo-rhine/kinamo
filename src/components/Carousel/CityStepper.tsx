@@ -66,6 +66,7 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
           display: "flex",
           justifyContent: "center",
           backgroundColor: "#F8F8F8",
+          overflow: "hidden",
         }}
       >
         <Box

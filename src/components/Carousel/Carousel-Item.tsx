@@ -59,7 +59,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
       >
         <Box pt={10}>
           <Box>
-            <Typography pl={2} pb={5} variant="h4" fontWeight="fontWeightLight">
+            <Typography pb={5} variant="h4" fontWeight="fontWeightLight">
               {data?.cityName}
             </Typography>
             <Typography
