@@ -32,7 +32,7 @@ const SelectCityTabs: React.FC<CityModalProps> = (props) => {
         // flexWrap: "wrap",
         // flexGrow: 1,
         bgcolor: "background.paper",
-        height: 500,
+        height: 550,
       }}
     >
       <TabContext value={value}>

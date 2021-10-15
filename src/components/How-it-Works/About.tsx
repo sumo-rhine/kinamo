@@ -33,7 +33,7 @@ interface AboutProps {
 
 export const AboutSuMoProject = () => {
   return (
-    <Box sx={{ maxWidth: 1000 }}>
+    <Box sx={{ maxWidth: 1200 }}>
       <Typography variant="h4" fontWeight="fontWeightLight">
         KINaMo - Information System for Municipal Mobility
       </Typography>
@@ -550,14 +550,13 @@ export const AboutKeyFigures = () => {
         How are the Indicators computed?
       </Typography>
       <Typography mt={4} fontWeight="fontWeightLight" variant="h6">
-        KINaMo provides detailed
-        <Box fontWeight="bold" display="inline">
-          {" "}
-          assessment of municipal mobility{" "}
-        </Box>
-        for the Upper Rhine region and is part of the{" "}
-        {<Link href="https://sumo-rhine.com/en/">SuMo Rhine Project</Link>}.
+        Indicators are derived from the sum of the Key Figure rankings.
       </Typography>
+      <Typography fontWeight="fontWeightLight" variant="h6">
+        To illustrate this play with the interactive example of an fictive
+        indicator only consisting of 2 key figures:
+      </Typography>
+
       <Box>
         <Grid mt={5} container spacing={2} columns={12}>
           <Grid xs={6} item>

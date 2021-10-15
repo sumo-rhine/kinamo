@@ -29,7 +29,7 @@ const DividerOverview: React.FC = () => {
         variant="h5"
         fontWeight="fontWeightLight"
       >
-        Compare Cities in the Upper Rhine Region based on 12 Indicators
+        Explore and rank cities in the Upper Rhine Region based on 12 Indicators
       </Typography>
       {/* </Box> */}
     </Box>
