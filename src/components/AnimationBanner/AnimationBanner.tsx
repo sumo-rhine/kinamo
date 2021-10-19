@@ -1,5 +1,5 @@
 import useStyles from "./styles";
-import { Box, Typography, CardMedia } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { indexOf } from "lodash";
 import { useEffect, useState } from "react";
 import Fade from "@mui/material/Fade";

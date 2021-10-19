@@ -70,7 +70,8 @@ export const AboutSuMoProject = () => {
           </Grid>
         </Grid> */}
       </Box>
-      <img style={{ height: 500 }} src="/assets/image/diagram-crop.png" />
+      <img style={{ height: 500 }} src="/assets/image/diagram.svg" />
+
       {/* <Stack mt={6} direction="row" spacing={2}>
         <Button
         // onMouseEnter={() => props.setter(true)}
