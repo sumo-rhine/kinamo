@@ -5,7 +5,10 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import { Typography } from "@mui/material";
 import { Button, Stack } from "@mui/material";
-import { AboutSuMoProject, AboutIndicators, AboutKeyFigures } from "./About";
+// import { AboutSuMoProject, AboutIndicators, AboutKeyFigures } from "./About";
+import AboutScoring from "./AboutScoring";
+import AboutIndicators from "./AboutIndicators";
+import AboutSuMoProject from "./AboutSuMoProject";
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
 import { connect } from "react-redux";
@@ -122,7 +125,7 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
               <Box>
                 <Fade in={slide}>
                   <Box>
-                    <AboutKeyFigures />
+                    <AboutScoring />
                   </Box>
                 </Fade>
               </Box>

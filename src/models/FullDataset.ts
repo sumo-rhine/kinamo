@@ -37,6 +37,7 @@ export interface KeyFigure extends BaseIndicator {
 export interface CityProperty {
   value: number;
   description: string;
+  points: number;
   unit: string;
 }
 

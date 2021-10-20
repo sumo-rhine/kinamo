@@ -15,15 +15,18 @@ const sampleCity: City = {
   population: {
     value: 21268,
     description: "Population",
+    points: 12,
     unit: "Inhabitants",
   },
   area: {
     value: 12.372840779057052,
+    points: 12,
     description: "Area",
     unit: "km^2",
   },
   urban_area: {
     value: 0.4850277174609915,
+    points: 12,
     description: "Share of urban area",
     unit: "%",
   },
