@@ -20,7 +20,6 @@ import {
 // https://mui.com/styles/advanced/
 import { makeStyles } from "@mui/styles";
 import SelectCityModalButton from "./SelectCityModal";
-import { AboutProps } from "../How-it-Works/About.model";
 const useStyles = makeStyles({
   mainContainer: {
     display: `flex`,
@@ -40,12 +39,7 @@ const useStyles = makeStyles({
   },
 });
 
-interface HeaderProps {
-  cityName: CityNameProps;
-  aboutHover: AboutProps;
-}
-
-const Header: React.FC<CityNameProps & AboutProps> = (props) => {
+const Header: React.FC<CityNameProps> = (props) => {
   const classes = useStyles();
   return (
     <AppBar position="sticky" style={{ background: "#131413" }}>

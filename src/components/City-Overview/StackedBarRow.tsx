@@ -3,11 +3,11 @@ import StackedBar from "../StackedBar";
 import { Indicator } from "../../models/FullDataset";
 import { Typography } from "@mui/material";
 
-interface StackedBarRow {
+interface StackedBarRowProps {
   indicator: Indicator;
 }
 
-const StackedBarRow: React.FC<StackedBarRow> = (props) => {
+const StackedBarRow: React.FC<StackedBarRowProps> = (props) => {
   return (
     <Box
       p={1}

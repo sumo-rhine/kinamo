@@ -1,11 +1,6 @@
-import { Box, height } from "@mui/system";
+import { Box} from "@mui/system";
 import { City } from "../../models/FullDataset";
-import { map, pick, pickBy } from "lodash";
 import { Divider, Stack } from "@mui/material";
-import {
-  ClosedCaptionDisabledOutlined,
-  DragIndicatorTwoTone,
-} from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import KeyFigureInfo from "./KeyFigureInfo";
 import KeyFigure from "./keyFigureInfo.model";
@@ -85,48 +80,48 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
   );
 };
 
-export const KeyFigureBannerLight: React.FC<KeyFigureProps> = (props) => {
-  const [best1, setBest1] = useState<KeyFigure>();
-  const [best2, setBest2] = useState<KeyFigure>();
-  const [worst1, setWorst1] = useState<KeyFigure>();
-  const [worst2, setWorst2] = useState<KeyFigure>();
+// export const KeyFigureBannerLight: React.FC<KeyFigureProps> = (props) => {
+//   const [best1, setBest1] = useState<KeyFigure>();
+//   const [best2, setBest2] = useState<KeyFigure>();
+//   const [worst1, setWorst1] = useState<KeyFigure>();
+//   const [worst2, setWorst2] = useState<KeyFigure>();
 
-  useEffect(() => {
-    setBest1(getKeyFigure(props.city, props.city.two_best_keyFigures[0]));
-    setBest2(getKeyFigure(props.city, props.city.two_best_keyFigures[1]));
-    setWorst1(getKeyFigure(props.city, props.city.two_worst_keyFigures[0]));
-    setWorst2(getKeyFigure(props.city, props.city.two_worst_keyFigures[1]));
-    //   console.log(best);
-    //   console.log("test banner");
-  }, [props]);
+//   useEffect(() => {
+//     setBest1(getKeyFigure(props.city, props.city.two_best_keyFigures[0]));
+//     setBest2(getKeyFigure(props.city, props.city.two_best_keyFigures[1]));
+//     setWorst1(getKeyFigure(props.city, props.city.two_worst_keyFigures[0]));
+//     setWorst2(getKeyFigure(props.city, props.city.two_worst_keyFigures[1]));
+//     //   console.log(best);
+//     //   console.log("test banner");
+//   }, [props]);
 
-  return (
-    <Box sx={{ width: "100%", color: "white" }}>
-      <Stack
-        mt={74}
-        // mb={2}
-        // sx={{ width: "200" }}
-        direction="row"
-        // spacing={10}
-        ml={18}
-        justifyContent="space-around"
-        // alignItems="flex-start"
-        divider={
-          <Divider
-            style={{ background: "#bcbcbc" }}
-            orientation="vertical"
-            variant="middle"
-            light={true}
-            flexItem
-          />
-        }
-      >
-        <KeyFigureInfo info={best1}></KeyFigureInfo>
-        {/* <KeyFigureInfo info={best2}></KeyFigureInfo> */}
-        <KeyFigureInfo info={worst1}></KeyFigureInfo>
-        {/* <KeyFigureInfo info={worst2}></KeyFigureInfo> */}
-      </Stack>
-    </Box>
-    // </Box>
-  );
-};
+//   return (
+//     <Box sx={{ width: "100%", color: "white" }}>
+//       <Stack
+//         mt={74}
+//         // mb={2}
+//         // sx={{ width: "200" }}
+//         direction="row"
+//         // spacing={10}
+//         ml={18}
+//         justifyContent="space-around"
+//         // alignItems="flex-start"
+//         divider={
+//           <Divider
+//             style={{ background: "#bcbcbc" }}
+//             orientation="vertical"
+//             variant="middle"
+//             light={true}
+//             flexItem
+//           />
+//         }
+//       >
+//         <KeyFigureInfo info={best1}></KeyFigureInfo>
+//         {/* <KeyFigureInfo info={best2}></KeyFigureInfo> */}
+//         <KeyFigureInfo info={worst1}></KeyFigureInfo>
+//         {/* <KeyFigureInfo info={worst2}></KeyFigureInfo> */}
+//       </Stack>
+//     </Box>
+//     // </Box>
+//   );
+// };

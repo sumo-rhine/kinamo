@@ -5,7 +5,6 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import { Typography } from "@mui/material";
 import { Button, Stack } from "@mui/material";
-import { ClosedCaptionDisabledOutlined } from "@mui/icons-material";
 import { AboutSuMoProject, AboutIndicators, AboutKeyFigures } from "./About";
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";

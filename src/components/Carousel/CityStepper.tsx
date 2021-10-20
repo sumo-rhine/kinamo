@@ -8,7 +8,6 @@ import CarouselItem from "./Carousel-Item";
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
 // import { Slider } from "@mui/material";
-import { cloneDeep } from "lodash";
 
 interface CityStepperProps {
   cities: City[];
@@ -23,7 +22,7 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
   );
 
   // const [SelectedCity, setCity] = useState<City | null>(null);
-  const [city, setCity] = useState<City | null>(null);
+  // const [city, setCity] = useState<City | null>(null);
 
   const handleNext = () => {
     // This defines how to exit the current slide:

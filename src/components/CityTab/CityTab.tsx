@@ -1,13 +1,11 @@
 import { Box } from "@mui/system";
 import { City } from "../../models/FullDataset";
-import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import React, { useState } from "react";
-import { Button } from "@mui/material";
 import KeyFigureCard from "./KeyFigureCard";
 import Icon from "@mui/material/Icon";
 import StackedBar from "../StackedBar";
@@ -41,6 +39,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                 icon={
                   <Icon>
                     <img
+                      alt="img"
                       src={"/assets/icons/walkability.svg"}
                       height={25}
                       // width={25}
@@ -54,6 +53,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                 icon={
                   <Icon>
                     <img
+                      alt="img"
                       src={"/assets/icons/bikeability.svg"}
                       height={25}
                       // width={25}
@@ -67,6 +67,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                 icon={
                   <Icon>
                     <img
+                      alt="img"
                       src={"/assets/icons/pt.svg"}
                       height={25}
                       // width={25}
@@ -80,6 +81,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                 icon={
                   <Icon>
                     <img
+                      alt="img"
                       src={"/assets/icons/car.svg"}
                       height={25}
                       // width={25}
@@ -93,6 +95,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                 icon={
                   <Icon>
                     <img
+                      alt="img"
                       src={"/assets/icons/spatial-structur.svg"}
                       height={25}
                       // width={25}
@@ -106,6 +109,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                 icon={
                   <Icon>
                     <img
+                      alt="img"
                       src={"/assets/icons/accessibility.svg"}
                       height={25}
                       // width={30}
@@ -119,6 +123,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                 icon={
                   <Icon>
                     <img
+                      alt="img"
                       src={"/assets/icons/commuting.svg"}
                       height={25}
                       // width={25}
@@ -132,6 +137,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                 icon={
                   <Icon>
                     <img
+                      alt="img"
                       src={"/assets/icons/land-consumption.svg"}
                       height={25}
                       // width={25}
@@ -145,6 +151,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                 icon={
                   <Icon>
                     <img
+                      alt="img"
                       src={"/assets/icons/air-pollution.svg"}
                       height={25}
                       // width={25}
@@ -158,6 +165,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                 icon={
                   <Icon>
                     <img
+                      alt="img"
                       src={"/assets/icons/traffic-noise.svg"}
                       height={25}
                       // width={25}
@@ -171,6 +179,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                 icon={
                   <Icon>
                     <img
+                      alt="img"
                       src={"/assets/icons/safety.svg"}
                       height={25}
                       // width={25}
@@ -184,6 +193,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                 icon={
                   <Icon>
                     <img
+                      alt="img"
                       src={"/assets/icons/modal-choice.svg"}
                       height={25}
                       // width={25}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import sortBy from "lodash.sortby";
 
-import { Paper, Typography, Switch, FormControlLabel } from "@mui/material";
+import { Switch, FormControlLabel } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import TableContainer from "@mui/material/TableContainer";

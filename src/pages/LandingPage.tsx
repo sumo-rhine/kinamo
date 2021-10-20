@@ -6,19 +6,20 @@ import RandomAnimationBanner from "../components/AnimationBanner/RandomAnimation
 // import AnimationBanner from "../components/AnimationBanner/AnimationBanner";
 // import CityCarousel from "../components/Carousel/Carousel";
 import CityTable from "../components/City-Table/City-Table";
-import SelectCityTabs from "../components/Header/SelectCityTabs";
 import DividerOverview from "../components/DividerOverview";
 import About from "../components/How-it-Works/HowItWorks";
 import CityStepper from "../components/Carousel/CityStepper";
 import { useState } from "react";
+
 const LandingPage: React.FC = () => {
   const [active, setActive] = useState(false);
+
 
   return (
     <Box>
       <Header
-        value={active}
-        setter={setActive}
+        // value={active}
+        // setter={setActive}
         cityName="select your City"
       ></Header>
       <RandomAnimationBanner></RandomAnimationBanner>

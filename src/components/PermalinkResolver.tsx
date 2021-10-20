@@ -25,7 +25,7 @@ const PermalinkResolver: React.FC = () => {
     }
   });
 
-  console.log(params);
+  // console.log(params);
 
   // get the correct class
   const Component: React.ComponentType<LinkableProps> =

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router";
 import { Box, CircularProgress } from "@mui/material";
-import { cloneDeep } from "lodash";
+// import { cloneDeep } from "lodash";
 
 import Header from "../components/Header/Header";
 import { AppState } from "../models/AppState";
@@ -18,7 +18,7 @@ interface CityPageProps {
 }
 
 const CityPage: React.FC<CityPageProps> = (props) => {
-  const [active, setActive] = useState(false);
+  // const [active, setActive] = useState(false);
 
   // load the city id from the url
   const { cityId } = useParams<{ cityId: string }>();
@@ -53,7 +53,7 @@ const CityPage: React.FC<CityPageProps> = (props) => {
   // return the page
   return (
     <Box>
-      <Header value={true} setter={setActive} cityName={city?.city} />
+      <Header  cityName={city?.city} />
       {
         /* Switch the city variable - if null, no city is (yet) loaded */
         city ? (

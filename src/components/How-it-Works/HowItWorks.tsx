@@ -1,5 +1,5 @@
 import { Box } from "@mui/system";
-import { Divider, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import HorizontalLinearStepper from "./HorizontalLinearStepper";
 import { AboutProps } from "./About.model";
 // import { Typography } from "@mui/material";

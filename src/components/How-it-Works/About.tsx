@@ -1,30 +1,20 @@
 import { Box } from "@mui/system";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
 import { Typography } from "@mui/material";
 import { Link } from "@mui/material";
 import { City } from "../../models/FullDataset";
-import Tabs from "@mui/material/Tabs";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
 import Paper from "@mui/material/Paper";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import Icon from "@mui/material/Icon";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import Slider from "@mui/material/Slider";
-import { setTextRange } from "typescript";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
-import SelectCityModalButton from "../Header/SelectCityModal";
 
 // import { AboutProps } from "./About.model";
 interface AboutProps {
@@ -70,7 +60,11 @@ export const AboutSuMoProject = () => {
           </Grid>
         </Grid> */}
       </Box>
-      <img style={{ height: 500 }} src="/assets/image/diagram.svg" />
+      <img
+        alt="images"
+        style={{ height: 500 }}
+        src="/assets/image/diagram.svg"
+      />
 
       {/* <Stack mt={6} direction="row" spacing={2}>
         <Button
@@ -134,6 +128,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
               icon={
                 <Icon>
                   <img
+                    alt="images"
                     src={"/assets/icons/walkability.svg"}
                     height={25}
                     // width={25}
@@ -147,6 +142,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
               icon={
                 <Icon>
                   <img
+                    alt="images"
                     src={"/assets/icons/bikeability.svg"}
                     height={25}
                     // width={25}
@@ -160,6 +156,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
               icon={
                 <Icon>
                   <img
+                    alt="images"
                     src={"/assets/icons/pt.svg"}
                     height={25}
                     // width={25}
@@ -173,6 +170,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
               icon={
                 <Icon>
                   <img
+                    alt="images"
                     src={"/assets/icons/car.svg"}
                     height={25}
                     // width={25}
@@ -186,6 +184,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
               icon={
                 <Icon>
                   <img
+                    alt="images"
                     src={"/assets/icons/spatial-structur.svg"}
                     height={25}
                     // width={25}
@@ -199,6 +198,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
               icon={
                 <Icon>
                   <img
+                    alt="images"
                     src={"/assets/icons/accessibility.svg"}
                     height={25}
                     // width={30}
@@ -212,6 +212,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
               icon={
                 <Icon>
                   <img
+                    alt="images"
                     src={"/assets/icons/commuting.svg"}
                     height={25}
                     // width={25}
@@ -225,6 +226,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
               icon={
                 <Icon>
                   <img
+                    alt="images"
                     src={"/assets/icons/land-consumption.svg"}
                     height={25}
                     // width={25}
@@ -238,6 +240,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
               icon={
                 <Icon>
                   <img
+                    alt="images"
                     src={"/assets/icons/air-pollution.svg"}
                     height={25}
                     // width={25}
@@ -251,6 +254,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
               icon={
                 <Icon>
                   <img
+                    alt="images"
                     src={"/assets/icons/traffic-noise.svg"}
                     height={25}
                     // width={25}
@@ -264,6 +268,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
               icon={
                 <Icon>
                   <img
+                    alt="images"
                     src={"/assets/icons/safety.svg"}
                     height={25}
                     // width={25}
@@ -277,6 +282,7 @@ export const AboutIndicators: React.FC<AboutProps> = (props) => {
               icon={
                 <Icon>
                   <img
+                    alt="images"
                     src={"/assets/icons/modal-choice.svg"}
                     height={25}
                     // width={25}
@@ -415,7 +421,7 @@ export const AboutKeyFigures = () => {
   const maxBicycleAccidents = 11.7;
   const minBicycleAccidents = 0.05;
 
-  const initSpeedLimitBarWidth = (initSpeedLimit - minSpeedLimit) * (100 / 66);
+  // const initSpeedLimitBarWidth = (initSpeedLimit - minSpeedLimit) * (100 / 66);
   // const initBicycleAccidentsBarWidth;
 
   const marksSpeedLimit = [

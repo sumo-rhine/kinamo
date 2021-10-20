@@ -1,9 +1,9 @@
 /* tslint:disable */
 
 import React from "react";
-import Header from "../components/Header/Header";
-import AnimationBanner from "../components/AnimationBanner/AnimationBanner";
-import CityTab from "../components/CityTab/CityTab";
+// import Header from "../components/Header/Header";
+// import AnimationBanner from "../components/AnimationBanner/AnimationBanner";
+// import CityTab from "../components/CityTab/CityTab";
 import StackedBar from "../components/StackedBar";
 import { Box } from "@mui/system";
 import { City } from "../models/FullDataset";

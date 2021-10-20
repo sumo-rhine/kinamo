@@ -1,4 +1,3 @@
-import Divider from "@mui/material/Divider";
 import { Box } from "@mui/system";
 import Typography from "@mui/material/Typography";
 

@@ -4,7 +4,7 @@ import { Container } from "@mui/material";
 import { loadData } from "../store/actions/firebaseActions";
 
 const data = loadData();
-console.log(data);
+// console.log(data);
 
 const StoreTest: React.FC = () => {
   return (

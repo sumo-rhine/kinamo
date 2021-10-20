@@ -1,11 +1,10 @@
 // import { Container, Box, Paper, Button } from "@material-ui/core";
 import { useState, useEffect } from "react";
-import { Button, Container, Box, CardMedia, Typography } from "@mui/material";
+import { Button, Box, CardMedia, Typography } from "@mui/material";
 // import { Button } from "@material-ui/core";
 // import { Item } from "./Carousel-Item.model";
 // import thumbnail from "assets/thumbnail/102.png";
 import { City } from "../../models/FullDataset";
-import KeyFigureBar from "../KeyFigureBar";
 import { Link } from "react-router-dom";
 
 interface CarouselItemProps {

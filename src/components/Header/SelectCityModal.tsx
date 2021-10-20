@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles, createStyles } from "@mui/styles";
 // import ArrowDropDownOutlinedIcon from "@material-ui/icons/ArrowDropDownOutlined";
 import ArrowDropDownOutlinedIcon from "@mui/material/Icon";
-import { Modal, Backdrop, Fade, Button, Paper, Box } from "@mui/material";
+import { Modal, Fade, Button, Paper } from "@mui/material";
 import SelectCityTabs from "./SelectCityTabs";
 import { CityNameProps } from "./SelectCity.model";
 

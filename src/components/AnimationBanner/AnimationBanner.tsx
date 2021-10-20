@@ -1,10 +1,6 @@
 import useStyles from "./styles";
 import { Box, Typography } from "@mui/material";
-import { indexOf } from "lodash";
-import { useEffect, useState } from "react";
-import Fade from "@mui/material/Fade";
 import { City } from "../../models/FullDataset";
-import { KeyFigureBannerLight } from "../KeyFigureBanner/KeyFigureBanner";
 
 interface CityIdProps {
   city: City;
@@ -19,7 +15,7 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
   const pois_path = "/assets/banner/" + id.toString() + "_pois.png";
   const streets_path = "/assets/banner/" + id.toString() + "_streets.png";
   const parks_path = "/assets/banner/" + id.toString() + "_parks.png";
-  console.log("path of animationBanner:", parks_path);
+  // console.log("path of animationBanner:", parks_path);
 
   const classes = useStyles();
   return (
@@ -36,9 +32,10 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
       <Box sx={{ position: "absolute" }}>
         {/* <Fade in={loading} timeout={4000}> */}
         <Box className={classes.banner}>
-          <img className={classes.parks} src={parks_path} />
-          <img className={classes.pois} src={pois_path} />
+          <img alt="img" className={classes.parks} src={parks_path} />
+          <img alt="img" className={classes.pois} src={pois_path} />
           <img
+            alt="img"
             className={classes.streets}
             src={streets_path}
             // onLoad={onLoadHandler}
