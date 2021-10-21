@@ -1,10 +1,10 @@
-import { Box} from "@mui/system";
+import { Box } from "@mui/system";
 import { City } from "../../models/FullDataset";
 import { Divider, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
 import KeyFigureInfo from "./KeyFigureInfo";
 import KeyFigure from "./keyFigureInfo.model";
-
+import KeyFigureCard from "../CityTab/KeyFigureCard";
 interface KeyFigureProps {
   city: City;
 }
@@ -46,36 +46,76 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
       // p={3}
       sx={{
         width: "100%",
-        backgroundColor: "#383C45",
+        backgroundColor: "#F8F8F8",
         color: "#f0f5eb",
         height: 250,
         display: "flex",
         alignItems: "center",
       }}
     >
-      <Stack
-        // mt={74}
-        // mb={2}
-        sx={{ width: "100%" }}
-        direction="row"
-        // spacing={5}
-        justifyContent="space-around"
-        // alignItems="flex-start"
-        divider={
-          <Divider
-            style={{ background: "#bcbcbc" }}
-            orientation="vertical"
-            variant="middle"
-            light={true}
-            flexItem
+      {!!best1 ? (
+        <Stack
+          // mt={74}
+          // mb={2}
+          sx={{ width: "100%" }}
+          direction="row"
+          // spacing={5}
+          justifyContent="space-around"
+          // alignItems="flex-start"
+          // divider={
+          //   <Divider
+          //     style={{ background: "#bcbcbc" }}
+          //     orientation="vertical"
+          //     variant="middle"
+          //     light={true}
+          //     flexItem
+          //   />
+          // }
+        >
+          <KeyFigureCard
+            description={(best1 as KeyFigure).description}
+            value={(best1 as KeyFigure).value}
+            unit={(best1 as KeyFigure).unit}
+            short_name={(best1 as KeyFigure).shortName}
+            points={(best1 as KeyFigure).points}
+            padding={1}
+            elevation={2}
           />
-        }
-      >
-        <KeyFigureInfo info={best1}></KeyFigureInfo>
+          <KeyFigureCard
+            description={(best2 as KeyFigure).description}
+            value={(best2 as KeyFigure).value}
+            unit={(best2 as KeyFigure).unit}
+            short_name={(best2 as KeyFigure).shortName}
+            points={(best2 as KeyFigure).points}
+            padding={1}
+            elevation={2}
+          />
+          <KeyFigureCard
+            description={(worst2 as KeyFigure).description}
+            value={(worst2 as KeyFigure).value}
+            unit={(worst2 as KeyFigure).unit}
+            short_name={(worst2 as KeyFigure).shortName}
+            points={(worst2 as KeyFigure).points}
+            padding={1}
+            elevation={2}
+          />
+          <KeyFigureCard
+            description={(worst1 as KeyFigure).description}
+            value={(worst1 as KeyFigure).value}
+            unit={(worst1 as KeyFigure).unit}
+            short_name={(worst1 as KeyFigure).shortName}
+            points={(worst1 as KeyFigure).points}
+            padding={1}
+            elevation={2}
+          />
+          {/* <KeyFigureInfo info={best1}></KeyFigureInfo>
         <KeyFigureInfo info={best2}></KeyFigureInfo>
         <KeyFigureInfo info={worst1}></KeyFigureInfo>
-        <KeyFigureInfo info={worst2}></KeyFigureInfo>
-      </Stack>
+        <KeyFigureInfo info={worst2}></KeyFigureInfo> */}
+        </Stack>
+      ) : (
+        <Box>Loading</Box>
+      )}
     </Box>
   );
 };
