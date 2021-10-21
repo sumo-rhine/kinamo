@@ -14,12 +14,14 @@ interface KeyFigureCardProps {
   unit: string;
   short_name: string;
   points: number;
+  padding: number;
+  elevation: number;
 }
 
 const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
   return (
-    <Box p={3}>
-      <Card sx={{ borderRadius: 0, minWidth: 350 }} elevation={6}>
+    <Box p={props.padding}>
+      <Card sx={{ borderRadius: 0, minWidth: 350 }} elevation={props.elevation}>
         <CardContent>
           <Box
           // sx={{
@@ -53,7 +55,7 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
                 fontWeight="fontWeightLight"
                 component="div"
               >
-                {props.value === null ? "Na" : props.value.toFixed(2)}
+                {props.value === null ? "Na" : props.value.toFixed(1)}
               </Typography>
               <Typography
                 // ml={0}
