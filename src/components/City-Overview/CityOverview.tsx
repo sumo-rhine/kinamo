@@ -26,8 +26,8 @@ const CityOverview: React.FC<CityOverviewProps> = (props) => {
         // justifyContent: "center",
         // flexDirection: "row",
       }}
-      pt={4}
-      pb={20}
+      // pt={4}
+      // pb={20}
     >
       {/* <Paper
         style={{
@@ -39,115 +39,80 @@ const CityOverview: React.FC<CityOverviewProps> = (props) => {
         <Typography variant="h2">{props.city.city}</Typography>
       </Divider> */}
 
-      <Box mt={10} sx={{ display: "flex" }}>
-        <Box
-          sx={{
-            width: "30%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Box>
-            <Box>
-              <Typography variant="h3" fontWeight="fontWeightLight" pb={0}>
-                {props.city.city}
-              </Typography>
-            </Box>
-            <Box sx={{}}>
-              <Typography
-                variant="h4"
-                fontWeight="fontWeightLight"
-                pb={3}
-                component="div"
-              >
-                {props.city.country}
-              </Typography>
-              {/* <Typography variant="h6" color="text.secondary">
-                Country
-              </Typography> */}
-            </Box>
-
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <KeyFigureCard
-                description={props.city.population.description}
-                value={props.city.population.value}
-                unit={props.city.population.unit}
-                short_name={props.city.population.description}
-                points={props.city.population.points}
-                padding={1}
-                elevation={2}
-              />
-            </Box>
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <KeyFigureCard
-                description={props.city.area.description}
-                value={props.city.area.value}
-                unit={props.city.area.unit}
-                short_name={props.city.area.description}
-                points={props.city.area.points}
-                padding={1}
-                elevation={2}
-              />
-            </Box>
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <KeyFigureCard
-                description={props.city.urban_area.description}
-                value={props.city.urban_area.value}
-                unit={props.city.urban_area.unit}
-                short_name={props.city.urban_area.description}
-                points={props.city.urban_area.points}
-                padding={1}
-                elevation={2}
-              />
-            </Box>
-            {/*             
-            <Box sx={{}}>
-              <Typography variant="h5" pt={2} pr={3}>
-                {props.city.population.value}
-              </Typography>
-              <Typography variant="h6" color="text.secondary" component="div">
-                {props.city.population.unit}
-              </Typography>
-            </Box>
-            <Box sx={{}}>
-              <Typography variant="h5" pt={2} pr={0}>
-                {props.city.area.value.toFixed(1)}km²
-              </Typography>
-              <Typography variant="h6" component="div"></Typography>
-              <Typography
-                // pl={3}
-                color="text.secondary"
-                variant="h6"
-                component="div"
-              >
-                {props.city.area.description}
-              </Typography>
-            </Box>
-            <Box sx={{}}>
-              <Typography variant="h5" pt={2} pr={0}>
-                {props.city.urban_area.value.toFixed(1)}%
-              </Typography>
-              <Typography
-                // pl={3}
-                color="text.secondary"
-                variant="h6"
-                component="div"
-              >
-                {props.city.urban_area.description}
-              </Typography>
-            </Box> */}
-          </Box>
+      <Box
+        sx={{
+          // width: "30%",
+          display: "flex",
+          width: "100%",
+          // justifyContent: "space-around",
+          // alignItems: "center",
+        }}
+      >
+        <Box sx={{ width: "30%" }}>
+          <Typography variant="h3" fontWeight="fontWeightLight" pb={0}>
+            {props.city.city}
+          </Typography>
+          <Typography
+            variant="h4"
+            fontWeight="fontWeightLight"
+            pb={3}
+            component="div"
+          >
+            {props.city.country}
+          </Typography>
         </Box>
         <Box
           sx={{
-            width: "60%",
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            // alignItems: "center",
+            // flexDirection: "column",
+            width: "100%",
+            justifyContent: "space-around",
           }}
         >
+          <KeyFigureCard
+            description={props.city.population.description}
+            value={props.city.population.value}
+            unit={props.city.population.unit}
+            short_name={props.city.population.description}
+            points={props.city.population.points}
+            padding={1}
+            elevation={0}
+          />
+          <KeyFigureCard
+            description={props.city.area.description}
+            value={props.city.area.value}
+            unit={props.city.area.unit}
+            short_name={props.city.area.description}
+            points={props.city.area.points}
+            padding={1}
+            elevation={0}
+          />
+          <KeyFigureCard
+            description={props.city.urban_area.description}
+            value={props.city.urban_area.value}
+            unit={props.city.urban_area.unit}
+            short_name={props.city.urban_area.description}
+            points={props.city.urban_area.points}
+            padding={1}
+            elevation={0}
+          />
+        </Box>
+      </Box>
+      <Box
+        // p={10}
+        sx={{
+          // width: "60%",
+          display: "flex",
+          width: "100%",
+          justifyContent: "space-around",
+
+          // flexDirection: "column",
+          // justifyContent: "center",
+          // alignItems: "center",
+        }}
+      >
+        {/* <Paper> */}
+        <Box m={5}>
           <StackedBarRow
             indicator={props.city.indicators.walkability}
             iconSrc="/assets/icons/walkability.svg"
@@ -168,6 +133,10 @@ const CityOverview: React.FC<CityOverviewProps> = (props) => {
             indicator={props.city.indicators.functional_diversity}
             iconSrc="/assets/icons/spatial-structur.svg"
           ></StackedBarRow>
+        </Box>
+        {/* </Paper> */}
+        {/* <Paper> */}
+        <Box p={5}>
           <StackedBarRow
             indicator={props.city.indicators.accessibility}
             iconSrc="/assets/icons/accessibility.svg"
@@ -176,6 +145,10 @@ const CityOverview: React.FC<CityOverviewProps> = (props) => {
             indicator={props.city.indicators.cross_border}
             iconSrc="/assets/icons/commuting.svg"
           ></StackedBarRow>
+        </Box>
+        {/* </Paper> */}
+        {/* <Paper> */}
+        <Box p={5}>
           <StackedBarRow
             indicator={props.city.indicators.emissions}
             iconSrc="/assets/icons/air-pollution.svg"
@@ -184,6 +157,10 @@ const CityOverview: React.FC<CityOverviewProps> = (props) => {
             indicator={props.city.indicators.land_use}
             iconSrc="/assets/icons/land-consumption.svg"
           ></StackedBarRow>
+        </Box>
+        {/* </Paper> */}
+        {/* <Paper> */}
+        <Box p={5}>
           <StackedBarRow
             indicator={props.city.indicators.noise_pollution}
             iconSrc="/assets/icons/traffic-noise.svg"
@@ -192,7 +169,12 @@ const CityOverview: React.FC<CityOverviewProps> = (props) => {
             indicator={props.city.indicators.traffic_safety}
             iconSrc="/assets/icons/safety.svg"
           ></StackedBarRow>
+          <StackedBarRow
+            indicator={props.city.indicators.behavior}
+            iconSrc="/assets/icons/modal-choice.svg"
+          ></StackedBarRow>
         </Box>
+        {/* </Paper> */}
       </Box>
     </Box>
   );

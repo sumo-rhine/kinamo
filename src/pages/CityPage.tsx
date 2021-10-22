@@ -11,6 +11,7 @@ import { AppState } from "../models/AppState";
 import { City } from "../models/FullDataset";
 import CityTab from "../components/CityTab/CityTab";
 import { KeyFigureBanner } from "../components/KeyFigureBanner/KeyFigureBanner";
+import CityTabDivider from "../components/CityTab/CityTabDivider";
 // import AboutProps from "../components/How-it-Works/About.model";
 interface CityPageProps {
   cities: City[];
@@ -53,7 +54,7 @@ const CityPage: React.FC<CityPageProps> = (props) => {
   // return the page
   return (
     <Box>
-      <Header  cityName={city?.city} />
+      <Header cityName={city?.city} />
       {
         /* Switch the city variable - if null, no city is (yet) loaded */
         city ? (
@@ -61,6 +62,7 @@ const CityPage: React.FC<CityPageProps> = (props) => {
             <AnimationBanner city={city}></AnimationBanner>
             <CityOverview city={city}></CityOverview>
             <KeyFigureBanner city={city} />
+            <CityTabDivider />
 
             <CityTab city={city}></CityTab>
             {/* <pre>{JSON.stringify(city, undefined, 4)}</pre> */}

@@ -21,7 +21,7 @@ interface KeyFigureCardProps {
 const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
   return (
     <Box p={props.padding}>
-      <Card sx={{ borderRadius: 0, minWidth: 350 }} elevation={props.elevation}>
+      <Card sx={{ borderRadius: 0 }} elevation={props.elevation}>
         <CardContent>
           <Box
           // sx={{
@@ -40,12 +40,12 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
           </Typography> */}
             <Box>
               <Typography
-                // color="text.secondary"
-                fontWeight="fontWeightLight"
+                color="text.secondary"
+                // fontWeight="fontWeightLight"
                 gutterBottom
                 variant="h6"
               >
-                {props.description}
+                {props.short_name}
               </Typography>
             </Box>
 
@@ -60,6 +60,8 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
               <Typography
                 // ml={0}
                 mb={0.3}
+                ml={1}
+                color="text.secondary"
                 variant="h5"
                 fontWeight="fontWeightLight"
                 component="div"
@@ -67,7 +69,7 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
                 {props.unit}
               </Typography>
             </Box>
-            <Box mt={3} sx={{ width: 200 }}>
+            <Box sx={{ width: 200 }}>
               <KeyFigureBar points={props.points} />
             </Box>
           </Box>

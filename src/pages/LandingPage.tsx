@@ -14,7 +14,6 @@ import { useState } from "react";
 const LandingPage: React.FC = () => {
   const [active, setActive] = useState(false);
 
-
   return (
     <Box>
       <Header
@@ -22,7 +21,7 @@ const LandingPage: React.FC = () => {
         // setter={setActive}
         cityName="select your City"
       ></Header>
-      <RandomAnimationBanner></RandomAnimationBanner>
+      {/* <RandomAnimationBanner></RandomAnimationBanner> */}
       {/* <AnimationBanner cityId={102} /> */}
       {/* <CityCarousel></CityCarousel> */}
       <CityStepper />

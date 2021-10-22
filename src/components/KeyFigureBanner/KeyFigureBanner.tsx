@@ -18,7 +18,7 @@ const getKeyFigure = (city: City, keyFigureName: string): any => {
         keyFigureInfo["shortName"] = fig.short_name;
         keyFigureInfo["value"] = fig.value;
         keyFigureInfo["unit"] = fig.unit;
-        keyFigureInfo["points"] = Math.abs(fig.points - 37);
+        keyFigureInfo["points"] = fig.points;
       }
     });
   });
