@@ -63,9 +63,7 @@ const CityPage: React.FC<CityPageProps> = (props) => {
             <CityOverview city={city}></CityOverview>
             <KeyFigureBanner city={city} />
             <CityTabDivider />
-
             <CityTab city={city}></CityTab>
-            {/* <pre>{JSON.stringify(city, undefined, 4)}</pre> */}
           </Box>
         ) : (
           <CircularProgress

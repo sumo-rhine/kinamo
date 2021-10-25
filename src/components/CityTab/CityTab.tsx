@@ -260,8 +260,9 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                         unit={keyFigure.unit}
                         short_name={keyFigure.short_name}
                         points={keyFigure.points}
-                        padding={3}
+                        padding={5}
                         elevation={5}
+                        bar={true}
                       ></KeyFigureCard>
                     )
                   )}

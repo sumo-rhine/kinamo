@@ -7,19 +7,20 @@ const KeyFigureBar: React.FC<KeyFigureBarProps> = (props) => {
     <Box
       style={{
         width: "100%",
-        height: "0.6rem",
+        height: "0.5rem",
         backgroundColor: "#C4C4C4",
         transitionDuration: "1.7s",
       }}
     >
       <Box
         style={{
-          backgroundColor:
-            props.points < 7.2
-              ? "red"
-              : props.points > 28.8
-              ? "#acff5e"
-              : "#8BC34A",
+          backgroundColor: "#8BC34A",
+          boxShadow: "0 2px 4px silver",
+          // props.points < 7.2
+          //   ? "red"
+          //   : props.points > 28.8
+          //   ? "#acff5e"
+          //   : "#8BC34A",
 
           height: "100%",
           width: `${(props.points! / 36) * 100}%`,

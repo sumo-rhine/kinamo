@@ -80,6 +80,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
             points={(best1 as KeyFigure).points}
             padding={1}
             elevation={2}
+            bar={false}
           />
           <KeyFigureCard
             description={(best2 as KeyFigure).description}
@@ -89,6 +90,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
             points={(best2 as KeyFigure).points}
             padding={1}
             elevation={2}
+            bar={false}
           />
           <KeyFigureCard
             description={(worst2 as KeyFigure).description}
@@ -98,6 +100,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
             points={(worst2 as KeyFigure).points}
             padding={1}
             elevation={2}
+            bar={false}
           />
           <KeyFigureCard
             description={(worst1 as KeyFigure).description}
@@ -107,6 +110,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
             points={(worst1 as KeyFigure).points}
             padding={1}
             elevation={2}
+            bar={false}
           />
           {/* <KeyFigureInfo info={best1}></KeyFigureInfo>
         <KeyFigureInfo info={best2}></KeyFigureInfo>
