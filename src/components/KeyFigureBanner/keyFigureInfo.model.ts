@@ -5,6 +5,7 @@ interface KeyFigure {
   value: number;
   unit: string;
   points: number;
+  indicator: string;
 }
 
 export default KeyFigure;

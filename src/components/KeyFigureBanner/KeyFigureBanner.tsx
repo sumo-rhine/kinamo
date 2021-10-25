@@ -1,10 +1,18 @@
 import { Box } from "@mui/system";
 import { City } from "../../models/FullDataset";
 import { Divider, Stack } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
 import KeyFigureInfo from "./KeyFigureInfo";
 import KeyFigure from "./keyFigureInfo.model";
 import KeyFigureCard from "../CityTab/KeyFigureCard";
+import Tab from "@mui/material/Tab";
+// import { Link } from "react-router-dom";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
+import IndicatorAndIcon from "../IndicatorAndIcon";
+
 interface KeyFigureProps {
   city: City;
 }
@@ -19,6 +27,7 @@ const getKeyFigure = (city: City, keyFigureName: string): any => {
         keyFigureInfo["value"] = fig.value;
         keyFigureInfo["unit"] = fig.unit;
         keyFigureInfo["points"] = fig.points;
+        keyFigureInfo["indicator"] = name;
       }
     });
   });
@@ -30,6 +39,10 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
   const [best2, setBest2] = useState<KeyFigure>();
   const [worst1, setWorst1] = useState<KeyFigure>();
   const [worst2, setWorst2] = useState<KeyFigure>();
+  const [value, setValue] = useState<string>("best");
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
 
   useEffect(() => {
     setBest1(getKeyFigure(props.city, props.city.two_best_keyFigures[0]));
@@ -41,85 +54,180 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
   }, [props]);
 
   return (
-    <Box
-      // mt={15}
-      // p={3}
-      sx={{
-        width: "100%",
-        backgroundColor: "#F8F8F8",
-        color: "#f0f5eb",
-        height: 250,
-        display: "flex",
-        alignItems: "center",
-      }}
-    >
-      {!!best1 ? (
-        <Stack
-          // mt={74}
-          // mb={2}
-          sx={{ width: "100%" }}
-          direction="row"
-          // spacing={5}
-          justifyContent="space-around"
-          // alignItems="flex-start"
-          // divider={
-          //   <Divider
-          //     style={{ background: "#bcbcbc" }}
-          //     orientation="vertical"
-          //     variant="middle"
-          //     light={true}
-          //     flexItem
-          //   />
-          // }
+    <Box pb={5} pt={9} sx={{ width: "100%", backgroundColor: "#F8F8F8" }}>
+      <Box pb={5}>
+        <Typography
+          ml={20}
+          // color="white"
+          variant="h3"
+          fontWeight="fontWeightLight"
         >
-          <KeyFigureCard
-            description={(best1 as KeyFigure).description}
-            value={(best1 as KeyFigure).value}
-            unit={(best1 as KeyFigure).unit}
-            short_name={(best1 as KeyFigure).shortName}
-            points={(best1 as KeyFigure).points}
-            padding={1}
-            elevation={2}
-            bar={false}
-          />
-          <KeyFigureCard
-            description={(best2 as KeyFigure).description}
-            value={(best2 as KeyFigure).value}
-            unit={(best2 as KeyFigure).unit}
-            short_name={(best2 as KeyFigure).shortName}
-            points={(best2 as KeyFigure).points}
-            padding={1}
-            elevation={2}
-            bar={false}
-          />
-          <KeyFigureCard
-            description={(worst2 as KeyFigure).description}
-            value={(worst2 as KeyFigure).value}
-            unit={(worst2 as KeyFigure).unit}
-            short_name={(worst2 as KeyFigure).shortName}
-            points={(worst2 as KeyFigure).points}
-            padding={1}
-            elevation={2}
-            bar={false}
-          />
-          <KeyFigureCard
-            description={(worst1 as KeyFigure).description}
-            value={(worst1 as KeyFigure).value}
-            unit={(worst1 as KeyFigure).unit}
-            short_name={(worst1 as KeyFigure).shortName}
-            points={(worst1 as KeyFigure).points}
-            padding={1}
-            elevation={2}
-            bar={false}
-          />
-          {/* <KeyFigureInfo info={best1}></KeyFigureInfo>
-        <KeyFigureInfo info={best2}></KeyFigureInfo>
-        <KeyFigureInfo info={worst1}></KeyFigureInfo>
-        <KeyFigureInfo info={worst2}></KeyFigureInfo> */}
-        </Stack>
-      ) : (
-        <Box>Loading</Box>
-      )}
+          Auf einen Blick
+        </Typography>
+        <Typography
+          mt={1}
+          ml={20}
+          // color="white"
+          variant="h6"
+          fontWeight="fontWeightLight"
+        >
+          Finde Stärken und Handlugsbedarf von {props.city.city}
+        </Typography>
+      </Box>
+      <Box
+        // pt={15}
+        // p={3}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        {!!best1 ? (
+          <TabContext value={value}>
+            <Box sx={{ borderBottom: 0, borderColor: "divider" }} pl={10}>
+              <TabList
+                onChange={handleChange}
+                aria-label="lab API tabs example"
+                orientation="vertical"
+                centered
+              >
+                <Tab sx={{ width: 300 }} label="Stärken" value="best" />
+                <Tab label="Handlungsbedarf" value="area_of_action" />
+              </TabList>
+            </Box>
+
+            {/* <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          > */}
+            <TabPanel
+              sx={{
+                width: "100%",
+              }}
+              value={value}
+            >
+              {value === "best" ? (
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                  }}
+                >
+                  <Box>
+                    <KeyFigureCard
+                      description={(best1 as KeyFigure).description}
+                      value={(best1 as KeyFigure).value}
+                      unit={(best1 as KeyFigure).unit}
+                      short_name={(best1 as KeyFigure).shortName}
+                      points={(best1 as KeyFigure).points}
+                      padding={1}
+                      elevation={2}
+                      bar={true}
+                    />
+                    <IndicatorAndIcon name={(best1 as KeyFigure).indicator} />
+                  </Box>
+                  <KeyFigureCard
+                    description={(best2 as KeyFigure).description}
+                    value={(best2 as KeyFigure).value}
+                    unit={(best2 as KeyFigure).unit}
+                    short_name={(best2 as KeyFigure).shortName}
+                    points={(best2 as KeyFigure).points}
+                    padding={1}
+                    elevation={2}
+                    bar={true}
+                  />
+                </Box>
+              ) : (
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-around",
+                  }}
+                >
+                  <KeyFigureCard
+                    description={(worst1 as KeyFigure).description}
+                    value={(worst1 as KeyFigure).value}
+                    unit={(worst1 as KeyFigure).unit}
+                    short_name={(worst1 as KeyFigure).shortName}
+                    points={(worst1 as KeyFigure).points}
+                    padding={1}
+                    elevation={2}
+                    bar={true}
+                  />
+                  <KeyFigureCard
+                    description={(worst2 as KeyFigure).description}
+                    value={(worst2 as KeyFigure).value}
+                    unit={(worst2 as KeyFigure).unit}
+                    short_name={(worst2 as KeyFigure).shortName}
+                    points={(worst2 as KeyFigure).points}
+                    padding={1}
+                    elevation={2}
+                    bar={true}
+                  />
+                </Box>
+              )}
+
+              {/* {value} */}
+            </TabPanel>
+            {/* </Box> */}
+          </TabContext>
+        ) : (
+          // <Stack
+          //   sx={{ width: "100%" }}
+          //   direction="row"
+          //   justifyContent="space-around"
+          // >
+          //   <KeyFigureCard
+          //     description={(best1 as KeyFigure).description}
+          //     value={(best1 as KeyFigure).value}
+          //     unit={(best1 as KeyFigure).unit}
+          //     short_name={(best1 as KeyFigure).shortName}
+          //     points={(best1 as KeyFigure).points}
+          //     padding={1}
+          //     elevation={2}
+          //     bar={true}
+          //   />
+          //   <KeyFigureCard
+          //     description={(best2 as KeyFigure).description}
+          //     value={(best2 as KeyFigure).value}
+          //     unit={(best2 as KeyFigure).unit}
+          //     short_name={(best2 as KeyFigure).shortName}
+          //     points={(best2 as KeyFigure).points}
+          //     padding={1}
+          //     elevation={2}
+          //     bar={true}
+          //   />
+          //   <KeyFigureCard
+          //     description={(worst2 as KeyFigure).description}
+          //     value={(worst2 as KeyFigure).value}
+          //     unit={(worst2 as KeyFigure).unit}
+          //     short_name={(worst2 as KeyFigure).shortName}
+          //     points={(worst2 as KeyFigure).points}
+          //     padding={1}
+          //     elevation={2}
+          //     bar={true}
+          //   />
+          //   <KeyFigureCard
+          //     description={(worst1 as KeyFigure).description}
+          //     value={(worst1 as KeyFigure).value}
+          //     unit={(worst1 as KeyFigure).unit}
+          //     short_name={(worst1 as KeyFigure).shortName}
+          //     points={(worst1 as KeyFigure).points}
+          //     padding={1}
+          //     elevation={2}
+          //     bar={true}
+          //   />
+          //   {/* <KeyFigureInfo info={best1}></KeyFigureInfo>
+          // <KeyFigureInfo info={best2}></KeyFigureInfo>
+          // <KeyFigureInfo info={worst1}></KeyFigureInfo>
+          // <KeyFigureInfo info={worst2}></KeyFigureInfo> */}
+          // </Stack>
+          <Box>Loading</Box>
+        )}
+      </Box>
     </Box>
   );
 };

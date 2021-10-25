@@ -14,11 +14,9 @@ interface CityStatsProps {
 const CityStats: React.FC<CityStatsProps> = (props) => {
   return (
     <Box
-      sx={
-        {
-          // width: "100%",
-        }
-      }
+      sx={{
+        overflow: "hidden",
+      }}
     >
       <Box>
         <Box>
@@ -34,11 +32,11 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
             {props.city.country}
           </Typography>
         </Box>
-        <Box sx={{ overflow: "hidden" }}>
+        <Box sx={{}}>
           <img
             style={{
               position: "absolute",
-              height: 700,
+              height: 600,
               // boxShadow: "0 2px 4px silver",
               left: 40,
               filter: "blur(1px)",
