@@ -53,27 +53,14 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
   return (
     <Box pb={5} pt={9} sx={{ width: "100%", backgroundColor: "#F8F8F8" }}>
       <Box pb={5}>
-        <Typography
-          ml={20}
-          // color="white"
-          variant="h3"
-          fontWeight="fontWeightLight"
-        >
+        <Typography ml={20} variant="h3" fontWeight="fontWeightLight">
           Auf einen Blick
         </Typography>
-        <Typography
-          mt={1}
-          ml={20}
-          // color="white"
-          variant="h6"
-          fontWeight="fontWeightLight"
-        >
+        <Typography mt={1} ml={20} variant="h6" fontWeight="fontWeightLight">
           Finde Stärken und Handlugsbedarf von {props.city.city}
         </Typography>
       </Box>
       <Box
-        // pt={15}
-        // p={3}
         sx={{
           display: "flex",
           alignItems: "center",
@@ -92,14 +79,6 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                 <Tab label="Handlungsbedarf" value="area_of_action" />
               </TabList>
             </Box>
-
-            {/* <Box
-            sx={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          > */}
             <TabPanel
               sx={{
                 width: "100%",
