@@ -1,11 +1,8 @@
 import { Box } from "@mui/system";
 import { City } from "../../models/FullDataset";
 import { Typography } from "@mui/material";
-import CardMedia from "@mui/material/CardMedia";
-import StackedBarRow from "./StackedBarRow";
-import Paper from "@mui/material/Paper";
+// import StackedBarRow from "./StackedBarRow";
 import KeyFigureCard from "../CityTab/KeyFigureCard";
-import CityBarChart from "./CityBarChart";
 
 interface CityStatsProps {
   city: City;

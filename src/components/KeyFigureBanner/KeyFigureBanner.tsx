@@ -1,13 +1,10 @@
 import { Box } from "@mui/system";
 import { City } from "../../models/FullDataset";
-import { Divider, Stack } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { useEffect, useState } from "react";
-import KeyFigureInfo from "./KeyFigureInfo";
 import KeyFigure from "./keyFigureInfo.model";
 import KeyFigureCard from "../CityTab/KeyFigureCard";
 import Tab from "@mui/material/Tab";
-// import { Link } from "react-router-dom";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";

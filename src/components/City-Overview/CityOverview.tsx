@@ -1,9 +1,5 @@
 import { Box } from "@mui/system";
 import { City } from "../../models/FullDataset";
-import { Typography } from "@mui/material";
-import StackedBarRow from "./StackedBarRow";
-import Paper from "@mui/material/Paper";
-import KeyFigureCard from "../CityTab/KeyFigureCard";
 import CityBarChart from "./CityBarChart";
 import CityStats from "./CityStats";
 

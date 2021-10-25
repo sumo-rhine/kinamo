@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { useParams } from "react-router";
 import { Box, CircularProgress } from "@mui/material";
 // import { cloneDeep } from "lodash";
-
 import Header from "../components/Header/Header";
 import { AppState } from "../models/AppState";
 import { City } from "../models/FullDataset";
@@ -15,7 +14,6 @@ import CityTabDivider from "../components/CityTab/CityTabDivider";
 // import AboutProps from "../components/How-it-Works/About.model";
 interface CityPageProps {
   cities: City[];
-  // stuff: AboutProps;
 }
 
 const CityPage: React.FC<CityPageProps> = (props) => {

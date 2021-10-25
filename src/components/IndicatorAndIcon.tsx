@@ -12,8 +12,8 @@ const getIconPath = (name: string): any => {
       path = "/assets/icons/walkability.svg";
       break;
     case "bikeability":
-      break;
       path = "/assets/icons/bikeability.svg";
+      break;
     case "public_transport":
       path = "/assets/icons/pt.svg";
       break;

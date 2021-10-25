@@ -1,20 +1,9 @@
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
-import { Link } from "@mui/material";
-import { City } from "../../models/FullDataset";
 import Paper from "@mui/material/Paper";
-import Tab from "@mui/material/Tab";
-import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
-import TabPanel from "@mui/lab/TabPanel";
-import Icon from "@mui/material/Icon";
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import Slider from "@mui/material/Slider";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const AboutScoring = () => {
   const initSpeedLimit = 70;

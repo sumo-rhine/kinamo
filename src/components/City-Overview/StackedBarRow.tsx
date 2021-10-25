@@ -3,9 +3,6 @@ import StackedBar from "../StackedBar";
 import { Indicator } from "../../models/FullDataset";
 import { Typography } from "@mui/material";
 import Icon from "@mui/material/Icon";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import KeyFigureBar from "../KeyFigureBar";
 interface StackedBarRowProps {
   indicator: Indicator;
   iconSrc: string;
@@ -13,15 +10,6 @@ interface StackedBarRowProps {
 
 const StackedBarRow: React.FC<StackedBarRowProps> = (props) => {
   return (
-    // <Grid
-    //   container
-    //   ml={10}
-    //   alignItems="flex-end"
-    //   justifyContent="flex-start"
-    //   direction="row"
-    // >
-    // <Grid xs={4} item>
-    // <Paper>
     <Box pb={1} sx={{ display: "flex" }}>
       <Box pr={3} sx={{ display: "flex", alignItems: "flex-end" }}>
         <Icon style={{ fontSize: 55 }}>
@@ -47,8 +35,6 @@ const StackedBarRow: React.FC<StackedBarRowProps> = (props) => {
         <Box
           sx={{
             display: "flex",
-            // justifyContent: "space-start",
-            // alignItems: "flex-end",
           }}
         >
           <Typography fontWeight="fontWeightLight" variant="h6">
@@ -74,7 +60,6 @@ const StackedBarRow: React.FC<StackedBarRowProps> = (props) => {
         </Typography>
       </Box>
     </Box>
-    // </Paper>
   );
 };
 
