@@ -66,7 +66,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
               // color="text.secondary"
               fontWeight="fontWeightLight"
             >
-              {data?.keyFigureDescription}
+              {data?.shortName}
             </Typography>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
               <Typography pr={1} variant="h3" fontWeight="fontWeightLight">

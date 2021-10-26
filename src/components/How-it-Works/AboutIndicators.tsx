@@ -301,7 +301,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                                   variant="h6"
                                   fontWeight="fontWeightLight"
                                 >
-                                  {keyFigure.long_name}
+                                  {keyFigure.definition}
                                 </Typography>
                               </AccordionDetails>
                             </Accordion>
