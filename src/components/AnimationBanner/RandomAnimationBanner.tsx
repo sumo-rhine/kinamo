@@ -7,19 +7,24 @@ const randomInt = (min: number, max: number) => {
 };
 
 const RandomAnimationBanner: React.FC = (props) => {
-  const [index, setIndex] = useState(2);
+  const [index, setIndex] = useState(3);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setLoading(false);
+      console.log("trigger false");
       setTimeout(function () {
+        console.log("trigger next image");
         setIndex((index) => randomInt(0, 4));
-        setLoading(true);
         //do what you need here
-      }, 2000);
+        setTimeout(function () {
+          console.log("trigger true");
+          setLoading(true);
+        }, 1500);
+      }, 1000);
       // setLoading(true);
-    }, 10000);
+    }, 30000);
     return () => clearInterval(interval);
   }, []);
 

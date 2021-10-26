@@ -46,23 +46,23 @@ const useStyles = makeStyles({
 
   "@keyframes animation_streets": {
     "0%": {
-      transform: "rotateX(20deg) rotateY(-1deg) rotateZ(-180deg) ",
+      transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-180deg) ",
       filter:
-        "saturate(1%) contrast(10%) drop-shadow(150px 150px 150px #0000ff)",
+        "saturate(1%) contrast(10%) drop-shadow(250px 250px 250px #0000ff)",
       opacity: 1,
     },
     "33%": {
-      transform: "rotateX(30deg) rotateY(-1deg) rotateZ(-120deg) ",
+      transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-120deg) ",
       filter:
         "saturate(20%) contrast(20%) drop-shadow(150px 150px 150px #ADD8E6)",
     },
     "66%": {
       transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-80deg) ",
       filter:
-        "saturate(20%) contrast(30%) drop-shadow(150px 150px 150px #0000ff)",
+        "saturate(20%) contrast(30%) drop-shadow(250px 250px 250px #0000ff)",
     },
     "100%": {
-      transform: "rotateX(50deg) rotateY(-1deg) rotateZ(-20deg) ",
+      transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-20deg) ",
       filter:
         "saturate(1%) contrast(20%) drop-shadow(150px 150px 150px #ADD8E6)",
     },
@@ -70,13 +70,13 @@ const useStyles = makeStyles({
 
   "@keyframes animation_pois": {
     "0%": {
-      transform: "rotateX(20deg) rotateY(-1deg) rotateZ(-180deg)",
+      transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-180deg)",
       filter:
         "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(100px 100px 100px yellow)",
       opacity: 0.1,
     },
     "33%": {
-      transform: "rotateX(30deg) rotateY(-2deg) rotateZ(-120deg)",
+      transform: "rotateX(40deg) rotateY(-2deg) rotateZ(-120deg)",
       filter:
         "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(100px 100px 100px yellow)",
       opacity: 0.5,
@@ -88,7 +88,7 @@ const useStyles = makeStyles({
       opacity: 1,
     },
     "100%": {
-      transform: "rotateX(50deg) rotateY(-4deg) rotateZ(-20deg)",
+      transform: "rotateX(40deg) rotateY(-4deg) rotateZ(-20deg)",
       filter:
         "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(100px 100px 100px yellow)",
       opacity: 0,
@@ -96,13 +96,13 @@ const useStyles = makeStyles({
   },
   "@keyframes animation_parks": {
     "0%": {
-      transform: "rotateX(20deg) rotateY(-1deg) rotateZ(-180deg)",
+      transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-180deg)",
       // filter:
       //   "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0rem rgb(124, 124, 124))",
       opacity: 0,
     },
     "33%": {
-      transform: "rotateX(30deg) rotateY(-2deg) rotateZ(-120deg)",
+      transform: "rotateX(40deg) rotateY(-2deg) rotateZ(-120deg)",
       // filter:
       //   "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0.2rem rgb(240, 196, 196))",
       opacity: 0.2,
@@ -114,7 +114,7 @@ const useStyles = makeStyles({
       opacity: 0.1,
     },
     "100%": {
-      transform: "rotateX(50deg) rotateY(-4deg) rotateZ(-20deg)",
+      transform: "rotateX(40deg) rotateY(-4deg) rotateZ(-20deg)",
       // filter:
       //   "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0rem rgb(124, 124, 124))",
       opacity: 0,
