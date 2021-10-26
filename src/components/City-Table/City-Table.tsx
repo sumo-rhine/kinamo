@@ -14,11 +14,14 @@ import TableCell from "@mui/material/TableCell";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import { Box } from "@mui/system";
 import { Button } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import Icon from "@mui/material/Icon";
 
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
 import CityTableCell from "./City-Table-Cell";
 import { Link } from "react-router-dom";
+import { getIconPath } from "../IndicatorAndIcon";
 // define the HeadCell interface and object array
 interface HeadCell {
   id: string;
@@ -132,7 +135,7 @@ const CityTable: React.FC<CityTableProps> = (props) => {
             >
               Overview of Cities
             </Typography> */}
-            <Tooltip
+            {/* <Tooltip
               title={
                 showOption === "number"
                   ? "Switch to barplots"
@@ -151,7 +154,7 @@ const CityTable: React.FC<CityTableProps> = (props) => {
                 }
                 label="Layout"
               />
-            </Tooltip>
+            </Tooltip> */}
           </Toolbar>
           <Table
             sx={{ width: "100%", tableLayout: "fixed" }}
@@ -179,7 +182,31 @@ const CityTable: React.FC<CityTableProps> = (props) => {
                         direction={headcell.id === orderBy ? order : "asc"}
                         onClick={() => onSortClick(headcell.id)}
                       >
-                        {headcell.label.toUpperCase()}
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "flex-end",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Icon style={{ fontSize: 25 }}>
+                            <img
+                              style={{
+                                height: "80%",
+                                opacity: 0.8,
+                              }}
+                              alt="img"
+                              src={getIconPath(headcell.id).IconSrc}
+                            />
+                          </Icon>
+                          <Typography
+                            variant="subtitle2"
+                            color="text.secondary"
+                          >
+                            {headcell.label.toUpperCase()}
+                          </Typography>
+                        </Box>
                       </TableSortLabel>
                     </TableCell>
                   );

@@ -9,6 +9,8 @@ import React, { useState } from "react";
 import KeyFigureCard from "./KeyFigureCard";
 import Icon from "@mui/material/Icon";
 import StackedBar from "../StackedBar";
+import StackedBarRow from "../City-Overview/StackedBarRow";
+import { getIconPath } from "../IndicatorAndIcon";
 
 interface CityTabProps {
   city: City;
@@ -23,7 +25,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
 
   return (
     <Box
-      pt={15}
+      pt={10}
       sx={{ width: "100%", backgroundColor: "#F8F8F8", minHeight: 800 }}
     >
       <Box p={5}>
@@ -185,23 +187,37 @@ const CityTab: React.FC<CityTabProps> = (props) => {
               />
             </TabList>
           </Box>
-          <Box>
+          <Box sx={{ boxShadow: "0 2px 4px silver" }}>
             {Object.keys(props.city.indicators).map((ind) => (
               <TabPanel value={ind}>
-                <Box m={5}>
-                  <Typography fontWeight="fontWeightLight" variant="h4">
+                <Box pt={5}>
+                  {/* <Typography fontWeight="fontWeightLight" variant="h4">
                     {(props.city.indicators as any)[ind].short_name}
-                  </Typography>
-                  <Box mt={4} sx={{ display: "flex", width: "50%" }}>
-                    <StackedBar
+                  </Typography> */}
+                  <Box ml={4} sx={{ display: "flex", width: "50%" }}>
+                    <StackedBarRow
+                      indicator={(props.city.indicators as any)[ind]}
+                      // iconSrc="test"
+                      iconSrc={getIconPath(ind).IconSrc}
+                    />
+                    {/* <Box>{getIconPath(ind).}</Box> */}
+
+                    {/* <StackedBar
                       indicator={(props.city.indicators as any)[ind]}
                       shadow={false}
                       rounded={false}
                       background="#C4C4C4"
                       height={0.8}
                       animation="1s"
-                    />
-                    <Box>
+                    /> */}
+
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        width: "50%",
+                      }}
+                    >
                       <Typography fontWeight="fontWeightLight" variant="h6">
                         {(props.city.indicators as any)[ind].description}
                       </Typography>
@@ -209,25 +225,32 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                   </Box>
                 </Box>
                 <Box
+                  m={8}
                   sx={{
                     display: "flex",
                     flexWrap: "wrap",
+
                     // justifyContent: "space-between",
                     // width: 600,
                   }}
                 >
                   {(props.city.indicators as any)[ind].keyFigures.map(
                     (keyFigure: any) => (
-                      <KeyFigureCard
-                        description={keyFigure.long_name}
-                        value={keyFigure.value}
-                        unit={keyFigure.unit}
-                        short_name={keyFigure.short_name}
-                        points={keyFigure.points}
-                        padding={5}
-                        elevation={5}
-                        bar={true}
-                      ></KeyFigureCard>
+                      <Box
+                        m={2}
+                        sx={{ width: 500, boxShadow: "0 2px 4px silver" }}
+                      >
+                        <KeyFigureCard
+                          description={keyFigure.long_name}
+                          value={keyFigure.value}
+                          unit={keyFigure.unit}
+                          short_name={keyFigure.short_name}
+                          points={keyFigure.points}
+                          padding={4}
+                          elevation={5}
+                          bar={true}
+                        ></KeyFigureCard>
+                      </Box>
                     )
                   )}
                 </Box>

@@ -17,7 +17,7 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
   return (
     <Box p={props.padding}>
       {/* <Card sx={{ borderRadius: 0 }} elevation={props.elevation}> */}
-      <Box sx={{}}>
+      <Box sx={{ width: 400 }}>
         <Box>
           <Typography
             color="text.secondary"

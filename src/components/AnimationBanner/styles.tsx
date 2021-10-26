@@ -16,6 +16,8 @@ const useStyles = makeStyles({
     top: "-400px",
     left: "200px",
     position: "absolute",
+    // boxShadow: "0px 0px 5px #fff",
+    // filter: "drop-shadow(16px 16px 10px grey)",
     width: "1600px",
     zIndex: 1,
     transformOrigin: "55% 50% 200px",
@@ -37,7 +39,7 @@ const useStyles = makeStyles({
     position: "absolute",
     width: "1600px",
     backgroundColor: "transparent",
-    zIndex: 1,
+    zIndex: 0,
     transformOrigin: "55% 50% 200px",
     animation: `$animation_parks 100s linear infinite normal`,
   },
@@ -46,23 +48,23 @@ const useStyles = makeStyles({
     "0%": {
       transform: "rotateX(20deg) rotateY(-1deg) rotateZ(-180deg) ",
       filter:
-        "saturate(1%) contrast(10%) drop-shadow(0 0 0.0rem rgb(124, 124, 124))",
+        "saturate(1%) contrast(10%) drop-shadow(150px 150px 150px #0000ff)",
       opacity: 1,
     },
     "33%": {
       transform: "rotateX(30deg) rotateY(-1deg) rotateZ(-120deg) ",
       filter:
-        "saturate(100%) contrast(20%) drop-shadow(0 0 0.rem rgb(124, 124, 124))",
+        "saturate(20%) contrast(20%) drop-shadow(150px 150px 150px #ADD8E6)",
     },
     "66%": {
       transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-80deg) ",
       filter:
-        "saturate(100%) contrast(80%) drop-shadow(0 0 0.rem rgb(124, 124, 124))",
+        "saturate(20%) contrast(30%) drop-shadow(150px 150px 150px #0000ff)",
     },
     "100%": {
       transform: "rotateX(50deg) rotateY(-1deg) rotateZ(-20deg) ",
       filter:
-        "saturate(1%) contrast(50%) drop-shadow(0 0 0.rem rgb(124, 124, 124))",
+        "saturate(1%) contrast(20%) drop-shadow(150px 150px 150px #ADD8E6)",
     },
   },
 
@@ -70,51 +72,51 @@ const useStyles = makeStyles({
     "0%": {
       transform: "rotateX(20deg) rotateY(-1deg) rotateZ(-180deg)",
       filter:
-        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0rem rgb(124, 124, 124))",
-      opacity: 0,
+        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(100px 100px 100px yellow)",
+      opacity: 0.1,
     },
     "33%": {
       transform: "rotateX(30deg) rotateY(-2deg) rotateZ(-120deg)",
       filter:
-        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0.4rem rgb(240, 196, 196))",
-      opacity: 0,
+        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(100px 100px 100px yellow)",
+      opacity: 0.5,
     },
     "66%": {
       transform: "rotateX(40deg) rotateY(-3deg) rotateZ(-80deg)",
       filter:
-        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0.1rem rgb(240, 196, 196))",
+        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(100px 100px 100px yellow)",
       opacity: 1,
     },
     "100%": {
       transform: "rotateX(50deg) rotateY(-4deg) rotateZ(-20deg)",
       filter:
-        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0rem rgb(124, 124, 124))",
+        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(100px 100px 100px yellow)",
       opacity: 0,
     },
   },
   "@keyframes animation_parks": {
     "0%": {
       transform: "rotateX(20deg) rotateY(-1deg) rotateZ(-180deg)",
-      filter:
-        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0rem rgb(124, 124, 124))",
+      // filter:
+      //   "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0rem rgb(124, 124, 124))",
       opacity: 0,
     },
     "33%": {
       transform: "rotateX(30deg) rotateY(-2deg) rotateZ(-120deg)",
-      filter:
-        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0.2rem rgb(240, 196, 196))",
-      opacity: 0.4,
+      // filter:
+      //   "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0.2rem rgb(240, 196, 196))",
+      opacity: 0.2,
     },
     "66%": {
       transform: "rotateX(40deg) rotateY(-3deg) rotateZ(-80deg)",
-      filter:
-        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0rem rgb(240, 196, 196))",
+      // filter:
+      //   "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0rem rgb(240, 196, 196))",
       opacity: 0.1,
     },
     "100%": {
       transform: "rotateX(50deg) rotateY(-4deg) rotateZ(-20deg)",
-      filter:
-        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0rem rgb(124, 124, 124))",
+      // filter:
+      //   "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(0 0 0rem rgb(124, 124, 124))",
       opacity: 0,
     },
   },

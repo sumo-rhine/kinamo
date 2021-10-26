@@ -1,26 +1,27 @@
 import useStyles from "./styles";
 import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-
+import Fade from "@mui/material/Fade";
 const randomInt = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
 const RandomAnimationBanner: React.FC = (props) => {
-  const [index, setIndex] = useState(0);
-  // const [loading, setLoading] = useState(true);
+  const [index, setIndex] = useState(2);
+  const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     // setLoading(false);
-  //     setTimeout(function () {
-  //       //do what you need here
-  //     }, 20000);
-  //     setIndex((index) => randomInt(0, 4));
-  //     // setLoading(true);
-  //   }, 20000);
-  //   return () => clearInterval(interval);
-  // }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLoading(false);
+      setTimeout(function () {
+        setIndex((index) => randomInt(0, 4));
+        setLoading(true);
+        //do what you need here
+      }, 2000);
+      // setLoading(true);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
 
   const city_list = [4, 102, 483, 1341, 1502];
   const pois_path =
@@ -36,25 +37,25 @@ const RandomAnimationBanner: React.FC = (props) => {
     <Box
       sx={{
         width: "100%",
-        height: 550,
+        height: 650,
         position: "relative",
         backgroundColor: "#111213",
         overflow: "hidden",
       }}
     >
       <Box sx={{ position: "absolute" }}>
-        {/* <Fade in={loading} timeout={4000}> */}
-        <Box className={classes.banner}>
-          <img alt="img" className={classes.parks} src={parks_path} />
-          <img alt="img" className={classes.pois} src={pois_path} />
-          <img
-            alt="img"
-            className={classes.streets}
-            src={streets_path}
-            // onLoad={onLoadHandler}
-          />
-        </Box>
-        {/* </Fade> */}
+        <Fade in={loading} timeout={1000}>
+          <Box className={classes.banner}>
+            <img alt="img" className={classes.parks} src={parks_path} />
+            <img alt="img" className={classes.pois} src={pois_path} />
+            <img
+              alt="img"
+              className={classes.streets}
+              src={streets_path}
+              // onLoad={onLoadHandler}
+            />
+          </Box>
+        </Fade>
       </Box>
       <Box
         mt={19}

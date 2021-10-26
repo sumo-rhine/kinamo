@@ -105,16 +105,19 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                     />
                     <IndicatorAndIcon name={(best1 as KeyFigure).indicator} />
                   </Box>
-                  <KeyFigureCard
-                    description={(best2 as KeyFigure).description}
-                    value={(best2 as KeyFigure).value}
-                    unit={(best2 as KeyFigure).unit}
-                    short_name={(best2 as KeyFigure).shortName}
-                    points={(best2 as KeyFigure).points}
-                    padding={1}
-                    elevation={2}
-                    bar={true}
-                  />
+                  <Box>
+                    <KeyFigureCard
+                      description={(best2 as KeyFigure).description}
+                      value={(best2 as KeyFigure).value}
+                      unit={(best2 as KeyFigure).unit}
+                      short_name={(best2 as KeyFigure).shortName}
+                      points={(best2 as KeyFigure).points}
+                      padding={1}
+                      elevation={2}
+                      bar={true}
+                    />
+                    <IndicatorAndIcon name={(best2 as KeyFigure).indicator} />
+                  </Box>
                 </Box>
               ) : (
                 <Box
@@ -123,26 +126,32 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                     justifyContent: "space-around",
                   }}
                 >
-                  <KeyFigureCard
-                    description={(worst1 as KeyFigure).description}
-                    value={(worst1 as KeyFigure).value}
-                    unit={(worst1 as KeyFigure).unit}
-                    short_name={(worst1 as KeyFigure).shortName}
-                    points={(worst1 as KeyFigure).points}
-                    padding={1}
-                    elevation={2}
-                    bar={true}
-                  />
-                  <KeyFigureCard
-                    description={(worst2 as KeyFigure).description}
-                    value={(worst2 as KeyFigure).value}
-                    unit={(worst2 as KeyFigure).unit}
-                    short_name={(worst2 as KeyFigure).shortName}
-                    points={(worst2 as KeyFigure).points}
-                    padding={1}
-                    elevation={2}
-                    bar={true}
-                  />
+                  <Box>
+                    <KeyFigureCard
+                      description={(worst1 as KeyFigure).description}
+                      value={(worst1 as KeyFigure).value}
+                      unit={(worst1 as KeyFigure).unit}
+                      short_name={(worst1 as KeyFigure).shortName}
+                      points={(worst1 as KeyFigure).points}
+                      padding={1}
+                      elevation={2}
+                      bar={true}
+                    />
+                    <IndicatorAndIcon name={(worst1 as KeyFigure).indicator} />
+                  </Box>
+                  <Box>
+                    <KeyFigureCard
+                      description={(worst2 as KeyFigure).description}
+                      value={(worst2 as KeyFigure).value}
+                      unit={(worst2 as KeyFigure).unit}
+                      short_name={(worst2 as KeyFigure).shortName}
+                      points={(worst2 as KeyFigure).points}
+                      padding={1}
+                      elevation={2}
+                      bar={true}
+                    />
+                    <IndicatorAndIcon name={(worst2 as KeyFigure).indicator} />
+                  </Box>
                 </Box>
               )}
 

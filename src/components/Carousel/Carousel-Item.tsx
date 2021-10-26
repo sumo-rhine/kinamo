@@ -46,6 +46,8 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
     return (
       <Box
         pb={15}
+        // pr={10}
+        // pl={10}
         style={{
           display: "flex",
           justifyContent: "space-around",
@@ -58,9 +60,17 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
       >
         <Box pt={10}>
           <Box>
+            {/* <Typography
+              // variant="h6"
+              // color="text.secondary"
+              fontWeight="fontWeightLight"
+            >
+              Vergleiche
+            </Typography> */}
             <Typography pb={5} variant="h4" fontWeight="fontWeightLight">
               {data?.cityName}
             </Typography>
+
             <Typography
               variant="h6"
               // color="text.secondary"
@@ -100,7 +110,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
                 style={{ padding: ".5rem" }}
                 // variant="outlined"
               >
-                Explore
+                Vergleiche
               </Button>
             </Box>
           </Box>

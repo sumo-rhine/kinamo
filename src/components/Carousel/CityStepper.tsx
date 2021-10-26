@@ -7,6 +7,8 @@ import Slide from "@mui/material/Slide";
 import CarouselItem from "./Carousel-Item";
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
+import Typography from "@mui/material/Typography";
+
 // import { Slider } from "@mui/material";
 
 interface CityStepperProps {
@@ -68,6 +70,11 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
           overflow: "hidden",
         }}
       >
+        {/* <Box sx={{ position: "absolute", left: 0 }}>
+          <Typography variant="h5" fontWeight="fontWeightLight">
+            Entdecke Städte in der Oberrheinregion
+          </Typography>
+        </Box> */}
         <Box
           pl={5}
           sx={{
@@ -76,8 +83,16 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
             flexDirection: "column",
           }}
         >
-          <IconButton disabled={index < 1} onClick={handleBack}>
-            <NavigateBefore></NavigateBefore>
+          <IconButton
+            size="large"
+            // edge="end"
+            disabled={index < 1}
+            onClick={handleBack}
+            sx={{ backgroundColor: "grey" }}
+          >
+            <NavigateBefore
+              style={{ transform: "scale(2.2)" }}
+            ></NavigateBefore>
           </IconButton>
         </Box>
         <Slide direction={slideDirection} in={slideIn}>
@@ -93,8 +108,8 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
             flexDirection: "column",
           }}
         >
-          <IconButton disabled={index > 36} onClick={handleNext}>
-            <NavigateNext></NavigateNext>
+          <IconButton size="large" disabled={index > 36} onClick={handleNext}>
+            <NavigateNext style={{ transform: "scale(2.2)" }}></NavigateNext>
           </IconButton>
         </Box>
       </Box>

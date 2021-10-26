@@ -7,7 +7,7 @@ interface IndicatorAndIconProps {
   name: string;
 }
 
-const getIconPath = (name: string): any => {
+export const getIconPath = (name: string): any => {
   let path;
   let indicator;
 
@@ -75,8 +75,9 @@ const IndicatorAndIcon: React.FC<IndicatorAndIconProps> = (props) => {
         <Box
           sx={{
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "flex-end",
           }}
         >
           <Icon style={{ fontSize: 25 }}>
@@ -89,7 +90,7 @@ const IndicatorAndIcon: React.FC<IndicatorAndIconProps> = (props) => {
               src={data.IconSrc}
             />
           </Icon>
-          <Typography color="text.secondary" ml={1}>
+          <Typography color="text.secondary" variant="subtitle2" ml={1}>
             {data.name.toUpperCase()}
           </Typography>
         </Box>

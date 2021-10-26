@@ -225,7 +225,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
         </Box>
         <Box>
           {Object.keys(props.city.indicators).map((ind) => (
-            <TabPanel value={ind}>
+            <TabPanel sx={{ boxShadow: "0 2px 4px silver" }} value={ind}>
               <Box m={5}>
                 <Box
                   mt={4}
@@ -282,7 +282,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                                 backgroundColor: "#F8F8F8",
                                 minHeight: 65,
                               }}
-                              elevation={6}
+                              elevation={2}
                             >
                               <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
@@ -305,25 +305,6 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                                 </Typography>
                               </AccordionDetails>
                             </Accordion>
-
-                            {/* <Paper>
-                              <Box
-                                p={1}
-                                sx={{
-                                  display: "flex",
-                                  justifyContent: "space-between",
-                                  alignItems: "center",
-                                }}
-                              >
-                                <Typography
-                                  fontWeight="fontWeightLight"
-                                  variant="h6"
-                                >
-                                  {keyFigure.short_name}
-                                </Typography>
-                                <HelpOutlineIcon />
-                              </Box>
-                            </Paper> */}
                           </Grid>
                         )
                       )}
