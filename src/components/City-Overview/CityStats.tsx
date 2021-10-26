@@ -37,6 +37,7 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
               // boxShadow: "0 2px 4px silver",
               left: 40,
               filter: "blur(1px)",
+              opacity: 0.7,
             }}
             alt="img"
             src="/assets/thumbnail/102_crop.png"

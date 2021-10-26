@@ -9,7 +9,7 @@ import React, { useState } from "react";
 import KeyFigureCard from "./KeyFigureCard";
 import Icon from "@mui/material/Icon";
 import StackedBar from "../StackedBar";
-// import { makeStyles } from "@mui/styles";
+
 interface CityTabProps {
   city: City;
 }
@@ -42,7 +42,6 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                       alt="img"
                       src={"/assets/icons/walkability.svg"}
                       height={25}
-                      // width={25}
                     />
                   </Icon>
                 }
@@ -56,7 +55,6 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                       alt="img"
                       src={"/assets/icons/bikeability.svg"}
                       height={25}
-                      // width={25}
                     />
                   </Icon>
                 }
@@ -66,12 +64,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
               <Tab
                 icon={
                   <Icon>
-                    <img
-                      alt="img"
-                      src={"/assets/icons/pt.svg"}
-                      height={25}
-                      // width={25}
-                    />
+                    <img alt="img" src={"/assets/icons/pt.svg"} height={25} />
                   </Icon>
                 }
                 value="public_transport"
@@ -80,12 +73,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
               <Tab
                 icon={
                   <Icon>
-                    <img
-                      alt="img"
-                      src={"/assets/icons/car.svg"}
-                      height={25}
-                      // width={25}
-                    />
+                    <img alt="img" src={"/assets/icons/car.svg"} height={25} />
                   </Icon>
                 }
                 value="car_integration"
@@ -98,7 +86,6 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                       alt="img"
                       src={"/assets/icons/spatial-structur.svg"}
                       height={25}
-                      // width={25}
                     />
                   </Icon>
                 }
@@ -112,7 +99,6 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                       alt="img"
                       src={"/assets/icons/accessibility.svg"}
                       height={25}
-                      // width={30}
                     />
                   </Icon>
                 }
@@ -126,7 +112,6 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                       alt="img"
                       src={"/assets/icons/commuting.svg"}
                       height={25}
-                      // width={25}
                     />
                   </Icon>
                 }
@@ -140,7 +125,6 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                       alt="img"
                       src={"/assets/icons/land-consumption.svg"}
                       height={25}
-                      // width={25}
                     />
                   </Icon>
                 }
@@ -154,7 +138,6 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                       alt="img"
                       src={"/assets/icons/air-pollution.svg"}
                       height={25}
-                      // width={25}
                     />
                   </Icon>
                 }
@@ -168,7 +151,6 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                       alt="img"
                       src={"/assets/icons/traffic-noise.svg"}
                       height={25}
-                      // width={25}
                     />
                   </Icon>
                 }
@@ -182,7 +164,6 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                       alt="img"
                       src={"/assets/icons/safety.svg"}
                       height={25}
-                      // width={25}
                     />
                   </Icon>
                 }
@@ -196,26 +177,12 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                       alt="img"
                       src={"/assets/icons/modal-choice.svg"}
                       height={25}
-                      // width={25}
                     />
                   </Icon>
                 }
                 value="behavior"
                 label="Behavior"
               />
-              {/* <Tabs
-                // onChange={handleChange}
-                aria-label="lab API tabs example"
-                //   orientation="vertical"
-                centered
-                // variant="scrollable"
-                scrollButtons="auto"
-              > */}
-              {/* {Object.keys(props.city.indicators).map((ind) => (
-                //   <Button></Button>
-                <Tab label={ind} value={ind} />
-              ))} */}
-              {/* </Tabs> */}
             </TabList>
           </Box>
           <Box>
@@ -245,15 +212,12 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                   sx={{
                     display: "flex",
                     flexWrap: "wrap",
-                    justifyContent: "space-between",
                     // justifyContent: "space-between",
-                    // alignContent: "space-between",
+                    // width: 600,
                   }}
                 >
                   {(props.city.indicators as any)[ind].keyFigures.map(
                     (keyFigure: any) => (
-                      //   if
-                      //   <p>{keyFigure.long_name}</p>
                       <KeyFigureCard
                         description={keyFigure.long_name}
                         value={keyFigure.value}

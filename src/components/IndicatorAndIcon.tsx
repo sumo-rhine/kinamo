@@ -70,31 +70,35 @@ const getIconPath = (name: string): any => {
 const IndicatorAndIcon: React.FC<IndicatorAndIconProps> = (props) => {
   const data = getIconPath(props.name);
   return (
-    // <Box pt={2}>
-    //   <Button sx={{ borderRadius: 0 }} variant="outlined">
-    //     {data.name}
-    //   </Button>
-    // </Box>
-
-    <Box sx={{ display: "flex" }} pt={2}>
-      <Box
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-      >
-        <Icon style={{ fontSize: 40 }}>
-          <img
-            style={{
-              height: "80%",
-              opacity: 0.8,
-            }}
-            alt="img"
-            src={data.IconSrc}
-          />
-        </Icon>
-        <Typography fontWeight={1} color="text.secondary" ml={1}>
-          {data.name.toUpperCase()}
-        </Typography>
-      </Box>
+    <Box pt={4}>
+      <Button sx={{ borderRadius: 0 }} variant="outlined">
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Icon style={{ fontSize: 25 }}>
+            <img
+              style={{
+                height: "80%",
+                opacity: 0.8,
+              }}
+              alt="img"
+              src={data.IconSrc}
+            />
+          </Icon>
+          <Typography color="text.secondary" ml={1}>
+            {data.name.toUpperCase()}
+          </Typography>
+        </Box>
+      </Button>
     </Box>
+
+    // <Box sx={{ display: "flex" }} pt={2}>
+
+    // </Box>
   );
 };
 
