@@ -1,12 +1,7 @@
-// import { Home } from "@material-ui/icons";
-// import HomeIcon from "@mui/icons-material";
-// import HomeIcon from "@mui/icons-material/HomeIcon";
 import HomeIcon from "@mui/icons-material/Home";
 import { CityNameProps } from "./SelectCity.model";
-import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
-// import IconButton from "@mui/material/IconButton";
 
 import {
   AppBar,
@@ -16,6 +11,7 @@ import {
   Typography,
   Divider,
 } from "@mui/material";
+
 
 // This is deprecated!!
 // https://mui.com/styles/advanced/
@@ -39,6 +35,7 @@ const useStyles = makeStyles({
     // color: "white",
   },
 });
+
 
 const Header: React.FC<CityNameProps> = (props) => {
   const classes = useStyles();
