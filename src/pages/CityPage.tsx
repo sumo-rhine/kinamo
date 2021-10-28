@@ -52,6 +52,7 @@ const CityPage: React.FC<CityPageProps> = (props) => {
   // return the page
   return (
     <Box>
+      <div id="top" />
       <Header cityName={city?.city} />
       {
         /* Switch the city variable - if null, no city is (yet) loaded */
