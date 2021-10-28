@@ -148,6 +148,9 @@ const AboutScoring = () => {
 
   return (
     <Box>
+      <Typography fontWeight="fontWeightLight" variant="h4">
+        Beispiel zur Berechnung der Indikatoren
+      </Typography>
       <Typography mt={4} fontWeight="fontWeightLight" variant="h6">
         Der Indikatoren ist ein Wert zwischen 0 und 10 setzen sich aus Kennzalen
         zusammen.

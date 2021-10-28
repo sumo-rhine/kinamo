@@ -7,7 +7,7 @@ const randomInt = (min: number, max: number) => {
 };
 
 const RandomAnimationBanner: React.FC = (props) => {
-  const [index, setIndex] = useState(3);
+  const [index, setIndex] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -16,7 +16,11 @@ const RandomAnimationBanner: React.FC = (props) => {
       console.log("trigger false");
       setTimeout(function () {
         console.log("trigger next image");
-        setIndex((index) => randomInt(0, 4));
+        if (index > 4) {
+          setIndex(index + 1);
+        } else {
+          setIndex(0);
+        }
         //do what you need here
         setTimeout(function () {
           console.log("trigger true");
@@ -28,7 +32,9 @@ const RandomAnimationBanner: React.FC = (props) => {
     return () => clearInterval(interval);
   }, []);
 
-  const city_list = [4, 102, 483, 1341, 1502];
+  // const city_list = [4, 102, 483, 1341, 1502];
+  const city_list = [102, 483, 1502, 4, 1341];
+
   const pois_path =
     "assets/banner/" + city_list[index].toString() + "_pois.png";
   const streets_path =
@@ -77,7 +83,7 @@ const RandomAnimationBanner: React.FC = (props) => {
           </Box>
           am Oberrhein
         </Typography>
-        <Typography mt={2} ml={1} variant="h4" fontWeight="fontWeightLight">
+        <Typography mt={4} ml={1} variant="h4" fontWeight="fontWeightLight">
           Bewerte und vergleiche den Zustand nachhaltiger Mobilität in 36
           Kommunen der Oberrheinregion mit
           <Box fontWeight="Medium" display="inline">
@@ -87,7 +93,7 @@ const RandomAnimationBanner: React.FC = (props) => {
           .
         </Typography>
         <Typography
-          mt={5}
+          mt={8}
           ml={1}
           variant="h5"
           component="h5"

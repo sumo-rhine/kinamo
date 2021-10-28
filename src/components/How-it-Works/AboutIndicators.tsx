@@ -12,6 +12,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Divider from "@mui/material/Divider";
 
 // import { AboutProps } from "./About.model";
 interface AboutProps {
@@ -36,19 +37,35 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
 
       <Box mt={2} sx={{ display: "flex" }}>
         <Typography
-          sx={{ width: 150 }}
+          pr={4}
+          // sx={{ width: 200 }}
           // fontWeight="fontWeightLight"
           variant="h6"
         >
           Indikatoren
         </Typography>
-        <Typography pl={3} fontWeight="fontWeightLight" variant="h6">
+        <Typography fontWeight="fontWeightLight" variant="h6">
           Bieten eine Bewertung für übergeordnete Handlungsfelder kommunaler
           Mobilität und schafft Vergleichbarkeit. Der Wert eines Indikatores
           reicht von 0 bis 10.
         </Typography>
       </Box>
       <Box mt={2} sx={{ display: "flex" }}>
+        <Typography
+          pr={3.5}
+          // sx={{ width: 200 }}
+          // fontWeight="fontWeightLight"
+          variant="h6"
+        >
+          Kennzahlen
+        </Typography>
+        <Typography fontWeight="fontWeightLight" variant="h6">
+          Bieten spezifische Information über das kommunale Mobilitätsystem und
+          sollen zu einer Sachlichen Diskussion beitragen. Die Kennzahlen sind
+          für die Vergleichbarkeit in relativen einheiiten gehalten.
+        </Typography>
+      </Box>
+      {/* <Box mt={1} sx={{ display: "flex" }}>
         <Typography
           sx={{ width: 150 }}
           // fontWeight="fontWeightLight"
@@ -57,15 +74,16 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
           Kennzahlen
         </Typography>
         <Typography
-          pl={3}
-          align="left"
+          // pl={1}
+          // align="left"
           fontWeight="fontWeightLight"
           variant="h6"
         >
           Bieten spezifische Information über das kommunale Mobilitätsystem und
-          sollen zu einer Sachlichen Diskussion beitragen.
+          sollen zu einer Sachlichen Diskussion beitragen. Die Kennzahlen sind
+          für die Vergleichbarkeit in relativen einheiiten gehalten.
         </Typography>
-      </Box>
+      </Box> */}
       <Typography pt={3} fontWeight="fontWeightLight" variant="h6">
         Im Folgenden sind alle Indikatoren und ihre Kennzahlen aufgeführt.
       </Typography>
@@ -271,34 +289,35 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
         </Box>
         <Box>
           {Object.keys(props.city.indicators).map((ind) => (
-            <TabPanel sx={{ boxShadow: "0 2px 4px silver" }} value={ind}>
+            <TabPanel
+              // sx={{ boxShadow: "0 2px 4px silver" }}
+              value={ind}
+            >
               <Box m={5}>
                 <Box
                   mt={4}
                   mb={5}
                   sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    width: "50%",
+                    // display: "flex",
+                    // justifyContent: "space-between",
+                    width: "100%",
                   }}
                 >
-                  <Typography fontWeight="fontWeightLight" variant="h5">
-                    {/* {(props.city.indicators as any)[ind].short_name} */}
-                    Kennzahlen
+                  <Typography pb={2} fontWeight="fontWeightLight" variant="h5">
+                    {(props.city.indicators as any)[ind].short_name}
                   </Typography>
-                  {/* <StackedBar
-                    indicator={(props.city.indicators as any)[ind]}
-                    shadow={false}
-                    rounded={false}
-                    background="white"
-                    height={0.8}
-                    animation="1s"
-                  /> */}
-                  <Box>
-                    <Typography fontWeight="fontWeightLight" variant="h6">
-                      {(props.city.indicators as any)[ind].description}
+
+                  <Typography pb={3} fontWeight="fontWeightLight" variant="h6">
+                    {(props.city.indicators as any)[ind].description}
+                  </Typography>
+
+                  <Divider textAlign="left">
+                    {" "}
+                    <Typography fontWeight="fontWeightLight" variant="h5">
+                      {/* {(props.city.indicators as any)[ind].short_name} */}
+                      Kennzahlen
                     </Typography>
-                  </Box>
+                  </Divider>
                 </Box>
                 <Box
                   sx={{

@@ -1,11 +1,12 @@
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 import { Link } from "@mui/material";
-
+import Paper from "@mui/material/Paper";
 const AboutSuMoProject = () => {
   return (
-    <Box sx={{ maxWidth: 1000 }}>
-      <Typography mt={5} variant="h4" fontWeight="fontWeightLight">
+    // <Paper>
+    <Box sx={{ width: 1200 }}>
+      <Typography variant="h4" fontWeight="fontWeightLight">
         KINaMo -
         <Box fontWeight="bold" display="inline">
           {" "}
@@ -30,7 +31,7 @@ const AboutSuMoProject = () => {
       </Typography>
       <Box sx={{}}>
         <Typography
-          component="div"
+          // component="div"
           fontWeight="fontWeightLight"
           mt={4}
           variant="h6"
@@ -41,7 +42,7 @@ const AboutSuMoProject = () => {
           sichtbar und vergleichbar zu machen.
         </Typography>
         <Typography
-          component="div"
+          // component="div"
           fontWeight="fontWeightLight"
           mt={1}
           variant="h6"
@@ -58,6 +59,11 @@ const AboutSuMoProject = () => {
           </Box>
           organisiert werden.
         </Typography>
+        <Typography fontWeight="fontWeightLight" variant="h6">
+          Die Applikation liefert damit erstmals eine frei zugängliche
+          detaillierte Bewertung der kommunalen Mobilität für die Region
+          Oberrhein.
+        </Typography>
       </Box>
       <img
         alt="images"
@@ -65,13 +71,8 @@ const AboutSuMoProject = () => {
         src="/assets/image/diagram.svg"
       />
 
-      <Typography mt={1} fontWeight="fontWeightLight" variant="h6">
-        Die Applikation liefert damit erstmals eine frei zugängliche
-        detaillierte Bewertung der kommunalen Mobilität für die Region
-        Oberrhein.
-      </Typography>
-      <Box sx={{ display: "flex" }}>
-        <Typography mt={1} pr={3} fontWeight="fontWeightLight" variant="h6">
+      <Box mt={3} sx={{ display: "flex", alignItems: "center" }}>
+        <Typography mt={1} pr={2} fontWeight="fontWeightLight" variant="h6">
           KINaMo ist teil des internationalen Forschungsprojektes:{"  "}
           {<Link href="https://sumo-rhine.com/en/">SuMo Rhine</Link>}.
         </Typography>
@@ -82,6 +83,7 @@ const AboutSuMoProject = () => {
         />
       </Box>
     </Box>
+    // </Paper>
   );
 };
 

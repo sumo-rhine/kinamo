@@ -11,6 +11,7 @@ import Icon from "@mui/material/Icon";
 import StackedBar from "../StackedBar";
 import StackedBarRow from "../City-Overview/StackedBarRow";
 import { getIconPath } from "../IndicatorAndIcon";
+import Divider from "@mui/material/Divider";
 
 interface CityTabProps {
   city: City;
@@ -187,14 +188,20 @@ const CityTab: React.FC<CityTabProps> = (props) => {
               />
             </TabList>
           </Box>
-          <Box sx={{ boxShadow: "0 2px 4px silver" }}>
+          <Box
+            sx={
+              {
+                // boxShadow: "0 2px 4px silver",
+              }
+            }
+          >
             {Object.keys(props.city.indicators).map((ind) => (
               <TabPanel value={ind}>
-                <Box pt={5}>
+                <Box pt={3}>
                   {/* <Typography fontWeight="fontWeightLight" variant="h4">
                     {(props.city.indicators as any)[ind].short_name}
                   </Typography> */}
-                  <Box ml={4} sx={{ display: "flex", width: "50%" }}>
+                  <Box ml={4} sx={{}}>
                     <StackedBarRow
                       indicator={(props.city.indicators as any)[ind]}
                       // iconSrc="test"
@@ -211,21 +218,31 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                       animation="1s"
                     /> */}
 
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        width: "50%",
-                      }}
+                    <Typography
+                      pt={4}
+                      pl={3}
+                      pb={5}
+                      sx={{ width: 1400 }}
+                      fontWeight="fontWeightLight"
+                      variant="h6"
                     >
-                      <Typography fontWeight="fontWeightLight" variant="h6">
-                        {(props.city.indicators as any)[ind].description}
+                      {(props.city.indicators as any)[ind].description}
+                    </Typography>
+
+                    <Divider textAlign="left">
+                      {" "}
+                      <Typography fontWeight="fontWeightLight" variant="h5">
+                        {/* {(props.city.indicators as any)[ind].short_name} */}
+                        Kennzahlen
                       </Typography>
-                    </Box>
+                    </Divider>
                   </Box>
                 </Box>
                 <Box
-                  m={8}
+                  mt={3}
+                  mb={8}
+                  ml={6}
+                  mr={6}
                   sx={{
                     display: "flex",
                     flexWrap: "wrap",

@@ -11,6 +11,7 @@ const CityOverview: React.FC<CityOverviewProps> = (props) => {
   return (
     <Box
       pt={10}
+      pb={10}
       // ml={10}
       sx={{
         width: "100%",
