@@ -4,6 +4,7 @@
 import HomeIcon from "@mui/icons-material/Home";
 import { CityNameProps } from "./SelectCity.model";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 // import IconButton from "@mui/material/IconButton";
 
@@ -49,8 +50,9 @@ const Header: React.FC<CityNameProps> = (props) => {
             edge="start"
             color="inherit"
             aria-label="home"
-            component={Link}
-            to="/home"
+            component={HashLink}
+            to="/home#top"
+            smooth={true}
           >
             <HomeIcon fontSize="large" style={{ fill: "#d9ebda" }} />
           </IconButton>
