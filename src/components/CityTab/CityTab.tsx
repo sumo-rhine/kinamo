@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import KeyFigureCard from "./KeyFigureCard";
 import Icon from "@mui/material/Icon";
 import StackedBar from "../StackedBar";
@@ -14,14 +14,24 @@ import { getIconPath } from "../IndicatorAndIcon";
 
 interface CityTabProps {
   city: City;
+  changeTab?: string;
 }
 
-const CityTab: React.FC<CityTabProps> = (props) => {
-  // const classes = useStyles();
+const CityTab: React.FC<CityTabProps> = ({city, changeTab}) => {
+  // current indicator State
   const [indicator, setIndicator] = useState("walkability");
+  
+  // change handler actived by user clicking a Tab
   const handleChange = (event: React.SyntheticEvent, newIndicator: string) => {
     setIndicator(newIndicator);
   };
+
+  // react to changes of changeTab
+  useEffect(() => {
+    if (changeTab) {
+      setIndicator(changeTab);
+    }
+  }, [changeTab]);
 
   return (
     <React.Fragment>
@@ -191,7 +201,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
               </TabList>
             </Box>
             <Box sx={{ boxShadow: "0 2px 4px silver" }}>
-              {Object.keys(props.city.indicators).map((ind) => (
+              {Object.keys(city.indicators).map((ind) => (
                 <TabPanel value={ind}>
                   <Box pt={5}>
                     {/* <Typography fontWeight="fontWeightLight" variant="h4">
@@ -199,7 +209,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                     </Typography> */}
                     <Box ml={4} sx={{ display: "flex", width: "50%" }}>
                       <StackedBarRow
-                        indicator={(props.city.indicators as any)[ind]}
+                        indicator={(city.indicators as any)[ind]}
                         // iconSrc="test"
                         iconSrc={getIconPath(ind).IconSrc}
                       />
@@ -222,7 +232,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                         }}
                       >
                         <Typography fontWeight="fontWeightLight" variant="h6">
-                          {(props.city.indicators as any)[ind].description}
+                          {(city.indicators as any)[ind].description}
                         </Typography>
                       </Box>
                     </Box>
@@ -237,7 +247,7 @@ const CityTab: React.FC<CityTabProps> = (props) => {
                       // width: 600,
                     }}
                   >
-                    {(props.city.indicators as any)[ind].keyFigures.map(
+                    {(city.indicators as any)[ind].keyFigures.map(
                       (keyFigure: any) => (
                         <Box
                           m={2}

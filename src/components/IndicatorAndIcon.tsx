@@ -6,6 +6,7 @@ import { HashLink } from "react-router-hash-link";
 
 interface IndicatorAndIconProps {
   name: string;
+  tabChanger: (indicator: string | undefined) => void;
 }
 
 export const getIconPath = (name: string): any => {
@@ -78,6 +79,7 @@ const IndicatorAndIcon: React.FC<IndicatorAndIconProps> = (props) => {
         component={HashLink}
         to="#city-tab"
         smooth={true}
+        onClick={() => props.tabChanger(props.name)}
       >
         <Box
           sx={{
