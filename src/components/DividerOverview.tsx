@@ -19,7 +19,7 @@ const DividerOverview: React.FC = () => {
         variant="h2"
         fontWeight="fontWeightLight"
       >
-        Overview
+        Übersicht
       </Typography>
       <Typography
         mt={1}
@@ -28,7 +28,7 @@ const DividerOverview: React.FC = () => {
         variant="h5"
         fontWeight="fontWeightLight"
       >
-        Explore and rank cities in the Upper Rhine Region based on 12 Indicators
+        Vergleiche und Sortiere die Kommunen nach den 12 KINaMo Indikatoren
       </Typography>
       {/* </Box> */}
     </Box>

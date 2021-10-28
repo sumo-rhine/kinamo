@@ -47,7 +47,7 @@ const AboutSuMoProject = () => {
           mt={1}
           variant="h6"
         >
-          Dafür wurde ein umfanreiches Bewertungssystem entwickelt welches aus
+          Dafür wurde ein umfangreiches Bewertungssystem entwickelt welches aus
           <Box fontWeight="bold" display="inline">
             {" "}
             84 Kennzahlen{" "}
@@ -57,12 +57,9 @@ const AboutSuMoProject = () => {
             {" "}
             12 Indikatoren{" "}
           </Box>
-          organisiert werden.
-        </Typography>
-        <Typography fontWeight="fontWeightLight" variant="h6">
-          Die Applikation liefert damit erstmals eine frei zugängliche
-          detaillierte Bewertung der kommunalen Mobilität für die Region
-          Oberrhein.
+          angeordnet sind. Die Applikation liefert damit erstmals eine frei
+          zugängliche detaillierte Bewertung der kommunalen Mobilität für die
+          Region Oberrhein.
         </Typography>
       </Box>
       <img
@@ -73,8 +70,8 @@ const AboutSuMoProject = () => {
 
       <Box mt={3} sx={{ display: "flex", alignItems: "center" }}>
         <Typography mt={1} pr={2} fontWeight="fontWeightLight" variant="h6">
-          KINaMo ist teil des internationalen Forschungsprojektes:{"  "}
-          {<Link href="https://sumo-rhine.com/en/">SuMo Rhine</Link>}.
+          KINaMo ist teil des internationalen Forschungsprojektes {"  "}
+          {<Link href="https://sumo-rhine.com/en/">SuMo Rhine</Link>}
         </Typography>
         <img
           alt="images"

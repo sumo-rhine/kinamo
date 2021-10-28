@@ -4,7 +4,7 @@ import Paper from "@mui/material/Paper";
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import Slider from "@mui/material/Slider";
-
+import Divider from "@mui/material/Divider";
 const AboutScoring = () => {
   const initSpeedLimit = 70;
   const barWidthFactor = 3;
@@ -149,34 +149,45 @@ const AboutScoring = () => {
   return (
     <Box>
       <Typography fontWeight="fontWeightLight" variant="h4">
-        Beispiel zur Berechnung der Indikatoren
+        Interaktives Beispiel zur Berechnung der Indikatoren
       </Typography>
       <Typography mt={4} fontWeight="fontWeightLight" variant="h6">
-        Der Indikatoren ist ein Wert zwischen 0 und 10 setzen sich aus Kennzalen
-        zusammen.
+        In diesem Beispiel schauen wir uns einen fiktiven Indikator an, der nur
+        aus den 2 Kennzahlen besteht: Anteil 30er Zonen, Unfälle mit
+        Fahrradfahrenden
       </Typography>
-      <Typography fontWeight="fontWeightLight" variant="h6">
-        To illustrate this play with the interactive example of an fictive
-        indicator only consisting of 2 key figures:
+      <Typography pb={4} fontWeight="fontWeightLight" variant="h6">
+        Indem du den blauen Regler der beiden Kennzahlen verschiebst, kannst du
+        interaktiv verstehen wie sich die KINaMo Indikatoren zusammensetzen.
       </Typography>
-
+      <Divider textAlign="left">
+        {" "}
+        <Typography fontWeight="fontWeightLight" variant="h5">
+          {/* {(props.city.indicators as any)[ind].short_name} */}
+          Beispiel
+        </Typography>
+      </Divider>
       <Box>
-        <Grid mt={5} container spacing={2} columns={12}>
+        <Grid mt={2} container spacing={2} columns={12}>
           <Grid xs={6} item>
             <Box
-              ml={15}
+              // ml={15}
               // mb={}
               sx={{
-                width: "100%",
+                // width: "100%",
                 height: "100%",
                 display: "flex",
                 // alignItems: "flex-end",
-                justifyContent: "center",
+                justifyContent: "flex-start",
                 alignItems: "center",
               }}
             >
-              <Typography fontWeight="fontWeightLight" variant="h2">
-                Indicator
+              <Typography fontWeight="fontWeightLight" variant="h6">
+                Ein Indikator berechnet sich aus den Punkten der Kennzahlen. Die
+                Kennzahlen erhalten ihre Punkte über ihre Platzierung. Platz 1
+                erhält 36 Punkte während der schlechteste 0 Punkte erhält. Für
+                die Berechnung der Indikatoren werden die Punkte aller
+                Kennzahlen aufsummiert und zwischen 0 und 10 skaliert.
               </Typography>
             </Box>
           </Grid>
@@ -282,6 +293,7 @@ const AboutScoring = () => {
               </Box>
             </Paper>
           </Grid>
+
           <Grid xs={6} mt={10} item>
             <Box
               sx={{

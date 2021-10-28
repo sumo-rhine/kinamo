@@ -72,27 +72,51 @@ const RandomAnimationBanner: React.FC = (props) => {
         mt={15}
         ml={15}
         className={classes.font}
-        sx={{ position: "absolute", width: 700 }}
+        sx={{ position: "absolute" }}
         fontWeight="fontWeightLight"
       >
-        <Typography variant="h2" fontWeight="fontWeightLight">
-          Entdecke
+        <Box sx={{ width: 650 }}>
+          <Typography variant="h2" fontWeight="fontWeightLight">
+            Entdecke
+            <Box fontWeight="Medium" display="inline">
+              {" "}
+              Nachhaltige Mobilität{" "}
+            </Box>
+            am Oberrhein
+          </Typography>
+          <Typography mt={7} ml={1} variant="h4" fontWeight="fontWeightLight">
+            Bewerte und vergleiche den Zustand nachhaltiger Mobilität in 36
+            Kommunen der Oberrheinregion mit
+          </Typography>
+        </Box>
+
+        <Typography pt={5} ml={1} variant="h4" fontWeight="fontWeightLight">
           <Box fontWeight="Medium" display="inline">
             {" "}
-            Nachhaltige Mobilität{" "}
+            KINaMo -
           </Box>
-          am Oberrhein
-        </Typography>
-        <Typography mt={4} ml={1} variant="h4" fontWeight="fontWeightLight">
-          Bewerte und vergleiche den Zustand nachhaltiger Mobilität in 36
-          Kommunen der Oberrheinregion mit
           <Box fontWeight="Medium" display="inline">
             {" "}
-            KINaMo
+            K
           </Box>
-          .
+          ommunales
+          <Box fontWeight="Medium" display="inline">
+            {" "}
+            I
+          </Box>
+          nformationsystem für
+          <Box fontWeight="Medium" display="inline">
+            {" "}
+            Na
+          </Box>
+          chaltige
+          <Box fontWeight="Medium" display="inline">
+            {" "}
+            Mo
+          </Box>
+          bilität .
         </Typography>
-        <Typography
+        {/* <Typography
           mt={8}
           ml={1}
           variant="h5"
@@ -120,7 +144,7 @@ const RandomAnimationBanner: React.FC = (props) => {
             Mo
           </Box>
           bilität
-        </Typography>
+        </Typography> */}
       </Box>
     </Box>
   );

@@ -20,7 +20,7 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
       <Box sx={{ width: 400 }}>
         <Box>
           <Typography
-            color="text.secondary"
+            // color="text.secondary"
             fontWeight="fontWeightLight"
             variant="h6"
           >
@@ -33,7 +33,7 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
           </Typography>
           <Typography
             mb={0.3}
-            // color="text.secondary"
+            color="text.secondary"
             variant="h5"
             fontWeight="fontWeightLight"
           >

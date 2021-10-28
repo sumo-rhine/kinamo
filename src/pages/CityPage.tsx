@@ -60,7 +60,7 @@ const CityPage: React.FC<CityPageProps> = (props) => {
             <AnimationBanner city={city}></AnimationBanner>
             <CityOverview city={city}></CityOverview>
             <KeyFigureBanner city={city} />
-            <CityTabDivider />
+            <CityTabDivider city={city.city} />
             <CityTab city={city}></CityTab>
           </Box>
         ) : (

@@ -32,10 +32,10 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
         Das KINaMo Bewertungssystem
       </Typography>
       <Typography mt={4} fontWeight="fontWeightLight" variant="h6">
-        Das Bewertungssystem von KINaMo besteht aus Indikaten und Kennzahlen.
+        Das Bewertungssystem von KINaMo besteht aus Indikatoren und Kennzahlen.
       </Typography>
 
-      <Box mt={2} sx={{ display: "flex" }}>
+      <Box mt={1} sx={{ display: "flex" }}>
         <Typography
           pr={4}
           // sx={{ width: 200 }}
@@ -45,12 +45,12 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
           Indikatoren
         </Typography>
         <Typography fontWeight="fontWeightLight" variant="h6">
-          Bieten eine Bewertung für übergeordnete Handlungsfelder kommunaler
-          Mobilität und schafft Vergleichbarkeit. Der Wert eines Indikatores
-          reicht von 0 bis 10.
+          Bewerten übergeordnete Handlungsfelder kommunaler Mobilität und
+          schafften Vergleichbarkeit. Der Wert eines Indikators reicht von 0 bis
+          10.
         </Typography>
       </Box>
-      <Box mt={2} sx={{ display: "flex" }}>
+      <Box mt={0} sx={{ display: "flex" }}>
         <Typography
           pr={3.5}
           // sx={{ width: 200 }}
@@ -60,9 +60,8 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
           Kennzahlen
         </Typography>
         <Typography fontWeight="fontWeightLight" variant="h6">
-          Bieten spezifische Information über das kommunale Mobilitätsystem und
-          sollen zu einer Sachlichen Diskussion beitragen. Die Kennzahlen sind
-          für die Vergleichbarkeit in relativen einheiiten gehalten.
+          Bieten spezifische Information über das kommunale Mobilitätssystem und
+          sollen zu einer sachlichen Diskussion beitragen.
         </Typography>
       </Box>
       {/* <Box mt={1} sx={{ display: "flex" }}>
@@ -84,9 +83,9 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
           für die Vergleichbarkeit in relativen einheiiten gehalten.
         </Typography>
       </Box> */}
-      <Typography pt={3} fontWeight="fontWeightLight" variant="h6">
+      {/* <Typography pt={0} fontWeight="fontWeightLight" variant="h6">
         Im Folgenden sind alle Indikatoren und ihre Kennzahlen aufgeführt.
-      </Typography>
+      </Typography> */}
 
       {/* <Typography mt={2} fontWeight="fontWeightLight" variant="h6">
         <Box fontWeight="bold" display="inline">
@@ -97,7 +96,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
       </Typography> */}
 
       <TabContext value={indicator}>
-        <Box mt={3} sx={{ borderBottom: 0, borderColor: "divider" }}>
+        <Box mt={6} sx={{ borderBottom: 0, borderColor: "divider" }}>
           <TabList
             onChange={handleChange}
             aria-label="lab API tabs example"

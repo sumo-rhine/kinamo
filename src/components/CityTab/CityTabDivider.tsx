@@ -1,7 +1,11 @@
 import { Box } from "@mui/system";
 import Typography from "@mui/material/Typography";
 
-const CityTabDivider: React.FC = () => {
+interface CityTabDivider {
+  city: string;
+}
+
+const CityTabDivider: React.FC<CityTabDivider> = (props) => {
   return (
     <Box
       sx={{
@@ -19,7 +23,7 @@ const CityTabDivider: React.FC = () => {
         variant="h2"
         fontWeight="fontWeightLight"
       >
-        Overview
+        Übersicht
       </Typography>
       <Typography
         mt={1}
@@ -28,7 +32,7 @@ const CityTabDivider: React.FC = () => {
         variant="h5"
         fontWeight="fontWeightLight"
       >
-        Explore and rank cities in the Upper Rhine Region based on 12 Indicators
+        Entdecke die Indikatoren und Kennzahlen für {props.city}
       </Typography>
       {/* </Box> */}
     </Box>
