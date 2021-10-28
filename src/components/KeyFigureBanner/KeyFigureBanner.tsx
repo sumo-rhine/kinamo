@@ -51,7 +51,16 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
   }, [props]);
 
   return (
-    <Box pb={5} pt={9} sx={{ width: "100%", backgroundColor: "#F8F8F8" }}>
+    <Box
+      pb={5}
+      pt={9}
+      sx={{
+        width: "100%",
+        backgroundColor: "#F8F8F890",
+        zIndex: 3,
+        position: "relative",
+      }}
+    >
       <Box pb={5}>
         <Typography ml={20} variant="h3" fontWeight="fontWeightLight">
           Auf einen Blick

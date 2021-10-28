@@ -28,32 +28,67 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
   return (
     <Box>
       <Typography variant="h4" fontWeight="fontWeightLight">
-        KINaMo - Indicator System
+        Das KINaMo Bewertungssystem
       </Typography>
       <Typography mt={4} fontWeight="fontWeightLight" variant="h6">
-        To evaluate Mobility KINaMo uses
-        <Box fontWeight="bold" display="inline">
-          {" "}
-          12 Indicators{" "}
-        </Box>
-        which are composed of
-        <Box fontWeight="bold" display="inline">
-          {" "}
-          Key Figures
-        </Box>
+        Das Bewertungssystem von KINaMo besteht aus Indikaten und Kennzahlen.
       </Typography>
-      {/* <Typography variant="h5" fontWeight="fontWeightLight">
-        Indicators
+
+      <Box mt={2} sx={{ display: "flex" }}>
+        <Typography
+          sx={{ width: 150 }}
+          // fontWeight="fontWeightLight"
+          variant="h6"
+        >
+          Indikatoren
+        </Typography>
+        <Typography pl={3} fontWeight="fontWeightLight" variant="h6">
+          Bieten eine Bewertung für übergeordnete Handlungsfelder kommunaler
+          Mobilität und schafft Vergleichbarkeit. Der Wert eines Indikatores
+          reicht von 0 bis 10.
+        </Typography>
+      </Box>
+      <Box mt={2} sx={{ display: "flex" }}>
+        <Typography
+          sx={{ width: 150 }}
+          // fontWeight="fontWeightLight"
+          variant="h6"
+        >
+          Kennzahlen
+        </Typography>
+        <Typography
+          pl={3}
+          align="left"
+          fontWeight="fontWeightLight"
+          variant="h6"
+        >
+          Bieten spezifische Information über das kommunale Mobilitätsystem und
+          sollen zu einer Sachlichen Diskussion beitragen.
+        </Typography>
+      </Box>
+      <Typography pt={3} fontWeight="fontWeightLight" variant="h6">
+        Im Folgenden sind alle Indikatoren und ihre Kennzahlen aufgeführt.
+      </Typography>
+
+      {/* <Typography mt={2} fontWeight="fontWeightLight" variant="h6">
+        <Box fontWeight="bold" display="inline">
+          Kennzahlen -{"  "}
+        </Box>
+        Schaffen Vergleichbarkeit und bieten eine Bewertung für übergeordnete
+        Handlungsfelder kommunaler Mobilität
       </Typography> */}
 
       <TabContext value={indicator}>
-        <Box mt={6} sx={{ borderBottom: 0, borderColor: "divider" }}>
+        <Box mt={3} sx={{ borderBottom: 0, borderColor: "divider" }}>
           <TabList
             onChange={handleChange}
             aria-label="lab API tabs example"
             variant="fullWidth"
+            // variant="scrollable"
+            // scrollButtons="auto"
           >
             <Tab
+              wrapped
               icon={
                 <Icon>
                   <img
@@ -65,7 +100,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="walkability"
-              label="walkability"
+              label="Fußgänger Freundlichkeit"
             />
             <Tab
               icon={
@@ -79,7 +114,8 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="bikeability"
-              label="bikeability"
+              label="Fahrrad Freundlichkeit"
+              wrapped
             />
             <Tab
               icon={
@@ -93,7 +129,8 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="public_transport"
-              label="Public Transport"
+              label="ÖPNV"
+              wrapped
             />
             <Tab
               icon={
@@ -107,7 +144,8 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="car_integration"
-              label="car integration"
+              label="Auto"
+              wrapped
             />
             <Tab
               icon={
@@ -121,7 +159,8 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="functional_diversity"
-              label="spatial structure"
+              label="Raum Struktur"
+              wrapped
             />
             <Tab
               icon={
@@ -135,7 +174,8 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="accessibility"
-              label="accessibility"
+              label="Erreichbarkeit"
+              wrapped
             />
             <Tab
               icon={
@@ -149,7 +189,8 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="cross_border"
-              label="Commuting"
+              label="Regionale Anbindung"
+              wrapped
             />
             <Tab
               icon={
@@ -163,7 +204,8 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="land_use"
-              label="Land Use"
+              label="Landnutzung"
+              wrapped
             />
             <Tab
               icon={
@@ -177,7 +219,8 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="emissions"
-              label="emissions"
+              label="Emissionen"
+              wrapped
             />
             <Tab
               icon={
@@ -191,7 +234,8 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="noise_pollution"
-              label="Noise Pollution"
+              label="Lärm Belastung"
+              wrapped
             />
             <Tab
               icon={
@@ -205,7 +249,8 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="traffic_safety"
-              label="Safety"
+              label="Verkehrs Sicherheit"
+              wrapped
             />
             <Tab
               icon={
@@ -219,7 +264,8 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="behavior"
-              label="Behavior"
+              label="Verkehrs Verhalten"
+              wrapped
             />
           </TabList>
         </Box>
@@ -238,7 +284,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 >
                   <Typography fontWeight="fontWeightLight" variant="h5">
                     {/* {(props.city.indicators as any)[ind].short_name} */}
-                    KEY FIGURES
+                    Kennzahlen
                   </Typography>
                   {/* <StackedBar
                     indicator={(props.city.indicators as any)[ind]}
@@ -293,7 +339,24 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                                   variant="h6"
                                   fontWeight="fontWeightLight"
                                 >
-                                  {keyFigure.short_name}
+                                  <Box>
+                                    <Typography
+                                      variant="h5"
+                                      fontWeight="fontWeightLight"
+                                    >
+                                      {keyFigure.short_name}
+                                    </Typography>
+
+                                    <Typography
+                                      mb={0.3}
+                                      color="text.secondary"
+                                      fontWeight="fontWeightLight"
+                                      variant="h6"
+                                      // color="text.secondary"
+                                    >
+                                      {keyFigure.unit}
+                                    </Typography>
+                                  </Box>
                                 </Typography>
                               </AccordionSummary>
                               <AccordionDetails>

@@ -17,6 +17,7 @@ const CityOverview: React.FC<CityOverviewProps> = (props) => {
         backgroundColor: "#F8F8F8",
         // height: 800,
         display: "flex",
+        zIndex: 1,
         // overflow: "hidden",
         // backgroundImage: `url(${"/assets/thumbnail/102_.png"})`,
         // backgroundSize: "cover",

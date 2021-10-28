@@ -52,17 +52,25 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
           mt={5}
         >
           <Typography style={{ color: "#bcbcbc" }} variant="h2">
-            Explore the state of mobility in
+            Entdecke
+            <Box fontWeight="medium" display="inline">
+              {"  "}nachhaltige Mobilität{"  "}
+            </Box>
           </Typography>
         </Box>
-        <Typography
-          mt={5}
-          // ml={5}
-          variant="h1"
-          fontWeight="fontWeightLight"
-        >
-          {props.city.city}
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+          <Typography pr={2} pb={0.6} style={{ color: "#bcbcbc" }} variant="h2">
+            in
+          </Typography>
+          <Typography
+            mt={5}
+            // ml={5}
+            variant="h1"
+            fontWeight="fontWeightLight"
+          >
+            {props.city.city}
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );

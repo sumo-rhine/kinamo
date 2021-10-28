@@ -5,7 +5,7 @@ import ArrowDropDownOutlinedIcon from "@mui/material/Icon";
 import { Modal, Fade, Button, Paper } from "@mui/material";
 import SelectCityTabs from "./SelectCityTabs";
 import { CityNameProps } from "./SelectCity.model";
-
+import Typography from "@mui/material/Typography";
 const useStyles = makeStyles(() =>
   createStyles({
     modal: {
@@ -51,7 +51,7 @@ const SelectCityModalButton: React.FC<CityNameProps> = (props) => {
         endIcon={<ArrowDropDownOutlinedIcon></ArrowDropDownOutlinedIcon>}
         onClick={handleOpen}
       >
-        {props.cityName}
+        <Typography fontWeight="fontWeightLight">{props.cityName}</Typography>
       </Button>
       <Modal
         className={classes.modal}

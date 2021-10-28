@@ -16,7 +16,11 @@ import Fade from "@mui/material/Fade";
 import { useEffect } from "react";
 
 // import { AboutProps } from "./About.model";
-const steps = ["What is KINaMo?", "Indicators and Key Figures", "Scoring"];
+const steps = [
+  "Was ist KINaMo?",
+  "Indikatoren und Kennzahlen",
+  "Interaktives Beispiel zur Indikatorenberechnung",
+];
 
 interface HorizontalLinearStepperProps {
   cities: City[];
@@ -60,7 +64,7 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
         width: "100%",
       }}
     >
-      <Box mt={40} ml={10}>
+      <Box mt={40} ml={10} sx={{ width: 300 }}>
         <Stepper activeStep={activeStep} orientation="vertical" nonLinear>
           {steps.map((label) => (
             <Step key={label}>
@@ -83,7 +87,7 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
               onClick={handleBack}
               sx={{ borderRadius: 0 }}
             >
-              Back
+              Zurück
             </Button>
             <Button
               sx={{ borderRadius: 0 }}
@@ -91,7 +95,7 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
               disabled={activeStep > 1}
               onClick={handleNext}
             >
-              Next
+              Weiter
             </Button>
           </Stack>
         </Box>

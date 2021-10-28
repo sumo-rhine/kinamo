@@ -66,7 +66,7 @@ const Header: React.FC<CityNameProps> = (props) => {
             <Typography
               style={{ color: "#d9ebda" }}
               variant="h5"
-              fontWeight="fontWeightLight"
+              fontWeight="Medium"
             >
               KINaMo
             </Typography>

@@ -15,14 +15,25 @@ const About: React.FC<AboutProps> = (props) => {
           alignItems: "center",
         }}
       >
-        <Typography
-          ml={20}
-          color="white"
-          variant="h2"
-          fontWeight="fontWeightLight"
-        >
-          Learn about KINaMo
-        </Typography>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Typography
+            ml={20}
+            color="white"
+            variant="h3"
+            fontWeight="fontWeightLight"
+          >
+            Über KINaMo
+          </Typography>
+          <Typography
+            ml={30}
+            // mb={0.3}
+            color="white"
+            variant="h5"
+            fontWeight="fontWeightLight"
+          >
+            Kommunale Mobilität messbar machen
+          </Typography>
+        </Box>
       </Box>
       {/* <Divider sx={{ width: "100%" }} textAlign="left">
         {/* <Typography fontWeight="fontWeightLight" variant="h3">

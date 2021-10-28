@@ -63,32 +63,57 @@ const RandomAnimationBanner: React.FC = (props) => {
         </Fade>
       </Box>
       <Box
-        mt={19}
+        mt={15}
         ml={15}
         className={classes.font}
-        sx={{ position: "absolute" }}
+        sx={{ position: "absolute", width: 700 }}
         fontWeight="fontWeightLight"
       >
-        <Typography variant="h1" component="h1" fontWeight="fontWeightLight">
-          Explore Cities
+        <Typography variant="h2" fontWeight="fontWeightLight">
+          Entdecke
+          <Box fontWeight="Medium" display="inline">
+            {" "}
+            Nachhaltige Mobilität{" "}
+          </Box>
+          am Oberrhein
         </Typography>
-        <Typography
-          mt={2}
-          ml={1}
-          variant="h3"
-          component="h3"
-          fontWeight="fontWeightLight"
-        >
-          in the Upper Rhine Region
+        <Typography mt={2} ml={1} variant="h4" fontWeight="fontWeightLight">
+          Bewerte und vergleiche den Zustand nachhaltiger Mobilität in 36
+          Kommunen der Oberrheinregion mit
+          <Box fontWeight="Medium" display="inline">
+            {" "}
+            KINaMo
+          </Box>
+          .
         </Typography>
         <Typography
           mt={5}
-          ml={5}
+          ml={1}
           variant="h5"
           component="h5"
           fontWeight="fontWeightLight"
         >
-          Follow the the transition to sustainable mobility
+          Dem
+          <Box fontWeight="Medium" display="inline">
+            {" "}
+            K
+          </Box>
+          ommunalen
+          <Box fontWeight="Medium" display="inline">
+            {" "}
+            I
+          </Box>
+          nformationsystem für
+          <Box fontWeight="Medium" display="inline">
+            {" "}
+            Na
+          </Box>
+          chaltige
+          <Box fontWeight="Medium" display="inline">
+            {" "}
+            Mo
+          </Box>
+          bilität
         </Typography>
       </Box>
     </Box>

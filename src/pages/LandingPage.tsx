@@ -16,7 +16,7 @@ const LandingPage: React.FC = () => {
       <Header
         // value={active}
         // setter={setActive}
-        cityName="select your City"
+        cityName="wähle deine Kommune"
       ></Header>
       <RandomAnimationBanner></RandomAnimationBanner>
       <CityStepper />

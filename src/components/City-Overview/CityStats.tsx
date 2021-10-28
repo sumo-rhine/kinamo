@@ -35,19 +35,28 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
           <img
             style={{
               position: "absolute",
+              zIndex: 2,
               // height: 800,
               // overflow: "hidden",
               // boxShadow: "0 2px 4px silver",
               // left: 40,
               // filter: "blur(1px)",
-              opacity: 0.8,
+              // opacity: 0.8,
             }}
             alt="img"
             src="/assets/thumbnail/102_crop.png"
           />
         </Box>
       </Box>
-      <Box sx={{ width: 350, backgroundColor: "#F8F8F8" }} pt={5}>
+      <Box
+        sx={{
+          width: 350,
+          backgroundColor: "#F8F8F8070",
+          zIndex: 3,
+          position: "relative",
+        }}
+        pt={5}
+      >
         <KeyFigureCard
           description={props.city.population.description}
           value={props.city.population.value}

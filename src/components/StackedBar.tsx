@@ -37,7 +37,11 @@ const StackedBar: React.FC<StackedBarProps> = (props) => {
   // when new props are passed in (i.e. the user selects another city)
   useEffect(() => {
     // calculate the full relative width
-    const fullWidth: number = 0.3 + 0.7 * (props.indicator.value! / 10.0);
+    // const fullWidth: number = 0.3 + 0.7 * (props.indicator.value! / 10.0);
+    const fullWidth: number = props.indicator.value! / 10.0;
+    console.log("width:", fullWidth);
+    console.log("value:", props.indicator.value);
+    // const fullWidth: number = 10.0;
 
     // reduce the stackWidths to their sum
     const sum = props.indicator.keyFigures

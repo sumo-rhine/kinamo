@@ -62,55 +62,62 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
 
   if (cities.length > 0) {
     return (
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          backgroundColor: "#F8F8F8",
-          overflow: "hidden",
-        }}
-      >
-        {/* <Box sx={{ position: "absolute", left: 0 }}>
+      <Box>
+        {/* <Box sx={{ display: "flex", backgroundColor: "#F8F8F8" }}>
+          <Typography mt={2} ml={6} variant="h5" fontWeight="fontWeightLight">
+            Entdecke die Städte
+          </Typography> */}
+        {/* </Box> */}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            backgroundColor: "#F8F8F8",
+            overflow: "hidden",
+          }}
+        >
+          {/* <Box sx={{ position: "absolute", left: 0 }}>
           <Typography variant="h5" fontWeight="fontWeightLight">
             Entdecke Städte in der Oberrheinregion
           </Typography>
         </Box> */}
-        <Box
-          pl={5}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-          }}
-        >
-          <IconButton
-            size="large"
-            // edge="end"
-            disabled={index < 1}
-            onClick={handleBack}
-            sx={{ backgroundColor: "grey" }}
+          <Box
+            pl={5}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
           >
-            <NavigateBefore
-              style={{ transform: "scale(2.2)" }}
-            ></NavigateBefore>
-          </IconButton>
-        </Box>
-        <Slide direction={slideDirection} in={slideIn}>
-          <Box sx={{ width: 1 }}>
-            <CarouselItem city={cities[index]} />
+            <IconButton
+              size="large"
+              // edge="end"
+              disabled={index < 1}
+              onClick={handleBack}
+              sx={{ backgroundColor: "grey" }}
+            >
+              <NavigateBefore
+                style={{ transform: "scale(2.2)" }}
+              ></NavigateBefore>
+            </IconButton>
           </Box>
-        </Slide>
-        <Box
-          pr={5}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-          }}
-        >
-          <IconButton size="large" disabled={index > 36} onClick={handleNext}>
-            <NavigateNext style={{ transform: "scale(2.2)" }}></NavigateNext>
-          </IconButton>
+          <Slide direction={slideDirection} in={slideIn}>
+            <Box sx={{ width: 1 }}>
+              <CarouselItem city={cities[index]} />
+            </Box>
+          </Slide>
+          <Box
+            pr={5}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+            }}
+          >
+            <IconButton size="large" disabled={index > 36} onClick={handleNext}>
+              <NavigateNext style={{ transform: "scale(2.2)" }}></NavigateNext>
+            </IconButton>
+          </Box>
         </Box>
       </Box>
     );

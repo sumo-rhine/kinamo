@@ -148,11 +148,9 @@ const AboutScoring = () => {
 
   return (
     <Box>
-      <Typography variant="h4" fontWeight="fontWeightLight">
-        How are the Indicators computed?
-      </Typography>
       <Typography mt={4} fontWeight="fontWeightLight" variant="h6">
-        Indicators are derived from the sum of the Key Figure rankings.
+        Der Indikatoren ist ein Wert zwischen 0 und 10 setzen sich aus Kennzalen
+        zusammen.
       </Typography>
       <Typography fontWeight="fontWeightLight" variant="h6">
         To illustrate this play with the interactive example of an fictive

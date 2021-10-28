@@ -18,7 +18,9 @@ const CityBarChart: React.FC<CityBarChartProps> = (props) => {
         }
       }
     >
-      <Box sx={{ backgroundColor: "#F8F8F8" }}>
+      <Box
+        sx={{ backgroundColor: "#F8F8F870", zIndex: 3, position: "relative" }}
+      >
         <StackedBarRow
           indicator={props.city.indicators.walkability}
           iconSrc="/assets/icons/walkability.svg"
