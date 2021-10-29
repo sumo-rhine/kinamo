@@ -16,11 +16,11 @@ export const getIconPath = (name: string): any => {
   switch (name) {
     case "walkability":
       path = "/assets/icons/walkability.svg";
-      indicator = "Fußgängerfreundlichkeit";
+      indicator = "Fußgänger Freundlichkeit";
       break;
     case "bikeability":
       path = "/assets/icons/bikeability.svg";
-      indicator = "Fahrradfreundlichkeit";
+      indicator = "Fahrrad Freundlichkeit";
       break;
     case "public_transport":
       path = "/assets/icons/pt.svg";
@@ -28,11 +28,11 @@ export const getIconPath = (name: string): any => {
       break;
     case "car_integration":
       path = "/assets/icons/car.svg";
-      indicator = "KFZ";
+      indicator = "Auto";
       break;
     case "functional_diversity":
       path = "/assets/icons/spatial-structur.svg";
-      indicator = "Stadtplanung";
+      indicator = "Raum Struktur";
       break;
     case "accessibility":
       path = "/assets/icons/accessibility.svg";
@@ -40,7 +40,7 @@ export const getIconPath = (name: string): any => {
       break;
     case "cross_border":
       path = "/assets/icons/commuting.svg";
-      indicator = "Pendel Optionen";
+      indicator = "Regionale Anbindung";
       break;
     case "emissions":
       indicator = "Emissionen";
@@ -52,15 +52,15 @@ export const getIconPath = (name: string): any => {
       break;
     case "noise_pollution":
       path = "/assets/icons/traffic-noise.svg";
-      indicator = "Verkehrslärm";
+      indicator = "Lärm Belastung";
       break;
     case "traffic_safety":
       path = "/assets/icons/safety.svg";
-      indicator = "Verkehrssicherheit";
+      indicator = "Verkehrs Sicherheit";
       break;
     case "behavior":
       path = "/assets/icons/modal-choice.svg";
-      indicator = "Verkehrsverhalten";
+      indicator = "Verkehrs Verhalten";
       break;
     default:
       path = "default test";
@@ -73,8 +73,8 @@ const IndicatorAndIcon: React.FC<IndicatorAndIconProps> = (props) => {
   const data = getIconPath(props.name);
   return (
     <Box pt={4}>
-      <Button 
-        sx={{ borderRadius: 0 }} 
+      <Button
+        sx={{ borderRadius: 0 }}
         variant="outlined"
         component={HashLink}
         to="#city-tab"

@@ -67,9 +67,9 @@ const CityPage: React.FC<CityPageProps> = (props) => {
           <Box>
             <AnimationBanner city={city}></AnimationBanner>
             <CityOverview city={city}></CityOverview>
-            <KeyFigureBanner city={city} />
+            <KeyFigureBanner city={city} tabChanger={tabChanger} />
             <CityTabDivider city={city.city} />
-            <CityTab city={city}></CityTab>
+            <CityTab city={city} changeTab={extOpenTab}></CityTab>
           </Box>
         ) : (
           <CircularProgress
