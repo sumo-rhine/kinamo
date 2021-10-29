@@ -12,6 +12,7 @@ import IndicatorAndIcon from "../IndicatorAndIcon";
 
 interface KeyFigureProps {
   city: City;
+  tabChanger: (indicator: string | undefined) => void
 }
 const getKeyFigure = (city: City, keyFigureName: string): any => {
   const keyFigureInfo: any = { name: city.city };
@@ -37,6 +38,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
   const [worst1, setWorst1] = useState<KeyFigure>();
   const [worst2, setWorst2] = useState<KeyFigure>();
   const [value, setValue] = useState<string>("best");
+  
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
@@ -114,7 +116,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       bar={true}
                       infoIcon={false}
                     />
-                    <IndicatorAndIcon name={(best1 as KeyFigure).indicator} />
+                    <IndicatorAndIcon name={(best1 as KeyFigure).indicator} tabChanger={props.tabChanger} />
                   </Box>
                   <Box>
                     <KeyFigureCard
@@ -128,7 +130,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       bar={true}
                       infoIcon={false}
                     />
-                    <IndicatorAndIcon name={(best2 as KeyFigure).indicator} />
+                    <IndicatorAndIcon name={(best2 as KeyFigure).indicator} tabChanger={props.tabChanger} />
                   </Box>
                 </Box>
               ) : (
@@ -150,7 +152,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       bar={true}
                       infoIcon={false}
                     />
-                    <IndicatorAndIcon name={(worst1 as KeyFigure).indicator} />
+                    <IndicatorAndIcon name={(worst1 as KeyFigure).indicator} tabChanger={props.tabChanger} />
                   </Box>
                   <Box>
                     <KeyFigureCard
@@ -164,7 +166,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       bar={true}
                       infoIcon={false}
                     />
-                    <IndicatorAndIcon name={(worst2 as KeyFigure).indicator} />
+                    <IndicatorAndIcon name={(worst2 as KeyFigure).indicator} tabChanger={props.tabChanger} />
                   </Box>
                 </Box>
               )}

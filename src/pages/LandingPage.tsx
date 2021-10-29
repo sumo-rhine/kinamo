@@ -13,6 +13,7 @@ const LandingPage: React.FC = () => {
 
   return (
     <Box>
+      <div id="top" />
       <Header
         // value={active}
         // setter={setActive}

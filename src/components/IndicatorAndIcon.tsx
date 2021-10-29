@@ -2,9 +2,11 @@ import { Typography } from "@mui/material";
 import { Box } from "@mui/material";
 import Icon from "@mui/material/Icon";
 import Button from "@mui/material/Button";
+import { HashLink } from "react-router-hash-link";
 
 interface IndicatorAndIconProps {
   name: string;
+  tabChanger: (indicator: string | undefined) => void;
 }
 
 export const getIconPath = (name: string): any => {
@@ -71,7 +73,14 @@ const IndicatorAndIcon: React.FC<IndicatorAndIconProps> = (props) => {
   const data = getIconPath(props.name);
   return (
     <Box pt={4}>
-      <Button sx={{ borderRadius: 0 }} variant="outlined">
+      <Button 
+        sx={{ borderRadius: 0 }} 
+        variant="outlined"
+        component={HashLink}
+        to="#city-tab"
+        smooth={true}
+        onClick={() => props.tabChanger(props.name)}
+      >
         <Box
           sx={{
             display: "flex",

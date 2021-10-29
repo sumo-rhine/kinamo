@@ -25,6 +25,13 @@ const CityPage: React.FC<CityPageProps> = (props) => {
   // state for storing the current city
   const [city, setCity] = useState<City | null>(null);
 
+  // create a state for the programatically opened tab on scroll
+  const [extOpenTab, setExtOpenTab] = useState<string | undefined>(undefined);
+
+  // create a function to change the extOpenTab from outside of this component
+  const tabChanger = (indicator: string | undefined) =>
+    setExtOpenTab(indicator);
+
   /**
    * Filter the cities array for the correct city
    * @param cities Array of cities
@@ -52,6 +59,7 @@ const CityPage: React.FC<CityPageProps> = (props) => {
   // return the page
   return (
     <Box>
+      <div id="top" />
       <Header cityName={city?.city} />
       {
         /* Switch the city variable - if null, no city is (yet) loaded */

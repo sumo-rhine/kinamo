@@ -1,11 +1,7 @@
-// import { Home } from "@material-ui/icons";
-// import HomeIcon from "@mui/icons-material";
-// import HomeIcon from "@mui/icons-material/HomeIcon";
 import HomeIcon from "@mui/icons-material/Home";
 import { CityNameProps } from "./SelectCity.model";
-import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
-// import IconButton from "@mui/material/IconButton";
 
 import {
   AppBar,
@@ -15,6 +11,7 @@ import {
   Typography,
   Divider,
 } from "@mui/material";
+
 
 // This is deprecated!!
 // https://mui.com/styles/advanced/
@@ -39,6 +36,7 @@ const useStyles = makeStyles({
   },
 });
 
+
 const Header: React.FC<CityNameProps> = (props) => {
   const classes = useStyles();
   return (
@@ -49,8 +47,9 @@ const Header: React.FC<CityNameProps> = (props) => {
             edge="start"
             color="inherit"
             aria-label="home"
-            component={Link}
-            to="/home"
+            component={HashLink}
+            to="/home#top"
+            smooth={true}
           >
             <HomeIcon fontSize="large" style={{ fill: "#d9ebda" }} />
           </IconButton>
