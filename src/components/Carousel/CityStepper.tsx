@@ -8,6 +8,7 @@ import CarouselItem from "./Carousel-Item";
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
 import Typography from "@mui/material/Typography";
+import CircularProgress from "@mui/material/CircularProgress";
 
 // import { Slider } from "@mui/material";
 
@@ -122,7 +123,18 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
       </Box>
     );
   } else {
-    return <div>loading</div>;
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: 300,
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
   }
 };
 
