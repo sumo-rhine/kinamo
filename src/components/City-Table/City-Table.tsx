@@ -29,19 +29,19 @@ interface HeadCell {
 }
 
 const HEADCELLS: HeadCell[] = [
-  { id: "city", label: "City" },
-  { id: "walkability", label: "Walkability" },
-  { id: "bikeability", label: "Bikeability" },
-  { id: "car_integration", label: "Car" },
-  { id: "public_transport", label: "Public Transport" },
-  { id: "noise_pollution", label: "Noise" },
-  { id: "land_use", label: "Landuse" },
-  { id: "traffic_safety", label: "Safety" },
-  { id: "emissions", label: "Emissions" },
-  { id: "cross_border", label: "Commuting" },
-  { id: "functional_diversity", label: "Functional Diversity" },
-  { id: "accessibility", label: "Accessibility" },
-  { id: "behavior", label: "Behavior" },
+  { id: "city", label: "Kommune" },
+  { id: "walkability", label: "Fußgänger Freundlichkeit" },
+  { id: "bikeability", label: "Fahrrad Freundlichkeit" },
+  { id: "public_transport", label: "ÖPNV" },
+  { id: "car_integration", label: "Auto" },
+  { id: "functional_diversity", label: "Raum Struktur" },
+  { id: "accessibility", label: "Erreichbarkeit" },
+  { id: "cross_border", label: "Regionale Anbindung" },
+  { id: "land_use", label: "Landnutzung" },
+  { id: "emissions", label: "Emissionen" },
+  { id: "noise_pollution", label: "Lärm Belastung" },
+  { id: "traffic_safety", label: "Verkehrs Sicherheit" },
+  { id: "behavior", label: "Verkehrs Verhalten" },
 ];
 
 interface FlatCityInfo {

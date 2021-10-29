@@ -112,6 +112,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       padding={1}
                       elevation={2}
                       bar={true}
+                      infoIcon={false}
                     />
                     <IndicatorAndIcon name={(best1 as KeyFigure).indicator} />
                   </Box>
@@ -125,6 +126,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       padding={1}
                       elevation={2}
                       bar={true}
+                      infoIcon={false}
                     />
                     <IndicatorAndIcon name={(best2 as KeyFigure).indicator} />
                   </Box>
@@ -146,6 +148,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       padding={1}
                       elevation={2}
                       bar={true}
+                      infoIcon={false}
                     />
                     <IndicatorAndIcon name={(worst1 as KeyFigure).indicator} />
                   </Box>
@@ -159,6 +162,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       padding={1}
                       elevation={2}
                       bar={true}
+                      infoIcon={false}
                     />
                     <IndicatorAndIcon name={(worst2 as KeyFigure).indicator} />
                   </Box>
