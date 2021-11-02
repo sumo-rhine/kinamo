@@ -61,12 +61,12 @@ const SelectCityModalButton: React.FC<CityNameProps> = (props) => {
         closeAfterTransition
         // BackdropComponent={Backdrop}
         BackdropProps={{
-          timeout: 500,
+          timeout: 100,
         }}
       >
         <Fade in={open}>
           <Paper elevation={6}>
-            <SelectCityTabs></SelectCityTabs>
+            <SelectCityTabs closeHandler={handleClose}></SelectCityTabs>
           </Paper>
           {/* <div className={classes.paper}></div> */}
         </Fade>

@@ -12,6 +12,7 @@ import TabPanel from "@mui/lab/TabPanel";
 interface CityModalProps {
   cities: City[];
   debug: boolean;
+  closeHandler: any;
 }
 
 const SelectCityTabs: React.FC<CityModalProps> = (props) => {
@@ -57,7 +58,12 @@ const SelectCityTabs: React.FC<CityModalProps> = (props) => {
             .map((city) => (
               <TabPanel value={value}>
                 {
-                  <Button size="large" component={Link} to={`/city/${city.id}`}>
+                  <Button
+                    onClick={props.closeHandler}
+                    size="large"
+                    component={Link}
+                    to={`/city/${city.id}`}
+                  >
                     {city.city}
                   </Button>
                 }
