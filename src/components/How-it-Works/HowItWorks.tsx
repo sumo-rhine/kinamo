@@ -1,6 +1,7 @@
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 import HorizontalLinearStepper from "./HorizontalLinearStepper";
+import AboutKinamoTabs from "./AboutKinamoTabs";
 import { AboutProps } from "./About.model";
 // import { Typography } from "@mui/material";
 const About: React.FC<AboutProps> = (props) => {
@@ -41,7 +42,8 @@ const About: React.FC<AboutProps> = (props) => {
         </Typography> */}
       {/* </Divider> */}
       {/* <Box pt={10} sx={{ display: "flex", justifyContent: "center" }}> */}
-      <HorizontalLinearStepper />
+      {/* <HorizontalLinearStepper /> */}
+      <AboutKinamoTabs></AboutKinamoTabs>
       {/* </Box> */}
     </Box>
   );

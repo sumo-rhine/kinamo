@@ -47,12 +47,8 @@ const SelectCityTabs: React.FC<CityModalProps> = (props) => {
         <Box
           sx={{
             display: "flex",
-            // flexDirection: "column",
             flexWrap: "wrap",
             flexGrow: 1,
-
-            // width: "3px",
-            // height: 224,
           }}
           p={10}
         >

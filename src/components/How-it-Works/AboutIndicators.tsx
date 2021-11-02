@@ -35,74 +35,39 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
         Das Bewertungssystem von KINaMo besteht aus Indikatoren und Kennzahlen.
       </Typography>
 
-      <Box mt={1} sx={{ display: "flex" }}>
+      <Box mt={2} sx={{ display: "flex" }}>
         <Typography
           pr={4}
           // sx={{ width: 200 }}
-          // fontWeight="fontWeightLight"
-          variant="h6"
+          fontWeight="fontWeightLight"
+          variant="h5"
         >
           Indikatoren
         </Typography>
         <Typography fontWeight="fontWeightLight" variant="h6">
-          Bewerten übergeordnete Handlungsfelder kommunaler Mobilität und
-          schafften Vergleichbarkeit. Der Wert eines Indikators reicht von 0 bis
-          10.
+          Bewerten übergeordnete Handlungsfelder kommunaler Mobilität.
         </Typography>
       </Box>
-      <Box mt={0} sx={{ display: "flex" }}>
+      <Box mt={1} sx={{ display: "flex" }}>
         <Typography
           pr={3.5}
           // sx={{ width: 200 }}
-          // fontWeight="fontWeightLight"
-          variant="h6"
+          fontWeight="fontWeightLight"
+          variant="h5"
         >
           Kennzahlen
         </Typography>
         <Typography fontWeight="fontWeightLight" variant="h6">
-          Bieten spezifische Information über das kommunale Mobilitätssystem und
-          sollen zu einer sachlichen Diskussion beitragen.
+          Bieten spezifische Information über das kommunale Mobilitätssystem.
         </Typography>
       </Box>
-      {/* <Box mt={1} sx={{ display: "flex" }}>
-        <Typography
-          sx={{ width: 150 }}
-          // fontWeight="fontWeightLight"
-          variant="h6"
-        >
-          Kennzahlen
-        </Typography>
-        <Typography
-          // pl={1}
-          // align="left"
-          fontWeight="fontWeightLight"
-          variant="h6"
-        >
-          Bieten spezifische Information über das kommunale Mobilitätsystem und
-          sollen zu einer Sachlichen Diskussion beitragen. Die Kennzahlen sind
-          für die Vergleichbarkeit in relativen einheiiten gehalten.
-        </Typography>
-      </Box> */}
-      {/* <Typography pt={0} fontWeight="fontWeightLight" variant="h6">
-        Im Folgenden sind alle Indikatoren und ihre Kennzahlen aufgeführt.
-      </Typography> */}
-
-      {/* <Typography mt={2} fontWeight="fontWeightLight" variant="h6">
-        <Box fontWeight="bold" display="inline">
-          Kennzahlen -{"  "}
-        </Box>
-        Schaffen Vergleichbarkeit und bieten eine Bewertung für übergeordnete
-        Handlungsfelder kommunaler Mobilität
-      </Typography> */}
 
       <TabContext value={indicator}>
-        <Box mt={6} sx={{ borderBottom: 0, borderColor: "divider" }}>
+        <Box mt={4} sx={{ borderBottom: 0, borderColor: "divider" }}>
           <TabList
             onChange={handleChange}
             aria-label="lab API tabs example"
             variant="fullWidth"
-            // variant="scrollable"
-            // scrollButtons="auto"
           >
             <Tab
               wrapped
@@ -292,10 +257,10 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
               // sx={{ boxShadow: "0 2px 4px silver" }}
               value={ind}
             >
-              <Box m={5}>
+              <Box m={2}>
                 <Box
-                  mt={4}
-                  mb={5}
+                  mt={1}
+                  mb={3}
                   sx={{
                     // display: "flex",
                     // justifyContent: "space-between",
@@ -306,7 +271,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                     {(props.city.indicators as any)[ind].short_name}
                   </Typography>
 
-                  <Typography pb={3} fontWeight="fontWeightLight" variant="h6">
+                  <Typography pb={2} fontWeight="fontWeightLight" variant="h6">
                     {(props.city.indicators as any)[ind].description}
                   </Typography>
 
@@ -321,21 +286,10 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 <Box
                   sx={{
                     borderRadius: 0,
-                    // backgroundColor: "#F8F8F8",
-                    // maxWidth: 900,
                   }}
-                  // elevation={1}
-                  // square
                 >
-                  <Box p={2}>
-                    <Grid
-                      container
-                      spacing={2}
-                      columns={12}
-
-                      // spacing={{ xs: 2, md: 3 }}
-                      // columns={{ xs: 8 }}
-                    >
+                  <Box>
+                    <Grid container spacing={2} columns={12}>
                       {(props.city.indicators as any)[ind].keyFigures.map(
                         (keyFigure: any) => (
                           <Grid item xs={4}>
@@ -359,7 +313,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                                 >
                                   <Box>
                                     <Typography
-                                      variant="h5"
+                                      variant="h6"
                                       fontWeight="fontWeightLight"
                                     >
                                       {keyFigure.short_name}
@@ -369,7 +323,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                                       mb={0.3}
                                       color="text.secondary"
                                       fontWeight="fontWeightLight"
-                                      variant="h6"
+                                      // variant="h6"
                                       // color="text.secondary"
                                     >
                                       {keyFigure.unit}

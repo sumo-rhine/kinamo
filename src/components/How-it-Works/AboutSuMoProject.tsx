@@ -50,7 +50,7 @@ const AboutSuMoProject = () => {
           Dafür wurde ein umfangreiches Bewertungssystem entwickelt welches aus
           <Box fontWeight="bold" display="inline">
             {" "}
-            84 Kennzahlen{" "}
+            62 Kennzahlen{" "}
           </Box>
           besteht, die in
           <Box fontWeight="bold" display="inline">
