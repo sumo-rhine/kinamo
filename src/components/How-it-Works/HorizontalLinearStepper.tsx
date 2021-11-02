@@ -75,7 +75,6 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
         <Box sx={{ display: "flex", justifyContent: "flex-start" }}>
           <Stack mt={10} direction="row" spacing={2}>
             <Button
-              // sx={{}}
               variant="outlined"
               disabled={activeStep < 1}
               onClick={handleBack}

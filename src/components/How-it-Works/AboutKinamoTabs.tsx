@@ -65,7 +65,7 @@ const AboutKinamoTabs: React.FC<AboutKinamoTabsProps> = (props) => {
           width: "100%",
         }}
       >
-        <Box mt={40} ml={10} sx={{ width: 300 }}>
+        <Box mt={40} ml={10} sx={{ width: 250 }}>
           <TabList
             onChange={handleChange}
             aria-label="Was ist KINaMo"
@@ -80,7 +80,7 @@ const AboutKinamoTabs: React.FC<AboutKinamoTabsProps> = (props) => {
             />
           </TabList>
         </Box>
-        <Box mt={5} ml={10} sx={{ width: "70%" }}>
+        <Box mt={5} ml={10} sx={{ width: "75%" }}>
           {(() => {
             if (activeStep === "kinamo") {
               return (

@@ -57,7 +57,7 @@ const SelectCityModalButton: React.FC<CityNameProps> = (props) => {
         className={classes.modal}
         open={open}
         onClose={handleClose}
-        onClick={handleClose}
+        // onClick={handleClose}
         closeAfterTransition
         // BackdropComponent={Backdrop}
         BackdropProps={{
