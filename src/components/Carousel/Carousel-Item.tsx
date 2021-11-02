@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { Button, Box, CardMedia, Typography } from "@mui/material";
 import { City } from "../../models/FullDataset";
 import { HashLink } from "react-router-hash-link";
+import Stack from "@mui/material/Stack";
 
 interface CarouselItemProps {
   city: City;
+  nextHandler: any;
 }
 
 interface CityInfoData {
@@ -58,11 +60,12 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
           <Box>
             <Typography
               pb={0.5}
-              variant="subtitle2"
+              // variant="subtitle2"
+              variant="h6"
               color="text.secondary"
               fontWeight="fontWeightLight"
             >
-              ENTDECKE
+              Top Kenzzahl
             </Typography>
             <Typography pb={5} variant="h4" fontWeight="fontWeightLight">
               {data?.cityName}
@@ -99,16 +102,19 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
               {/* <KeyFigureBar points={data.keyFigurePoints}></KeyFigureBar> */}
             </Box>
             <Box pt={5}>
-              <Button
-                sx={{ borderRadius: 0 }}
-                variant="outlined"
-                component={HashLink}
-                to={`/city/${props.city.id}#top`}
-                smooth={true}
-                style={{ padding: ".5rem" }}
-              >
-                Entdecken
-              </Button>
+              <Stack direction="row" spacing={2}>
+                <Button
+                  sx={{ borderRadius: 0 }}
+                  variant="outlined"
+                  component={HashLink}
+                  to={`/city/${props.city.id}#top`}
+                  smooth={true}
+                  style={{ padding: ".5rem" }}
+                >
+                  {data.cityName}
+                </Button>
+                <Button onClick={props.nextHandler}>Nächste</Button>
+              </Stack>
             </Box>
           </Box>
         </Box>

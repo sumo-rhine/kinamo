@@ -39,12 +39,6 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
       setSlide(true);
     }, 300);
   };
-  // useEffect(() => {
-  // console.log(slideIn);
-  // setIndex(0);
-  // setSlide(true);
-  // setCities(props.cities);
-  // }, [props]);
 
   const handleBack = () => {
     setSlide(false);

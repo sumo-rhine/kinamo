@@ -27,8 +27,6 @@ const SelectCityTabs: React.FC<CityModalProps> = (props) => {
         typography: "body1",
         display: "flex",
         alignItems: "center",
-        // flexWrap: "wrap",
-        // flexGrow: 1,
         bgcolor: "background.paper",
         height: 550,
       }}

@@ -104,7 +104,7 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
           </Box>
           <Slide direction={slideDirection} in={slideIn}>
             <Box sx={{ width: 1 }}>
-              <CarouselItem city={cities[index]} />
+              <CarouselItem city={cities[index]} nextHandler={handleNext} />
             </Box>
           </Slide>
           <Box
