@@ -122,7 +122,7 @@ const CityTable: React.FC<CityTableProps> = (props) => {
 
   return (
     <React.Fragment>
-      <Box sx={{ width: "100%", margin: "auto" }}>
+      <Box sx={{ width: "100%", margin: "auto", overflow: "hidden" }}>
         <TableContainer>
           <Toolbar
             sx={{ pl: "2rem", display: "flex", justifyContent: "flex-end" }}
@@ -158,8 +158,9 @@ const CityTable: React.FC<CityTableProps> = (props) => {
           </Toolbar>
           <Table
             sx={{ width: "100%", tableLayout: "fixed" }}
-            stickyHeader={true}
+            // stickyHeader={true}
             size="small"
+            // stickyHeader
           >
             {/* HEADER */}
             <TableHead
@@ -178,9 +179,10 @@ const CityTable: React.FC<CityTableProps> = (props) => {
                       width={headcell.id === "city" ? "10%" : "6%"}
                     >
                       <TableSortLabel
-                        active={headcell.id === "walkablility"}
+                        // active={headcell.id === "walkablility"}
                         direction={headcell.id === orderBy ? order : "asc"}
                         onClick={() => onSortClick(headcell.id)}
+                        // active={true}
                       >
                         <Box
                           sx={{
@@ -241,6 +243,7 @@ const CityTable: React.FC<CityTableProps> = (props) => {
                           value={Number(city[headcell.id])}
                           showOption={showOption}
                           stats={stats[headcell.id]}
+                          // rank={headcell.rank}
                         />
                       );
                     })}

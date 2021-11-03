@@ -8,7 +8,7 @@ import StackedBar from "../components/StackedBar";
 import { Box } from "@mui/system";
 import { City } from "../models/FullDataset";
 
-const sampleCity: City = {
+const sampleCity = {
   id: 4,
   city: "Aarau",
   country: "Switzerland",
@@ -16,6 +16,7 @@ const sampleCity: City = {
     value: 21268,
     description: "Population",
     points: 12,
+    max_points: 23,
     unit: "Inhabitants",
   },
   area: {
@@ -823,91 +824,92 @@ const sampleCity: City = {
 
 const SamplePage: React.FC = () => {
   return (
-    <Box>
-      {/* <Header cityName={sampleCity.city}></Header> */}
-      {/* <AnimationBanner cityId={102}></AnimationBanner> */}
-      {/* <CityTab></CityTab> */}
-      <Box sx={{ width: "400px", p: 3 }}>
-        <h2>Walkability</h2>
-        <StackedBar
-          indicator={sampleCity.indicators.walkability}
-          shadow={true}
-          rounded={true}
-        />
-      </Box>
+    <Box>test</Box>
+    // <Box>
+    //   {/* <Header cityName={sampleCity.city}></Header> */}
+    //   {/* <AnimationBanner cityId={102}></AnimationBanner> */}
+    //   {/* <CityTab></CityTab> */}
+    //   <Box sx={{ width: "400px", p: 3 }}>
+    //     <h2>Walkability</h2>
+    //     <StackedBar
+    //       indicator={sampleCity.indicators.walkability}
+    //       shadow={true}
+    //       rounded={true}
+    //     />
+    //   </Box>
 
-      <Box sx={{ width: "400px", p: 3 }}>
-        <h2>Public Transport</h2>
-        <StackedBar
-          indicator={sampleCity.indicators.public_transport}
-          shadow={false}
-          rounded={false}
-          height={1.2}
-        />
-      </Box>
+    //   <Box sx={{ width: "400px", p: 3 }}>
+    //     <h2>Public Transport</h2>
+    //     <StackedBar
+    //       indicator={sampleCity.indicators.public_transport}
+    //       shadow={false}
+    //       rounded={false}
+    //       height={1.2}
+    //     />
+    //   </Box>
 
-      <Box sx={{ width: "400px", p: 3 }}>
-        <h2>Emissions</h2>
-        <StackedBar
-          indicator={sampleCity.indicators.emissions}
-          shadow={true}
-          rounded={false}
-          background="white"
-        />
-      </Box>
+    //   <Box sx={{ width: "400px", p: 3 }}>
+    //     <h2>Emissions</h2>
+    //     <StackedBar
+    //       indicator={sampleCity.indicators.emissions}
+    //       shadow={true}
+    //       rounded={false}
+    //       background="white"
+    //     />
+    //   </Box>
 
-      <Box sx={{ width: "400px", p: 3 }}>
-        <h2>Animation speed</h2>
-        <StackedBar
-          indicator={sampleCity.indicators.car_integration}
-          shadow={false}
-          rounded={false}
-          background="white"
-          height={0.8}
-          animation="3s"
-        />
-        <StackedBar
-          indicator={sampleCity.indicators.car_integration}
-          shadow={false}
-          rounded={false}
-          background="white"
-          height={0.8}
-          animation="2.5s"
-        />
-        <StackedBar
-          indicator={sampleCity.indicators.car_integration}
-          shadow={false}
-          rounded={false}
-          background="white"
-          height={0.8}
-          animation="2s"
-        />
-        <StackedBar
-          indicator={sampleCity.indicators.car_integration}
-          shadow={false}
-          rounded={false}
-          background="white"
-          height={0.8}
-          animation="1.5s"
-        />
-        <StackedBar
-          indicator={sampleCity.indicators.car_integration}
-          shadow={false}
-          rounded={false}
-          background="white"
-          height={0.8}
-          animation="1.s"
-        />
-        <StackedBar
-          indicator={sampleCity.indicators.car_integration}
-          shadow={false}
-          rounded={false}
-          background="white"
-          height={0.8}
-          animation="0.6s"
-        />
-      </Box>
-    </Box>
+    //   <Box sx={{ width: "400px", p: 3 }}>
+    //     <h2>Animation speed</h2>
+    //     <StackedBar
+    //       indicator={sampleCity.indicators.car_integration}
+    //       shadow={false}
+    //       rounded={false}
+    //       background="white"
+    //       height={0.8}
+    //       animation="3s"
+    //     />
+    //     <StackedBar
+    //       indicator={sampleCity.indicators.car_integration}
+    //       shadow={false}
+    //       rounded={false}
+    //       background="white"
+    //       height={0.8}
+    //       animation="2.5s"
+    //     />
+    //     <StackedBar
+    //       indicator={sampleCity.indicators.car_integration}
+    //       shadow={false}
+    //       rounded={false}
+    //       background="white"
+    //       height={0.8}
+    //       animation="2s"
+    //     />
+    //     <StackedBar
+    //       indicator={sampleCity.indicators.car_integration}
+    //       shadow={false}
+    //       rounded={false}
+    //       background="white"
+    //       height={0.8}
+    //       animation="1.5s"
+    //     />
+    //     <StackedBar
+    //       indicator={sampleCity.indicators.car_integration}
+    //       shadow={false}
+    //       rounded={false}
+    //       background="white"
+    //       height={0.8}
+    //       animation="1.s"
+    //     />
+    //     <StackedBar
+    //       indicator={sampleCity.indicators.car_integration}
+    //       shadow={false}
+    //       rounded={false}
+    //       background="white"
+    //       height={0.8}
+    //       animation="0.6s"
+    //     />
+    // </Box>
+    // </Box>
   );
 };
 

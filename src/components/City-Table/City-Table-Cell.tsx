@@ -1,26 +1,54 @@
 import TableCell from "@mui/material/TableCell";
 import Tooltip from "@mui/material/Tooltip";
-
+import Typography from "@mui/material/Typography";
 import { IndicatorStat } from "./City-Table";
+import Box from "@mui/material/Box";
 
 interface CityTableCellProps {
   value: number;
   showOption: "number" | "bar";
   stats: IndicatorStat;
   align?: "left" | "right" | "center";
+  // rank: number;
 }
 
 const CityTableCell: React.FC<CityTableCellProps> = (props) => {
   let cell: any;
   switch (props.showOption) {
     case "bar":
-      const width =
-        ((props.value - props.stats.min) /
-          (props.stats.max - props.stats.min)) *
-        100;
+      // const width =
+      //   ((props.value - props.stats.min) /
+      //     (props.stats.max - props.stats.min)) *
+      //   100;
+      const width = (props.value / 10) * 100;
       cell = (
         <Tooltip
-          title={`${props.value.toFixed(1)} [${width.toFixed(0)}% of max]`}
+          title={
+            // <Box>
+            <Box
+              p={3}
+              sx={{
+                display: "flex",
+                alignItems: "flex-end",
+              }}
+            >
+              <Typography variant="h2" fontWeight="fontWeightLight">
+                {props.value.toFixed(1)}
+              </Typography>
+              <Typography
+                pl={0.5}
+                pb={0.9}
+                variant="h5"
+                fontWeight="fontWeightLight"
+              >
+                VON 10
+              </Typography>
+              {/* <Typography variant="h5" fontWeight="fontWeightLight">
+                {props.rank}ER VON 36
+              </Typography> */}
+            </Box>
+            // `${props.value.toFixed(1)} [${width.toFixed(0)}% of max]`
+          }
         >
           <div
             style={{
