@@ -27,6 +27,7 @@ export interface KeyFigure extends BaseIndicator {
   unit: string;
   id: string;
   points: number;
+  max_points: number;
   data_source: string[];
 }
 
@@ -38,6 +39,7 @@ export interface CityProperty {
   value: number;
   description: string;
   points: number;
+  max_points: number;
   unit: string;
 }
 

@@ -158,7 +158,7 @@ const CityTable: React.FC<CityTableProps> = (props) => {
           </Toolbar>
           <Table
             sx={{ width: "100%", tableLayout: "fixed" }}
-            // stickyHeader={true}
+            stickyHeader={true}
             size="small"
           >
             {/* HEADER */}
