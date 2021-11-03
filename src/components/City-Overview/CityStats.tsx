@@ -63,6 +63,7 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
           unit={props.city.population.unit}
           short_name={props.city.population.description}
           points={props.city.population.points}
+          max_points={props.city.population.max_points}
           padding={1}
           elevation={0}
           bar={true}
@@ -74,6 +75,7 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
           unit={props.city.area.unit}
           short_name={props.city.area.description}
           points={props.city.area.points}
+          max_points={props.city.area.max_points}
           padding={1}
           elevation={0}
           bar={true}
@@ -85,6 +87,7 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
           unit={props.city.urban_area.unit}
           short_name={props.city.urban_area.description}
           points={props.city.urban_area.points}
+          max_points={props.city.urban_area.max_points}
           padding={1}
           elevation={0}
           bar={true}

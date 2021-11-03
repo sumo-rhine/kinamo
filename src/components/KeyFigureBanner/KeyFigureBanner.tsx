@@ -12,7 +12,7 @@ import IndicatorAndIcon from "../IndicatorAndIcon";
 
 interface KeyFigureProps {
   city: City;
-  tabChanger: (indicator: string | undefined) => void
+  tabChanger: (indicator: string | undefined) => void;
 }
 const getKeyFigure = (city: City, keyFigureName: string): any => {
   const keyFigureInfo: any = { name: city.city };
@@ -25,6 +25,7 @@ const getKeyFigure = (city: City, keyFigureName: string): any => {
         keyFigureInfo["value"] = fig.value;
         keyFigureInfo["unit"] = fig.unit;
         keyFigureInfo["points"] = fig.points;
+        keyFigureInfo["max_points"] = fig.max_points;
         keyFigureInfo["indicator"] = name;
       }
     });
@@ -38,7 +39,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
   const [worst1, setWorst1] = useState<KeyFigure>();
   const [worst2, setWorst2] = useState<KeyFigure>();
   const [value, setValue] = useState<string>("best");
-  
+
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
@@ -111,12 +112,16 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       unit={(best1 as KeyFigure).unit}
                       short_name={(best1 as KeyFigure).shortName}
                       points={(best1 as KeyFigure).points}
+                      max_points={(best1 as KeyFigure).max_points}
                       padding={1}
                       elevation={2}
                       bar={true}
                       infoIcon={false}
                     />
-                    <IndicatorAndIcon name={(best1 as KeyFigure).indicator} tabChanger={props.tabChanger} />
+                    <IndicatorAndIcon
+                      name={(best1 as KeyFigure).indicator}
+                      tabChanger={props.tabChanger}
+                    />
                   </Box>
                   <Box>
                     <KeyFigureCard
@@ -125,12 +130,16 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       unit={(best2 as KeyFigure).unit}
                       short_name={(best2 as KeyFigure).shortName}
                       points={(best2 as KeyFigure).points}
+                      max_points={(best2 as KeyFigure).max_points}
                       padding={1}
                       elevation={2}
                       bar={true}
                       infoIcon={false}
                     />
-                    <IndicatorAndIcon name={(best2 as KeyFigure).indicator} tabChanger={props.tabChanger} />
+                    <IndicatorAndIcon
+                      name={(best2 as KeyFigure).indicator}
+                      tabChanger={props.tabChanger}
+                    />
                   </Box>
                 </Box>
               ) : (
@@ -147,12 +156,16 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       unit={(worst1 as KeyFigure).unit}
                       short_name={(worst1 as KeyFigure).shortName}
                       points={(worst1 as KeyFigure).points}
+                      max_points={(worst1 as KeyFigure).max_points}
                       padding={1}
                       elevation={2}
                       bar={true}
                       infoIcon={false}
                     />
-                    <IndicatorAndIcon name={(worst1 as KeyFigure).indicator} tabChanger={props.tabChanger} />
+                    <IndicatorAndIcon
+                      name={(worst1 as KeyFigure).indicator}
+                      tabChanger={props.tabChanger}
+                    />
                   </Box>
                   <Box>
                     <KeyFigureCard
@@ -161,12 +174,16 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       unit={(worst2 as KeyFigure).unit}
                       short_name={(worst2 as KeyFigure).shortName}
                       points={(worst2 as KeyFigure).points}
+                      max_points={(worst2 as KeyFigure).max_points}
                       padding={1}
                       elevation={2}
                       bar={true}
                       infoIcon={false}
                     />
-                    <IndicatorAndIcon name={(worst2 as KeyFigure).indicator} tabChanger={props.tabChanger} />
+                    <IndicatorAndIcon
+                      name={(worst2 as KeyFigure).indicator}
+                      tabChanger={props.tabChanger}
+                    />
                   </Box>
                 </Box>
               )}

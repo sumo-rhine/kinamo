@@ -3,9 +3,10 @@ import Tooltip from "@mui/material/Tooltip";
 import { Typography } from "@mui/material";
 interface KeyFigureBarProps {
   points: number;
+  max_points: number;
 }
 
-const KeyFigureToolTip = (points: number): any => {
+const KeyFigureToolTip = (points: number, max_points: number): any => {
   return (
     <Box
       p={3}
@@ -15,10 +16,10 @@ const KeyFigureToolTip = (points: number): any => {
       }}
     >
       <Typography variant="h2" fontWeight="fontWeightLight">
-        {Math.abs(points - 37)}
+        {Math.abs(points - (max_points + 1))}
       </Typography>
       <Typography pl={0.5} pb={0.9} variant="h5" fontWeight="fontWeightLight">
-        ER VON 36
+        ER VON {max_points}
       </Typography>
     </Box>
   );
@@ -29,7 +30,7 @@ const KeyFigureBar: React.FC<KeyFigureBarProps> = (props) => {
     <Tooltip
       placement="left-start"
       arrow
-      title={KeyFigureToolTip(props.points)}
+      title={KeyFigureToolTip(props.points, props.max_points)}
     >
       <Box
         style={{
@@ -50,7 +51,7 @@ const KeyFigureBar: React.FC<KeyFigureBarProps> = (props) => {
             //   : "#8BC34A",
 
             height: "100%",
-            width: `${(props.points! / 36) * 100}%`,
+            width: `${(props.points! / props.max_points) * 100}%`,
             transitionDuration: "1s",
           }}
         >

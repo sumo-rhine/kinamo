@@ -5,6 +5,7 @@ interface KeyFigure {
   value: number;
   unit: string;
   points: number;
+  max_points: number;
   indicator: string;
 }
 

@@ -11,6 +11,7 @@ interface KeyFigureCardProps {
   unit: string;
   short_name: string;
   points: number;
+  max_points: number;
   padding: number;
   elevation: number;
   bar: boolean;
@@ -39,7 +40,10 @@ const KeyFigureValues: React.FC<KeyFigureValuesProps> = (props) => {
       </Box>
       {props.keyFigure.bar ? (
         <Box mt={1} sx={{ width: 200 }}>
-          <KeyFigureBar points={props.keyFigure.points} />
+          <KeyFigureBar
+            points={props.keyFigure.points}
+            max_points={props.keyFigure.max_points}
+          />
         </Box>
       ) : (
         <Box
@@ -61,7 +65,7 @@ const KeyFigureValues: React.FC<KeyFigureValuesProps> = (props) => {
 const DataFlag = () => {
   return (
     <Box sx={{ position: "absolute", right: 15, bottom: 20 }}>
-      <WarningAmberIcon fontSize="large"></WarningAmberIcon>
+      <WarningAmberIcon></WarningAmberIcon>
     </Box>
   );
 };

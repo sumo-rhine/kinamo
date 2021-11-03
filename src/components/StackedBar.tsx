@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import { useState, useEffect } from "react";
+import Tooltip from "@mui/material/Tooltip";
 
 import { Indicator } from "../models/FullDataset";
 

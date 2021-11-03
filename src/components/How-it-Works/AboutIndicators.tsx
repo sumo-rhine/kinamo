@@ -39,8 +39,8 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
         <Typography
           pr={4}
           // sx={{ width: 200 }}
-          fontWeight="fontWeightLight"
-          variant="h5"
+          // fontWeight="fontWeightLight"
+          variant="h6"
         >
           Indikatoren
         </Typography>
@@ -52,8 +52,8 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
         <Typography
           pr={3.5}
           // sx={{ width: 200 }}
-          fontWeight="fontWeightLight"
-          variant="h5"
+          // fontWeight="fontWeightLight"
+          variant="h6"
         >
           Kennzahlen
         </Typography>
@@ -298,7 +298,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                               sx={{
                                 // borderRadius: 0,
                                 backgroundColor: "#F8F8F8",
-                                minHeight: 65,
+                                // minHeight: 65,
                               }}
                               elevation={2}
                             >
