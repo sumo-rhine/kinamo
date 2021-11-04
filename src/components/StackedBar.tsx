@@ -38,7 +38,7 @@ const StackedBar: React.FC<StackedBarProps> = (props) => {
   // const [stackWidths, setStackWidths] = useState<number[]>([
   //   0.1, 0.1, 0.1, 0.3,
   // ]);
-  
+
   const [stackData, setStackData] = useState<StackData[]>([]);
 
   // we need useEffect as we need to update the component
@@ -60,13 +60,13 @@ const StackedBar: React.FC<StackedBarProps> = (props) => {
     // const stackWidths = props.indicator.keyFigures.map(
     //   (fig) => fig.points / sum
     // );
-    const newStackData: StackData[] = props.indicator.keyFigures.map(fig => {
+    const newStackData: StackData[] = props.indicator.keyFigures.map((fig) => {
       return {
-        width: fig.points / sum,      // width of the stack, relative to total point sum of all keyFigures
-        name: fig.short_name,         // name of the keyFigure, change to whatever needed
-        value: fig.value!             // change to whatever needed
-      }
-    })
+        width: fig.points / sum, // width of the stack, relative to total point sum of all keyFigures
+        name: fig.short_name, // name of the keyFigure, change to whatever needed
+        value: fig.value!, // change to whatever needed
+      };
+    });
 
     // set the new values
     setIndicatorWidth(fullWidth);
@@ -99,18 +99,27 @@ const StackedBar: React.FC<StackedBarProps> = (props) => {
       >
         {stackData.map((data, index) => {
           return (
-            <Tooltip title={
-              <Box sx={{display: 'flex', flexDirection: 'column'}}>
-                <Typography variant="h5">{data.name}</Typography>
-                <Typography variant="h3">{data.value.toFixed(1)}</Typography>
-              </Box>
-            }>
+            <Tooltip
+              title={
+                <Box sx={{ display: "flex", flexDirection: "column" }}>
+                  <Typography variant="h5">{data.name}</Typography>
+
+                  {data.value != null && (
+                    <Typography variant="h3">
+                      {data.value.toFixed(1)}
+                    </Typography>
+                  )}
+                </Box>
+              }
+            >
               <Box
                 style={{
                   width: `${data.width * 100}%`,
                   height: "100%",
                   backgroundColor: Colors[index],
-                  transitionDuration: props.animation ? props.animation : "1.7s",
+                  transitionDuration: props.animation
+                    ? props.animation
+                    : "1.7s",
                 }}
               />
             </Tooltip>

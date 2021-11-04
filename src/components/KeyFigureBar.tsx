@@ -54,9 +54,7 @@ const KeyFigureBar: React.FC<KeyFigureBarProps> = (props) => {
             width: `${(props.points! / props.max_points) * 100}%`,
             transitionDuration: "1s",
           }}
-        >
-          {/* {props.points} */}
-        </Box>
+        ></Box>
       </Box>
     </Tooltip>
   );

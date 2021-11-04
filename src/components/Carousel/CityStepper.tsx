@@ -16,6 +16,10 @@ interface CityStepperProps {
   cities: City[];
 }
 
+const randomInt = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
 const CityStepper: React.FC<CityStepperProps> = (props) => {
   const [index, setIndex] = useState(0);
   const [cities, setCities] = useState<City[]>([]);
@@ -24,8 +28,21 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
     "right"
   );
 
-  // const [SelectedCity, setCity] = useState<City | null>(null);
-  // const [city, setCity] = useState<City | null>(null);
+  const handleRandom = () => {
+    setSlideDirection("left");
+    setSlideIn(false);
+    setTimeout(() => {
+      setIndex(randomInt(0, 36));
+      setSlideDirection("right");
+      setSlideIn(true);
+    }, 500);
+  };
+  useEffect(() => {
+    // console.log(slideIn);
+    setIndex(0);
+    setSlideIn(true);
+    setCities(props.cities);
+  }, [props]);
 
   const handleNext = () => {
     // This defines how to exit the current slide:
@@ -104,7 +121,7 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
           </Box>
           <Slide direction={slideDirection} in={slideIn}>
             <Box sx={{ width: 1 }}>
-              <CarouselItem city={cities[index]} nextHandler={handleNext} />
+              <CarouselItem city={cities[index]} nextHandler={handleRandom} />
             </Box>
           </Slide>
           <Box

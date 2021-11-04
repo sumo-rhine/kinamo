@@ -2,6 +2,7 @@ import useStyles from "./styles";
 import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import Fade from "@mui/material/Fade";
+
 const randomInt = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
