@@ -31,7 +31,6 @@ const useStyles = makeStyles(() =>
 );
 
 const SelectCityModalButton: React.FC<CityNameProps> = (props) => {
-  // console.log(props.cities);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -61,7 +60,7 @@ const SelectCityModalButton: React.FC<CityNameProps> = (props) => {
         closeAfterTransition
         // BackdropComponent={Backdrop}
         BackdropProps={{
-          timeout: 100,
+          timeout: 20,
         }}
       >
         <Fade in={open}>

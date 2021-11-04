@@ -3,7 +3,7 @@ import { Typography } from "@mui/material";
 import HorizontalLinearStepper from "./HorizontalLinearStepper";
 import AboutKinamoTabs from "./AboutKinamoTabs";
 import { AboutProps } from "./About.model";
-// import { Typography } from "@mui/material";
+
 const About: React.FC<AboutProps> = (props) => {
   return (
     <Box sx={{ width: "100%", backgroundColor: "#F8F8F8" }}>
@@ -36,15 +36,7 @@ const About: React.FC<AboutProps> = (props) => {
           </Typography>
         </Box>
       </Box>
-      {/* <Divider sx={{ width: "100%" }} textAlign="left">
-        {/* <Typography fontWeight="fontWeightLight" variant="h3">
-          Learn about KINaMo
-        </Typography> */}
-      {/* </Divider> */}
-      {/* <Box pt={10} sx={{ display: "flex", justifyContent: "center" }}> */}
-      {/* <HorizontalLinearStepper /> */}
       <AboutKinamoTabs></AboutKinamoTabs>
-      {/* </Box> */}
     </Box>
   );
 };

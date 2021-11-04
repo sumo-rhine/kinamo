@@ -160,7 +160,7 @@ const CityTable: React.FC<CityTableProps> = (props) => {
             sx={{ width: "100%", tableLayout: "fixed" }}
             // stickyHeader={true}
             size="small"
-            // stickyHeader
+            stickyHeader
           >
             {/* HEADER */}
             <TableHead

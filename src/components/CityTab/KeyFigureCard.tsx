@@ -4,6 +4,7 @@ import KeyFigureBar from "../KeyFigureBar";
 import DoDisturbIcon from "@mui/icons-material/DoDisturb";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
+import Button from "@mui/material/Button";
 
 interface KeyFigureCardProps {
   description: string;
@@ -74,10 +75,9 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
   return (
     <Box sx={{ position: "relative" }}>
       {props.infoIcon && (
-        <MoreHorizIcon
-          sx={{ position: "absolute", right: 15, top: 10 }}
-          fontSize="large"
-        />
+        <Button sx={{ position: "absolute", right: 15, top: 10 }}>
+          <MoreHorizIcon fontSize="large" />
+        </Button>
       )}
       {/* {props.infoIcon && <DataFlag />} */}
 
