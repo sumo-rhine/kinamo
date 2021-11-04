@@ -16,6 +16,7 @@ interface CityInfoData {
   keyFigureValue: number;
   keyFigureUnit: string;
   keyFigurePoints: number;
+  MaxKeyFigurePoints: number;
 }
 
 const CarouselItem: React.FC<CarouselItemProps> = (props) => {
@@ -31,7 +32,10 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
           cityInfo["shortName"] = fig.short_name;
           cityInfo["keyFigureValue"] = fig.value;
           cityInfo["keyFigureUnit"] = fig.unit;
-          cityInfo["keyFigurePoints"] = Math.abs(fig.points - 37);
+          cityInfo["keyFigurePoints"] = Math.abs(
+            fig.points - (fig.max_points + 1)
+          );
+          cityInfo["MaxKeyFigurePoints"] = fig.max_points;
         }
       });
     });
@@ -95,8 +99,12 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
                 alignItems: "flex-end",
               }}
             >
-              <Typography variant="h5" fontWeight="fontWeightLight">
-                {data.keyFigurePoints} OF 36 CITIES
+              <Typography
+                variant="h6"
+                color="text.secondary"
+                fontWeight="fontWeightLight"
+              >
+                {data.keyFigurePoints}er von {data.MaxKeyFigurePoints} Kommunen
               </Typography>
               {/* <Box mb={0.4}></Box> */}
               {/* <KeyFigureBar points={data.keyFigurePoints}></KeyFigureBar> */}

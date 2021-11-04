@@ -469,6 +469,8 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                             short_name={keyFigure.short_name}
                             points={keyFigure.points}
                             max_points={keyFigure.max_points}
+                            definition={keyFigure.definition}
+                            data_source={keyFigure.data_source}
                             padding={4}
                             elevation={5}
                             bar={true}

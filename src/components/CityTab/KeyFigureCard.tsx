@@ -5,9 +5,12 @@ import DoDisturbIcon from "@mui/icons-material/DoDisturb";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import Button from "@mui/material/Button";
+import KeyFigureInfo from "./KeyFigureInfo";
 
 interface KeyFigureCardProps {
   description: string;
+  definition?: any;
+  data_source?: any;
   value: number;
   unit: string;
   short_name: string;
@@ -45,6 +48,17 @@ const KeyFigureValues: React.FC<KeyFigureValuesProps> = (props) => {
             points={props.keyFigure.points}
             max_points={props.keyFigure.max_points}
           />
+          <Typography
+            mt={0.5}
+            variant="h6"
+            color="text.secondary"
+            fontWeight="fontWeightLight"
+          >
+            {Math.abs(
+              props.keyFigure.points - (props.keyFigure.max_points + 1)
+            )}
+            er von {props.keyFigure.max_points}
+          </Typography>
         </Box>
       ) : (
         <Box
@@ -75,9 +89,15 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
   return (
     <Box sx={{ position: "relative" }}>
       {props.infoIcon && (
-        <Button sx={{ position: "absolute", right: 15, top: 10 }}>
-          <MoreHorizIcon fontSize="large" />
-        </Button>
+        <Box sx={{ position: "absolute", right: 15, top: 10 }}>
+          <KeyFigureInfo
+            description={props.description}
+            short_name={props.short_name}
+            data_source={props.data_source}
+            definition={props.definition}
+          />
+          {/* <MoreHorizIcon fontSize="large" /> */}
+        </Box>
       )}
       {/* {props.infoIcon && <DataFlag />} */}
 
