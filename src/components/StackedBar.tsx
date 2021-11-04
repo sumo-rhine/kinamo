@@ -35,9 +35,10 @@ interface StackData {
 const StackedBar: React.FC<StackedBarProps> = (props) => {
   // handle state for this component
   const [indicatorWidth, setIndicatorWidth] = useState<number>(0.05);
-  const [stackWidths, setStackWidths] = useState<number[]>([
-    0.1, 0.1, 0.1, 0.3,
-  ]);
+  // const [stackWidths, setStackWidths] = useState<number[]>([
+  //   0.1, 0.1, 0.1, 0.3,
+  // ]);
+  
   const [stackData, setStackData] = useState<StackData[]>([]);
 
   // we need useEffect as we need to update the component
