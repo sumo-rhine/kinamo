@@ -1,6 +1,5 @@
-import { Box } from "@mui/material";
+import { Box, Tooltip, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
-import Tooltip from "@mui/material/Tooltip";
 
 import { Indicator } from "../models/FullDataset";
 
@@ -27,12 +26,19 @@ const Colors: string[] = [
   "#CAE7D7",
 ];
 
+interface StackData {
+  width: number;
+  name: string;
+  value: number;
+}
+
 const StackedBar: React.FC<StackedBarProps> = (props) => {
   // handle state for this component
   const [indicatorWidth, setIndicatorWidth] = useState<number>(0.05);
   const [stackWidths, setStackWidths] = useState<number[]>([
     0.1, 0.1, 0.1, 0.3,
   ]);
+  const [stackData, setStackData] = useState<StackData[]>([]);
 
   // we need useEffect as we need to update the component
   // when new props are passed in (i.e. the user selects another city)
@@ -50,13 +56,21 @@ const StackedBar: React.FC<StackedBarProps> = (props) => {
       .reduce((a, b) => a + b, 0);
 
     // calculate the stack Widths
-    const stackWidths = props.indicator.keyFigures.map(
-      (fig) => fig.points / sum
-    );
+    // const stackWidths = props.indicator.keyFigures.map(
+    //   (fig) => fig.points / sum
+    // );
+    const newStackData: StackData[] = props.indicator.keyFigures.map(fig => {
+      return {
+        width: fig.points / sum,      // width of the stack, relative to total point sum of all keyFigures
+        name: fig.short_name,         // name of the keyFigure, change to whatever needed
+        value: fig.value!             // change to whatever needed
+      }
+    })
 
     // set the new values
     setIndicatorWidth(fullWidth);
-    setStackWidths(stackWidths);
+    // setStackWidths(stackWidths);
+    setStackData(newStackData);
   }, [props]);
 
   return (
@@ -82,16 +96,23 @@ const StackedBar: React.FC<StackedBarProps> = (props) => {
           transitionDuration: props.animation ? props.animation : "1.7s",
         }}
       >
-        {stackWidths.map((stack, index) => {
+        {stackData.map((data, index) => {
           return (
-            <Box
-              style={{
-                width: `${stack * 100}%`,
-                height: "100%",
-                backgroundColor: Colors[index],
-                transitionDuration: props.animation ? props.animation : "1.7s",
-              }}
-            ></Box>
+            <Tooltip title={
+              <Box sx={{display: 'flex', flexDirection: 'column'}}>
+                <Typography variant="h5">{data.name}</Typography>
+                <Typography variant="h3">{data.value.toFixed(1)}</Typography>
+              </Box>
+            }>
+              <Box
+                style={{
+                  width: `${data.width * 100}%`,
+                  height: "100%",
+                  backgroundColor: Colors[index],
+                  transitionDuration: props.animation ? props.animation : "1.7s",
+                }}
+              />
+            </Tooltip>
           );
         })}
       </Box>
