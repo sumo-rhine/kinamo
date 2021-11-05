@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles, createStyles } from "@mui/styles";
-// import ArrowDropDownOutlinedIcon from "@material-ui/icons/ArrowDropDownOutlined";
-import ArrowDropDownOutlinedIcon from "@mui/material/Icon";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Modal, Fade, Button, Paper } from "@mui/material";
 import SelectCityTabs from "./SelectCityTabs";
 import { CityNameProps } from "./SelectCity.model";
@@ -25,12 +25,17 @@ const useStyles = makeStyles(() =>
       // padding: theme.spacing(2, 4, 3),
     },
     button: {
-      color: "#d9ebda",
+      // color: ,
     },
   })
 );
 
-const SelectCityModalButton: React.FC<CityNameProps> = (props) => {
+interface SelectCityModalButtonProps {
+  cityName: string | undefined;
+  color: string;
+}
+
+const SelectCityModalButton: React.FC<SelectCityModalButtonProps> = (props) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -45,9 +50,10 @@ const SelectCityModalButton: React.FC<CityNameProps> = (props) => {
   return (
     <div>
       <Button
+        sx={{ color: props.color === "black" ? "white" : "#111213" }}
         size="large"
         className={classes.button}
-        endIcon={<ArrowDropDownOutlinedIcon></ArrowDropDownOutlinedIcon>}
+        startIcon={open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
         onClick={handleOpen}
       >
         <Typography fontWeight="fontWeightLight">{props.cityName}</Typography>
