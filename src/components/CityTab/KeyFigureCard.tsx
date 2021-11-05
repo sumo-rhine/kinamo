@@ -31,13 +31,7 @@ const KeyFigureValues: React.FC<KeyFigureValuesProps> = (props) => {
     <Box>
       <Box sx={{ display: "flex", alignItems: "flex-end" }}>
         <Typography pr={1} variant="h3" fontWeight="fontWeightLight">
-          {/* {props.keyFigure.value.toString().length > 3
-            ? props.keyFigure.value.toLocaleString()
-            : props.keyFigure.value.toFixed(1)} */}
-          {
-            Number(props.keyFigure.value.toFixed(2)).toLocaleString()
-            // maximumFractionDigits: 2,
-          }
+          {Number(props.keyFigure.value.toFixed(2)).toLocaleString()}
         </Typography>
         <Typography
           mb={0.3}
