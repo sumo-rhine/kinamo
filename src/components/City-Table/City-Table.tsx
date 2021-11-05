@@ -40,23 +40,33 @@ const cityCellRenderer = (params: GridRenderCellParams) => {
 }
 
 const renderButtonHeader = (params: GridColumnHeaderParams) => {
-  return <Button onClick={e => alert(`${params.field}`)}>{params.field}</Button>
+  return <Button size="small" component={HashLink} to="#about" smooth={true}>{params.field}</Button>
 }
 
+const COL = {
+  minWidth: 150,
+  filterable: false
+};
+const DATACOL = {
+  ...COL,
+  renderCell: cellBarRenderer,
+  renderHeader: renderButtonHeader
+};
+
 const columns: GridColDef[] = [
-  { field: "city", headerName: "Kommune", renderCell: cityCellRenderer, minWidth: 170 },
-  { field: "walkability", headerName: "Fußgänger Freundlichkeit", renderCell: cellBarRenderer, renderHeader: renderButtonHeader, minWidth: 170 },
-  { field: "bikeability", headerName: "Fahrrad Freundlichkeit", renderCell: cellBarRenderer, renderHeader: renderButtonHeader, minWidth: 170  },
-  { field: "public_transport", headerName: "ÖPNV", renderCell: cellBarRenderer },
-  { field: "car_integration", headerName: "Auto", renderCell: cellBarRenderer },
-  { field: "functional_diversity", headerName: "Raum Struktur", renderCell: cellBarRenderer },
-  { field: "accessibility", headerName: "Erreichbarkeit", renderCell: cellBarRenderer },
-  { field: "cross_border", headerName: "Regionale Anbindung", renderCell: cellBarRenderer },
-  { field: "land_use", headerName: "Landnutzung", renderCell: cellBarRenderer },
-  { field: "emissions", headerName: "Emissionen", renderCell: cellBarRenderer },
-  { field: "noise_pollution", headerName: "Lärm Belastung", renderCell: cellBarRenderer },
-  { field: "traffic_safety", headerName: "Verkehrs Sicherheit", renderCell: cellBarRenderer },
-  { field: "behavior", headerName: "Verkehrs Verhalten", renderCell: cellBarRenderer },  
+  { field: "city", headerName: "Kommune", ...COL, renderCell: cityCellRenderer },
+  { field: "walkability", headerName: "Fußgänger Freundlichkeit", ...DATACOL},
+  { field: "bikeability", headerName: "Fahrrad Freundlichkeit", ...DATACOL },
+  { field: "public_transport", headerName: "ÖPNV", ...DATACOL  },
+  { field: "car_integration", headerName: "Auto", ...DATACOL  },
+  { field: "functional_diversity", headerName: "Raum Struktur", ...DATACOL  },
+  { field: "accessibility", headerName: "Erreichbarkeit",...DATACOL  },
+  { field: "cross_border", headerName: "Regionale Anbindung", ...DATACOL },
+  { field: "land_use", headerName: "Landnutzung", ...DATACOL },
+  { field: "emissions", headerName: "Emissionen", ...DATACOL },
+  { field: "noise_pollution", headerName: "Lärm Belastung", ...DATACOL },
+  { field: "traffic_safety", headerName: "Verkehrs Sicherheit", ...DATACOL },
+  { field: "behavior", headerName: "Verkehrs Verhalten", ...DATACOL },  
 ];
 
 const transformData = (cities: City[]): GridRowProps[] => {

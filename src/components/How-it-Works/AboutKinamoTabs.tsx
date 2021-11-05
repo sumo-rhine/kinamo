@@ -57,6 +57,7 @@ const AboutKinamoTabs: React.FC<AboutKinamoTabsProps> = (props) => {
   return (
     <TabContext value={activeStep}>
       <Box
+        id="about"
         pb={9}
         sx={{
           display: "flex",
