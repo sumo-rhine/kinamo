@@ -10,7 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import { Box } from "@mui/system";
-import { Button } from "@mui/material";
+import { Button, Tooltip } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Icon from "@mui/material/Icon";
 import { DataGrid, GridRowProps, GridColDef, GridRenderCellParams } from "@mui/x-data-grid"
@@ -21,8 +21,29 @@ import { City } from "../../models/FullDataset";
 import { Link } from "react-router-dom";
 import { getIconPath } from "../IndicatorAndIcon";
 
-const cellRenderer = (params: GridRenderCellParams) => {
-  return <h4>{params.value}</h4>
+const cellBarRenderer = (params: GridRenderCellParams) => {
+  return (
+    <Tooltip title={
+      <Box p={3} sx={{display: "flex", alignItems: "flex-end"}}>
+        <Typography variant="h2" fontWeight="fontWeightLight">
+          {params.value ? params.value.toFixed(1) : '-'}
+        </Typography>
+        <Typography pl={0.5} pb={0.9} variant="h5" fontWeight="fontWeightLight"> 
+          VON 10
+        </Typography>
+      </Box>
+    }>
+      <Box sx={{width: '100%', height: '100%', px: '2px', py: '25%', boxSizing: 'border-box'}}>
+        <Box sx={{width: '100%', height: '100%', backgroundColor: '#C4C4C4'}}>
+          <Box sx={{
+            width: `${params.value * 10}%`,
+            height: '100%',
+            backgroundColor: params.value < 2.5 ? '#C26A4A' : params.value > 7.5 ? '#8BC34A' : '#4AC29A'
+          }} />
+        </Box>
+      </Box>
+    </Tooltip>
+  );
 }
 
 const cityCellRenderer = (params: GridRenderCellParams) => {
@@ -32,18 +53,18 @@ const cityCellRenderer = (params: GridRenderCellParams) => {
 
 const columns: GridColDef[] = [
   { field: "city", headerName: "Kommune", renderCell: cityCellRenderer },
-  { field: "walkability", headerName: "Fußgänger Freundlichkeit", renderCell: cellRenderer},
-  { field: "bikeability", headerName: "Fahrrad Freundlichkeit" },
-  { field: "public_transport", headerName: "ÖPNV" },
-  { field: "car_integration", headerName: "Auto" },
-  { field: "functional_diversity", headerName: "Raum Struktur" },
-  { field: "accessibility", headerName: "Erreichbarkeit" },
-  { field: "cross_border", headerName: "Regionale Anbindung" },
-  { field: "land_use", headerName: "Landnutzung" },
-  { field: "emissions", headerName: "Emissionen" },
-  { field: "noise_pollution", headerName: "Lärm Belastung" },
-  { field: "traffic_safety", headerName: "Verkehrs Sicherheit" },
-  { field: "behavior", headerName: "Verkehrs Verhalten" },  
+  { field: "walkability", headerName: "Fußgänger Freundlichkeit", renderCell: cellBarRenderer },
+  { field: "bikeability", headerName: "Fahrrad Freundlichkeit", renderCell: cellBarRenderer },
+  { field: "public_transport", headerName: "ÖPNV", renderCell: cellBarRenderer },
+  { field: "car_integration", headerName: "Auto", renderCell: cellBarRenderer },
+  { field: "functional_diversity", headerName: "Raum Struktur", renderCell: cellBarRenderer },
+  { field: "accessibility", headerName: "Erreichbarkeit", renderCell: cellBarRenderer },
+  { field: "cross_border", headerName: "Regionale Anbindung", renderCell: cellBarRenderer },
+  { field: "land_use", headerName: "Landnutzung", renderCell: cellBarRenderer },
+  { field: "emissions", headerName: "Emissionen", renderCell: cellBarRenderer },
+  { field: "noise_pollution", headerName: "Lärm Belastung", renderCell: cellBarRenderer },
+  { field: "traffic_safety", headerName: "Verkehrs Sicherheit", renderCell: cellBarRenderer },
+  { field: "behavior", headerName: "Verkehrs Verhalten", renderCell: cellBarRenderer },  
 ];
 
 const transformData = (cities: City[]): GridRowProps[] => {
@@ -72,10 +93,12 @@ const CityTable: React.FC<CityTableProps> = (props) => {
   }, [props]);
   
   return (
-    <Box sx={{width: '100%', height: 700}}>
+    <Box sx={{width: '100%'}}>
       <DataGrid 
+        autoHeight
         columns={columns} 
         rows={rows}
+
        />
     </Box>
   );
