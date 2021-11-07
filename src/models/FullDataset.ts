@@ -17,6 +17,11 @@ export interface Indicator extends BaseIndicator {
   rank: number;
   keyFigures: KeyFigure[];
 }
+export interface DataSource {
+  name: string;
+  link: string;
+  year: string;
+}
 
 /**
  * KeyFigures are 'SubIndicators'
@@ -28,7 +33,8 @@ export interface KeyFigure extends BaseIndicator {
   id: string;
   points: number;
   max_points: number;
-  data_source: string[];
+  data_source: DataSource[];
+  quality: string;
 }
 
 /**

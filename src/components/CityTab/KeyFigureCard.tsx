@@ -20,6 +20,7 @@ interface KeyFigureCardProps {
   elevation: number;
   bar: boolean;
   infoIcon: boolean;
+  quality?: string;
 }
 
 interface KeyFigureValuesProps {
@@ -86,6 +87,7 @@ const DataFlag = () => {
 };
 
 const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
+  // console.log(props);
   return (
     <Box sx={{ position: "relative" }}>
       {props.infoIcon && (
@@ -99,8 +101,7 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
           {/* <MoreHorizIcon fontSize="large" /> */}
         </Box>
       )}
-      {/* {props.infoIcon && <DataFlag />} */}
-
+      {props.quality != "ok" && <DataFlag />}
       <Box p={props.padding}>
         <Box>
           <Typography

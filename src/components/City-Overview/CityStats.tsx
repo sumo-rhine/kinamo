@@ -68,6 +68,7 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
           elevation={0}
           bar={true}
           infoIcon={false}
+          quality={"ok"}
         />
         <KeyFigureCard
           description={props.city.area.description}
@@ -80,6 +81,7 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
           elevation={0}
           bar={true}
           infoIcon={false}
+          quality={"ok"}
         />
         <KeyFigureCard
           description={props.city.urban_area.description}
@@ -92,6 +94,7 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
           elevation={0}
           bar={true}
           infoIcon={false}
+          quality={"ok"}
         />
       </Box>
     </Box>

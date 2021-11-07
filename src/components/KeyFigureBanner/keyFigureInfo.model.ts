@@ -7,6 +7,7 @@ interface KeyFigure {
   points: number;
   max_points: number;
   indicator: string;
+  quality: string;
 }
 
 export default KeyFigure;

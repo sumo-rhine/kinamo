@@ -27,6 +27,7 @@ const getKeyFigure = (city: City, keyFigureName: string): any => {
         keyFigureInfo["points"] = fig.points;
         keyFigureInfo["max_points"] = fig.max_points;
         keyFigureInfo["indicator"] = name;
+        keyFigureInfo["quality"] = fig.quality;
       }
     });
   });
@@ -117,6 +118,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       elevation={2}
                       bar={true}
                       infoIcon={false}
+                      quality={(best1 as KeyFigure).quality}
                     />
                     <IndicatorAndIcon
                       name={(best1 as KeyFigure).indicator}
@@ -135,6 +137,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       elevation={2}
                       bar={true}
                       infoIcon={false}
+                      quality={(best2 as KeyFigure).quality}
                     />
                     <IndicatorAndIcon
                       name={(best2 as KeyFigure).indicator}
@@ -161,6 +164,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       elevation={2}
                       bar={true}
                       infoIcon={false}
+                      quality={(worst1 as KeyFigure).quality}
                     />
                     <IndicatorAndIcon
                       name={(worst1 as KeyFigure).indicator}
@@ -179,6 +183,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       elevation={2}
                       bar={true}
                       infoIcon={false}
+                      quality={(worst2 as KeyFigure).quality}
                     />
                     <IndicatorAndIcon
                       name={(worst2 as KeyFigure).indicator}

@@ -49,7 +49,7 @@ const KeyFigureInfo: React.FC<KeyFigureInfoProps> = (props) => {
               <Typography mb={1} variant="h3" fontWeight="fontWeightLight">
                 {props.short_name}
               </Typography>
-              <Typography
+              {/* <Typography
                 color="text.secondary"
                 mb={2}
                 variant="h6"
@@ -61,7 +61,7 @@ const KeyFigureInfo: React.FC<KeyFigureInfoProps> = (props) => {
                 <Typography variant="h5" fontWeight="fontWeightLight">
                   Definition
                 </Typography>
-              </Divider>
+              </Divider> */}
               <Typography
                 mb={2}
                 mt={2}
