@@ -6,6 +6,7 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import Button from "@mui/material/Button";
 import KeyFigureInfo from "./KeyFigureInfo";
+import Tooltip from "@mui/material/Tooltip";
 
 interface KeyFigureCardProps {
   description: string;
@@ -78,10 +79,16 @@ const KeyFigureValues: React.FC<KeyFigureValuesProps> = (props) => {
   );
 };
 
-const DataFlag = () => {
+interface DataFlagProps {
+  text: any;
+}
+
+const DataFlag: React.FC<DataFlagProps> = (props) => {
   return (
-    <Box sx={{ position: "absolute", right: 15, bottom: 20 }}>
-      <WarningAmberIcon></WarningAmberIcon>
+    <Box sx={{ position: "absolute", right: 35, bottom: 30 }}>
+      <Tooltip placement="left-start" title={props.text!}>
+        <WarningAmberIcon></WarningAmberIcon>
+      </Tooltip>
     </Box>
   );
 };
@@ -101,7 +108,17 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
           {/* <MoreHorizIcon fontSize="large" /> */}
         </Box>
       )}
-      {props.quality != "ok" && <DataFlag />}
+      {props.quality != "ok" && (
+        <DataFlag
+          text={
+            <Box m={3}>
+              <Typography variant="h6" fontWeight="fontWeightLight">
+                {props.quality!}
+              </Typography>
+            </Box>
+          }
+        />
+      )}
       <Box p={props.padding}>
         <Box>
           <Typography

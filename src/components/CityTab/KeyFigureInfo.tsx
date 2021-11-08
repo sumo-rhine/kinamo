@@ -3,6 +3,12 @@ import { Box } from "@mui/system";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Divider from "@mui/material/Divider";
 import React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
 
 interface KeyFigureInfoProps {
   description: string;
@@ -75,14 +81,37 @@ const KeyFigureInfo: React.FC<KeyFigureInfoProps> = (props) => {
                   Daten Quellen
                 </Typography>
               </Divider>
-              <Typography
-                mb={2}
-                mt={2}
-                variant="h6"
-                fontWeight="fontWeightLight"
-              >
-                {props.data_source.join(", ")}
-              </Typography>
+              <Box mt={4}>
+                <TableContainer component={Paper}>
+                  <Table aria-label="simple table">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Name</TableCell>
+                        <TableCell align="right">year</TableCell>
+                        <TableCell align="right">link</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {props.data_source.map((row: any) => (
+                        <TableRow
+                          key={row.name}
+                          sx={{
+                            "&:last-child td, &:last-child th": { border: 0 },
+                          }}
+                        >
+                          <TableCell component="th" scope="row">
+                            {row.name}
+                          </TableCell>
+                          <TableCell align="right">{row.year}</TableCell>
+                          <TableCell align="right">
+                            <a href={row.link}>link</a>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+              </Box>
             </Box>
           </Paper>
         </Box>
