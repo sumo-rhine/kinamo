@@ -91,6 +91,6 @@ export interface City {
  */
 export interface FullDataset {
   cities: City[];
-  lastUpdate: { seconds: number; nanoseconds: number };
-  md5sum: string;
+  lastUpdate?: { seconds: number; nanoseconds: number };
+  md5sum?: string;
 }

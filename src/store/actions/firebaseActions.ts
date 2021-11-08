@@ -4,7 +4,7 @@ import { AppState } from "../../models/AppState";
 import firebase from "firebase/app";
 
 import * as actions from "./actionTypes";
-import { FullDataset } from "../../models/FullDataset";
+import { FullDataset, City } from "../../models/FullDataset";
 import { syncLoadingFinished } from "./appAction";
 
 /* --------------------------------------------------------------------
@@ -39,23 +39,16 @@ const syncData = (data: FullDataset): AnyAction => {
  */
 export const loadData =
   () => (dispatch: ThunkDispatch<AppState, {}, AnyAction>) => {
-    // reach out to firebase and load /public/data
-    firebase
-      .app()
-      .firestore()
-      .doc("/public/data")
-      .get()
-      .then((doc) => {
-        if (!doc.exists) {
-          console.log("The data can't be found in firestore.");
-        } else {
-          // fetch the document data
-          const data = doc.data() as FullDataset;
+    // reach out and convert data into old data model
+    firebase.app().firestore().collection("/cities").get().then(response => {
+      // get the docs, ignore metadata
+      const { docs } = response;
 
-          // dispatch the synchronous action
-          dispatch(syncData(data));
-          dispatch(syncLoadingFinished());
-        }
-      })
-      .catch((error) => console.log(`Cant reach firebase: ${error}`));
+      // map into the document data
+      const cities: City[] = docs.map(doc => doc.data() as City);
+
+      // dispatch data
+      dispatch(syncData({cities: cities}));
+      dispatch(syncLoadingFinished());
+      });
   };
