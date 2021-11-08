@@ -52,7 +52,7 @@ const KeyFigureInfo: React.FC<KeyFigureInfoProps> = (props) => {
         >
           <Paper elevation={1}>
             <Box m={8} sx={{ width: 700, backgroundColor: "white" }}>
-              <Typography mb={1} variant="h3" fontWeight="fontWeightLight">
+              <Typography mb={2} variant="h4" fontWeight="fontWeightLight">
                 {props.short_name}
               </Typography>
               {/* <Typography
@@ -104,7 +104,9 @@ const KeyFigureInfo: React.FC<KeyFigureInfoProps> = (props) => {
                           </TableCell>
                           <TableCell align="right">{row.year}</TableCell>
                           <TableCell align="right">
-                            <a href={row.link}>link</a>
+                            <a href={row.link} target="_blank">
+                              link
+                            </a>
                           </TableCell>
                         </TableRow>
                       ))}

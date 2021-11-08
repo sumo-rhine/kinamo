@@ -30,6 +30,7 @@ interface StackData {
   width: number;
   name: string;
   value: number;
+  unit: string;
 }
 
 const StackedBar: React.FC<StackedBarProps> = (props) => {
@@ -65,6 +66,7 @@ const StackedBar: React.FC<StackedBarProps> = (props) => {
         width: fig.points / sum, // width of the stack, relative to total point sum of all keyFigures
         name: fig.short_name, // name of the keyFigure, change to whatever needed
         value: fig.value!, // change to whatever needed
+        unit: fig.unit!,
       };
     });
 
@@ -101,13 +103,28 @@ const StackedBar: React.FC<StackedBarProps> = (props) => {
           return (
             <Tooltip
               title={
-                <Box sx={{ display: "flex", flexDirection: "column" }}>
-                  <Typography variant="h5">{data.name}</Typography>
+                <Box m={2} sx={{ display: "flex", flexDirection: "column" }}>
+                  <Typography variant="h5" fontWeight="fontWeightLight">
+                    {data.name}
+                  </Typography>
 
                   {data.value != null && (
-                    <Typography variant="h3">
-                      {data.value.toFixed(1)}
-                    </Typography>
+                    <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+                      <Typography
+                        mr={1}
+                        fontWeight="fontWeightLight"
+                        variant="h3"
+                      >
+                        {data.value.toFixed(1)}
+                      </Typography>
+                      <Typography
+                        mb={0.5}
+                        fontWeight="fontWeightLight"
+                        variant="h5"
+                      >
+                        {data.unit}
+                      </Typography>
+                    </Box>
                   )}
                 </Box>
               }

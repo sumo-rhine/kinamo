@@ -106,7 +106,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                     justifyContent: "space-around",
                   }}
                 >
-                  <Box>
+                  <Box sx={{}}>
                     <KeyFigureCard
                       description={(best1 as KeyFigure).description}
                       value={(best1 as KeyFigure).value}

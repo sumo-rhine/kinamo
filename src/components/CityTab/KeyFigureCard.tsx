@@ -50,17 +50,36 @@ const KeyFigureValues: React.FC<KeyFigureValuesProps> = (props) => {
             points={props.keyFigure.points}
             max_points={props.keyFigure.max_points}
           />
-          <Typography
-            mt={0.5}
-            variant="h6"
-            color="text.secondary"
-            fontWeight="fontWeightLight"
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+            }}
           >
-            {Math.abs(
-              props.keyFigure.points - (props.keyFigure.max_points + 1)
+            <Typography
+              mt={0.5}
+              variant="h6"
+              color="text.secondary"
+              fontWeight="fontWeightLight"
+            >
+              {Math.abs(
+                props.keyFigure.points - (props.keyFigure.max_points + 1)
+              )}
+              er von {props.keyFigure.max_points}
+            </Typography>
+            {props.keyFigure.quality != "ok" && (
+              <DataFlag
+                text={
+                  <Box m={3}>
+                    <Typography variant="h6" fontWeight="fontWeightLight">
+                      {props.keyFigure.quality!}
+                    </Typography>
+                  </Box>
+                }
+              />
             )}
-            er von {props.keyFigure.max_points}
-          </Typography>
+          </Box>
         </Box>
       ) : (
         <Box
@@ -85,9 +104,9 @@ interface DataFlagProps {
 
 const DataFlag: React.FC<DataFlagProps> = (props) => {
   return (
-    <Box sx={{ position: "absolute", right: 35, bottom: 30 }}>
+    <Box sx={{}}>
       <Tooltip placement="left-start" title={props.text!}>
-        <WarningAmberIcon></WarningAmberIcon>
+        <WarningAmberIcon sx={{ color: "grey" }}></WarningAmberIcon>
       </Tooltip>
     </Box>
   );
@@ -108,17 +127,7 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
           {/* <MoreHorizIcon fontSize="large" /> */}
         </Box>
       )}
-      {props.quality != "ok" && (
-        <DataFlag
-          text={
-            <Box m={3}>
-              <Typography variant="h6" fontWeight="fontWeightLight">
-                {props.quality!}
-              </Typography>
-            </Box>
-          }
-        />
-      )}
+
       <Box p={props.padding}>
         <Box>
           <Typography
