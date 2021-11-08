@@ -192,6 +192,14 @@ const AboutScoring = () => {
             </Box>
           </Grid>
           <Grid xs={6} item>
+            <Typography
+              mb={1}
+              fontWeight="fontWeightLight"
+              color="text.secondary"
+              variant="h4"
+            >
+              Indikator
+            </Typography>
             <Paper square sx={{ backgroundColor: "#F8F8F8" }} elevation={7}>
               <Box p={3}>
                 <Box sx={{ display: "flex", alignItems: "flex-end" }}>
@@ -202,7 +210,7 @@ const AboutScoring = () => {
                     ).toFixed(1)}
                   </Typography>
                   <Typography mr={1} fontWeight="fontWeightLight" variant="h6">
-                    OUT OF
+                    von
                   </Typography>
                   <Typography fontWeight="fontWeightLight" variant="h4">
                     10
@@ -280,7 +288,7 @@ const AboutScoring = () => {
                         {(speedLimitRank + bicycleAccidentsRating).toFixed(0)}
                       </Typography>
                       <Typography variant="h6" fontWeight="fontWeightLight">
-                        OUT OF 72
+                        von 72
                       </Typography>
                     </Box>
                   </Box>
@@ -304,7 +312,7 @@ const AboutScoring = () => {
               mr={5}
             >
               <Typography pr={6} variant="h6" fontWeight="fontWeightLight">
-                Streets with Speed limit below 30Km/h
+                Anteil 30er Zonen
               </Typography>
               <Box sx={{ display: "flex" }}>
                 <Typography pr={1} variant="h3" fontWeight="fontWeightLight">
@@ -327,38 +335,53 @@ const AboutScoring = () => {
             </Box>
           </Grid>
           <Grid xs={6} mt={10} item>
-            <Box mt={0.5}>
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                <Typography variant="h3" fontWeight="fontWeightLight">
-                  {Math.abs(speedLimitRank - 37).toFixed(0)}{" "}
-                </Typography>
-                <Typography mb={0.3} variant="h6" fontWeight="fontWeightLight">
-                  TH OF 36 CITES
-                </Typography>
+            <Box sx={{ display: "flex" }}>
+              <Box mt={0.5}>
+                <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+                  <Typography variant="h3" fontWeight="fontWeightLight">
+                    {Math.abs(speedLimitRank - 37).toFixed(0)}{" "}
+                  </Typography>
+                  <Typography
+                    mb={0.3}
+                    variant="h6"
+                    fontWeight="fontWeightLight"
+                  >
+                    ter von 36 Kommunen
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    boxShadow: 3,
+                    bgcolor: "background.paper",
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: (speedLimitBarWidth as number) * barWidthFactor,
+                      backgroundColor: "#1A4613",
+                      height: 7,
+                    }}
+                  ></Box>
+                  <Box
+                    sx={{
+                      width:
+                        (100 - (speedLimitBarWidth as number)) * barWidthFactor,
+                      backgroundColor: "#d3d3d3",
+                      height: 7,
+                    }}
+                  ></Box>
+                </Box>
               </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  boxShadow: 3,
-                  bgcolor: "background.paper",
-                }}
+              <Typography
+                ml={6}
+                mt={5}
+                align="center"
+                variant="h4"
+                fontWeight="fontWeightLight"
               >
-                <Box
-                  sx={{
-                    width: (speedLimitBarWidth as number) * barWidthFactor,
-                    backgroundColor: "#1A4613",
-                    height: 7,
-                  }}
-                ></Box>
-                <Box
-                  sx={{
-                    width:
-                      (100 - (speedLimitBarWidth as number)) * barWidthFactor,
-                    backgroundColor: "#d3d3d3",
-                    height: 7,
-                  }}
-                ></Box>
-              </Box>
+                {speedLimitRank.toFixed(0)} Punkte
+              </Typography>
             </Box>
           </Grid>
           <Grid xs={6} item>
@@ -371,7 +394,7 @@ const AboutScoring = () => {
               mr={5}
             >
               <Typography pr={6} variant="h6" fontWeight="fontWeightLight">
-                Bicycle Accidents per 1000 Inhabitants
+                Unfälle mit Fahrradfahrern pro 1000 Einwohner
               </Typography>
               <Box sx={{ display: "flex" }}>
                 <Typography pr={3} variant="h3" fontWeight="fontWeightLight">
@@ -393,37 +416,52 @@ const AboutScoring = () => {
             </Box>
           </Grid>
           <Grid item xs={6}>
-            <Box mt={0.5}>
-              <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                <Typography mr={0} variant="h3" fontWeight="fontWeightLight">
-                  {bicycleAccidentsRating < 1
-                    ? 36
-                    : Math.abs(bicycleAccidentsRating - 37).toFixed(0)}
-                </Typography>
-                <Typography mb={0.3} variant="h6" fontWeight="fontWeightLight">
-                  TH OF 36 CITES
-                </Typography>
+            <Box sx={{ display: "flex" }}>
+              <Box mt={0.5}>
+                <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+                  <Typography mr={0} variant="h3" fontWeight="fontWeightLight">
+                    {bicycleAccidentsRating < 1
+                      ? 36
+                      : Math.abs(bicycleAccidentsRating - 37).toFixed(0)}
+                  </Typography>
+                  <Typography
+                    mb={0.3}
+                    variant="h6"
+                    fontWeight="fontWeightLight"
+                  >
+                    ter von 36 Kommunen
+                  </Typography>
+                </Box>
+                <Box sx={{ display: "flex" }}>
+                  <Box
+                    sx={{
+                      width: Number(
+                        (bicycleAccidentsBarWidth as number) * barWidthFactor
+                      ),
+                      backgroundColor: "#226A2A",
+                      height: 7,
+                    }}
+                  ></Box>
+                  <Box
+                    sx={{
+                      width:
+                        (100 - (bicycleAccidentsBarWidth as number)) *
+                        barWidthFactor,
+                      backgroundColor: "#d3d3d3",
+                      height: 7,
+                    }}
+                  ></Box>
+                </Box>
               </Box>
-              <Box sx={{ display: "flex" }}>
-                <Box
-                  sx={{
-                    width: Number(
-                      (bicycleAccidentsBarWidth as number) * barWidthFactor
-                    ),
-                    backgroundColor: "#226A2A",
-                    height: 7,
-                  }}
-                ></Box>
-                <Box
-                  sx={{
-                    width:
-                      (100 - (bicycleAccidentsBarWidth as number)) *
-                      barWidthFactor,
-                    backgroundColor: "#d3d3d3",
-                    height: 7,
-                  }}
-                ></Box>
-              </Box>
+              <Typography
+                ml={6}
+                mt={5}
+                align="center"
+                variant="h4"
+                fontWeight="fontWeightLight"
+              >
+                {bicycleAccidentsRating.toFixed(0)} Punkte
+              </Typography>
             </Box>
           </Grid>
         </Grid>
