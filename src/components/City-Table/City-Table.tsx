@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import sortBy from "lodash.sortby";
-
+import { HashLink } from "react-router-hash-link";
 import { Switch, FormControlLabel } from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
@@ -230,8 +230,10 @@ const CityTable: React.FC<CityTableProps> = (props) => {
                         }}
                         size="small"
                         // variant="outlined"
-                        component={Link}
-                        to={`/city/${city.ID}`}
+                        // component={Link}
+                        component={HashLink}
+                        to={`/city/${city.ID}#top`}
+                        // to={`/city/${city.ID}`}
                       >
                         {city.city}
                       </Button>
