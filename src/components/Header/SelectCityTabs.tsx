@@ -16,7 +16,7 @@ interface CityModalProps {
 }
 
 const SelectCityTabs: React.FC<CityModalProps> = (props) => {
-  const [value, setValue] = React.useState<string>("Germany");
+  const [value, setValue] = React.useState<string>("Deutschland");
   const handleChange = (event: React.SyntheticEvent, newCity: string) => {
     setValue(newCity);
   };
@@ -40,9 +40,9 @@ const SelectCityTabs: React.FC<CityModalProps> = (props) => {
             orientation="vertical"
             centered
           >
-            <Tab sx={{ width: 200 }} label="Germany" value="Germany" />
-            <Tab label="France" value="France" />
-            <Tab label="Switzerland" value="Switzerland" />
+            <Tab sx={{ width: 200 }} label="Deutschland" value="Deutschland" />
+            <Tab label="Frankreich" value="Frankreich" />
+            <Tab label="Schweiz" value="Schweiz" />
           </TabList>
         </Box>
         <Box

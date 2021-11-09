@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 
 const LandingPage: React.FC = () => {
   const [active, setActive] = useState(false);
-  const [windowWidth, setWindowWidth] = useState<undefined | number>();
+  const [windowWidth, setWindowWidth] = useState<undefined | number>(1500);
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
