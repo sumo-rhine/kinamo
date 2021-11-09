@@ -44,7 +44,11 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
               // opacity: 0.8,
             }}
             alt="img"
-            src="/assets/thumbnail/102_crop.png"
+            src={
+              props.city.id === 826
+                ? "/assets/thumbnail/826.png"
+                : "/assets/thumbnail/102_crop.png"
+            }
           />
         </Box>
       </Box>

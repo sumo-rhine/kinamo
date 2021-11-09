@@ -7,7 +7,12 @@ interface CityIdProps {
 }
 const AnimationBanner: React.FC<CityIdProps> = (props) => {
   // as long as we dont have all cities maps in public I use only one
-  const id = 4;
+  // if  {
+  //   const id = 4;
+  // } else {
+  //   const id = 102;
+  // }
+  const id = props.city.id === 826 ? 826 : 102;
 
   const pois_path = "/assets/banner/" + id.toString() + "_pois.png";
   const streets_path = "/assets/banner/" + id.toString() + "_streets.png";
