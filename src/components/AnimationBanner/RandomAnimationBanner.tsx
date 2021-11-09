@@ -14,9 +14,9 @@ const RandomAnimationBanner: React.FC = (props) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setLoading(false);
-      console.log("trigger false");
+      // console.log("trigger false");
       setTimeout(function () {
-        console.log("trigger next image");
+        // console.log("trigger next image");
         if (index > 4) {
           setIndex(index + 1);
         } else {
@@ -24,7 +24,7 @@ const RandomAnimationBanner: React.FC = (props) => {
         }
         //do what you need here
         setTimeout(function () {
-          console.log("trigger true");
+          // console.log("trigger true");
           setLoading(true);
         }, 1500);
       }, 1000);

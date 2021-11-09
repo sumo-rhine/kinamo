@@ -48,8 +48,8 @@ const StackedBar: React.FC<StackedBarProps> = (props) => {
     // calculate the full relative width
     // const fullWidth: number = 0.3 + 0.7 * (props.indicator.value! / 10.0);
     const fullWidth: number = props.indicator.value! / 10.0;
-    console.log("width:", fullWidth);
-    console.log("value:", props.indicator.value);
+    // console.log("width:", fullWidth);
+    // console.log("value:", props.indicator.value);
     // const fullWidth: number = 10.0;
 
     // reduce the stackWidths to their sum
