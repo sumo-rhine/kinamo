@@ -211,7 +211,7 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
   const handleChange = (event: React.SyntheticEvent, newIndicator: string) => {
     setIndicator(newIndicator);
   };
-  console.log(city);
+  // console.log(city);
   // react to changes of changeTab
   useEffect(() => {
     if (changeTab) {
