@@ -8,7 +8,7 @@ import About from "../components/How-it-Works/HowItWorks";
 import CityStepper from "../components/Carousel/CityStepper";
 import { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
-
+import Footer from "../components/Footer/Footer";
 const LandingPage: React.FC = () => {
   const [active, setActive] = useState(false);
   const [windowWidth, setWindowWidth] = useState<undefined | number>(1500);
@@ -33,6 +33,7 @@ const LandingPage: React.FC = () => {
           <About value={active} setter={setActive} />
           <DividerOverview />
           <CityTable />
+          <Footer />
         </Box>
       ) : (
         <Box
