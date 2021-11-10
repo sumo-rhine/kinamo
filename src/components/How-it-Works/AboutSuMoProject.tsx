@@ -68,18 +68,58 @@ const AboutSuMoProject = () => {
         src="/assets/image/diagram.svg"
       />
 
-      <Box mt={3} sx={{ display: "flex", alignItems: "center" }}>
-        <Typography mt={1} pr={2} fontWeight="fontWeightLight" variant="h6">
-          KINaMo ist teil des internationalen Forschungsprojektes {"  "}
-          {<Link href="https://sumo-rhine.com/en/">SuMo Rhine</Link>}
-        </Typography>
-        <Box>
-          <img
-            alt="images"
-            style={{ height: 70 }}
-            src="/assets/logos/sumo_logo_transparent_background.png"
-          />
+      <Typography mt={1} pr={2} fontWeight="fontWeightLight" variant="h6">
+        KINaMo ist teil des internationalen Forschungsprojektes SuMo Rhine
+        {/* {<Link href="https://sumo-rhine.com/en/"></Link>} */}
+      </Typography>
+      <Box mt={1} sx={{ display: "flex", alignItems: "center" }}>
+        {/* <Paper sx={{ display: "flex", alignItems: "center" }}> */}
+        <Box pr={3} pl={3} m={2}>
+          <Link href="https://sumo-rhine.com/en/" target="_blank">
+            <img
+              alt="images"
+              style={{ height: 80 }}
+              src="/assets/logos/sumo_logo_transparent_background.png"
+            />
+          </Link>
         </Box>
+        <Box m={2}>
+          <Link href="https://www.interreg-rhin-sup.eu/" target="_blank">
+            <img
+              alt="images"
+              style={{ height: 80 }}
+              src="/assets/logos/interreg-transparent.png"
+            />
+          </Link>
+        </Box>
+        <Box m={2}>
+          <Link href="https://www.felis.uni-freiburg.de/de" target="_blank">
+            <img
+              alt="images"
+              style={{ height: 80 }}
+              src="/assets/logos/felis.png"
+            />
+          </Link>
+        </Box>
+        <Box m={2}>
+          <Link href="https://www.loerrach.de/willkommen" target="_blank">
+            <img
+              alt="images"
+              style={{ height: 50 }}
+              src="/assets/logos/lörrach-transparent.png"
+            />
+          </Link>
+        </Box>
+        <Box m={2}>
+          <Link href="https://www.here.com" target="_blank">
+            <img
+              alt="images"
+              style={{ height: 80 }}
+              src="/assets/logos/here.png"
+            />
+          </Link>
+        </Box>
+        {/* </Paper> */}
       </Box>
     </Box>
     // </Paper>
