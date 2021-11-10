@@ -73,11 +73,13 @@ const AboutSuMoProject = () => {
           KINaMo ist teil des internationalen Forschungsprojektes {"  "}
           {<Link href="https://sumo-rhine.com/en/">SuMo Rhine</Link>}
         </Typography>
-        <img
-          alt="images"
-          style={{ height: 70 }}
-          src="/assets/logos/sumo-logo.jpg"
-        />
+        <Box>
+          <img
+            alt="images"
+            style={{ height: 70 }}
+            src="/assets/logos/sumo_logo_transparent_background.png"
+          />
+        </Box>
       </Box>
     </Box>
     // </Paper>

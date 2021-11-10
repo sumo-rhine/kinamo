@@ -71,10 +71,14 @@ const Header: React.FC<CityNameProps> = (props) => {
                   style={{
                     height: "100%",
                     // width: "100",
-                    opacity: color === "black" ? 0.0 : 1.0,
+                    // opacity: color === "black" ? 0.0 : 1.0,
                   }}
                   alt="img"
-                  src={"/assets/logos/sumo_logo_transparent_background.png"}
+                  src={
+                    color === "black"
+                      ? "/assets/logos/sumo_logo_transparent_background.png"
+                      : "/assets/logos/sumo_logo_transparent_background_white.png"
+                  }
                 />
               </Icon>
             </IconButton>
