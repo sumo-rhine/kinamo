@@ -76,8 +76,8 @@ const Header: React.FC<CityNameProps> = (props) => {
                   alt="img"
                   src={
                     color === "black"
-                      ? "/assets/logos/sumo_logo_transparent_background.png"
-                      : "/assets/logos/sumo_logo_transparent_background_white.png"
+                      ? "/assets/logos/sumo_logo_transparent_background_white.png"
+                      : "/assets/logos/sumo_logo_transparent_background.png"
                   }
                 />
               </Icon>
