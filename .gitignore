@@ -11,6 +11,9 @@
 # production
 /build
 
+# images for interactiv visualisations
+/public/assets/banner
+
 # misc
 .DS_Store
 .env.local
