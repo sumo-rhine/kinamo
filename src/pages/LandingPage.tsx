@@ -33,8 +33,8 @@ const LandingPage: React.FC = () => {
           <CityStepper />
           <About value={active} setter={setActive} />
           <DividerOverview />
-          <XDataTable />
-          {/* <CityTable /> */}
+          {/* <XDataTable /> */}
+          <CityTable />
 
           <Footer />
         </Box>
