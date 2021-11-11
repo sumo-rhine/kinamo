@@ -326,7 +326,7 @@ const columns: GridColDef[] = [
           />
         </Icon>
         <Typography variant="subtitle2" color="text.secondary">
-          {"Erreichbarkeit".toUpperCase()}
+          {"Anbindung".toUpperCase()}
         </Typography>
       </Box>
     ),
@@ -522,7 +522,17 @@ const XCityTable: React.FC<CityTableProps> = (props) => {
         justifyContent: "space-around",
       }}
     >
-      <DataGrid headerHeight={100} columns={columns} rows={rows} />
+      <DataGrid
+        sortingOrder={["desc", "asc"]}
+        // columnThreshold={20}
+        headerHeight={100}
+        disableColumnSelector={true}
+        disableColumnMenu={true}
+        hideFooter={true}
+        // hideFooterPagination={true}
+        columns={columns}
+        rows={rows}
+      />
     </Box>
   );
 };

@@ -15,6 +15,7 @@ interface KeyFigureInfoProps {
   short_name: string;
   definition: string;
   data_source: string[];
+  concept_definition?: any;
 }
 
 const KeyFigureInfo: React.FC<KeyFigureInfoProps> = (props) => {
@@ -55,19 +56,6 @@ const KeyFigureInfo: React.FC<KeyFigureInfoProps> = (props) => {
               <Typography mb={2} variant="h4" fontWeight="fontWeightLight">
                 {props.short_name}
               </Typography>
-              {/* <Typography
-                color="text.secondary"
-                mb={2}
-                variant="h6"
-                fontWeight="fontWeightLight"
-              >
-                {props.description}
-              </Typography>
-              <Divider textAlign="left">
-                <Typography variant="h5" fontWeight="fontWeightLight">
-                  Definition
-                </Typography>
-              </Divider> */}
               <Typography
                 mb={2}
                 mt={2}
@@ -76,6 +64,19 @@ const KeyFigureInfo: React.FC<KeyFigureInfoProps> = (props) => {
               >
                 {props.definition}
               </Typography>
+              <Box mb={2} sx={{ display: "flex" }}>
+                {props.concept_definition.length > 0 &&
+                  props.concept_definition.map((concept: any) => (
+                    <React.Fragment>
+                      <Typography mr={2} sx={{ width: 200 }}>
+                        {concept.name}
+                      </Typography>
+                      <Typography fontWeight="fontWeightLight">
+                        {concept.definition}
+                      </Typography>
+                    </React.Fragment>
+                  ))}
+              </Box>
               <Divider textAlign="left">
                 <Typography variant="h5" fontWeight="fontWeightLight">
                   Daten Quellen

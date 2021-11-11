@@ -152,9 +152,8 @@ const AboutScoring = () => {
         Interaktives Beispiel zur Berechnung der Indikatoren
       </Typography>
       <Typography mt={4} fontWeight="fontWeightLight" variant="h6">
-        In diesem Beispiel schauen wir uns einen fiktiven Indikator an, der nur
-        aus den 2 Kennzahlen besteht: Anteil 30er Zonen, Unfälle mit
-        Fahrradfahrenden
+        Betrachten wir als Beispiel einen Indikator, der nur aus zwei Kennzahlen
+        besteht: Anteil 30er Zonen und Unfälle mit Fahrradfahrenden
       </Typography>
       <Typography pb={4} fontWeight="fontWeightLight" variant="h6">
         Indem du den blauen Regler der beiden Kennzahlen verschiebst, kannst du
@@ -183,23 +182,24 @@ const AboutScoring = () => {
               }}
             >
               <Typography fontWeight="fontWeightLight" variant="h6">
-                Ein Indikator berechnet sich aus den Punkten der Kennzahlen. Die
-                Kennzahlen erhalten ihre Punkte über ihre Platzierung. Platz 1
-                erhält 36 Punkte während der schlechteste 0 Punkte erhält. Für
-                die Berechnung der Indikatoren werden die Punkte aller
-                Kennzahlen aufsummiert und zwischen 0 und 10 skaliert.
+                Ein Indikator wird aus den Punkten der Kennzahlen berechnet. Die
+                Rangfolge bestimmt die Punkte der Kennzahlen. Bei 36 Gemeinden
+                erhält die oberste Gemeinde 36 Punkte, die unterste Gemeinde
+                einen Punkt. Zur Berechnung der Indikatoren werden die Punkte
+                aller Kennzahlen addiert und von einer Skala von 0 bis 10
+                skaliert.
               </Typography>
             </Box>
           </Grid>
           <Grid xs={6} item>
-            <Typography
+            {/* <Typography
               mb={1}
               fontWeight="fontWeightLight"
               color="text.secondary"
               variant="h4"
             >
               Indikator
-            </Typography>
+            </Typography> */}
             <Paper square sx={{ backgroundColor: "#F8F8F8" }} elevation={7}>
               <Box p={3}>
                 <Box sx={{ display: "flex", alignItems: "flex-end" }}>

@@ -86,8 +86,8 @@ const RandomAnimationBanner: React.FC = (props) => {
             am Oberrhein
           </Typography>
           <Typography mt={7} ml={1} variant="h4" fontWeight="fontWeightLight">
-            Bewerte und vergleiche den Zustand nachhaltiger Mobilität in 36
-            Kommunen der Oberrheinregion mit
+            Bewertung und Vergleich der nachhaltigen Mobilität in 36 Kommunen
+            der Oberrheinregion mit
           </Typography>
         </Box>
 
@@ -117,35 +117,6 @@ const RandomAnimationBanner: React.FC = (props) => {
           </Box>
           bilität .
         </Typography>
-        {/* <Typography
-          mt={8}
-          ml={1}
-          variant="h5"
-          component="h5"
-          fontWeight="fontWeightLight"
-        >
-          Dem
-          <Box fontWeight="Medium" display="inline">
-            {" "}
-            K
-          </Box>
-          ommunalen
-          <Box fontWeight="Medium" display="inline">
-            {" "}
-            I
-          </Box>
-          nformationsystem für
-          <Box fontWeight="Medium" display="inline">
-            {" "}
-            Na
-          </Box>
-          chaltige
-          <Box fontWeight="Medium" display="inline">
-            {" "}
-            Mo
-          </Box>
-          bilität
-        </Typography> */}
       </Box>
     </Box>
   );

@@ -16,7 +16,6 @@ const CityTabDivider: React.FC<CityTabDivider> = (props) => {
         alignItems: "center",
       }}
     >
-      {/* <Box sx={{ display: "flex", alignItems: "flex-end" }}> */}
       <Typography
         ml={20}
         color="white"
@@ -25,16 +24,21 @@ const CityTabDivider: React.FC<CityTabDivider> = (props) => {
       >
         Übersicht
       </Typography>
-      <Typography
-        mt={1}
-        ml={20}
-        color="white"
-        variant="h5"
-        fontWeight="fontWeightLight"
-      >
-        Entdecke die Indikatoren und Kennzahlen für {props.city}
-      </Typography>
-      {/* </Box> */}
+      <Box>
+        <Typography
+          mt={1}
+          ml={20}
+          color="white"
+          variant="h5"
+          fontWeight="fontWeightLight"
+        >
+          Entdecke die Indikatoren und Kennzahlen für {props.city}
+        </Typography>
+        <Typography mt={1} ml={20} color="white" fontWeight="fontWeightLight">
+          Durch Anklicken der Icons können die Kennzahlen der Indikatoren
+          abgerufen werden
+        </Typography>
+      </Box>
     </Box>
   );
 };

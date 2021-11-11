@@ -32,7 +32,7 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
     setSlideDirection("left");
     setSlideIn(false);
     setTimeout(() => {
-      setIndex(randomInt(0, 36));
+      setIndex(randomInt(0, 35));
       setSlideDirection("right");
       setSlideIn(true);
     }, 500);
@@ -132,7 +132,11 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
               flexDirection: "column",
             }}
           >
-            <IconButton size="large" disabled={index > 36} onClick={handleNext}>
+            <IconButton
+              size="large"
+              disabled={index === 35}
+              onClick={handleNext}
+            >
               <NavigateNext style={{ transform: "scale(2.2)" }}></NavigateNext>
             </IconButton>
           </Box>

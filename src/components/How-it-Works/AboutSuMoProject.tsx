@@ -36,10 +36,9 @@ const AboutSuMoProject = () => {
           mt={4}
           variant="h6"
         >
-          Ziel von KINaMo ist es, die Bewertung kommunaler Mobilität durch einen
-          automatisierten, datenbasierten Ansatz zu vereinfachen und damit den
-          Stand der nachhaltigen Mobilität auf kommunaler Ebene messbar,
-          sichtbar und vergleichbar zu machen.
+          Durch einen automatisierten, datenbasierten Ansatz vereinfacht KINaMo
+          die Bewertung der kommunalen Mobilität und macht nachhaltige Mobilität
+          auf kommunaler Ebene messbar, sichtbar und vergleichbar.
         </Typography>
         <Typography
           // component="div"
@@ -47,19 +46,26 @@ const AboutSuMoProject = () => {
           mt={1}
           variant="h6"
         >
-          Dafür wurde ein umfangreiches Bewertungssystem entwickelt welches aus
+          Dazu wurde ein Bewertungssystem auf Basis von
           <Box fontWeight="bold" display="inline">
             {" "}
             62 Kennzahlen{" "}
           </Box>
-          besteht, die in
+          entwickelt, die in
           <Box fontWeight="bold" display="inline">
             {" "}
             12 Indikatoren{" "}
           </Box>
-          angeordnet sind. Die Applikation liefert damit erstmals eine frei
-          zugängliche detaillierte Bewertung der kommunalen Mobilität für die
-          Region Oberrhein.
+          gegliedert sind.
+        </Typography>
+        <Typography
+          // component="div"
+          fontWeight="fontWeightLight"
+          variant="h6"
+        >
+          Damit bietet die Anwendung erstmals eine frei zugängliche,
+          detaillierte Bewertung der kommunalen Mobilität für die Region
+          Oberrhein.
         </Typography>
       </Box>
       <img

@@ -2,14 +2,30 @@ import { Typography, Box, Link } from "@mui/material";
 
 const Footer = () => {
   return (
-    <Box mt={1} sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%" }}>
       <Box
-        sx={{
-          //   backgroundColor: "#383C45",
-          height: 2,
-        }}
+        sx={
+          {
+            // backgroundColor: "#383C45",
+            // height: 2,
+          }
+        }
       >
         {/* <Box>Partner</Box> */}
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "center",
+          backgroundColor: "#383C45",
+          color: "white",
+          height: 40,
+        }}
+      >
+        <Box>Impressum</Box>
+        <Box>Datenschutz</Box>
+        <Box>Kontakt</Box>
       </Box>
       <Box sx={{ display: "flex", justifyContent: "space-around" }}>
         <Box m={2}>
@@ -84,20 +100,6 @@ const Footer = () => {
             />
           </Link>
         </Box>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-          backgroundColor: "#383C45",
-          color: "white",
-          height: 40,
-        }}
-      >
-        <Box>Impressum</Box>
-        <Box>Datenschutz</Box>
-        <Box>Kontakt</Box>
       </Box>
     </Box>
   );

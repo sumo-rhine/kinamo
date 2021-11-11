@@ -70,7 +70,6 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
             variant="fullWidth"
           >
             <Tab
-              wrapped
               icon={
                 <Icon>
                   <img
@@ -82,7 +81,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="walkability"
-              label="Fußgänger Freundlichkeit"
+              label="Fußgänger"
             />
             <Tab
               icon={
@@ -96,8 +95,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="bikeability"
-              label="Fahrrad Freundlichkeit"
-              wrapped
+              label="Fahrrad"
             />
             <Tab
               icon={
@@ -112,7 +110,6 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
               }
               value="public_transport"
               label="ÖPNV"
-              wrapped
             />
             <Tab
               icon={
@@ -127,7 +124,6 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
               }
               value="car_integration"
               label="Auto"
-              wrapped
             />
             <Tab
               icon={
@@ -142,7 +138,6 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
               }
               value="functional_diversity"
               label="Raum Struktur"
-              wrapped
             />
             <Tab
               icon={
@@ -157,7 +152,6 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
               }
               value="accessibility"
               label="Erreichbarkeit"
-              wrapped
             />
             <Tab
               icon={
@@ -171,8 +165,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="cross_border"
-              label="Regionale Anbindung"
-              wrapped
+              label="Anbindung"
             />
             <Tab
               icon={
@@ -187,7 +180,6 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
               }
               value="land_use"
               label="Landnutzung"
-              wrapped
             />
             <Tab
               icon={
@@ -202,7 +194,6 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
               }
               value="emissions"
               label="Emissionen"
-              wrapped
             />
             <Tab
               icon={
@@ -216,8 +207,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="noise_pollution"
-              label="Lärm Belastung"
-              wrapped
+              label="Lärm"
             />
             <Tab
               icon={
@@ -231,8 +221,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="traffic_safety"
-              label="Verkehrs Sicherheit"
-              wrapped
+              label="Sicherheit"
             />
             <Tab
               icon={
@@ -246,8 +235,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="behavior"
-              label="Verkehrs Verhalten"
-              wrapped
+              label="Verhalten"
             />
           </TabList>
         </Box>

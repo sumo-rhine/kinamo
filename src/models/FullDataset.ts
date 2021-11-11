@@ -26,6 +26,12 @@ export interface DataSource {
 /**
  * KeyFigures are 'SubIndicators'
  */
+
+export interface Concept {
+  name: string;
+  definition: string;
+}
+
 export interface KeyFigure extends BaseIndicator {
   long_name: string;
   definition: string;
@@ -35,6 +41,7 @@ export interface KeyFigure extends BaseIndicator {
   max_points: number;
   data_source: DataSource[];
   quality: string;
+  concept_definition?: Concept[] | [];
 }
 
 /**

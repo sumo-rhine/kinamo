@@ -18,193 +18,6 @@ interface CityTabProps {
   changeTab?: string;
 }
 
-const IconTabs = () => {
-  return (
-    <React.Fragment>
-      <Tab
-        wrapped
-        icon={
-          <Icon>
-            <img
-              alt="images"
-              src={"/assets/icons/walkability.svg"}
-              height={25}
-              // width={25}
-            />
-          </Icon>
-        }
-        value="walkability"
-        label="Fußgänger Freundlichkeit"
-      />
-      <Tab
-        icon={
-          <Icon>
-            <img
-              alt="images"
-              src={"/assets/icons/bikeability.svg"}
-              height={25}
-              // width={25}
-            />
-          </Icon>
-        }
-        value="bikeability"
-        label="Fahrrad Freundlichkeit"
-        wrapped
-      />
-      <Tab
-        icon={
-          <Icon>
-            <img
-              alt="images"
-              src={"/assets/icons/pt.svg"}
-              height={25}
-              // width={25}
-            />
-          </Icon>
-        }
-        value="public_transport"
-        label="ÖPNV"
-        wrapped
-      />
-      <Tab
-        icon={
-          <Icon>
-            <img
-              alt="images"
-              src={"/assets/icons/car.svg"}
-              height={25}
-              // width={25}
-            />
-          </Icon>
-        }
-        value="car_integration"
-        label="Auto"
-        wrapped
-      />
-      <Tab
-        icon={
-          <Icon>
-            <img
-              alt="images"
-              src={"/assets/icons/spatial-structur.svg"}
-              height={25}
-              // width={25}
-            />
-          </Icon>
-        }
-        value="functional_diversity"
-        label="Raum Struktur"
-        wrapped
-      />
-      <Tab
-        icon={
-          <Icon>
-            <img
-              alt="images"
-              src={"/assets/icons/accessibility.svg"}
-              height={25}
-              // width={30}
-            />
-          </Icon>
-        }
-        value="accessibility"
-        label="Erreichbarkeit"
-        wrapped
-      />
-      <Tab
-        icon={
-          <Icon>
-            <img
-              alt="images"
-              src={"/assets/icons/commuting.svg"}
-              height={25}
-              // width={25}
-            />
-          </Icon>
-        }
-        value="cross_border"
-        label="Regionale Anbindung"
-        wrapped
-      />
-      <Tab
-        icon={
-          <Icon>
-            <img
-              alt="images"
-              src={"/assets/icons/land-consumption.svg"}
-              height={25}
-              // width={25}
-            />
-          </Icon>
-        }
-        value="land_use"
-        label="Landnutzung"
-        wrapped
-      />
-      <Tab
-        icon={
-          <Icon>
-            <img
-              alt="images"
-              src={"/assets/icons/air-pollution.svg"}
-              height={25}
-              // width={25}
-            />
-          </Icon>
-        }
-        value="emissions"
-        label="Emissionen"
-        wrapped
-      />
-      <Tab
-        icon={
-          <Icon>
-            <img
-              alt="images"
-              src={"/assets/icons/traffic-noise.svg"}
-              height={25}
-              // width={25}
-            />
-          </Icon>
-        }
-        value="noise_pollution"
-        label="Lärm Belastung"
-        wrapped
-      />
-      <Tab
-        icon={
-          <Icon>
-            <img
-              alt="images"
-              src={"/assets/icons/safety.svg"}
-              height={25}
-              // width={25}
-            />
-          </Icon>
-        }
-        value="traffic_safety"
-        label="Verkehrs Sicherheit"
-        wrapped
-      />
-      <Tab
-        icon={
-          <Icon>
-            <img
-              alt="images"
-              src={"/assets/icons/modal-choice.svg"}
-              height={25}
-              // width={25}
-            />
-          </Icon>
-        }
-        value="behavior"
-        label="Verkehrs Verhalten"
-        wrapped
-      />
-    </React.Fragment>
-  );
-};
-
 const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
   // const classes = useStyles();
   const [indicator, setIndicator] = useState("walkability");
@@ -223,10 +36,10 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
     <React.Fragment>
       <div id="city-tab" />
       <Box
-        pt={10}
-        sx={{ width: "100%", backgroundColor: "#F8F8F8", minHeight: 800 }}
+        pt={4}
+        sx={{ width: "100%", backgroundColor: "#F8F8F8", minHeight: 600 }}
       >
-        <Box p={5}>
+        <Box p={4}>
           <TabContext value={indicator}>
             <Box sx={{ borderBottom: 0, borderColor: "divider" }}>
               <TabList
@@ -236,7 +49,6 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                 sx={{ width: "100%" }}
               >
                 <Tab
-                  wrapped
                   icon={
                     <Icon>
                       <img
@@ -248,7 +60,7 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                     </Icon>
                   }
                   value="walkability"
-                  label="Fußgänger Freundlichkeit"
+                  label="Fußgänger"
                 />
                 <Tab
                   icon={
@@ -262,8 +74,7 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                     </Icon>
                   }
                   value="bikeability"
-                  label="Fahrrad Freundlichkeit"
-                  wrapped
+                  label="Fahrrad"
                 />
                 <Tab
                   icon={
@@ -278,7 +89,6 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                   }
                   value="public_transport"
                   label="ÖPNV"
-                  wrapped
                 />
                 <Tab
                   icon={
@@ -287,13 +97,11 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                         alt="images"
                         src={"/assets/icons/car.svg"}
                         height={25}
-                        // width={25}
                       />
                     </Icon>
                   }
                   value="car_integration"
                   label="Auto"
-                  wrapped
                 />
                 <Tab
                   icon={
@@ -302,13 +110,11 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                         alt="images"
                         src={"/assets/icons/spatial-structur.svg"}
                         height={25}
-                        // width={25}
                       />
                     </Icon>
                   }
                   value="functional_diversity"
                   label="Raum Struktur"
-                  wrapped
                 />
                 <Tab
                   icon={
@@ -317,13 +123,11 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                         alt="images"
                         src={"/assets/icons/accessibility.svg"}
                         height={25}
-                        // width={30}
                       />
                     </Icon>
                   }
                   value="accessibility"
                   label="Erreichbarkeit"
-                  wrapped
                 />
                 <Tab
                   icon={
@@ -332,13 +136,11 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                         alt="images"
                         src={"/assets/icons/commuting.svg"}
                         height={25}
-                        // width={25}
                       />
                     </Icon>
                   }
                   value="cross_border"
-                  label="Regionale Anbindung"
-                  wrapped
+                  label="Anbindung"
                 />
                 <Tab
                   icon={
@@ -347,13 +149,11 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                         alt="images"
                         src={"/assets/icons/land-consumption.svg"}
                         height={25}
-                        // width={25}
                       />
                     </Icon>
                   }
                   value="land_use"
                   label="Landnutzung"
-                  wrapped
                 />
                 <Tab
                   icon={
@@ -362,13 +162,11 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                         alt="images"
                         src={"/assets/icons/air-pollution.svg"}
                         height={25}
-                        // width={25}
                       />
                     </Icon>
                   }
                   value="emissions"
                   label="Emissionen"
-                  wrapped
                 />
                 <Tab
                   icon={
@@ -377,13 +175,11 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                         alt="images"
                         src={"/assets/icons/traffic-noise.svg"}
                         height={25}
-                        // width={25}
                       />
                     </Icon>
                   }
                   value="noise_pollution"
-                  label="Lärm Belastung"
-                  wrapped
+                  label="Lärm"
                 />
                 <Tab
                   icon={
@@ -392,13 +188,11 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                         alt="images"
                         src={"/assets/icons/safety.svg"}
                         height={25}
-                        // width={25}
                       />
                     </Icon>
                   }
                   value="traffic_safety"
-                  label="Verkehrs Sicherheit"
-                  wrapped
+                  label="Sicherheit"
                 />
                 <Tab
                   icon={
@@ -407,20 +201,18 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                         alt="images"
                         src={"/assets/icons/modal-choice.svg"}
                         height={25}
-                        // width={25}
                       />
                     </Icon>
                   }
                   value="behavior"
-                  label="Verkehrs Verhalten"
-                  wrapped
+                  label="Verhalten"
                 />
               </TabList>
             </Box>
             <Box>
               {Object.keys(city.indicators).map((ind) => (
                 <TabPanel value={ind}>
-                  <Box pt={3}>
+                  <Box pt={2}>
                     <Box ml={4}>
                       <StackedBarRow
                         indicator={(city.indicators as any)[ind]}
@@ -430,7 +222,7 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                       <Typography
                         pt={4}
                         pl={3}
-                        pb={5}
+                        pb={3}
                         sx={{ width: 1400 }}
                         fontWeight="fontWeightLight"
                         variant="h6"
@@ -448,7 +240,7 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                   </Box>
                   <Box
                     mt={3}
-                    mb={8}
+                    mb={3}
                     ml={6}
                     mr={6}
                     sx={{
@@ -471,7 +263,8 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                             max_points={keyFigure.max_points}
                             definition={keyFigure.definition}
                             data_source={keyFigure.data_source}
-                            padding={3}
+                            concept_definition={keyFigure.concept_definition}
+                            padding={2}
                             elevation={5}
                             bar={true}
                             infoIcon={true}

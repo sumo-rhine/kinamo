@@ -11,6 +11,7 @@ import { City } from "../models/FullDataset";
 import CityTab from "../components/CityTab/CityTab";
 import { KeyFigureBanner } from "../components/KeyFigureBanner/KeyFigureBanner";
 import CityTabDivider from "../components/CityTab/CityTabDivider";
+import Footer from "../components/Footer/Footer";
 // import AboutProps from "../components/How-it-Works/About.model";
 interface CityPageProps {
   cities: City[];
@@ -70,6 +71,7 @@ const CityPage: React.FC<CityPageProps> = (props) => {
             <KeyFigureBanner city={city} tabChanger={tabChanger} />
             <CityTabDivider city={city.city} />
             <CityTab city={city} changeTab={extOpenTab}></CityTab>
+            <Footer />
           </Box>
         ) : (
           <CircularProgress

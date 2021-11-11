@@ -71,7 +71,7 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
           Auf einen Blick
         </Typography>
         <Typography mt={1} ml={20} variant="h6" fontWeight="fontWeightLight">
-          Finde Stärken und Handlugsbedarf von {props.city.city}
+          Entdecke Stärken und Handlungsbedarf von {props.city.city}
         </Typography>
       </Box>
       <Box

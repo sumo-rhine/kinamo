@@ -22,6 +22,7 @@ interface KeyFigureCardProps {
   bar: boolean;
   infoIcon: boolean;
   quality?: string;
+  concept_definition?: any;
 }
 
 interface KeyFigureValuesProps {
@@ -123,13 +124,14 @@ const KeyFigureCard: React.FC<KeyFigureCardProps> = (props) => {
             short_name={props.short_name}
             data_source={props.data_source}
             definition={props.definition}
+            concept_definition={props.concept_definition}
           />
           {/* <MoreHorizIcon fontSize="large" /> */}
         </Box>
       )}
 
-      <Box p={props.padding}>
-        <Box>
+      <Box p={props.padding} ml={3}>
+        <Box pt={1}>
           <Typography
             // color="text.secondary"
             fontWeight="fontWeightLight"
