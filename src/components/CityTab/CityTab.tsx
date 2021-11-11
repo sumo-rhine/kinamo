@@ -114,7 +114,7 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                     </Icon>
                   }
                   value="functional_diversity"
-                  label="Raum Struktur"
+                  label="Angebote"
                 />
                 <Tab
                   icon={

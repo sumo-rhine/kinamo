@@ -240,7 +240,7 @@ const columns: GridColDef[] = [
   },
   {
     field: "functional_diversity",
-    headerName: "Raum Struktur",
+    headerName: "Angebote",
     renderCell: cellRenderer,
     flex: 1,
     headerAlign: "center",
@@ -264,7 +264,7 @@ const columns: GridColDef[] = [
           />
         </Icon>
         <Typography variant="subtitle2" color="text.secondary">
-          {"Raum Struktur".toUpperCase()}
+          {"Angebote".toUpperCase()}
         </Typography>
       </Box>
     ),

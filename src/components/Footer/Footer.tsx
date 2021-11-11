@@ -1,5 +1,5 @@
-import { Typography, Box, Link } from "@mui/material";
-
+import { Typography, Box, Link, Button } from "@mui/material";
+import { HashLink } from "react-router-hash-link";
 const Footer = () => {
   return (
     <Box sx={{ width: "100%" }}>
@@ -23,7 +23,11 @@ const Footer = () => {
           height: 40,
         }}
       >
-        <Box>Impressum</Box>
+        <Box>
+          <Button component={HashLink} to="/impressum#top">
+            Impressum
+          </Button>
+        </Box>
         <Box>Datenschutz</Box>
         <Box>Kontakt</Box>
       </Box>

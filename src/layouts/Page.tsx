@@ -4,6 +4,7 @@ import PageViewRoute from "../components/PageViewRoute";
 // import all pages that are available at this level
 import LandingPage from "../pages/LandingPage";
 import CityPage from "../pages/CityPage";
+import Impressum from "../pages/Impressum";
 // import TestPage from "../pages/TestPage";
 import SamplePage from "../pages/SamplePage";
 
@@ -28,6 +29,11 @@ const Page: React.FC = () => (
         title="City"
         path="/city/:cityId"
         render={() => <CityPage />}
+      />
+      <PageViewRoute
+        title="Impressum"
+        path="/impressum"
+        render={() => <Impressum />}
       />
 
       {/* DEV ONLY: we can keep the test page, but maybe use a different url */}

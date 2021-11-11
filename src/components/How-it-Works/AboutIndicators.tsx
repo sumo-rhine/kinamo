@@ -137,7 +137,7 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                 </Icon>
               }
               value="functional_diversity"
-              label="Raum Struktur"
+              label="Angebote"
             />
             <Tab
               icon={
