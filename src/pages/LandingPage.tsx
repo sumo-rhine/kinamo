@@ -33,9 +33,8 @@ const LandingPage: React.FC = () => {
           <CityStepper />
           <About value={active} setter={setActive} />
           <DividerOverview />
-          {/* <XDataTable /> */}
-          <CityTable />
-
+          <XDataTable />
+          {/* <CityTable /> */}
           <Footer />
         </Box>
       ) : (
@@ -44,7 +43,6 @@ const LandingPage: React.FC = () => {
             width: "100%",
             height: "100vh",
             display: "flex",
-            // alignItems: "center",
             backgroundColor: "black",
             color: "white",
           }}
@@ -67,12 +65,10 @@ const LandingPage: React.FC = () => {
           </Box>
           <Box sx={{}}>
             <Typography
-              // variant="subtitle2"
               mt={10}
               m={6}
               align="center"
               variant="h6"
-              // color="text.secondary"
               fontWeight="fontWeightLight"
             >
               Sie sind auf der KINaMo Webseite, die Applikation befindet
@@ -81,20 +77,16 @@ const LandingPage: React.FC = () => {
             </Typography>
             <Typography
               m={6}
-              // variant="subtitle2"
               align="center"
               variant="h4"
-              // color="text.secondary"
               fontWeight="fontWeightLight"
             >
               Bitte besuchen sie die Seite mit einem Desktop Gerät erneut.
             </Typography>
             <Typography
               m={6}
-              // variant="subtitle2"
               align="center"
               variant="h6"
-              // color="text.secondary"
               fontWeight="fontWeightLight"
             >
               Danke für ihr Verständnis
