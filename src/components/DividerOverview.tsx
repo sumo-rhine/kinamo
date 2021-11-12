@@ -32,8 +32,8 @@ const DividerOverview: React.FC = () => {
           KINaMo-Indikatoren.
         </Typography>
         <Typography mt={1} color="white" fontWeight="fontWeightLight">
-          Durch Anklicken der Icons kann die Tabelle sortiert werden, für mehr
-          Informationen drücken sie auf den Namen der Kommune
+          Durch Anklicken der Icons kann die Tabelle sortiert werden, die
+          Kommune kann über den Namen ausgewählt werden.
         </Typography>
         <Tooltip
           title={
@@ -44,8 +44,8 @@ const DividerOverview: React.FC = () => {
                 alignItems: "flex-end",
               }}
             >
-              <Typography variant="h2" fontWeight="fontWeightLight">
-                7
+              <Typography variant="h5" fontWeight="fontWeightLight">
+                Die Indikatoren haben einen Wert zwischen 0 und 10
               </Typography>
               <Typography
                 pl={0.5}
@@ -53,7 +53,7 @@ const DividerOverview: React.FC = () => {
                 variant="h5"
                 fontWeight="fontWeightLight"
               >
-                VON 10
+                {/* VON 10 */}
               </Typography>
               {/* <Typography variant="h5" fontWeight="fontWeightLight">
                   {props.rank}ER VON 36
