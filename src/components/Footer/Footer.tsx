@@ -4,33 +4,14 @@ const Footer = () => {
   return (
     <Box sx={{ width: "100%" }}>
       <Box
-        sx={
-          {
-            // backgroundColor: "#383C45",
-            // height: 2,
-          }
-        }
+        sx={{
+          backgroundColor: "#383C45",
+          height: 20,
+        }}
       >
         {/* <Box>Partner</Box> */}
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-          backgroundColor: "#383C45",
-          color: "white",
-          height: 40,
-        }}
-      >
-        <Box>
-          <Button component={HashLink} to="/impressum#top">
-            Impressum
-          </Button>
-        </Box>
-        <Box>Datenschutz</Box>
-        <Box>Kontakt</Box>
-      </Box>
+
       <Box sx={{ display: "flex", justifyContent: "space-around" }}>
         <Box m={2}>
           <Link href="https://www.interreg-rhin-sup.eu/" target="_blank">
@@ -103,6 +84,36 @@ const Footer = () => {
               src="/assets/logos/here.png"
             />
           </Link>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "center",
+          backgroundColor: "#383C45",
+          color: "white",
+          height: 40,
+        }}
+      >
+        <Box>
+          <Button
+            sx={{ color: "white" }}
+            component={HashLink}
+            to="/impressum#top"
+          >
+            Impressum
+          </Button>
+        </Box>
+        <Box>
+          <Button>
+            <Link
+              sx={{ color: "white" }}
+              href="mailto:janusch.jehle@uni-freiburg.de"
+            >
+              Kontakt
+            </Link>
+          </Button>
         </Box>
       </Box>
     </Box>
