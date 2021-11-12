@@ -250,21 +250,6 @@ const AboutScoring = () => {
                   ></Box>
                 </Box>
                 <Box sx={{ display: "flex" }}>
-                  {/* <Box
-                // sx={{
-                //   display: "flex",
-                //   justifyContent: "space-between",
-                //   width: 200 * barWidthFactor,
-                //   position: "relative",
-                // }}
-                >
-                  <Typography variant="h6" fontWeight="fontWeightLight">
-                    0
-                  </Typography>
-                  <Typography variant="h6" fontWeight="fontWeightLight">
-                    72
-                  </Typography>
-                </Box> */}
                   <Box
                     sx={{
                       width:
@@ -292,11 +277,6 @@ const AboutScoring = () => {
                       </Typography>
                     </Box>
                   </Box>
-                  {/* <Box ml={27}>
-                  <Typography variant="h6" fontWeight="fontWeightLight">
-                    72
-                  </Typography>
-                </Box> */}
                 </Box>
               </Box>
             </Paper>
@@ -311,7 +291,7 @@ const AboutScoring = () => {
               }}
               mr={5}
             >
-              <Typography pr={6} variant="h6" fontWeight="fontWeightLight">
+              <Typography pr={28} variant="h6" fontWeight="fontWeightLight">
                 Anteil 30er Zonen
               </Typography>
               <Box sx={{ display: "flex" }}>
@@ -393,7 +373,12 @@ const AboutScoring = () => {
               }}
               mr={5}
             >
-              <Typography pr={6} variant="h6" fontWeight="fontWeightLight">
+              <Typography
+                pr={0}
+                // sx={{ width: 250 }}
+                variant="h6"
+                fontWeight="fontWeightLight"
+              >
                 Unfälle mit Fahrradfahrern pro 1000 Einwohner
               </Typography>
               <Box sx={{ display: "flex" }}>

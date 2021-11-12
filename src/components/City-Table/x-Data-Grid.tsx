@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import sortBy from "lodash.sortby";
-import CityTableCell from "./City-Table-Cell";
-import Toolbar from "@mui/material/Toolbar";
-import Table from "@mui/material/Table";
-import TableHead from "@mui/material/TableHead";
-import TableBody from "@mui/material/TableBody";
-import TableRow from "@mui/material/TableRow";
-import TableCell from "@mui/material/TableCell";
-import TableSortLabel from "@mui/material/TableSortLabel";
 import { Box } from "@mui/system";
 import { HashLink } from "react-router-hash-link";
 import { Button } from "@mui/material";
@@ -20,15 +11,11 @@ import {
   GridRowProps,
   GridColDef,
   GridRenderCellParams,
-  GridColumnHeaderParams,
 } from "@mui/x-data-grid";
 
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
-//import CityTableCell from "./City-Table-Cell";
-import { Link } from "react-router-dom";
 import { getIconPath } from "../IndicatorAndIcon";
-import { AnyKindOfDictionary } from "lodash";
 
 const cellRenderer = (params: any) => {
   const width = (params.value / 10) * 100;
@@ -80,8 +67,6 @@ const cellRenderer = (params: any) => {
     </Tooltip>
   );
 };
-
-// const HeaderRenderer = (params: GridColumnHeaderParams) => {};
 
 const cityCellRenderer = (params: GridRenderCellParams) => {
   // TODO: put the button here

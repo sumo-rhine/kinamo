@@ -2,34 +2,28 @@ import React from "react";
 import { Box } from "@mui/material";
 import Header from "../components/Header/Header";
 import RandomAnimationBanner from "../components/AnimationBanner/RandomAnimationBanner";
-import CityTable from "../components/City-Table/City-Table";
 import XDataTable from "../components/City-Table/x-Data-Grid";
 import DividerOverview from "../components/DividerOverview";
 import About from "../components/How-it-Works/HowItWorks";
 import CityStepper from "../components/Carousel/CityStepper";
 import { useState, useEffect } from "react";
-import Typography from "@mui/material/Typography";
 import Footer from "../components/Footer/Footer";
 import MobileMessage from "../components/MobileMessage";
 const LandingPage: React.FC = () => {
   const [active, setActive] = useState(false);
-  const [windowWidth, setWindowWidth] = useState<undefined | number>(1500);
+  // const [windowWidth, setWindowWidth] = useState<undefined | number>(1500);
 
-  useEffect(() => {
-    setWindowWidth(window.innerWidth);
-    // console.log(windowWidth);
-  }, []);
+  // useEffect(() => {
+  //   setWindowWidth(window.innerWidth);
+  //   // console.log(windowWidth);
+  // }, []);
 
   return (
     <Box>
-      {windowWidth! > 1400 ? (
+      {window.innerWidth! > 1400 ? (
         <Box>
           <div id="top" />
-          <Header
-            // value={active}
-            // setter={setActive}
-            cityName="wähle deine Kommune"
-          ></Header>
+          <Header cityName="wähle deine Kommune"></Header>
           <RandomAnimationBanner></RandomAnimationBanner>
           <CityStepper />
           <About value={active} setter={setActive} />

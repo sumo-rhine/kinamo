@@ -1,6 +1,5 @@
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
-import HorizontalLinearStepper from "./HorizontalLinearStepper";
 import AboutKinamoTabs from "./AboutKinamoTabs";
 import { AboutProps } from "./About.model";
 

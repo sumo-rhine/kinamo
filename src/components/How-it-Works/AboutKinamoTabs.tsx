@@ -1,10 +1,5 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
-import Step from "@mui/material/Step";
-import StepLabel from "@mui/material/StepLabel";
-import { Typography } from "@mui/material";
-import { Button, Stack } from "@mui/material";
 // import { AboutSuMoProject, AboutIndicators, AboutKeyFigures } from "./About";
 import AboutScoring from "./AboutScoring";
 import AboutIndicators from "./AboutIndicators";
@@ -12,19 +7,17 @@ import AboutSuMoProject from "./AboutSuMoProject";
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
 import { connect } from "react-redux";
-import Fade from "@mui/material/Fade";
-import { useEffect } from "react";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import Tab from "@mui/material/Tab";
 
 // import { AboutProps } from "./About.model";
-const steps = [
-  "Was ist KINaMo?",
-  "Indikatoren und Kennzahlen",
-  "Interaktives Beispiel zur Indikatorenberechnung",
-];
+// const steps = [
+//   "Was ist KINaMo?",
+//   "Indikatoren und Kennzahlen",
+//   "Interaktives Beispiel zur Indikatorenberechnung",
+// ];
 
 interface AboutKinamoTabsProps {
   cities: City[];
