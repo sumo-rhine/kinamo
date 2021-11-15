@@ -59,7 +59,8 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
       <Box
         sx={{
           width: 450,
-          backgroundColor: "#F8F8F8090",
+          // backgroundColor: "black",
+          backgroundColor: "#F8F8F880",
           zIndex: 3,
           position: "relative",
         }}

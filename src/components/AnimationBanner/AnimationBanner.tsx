@@ -12,11 +12,11 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
   // } else {
   //   const id = 102;
   // }
-  const id = props.city.id === 826 ? 826 : 102;
+  // const id = props.city.id === 826 ? 826 : 102;
 
-  const pois_path = "/assets/banner/" + id.toString() + "_pois.png";
-  const streets_path = "/assets/banner/" + id.toString() + "_streets.png";
-  const parks_path = "/assets/banner/" + id.toString() + "_parks.png";
+  // const pois_path = "/assets/banner/" + id.toString() + "_pois.png";
+  // const streets_path = "/assets/banner/" + id.toString() + "_streets.png";
+  // const parks_path = "/assets/banner/" + id.toString() + "_parks.png";
   // console.log("path of animationBanner:", parks_path);
 
   const classes = useStyles();
@@ -37,7 +37,7 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
           <img
             alt="img"
             className={classes.parks}
-            src={`/assets/banner/${id.toString()}_parks.png`}
+            src={`/assets/banner/${props.city.id.toString()}_parks.png`}
             onError={(e: any) => (
               (e.target.onError = null),
               (e.target.src = "/assets/banner/102_parks.png")
@@ -46,7 +46,7 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
           <img
             alt="img"
             className={classes.pois}
-            src={`/assets/banner/${id.toString()}_pois.png`}
+            src={`/assets/banner/${props.city.id.toString()}_pois.png`}
             onError={(e: any) => (
               (e.target.onError = null),
               (e.target.src = "/assets/banner/102_pois.png")
@@ -55,7 +55,7 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
           <img
             alt="img"
             className={classes.streets}
-            src={`/assets/banner/${id.toString()}_streets.png`}
+            src={`/assets/banner/${props.city.id.toString()}_streets.png`}
             onError={(e: any) => (
               (e.target.onError = null),
               (e.target.src = "/assets/banner/102_streets.png")

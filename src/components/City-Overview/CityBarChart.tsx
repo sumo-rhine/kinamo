@@ -19,7 +19,7 @@ const CityBarChart: React.FC<CityBarChartProps> = (props) => {
       }
     >
       <Box
-        sx={{ backgroundColor: "#F8F8F870", zIndex: 3, position: "relative" }}
+        sx={{ backgroundColor: "#F8F8F880", zIndex: 3, position: "relative" }}
       >
         <StackedBarRow
           indicator={props.city.indicators.walkability}
