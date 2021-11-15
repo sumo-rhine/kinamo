@@ -87,6 +87,7 @@ export interface City {
   population: CityProperty;
   area: CityProperty;
   urban_area: CityProperty;
+  population_density: CityProperty;
   two_best_keyFigures: string[];
   two_worst_keyFigures: string[];
   indicators: MainIndicators;

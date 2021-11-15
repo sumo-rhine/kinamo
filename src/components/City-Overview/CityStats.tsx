@@ -9,6 +9,7 @@ interface CityStatsProps {
 }
 
 const CityStats: React.FC<CityStatsProps> = (props) => {
+  console.log(props.city);
   return (
     <Box
       sx={
@@ -64,7 +65,7 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
           zIndex: 3,
           position: "relative",
         }}
-        pt={5}
+        pt={3}
       >
         <KeyFigureCard
           description={props.city.population.description}
@@ -105,6 +106,19 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
           infoIcon={false}
           quality={"ok"}
         />
+        {/* <KeyFigureCard
+          description={props.city.population_density.description}
+          value={props.city.population_density.value}
+          unit={props.city.population_density.unit}
+          short_name={props.city.population_density.description}
+          points={props.city.population_density.points}
+          max_points={props.city.population_density.max_points}
+          padding={1}
+          elevation={0}
+          bar={true}
+          infoIcon={false}
+          quality={"ok"}
+        /> */}
       </Box>
     </Box>
   );
