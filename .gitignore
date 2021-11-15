@@ -13,6 +13,7 @@
 
 # images for interactiv visualisations
 /public/assets/banner
+/public/assets/thumbnail
 
 # misc
 .DS_Store
