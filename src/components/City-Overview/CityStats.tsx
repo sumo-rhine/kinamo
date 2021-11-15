@@ -24,7 +24,7 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
           <Typography
             variant="h4"
             fontWeight="fontWeightLight"
-            pb={3}
+            pb={5}
             component="div"
           >
             {props.city.country}
@@ -35,7 +35,7 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
             style={{
               position: "absolute",
               zIndex: 0,
-              height: 600,
+              // height: 600,
               // overflow: "hidden",
               // boxShadow: "0 2px 4px silver",
               // left: 40,
