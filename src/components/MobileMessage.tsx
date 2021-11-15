@@ -14,7 +14,7 @@ const MobileMessage = () => {
     >
       <Box>
         {/* <img
-          style={{
+          style={{keyFigureDescription
             position: "absolute",
             zIndex: 2,
             // height: 800,

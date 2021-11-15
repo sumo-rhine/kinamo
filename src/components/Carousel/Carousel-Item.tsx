@@ -12,6 +12,7 @@ interface CarouselItemProps {
 interface CityInfoData {
   cityName: string;
   shortName: string;
+  cityID: string;
   keyFigureDescription: string;
   keyFigureValue: number;
   keyFigureUnit: string;
@@ -23,7 +24,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
   const [data, setData] = useState<CityInfoData>();
 
   useEffect(() => {
-    const cityInfo: any = { cityName: props.city.city };
+    const cityInfo: any = { cityName: props.city.city, cityID: props.city.id };
     const best = props.city.two_best_keyFigures[0];
     Object.entries(props.city.indicators).forEach(([name, indicator]) => {
       indicator.keyFigures.map((fig: any) => {
@@ -128,9 +129,13 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
         </Box>
         <Box>
           <Box pt={15}>
-            <CardMedia
+            <img
               style={{ width: 500, height: 400 }}
-              image="assets/thumbnail/102_.png"
+              src={`assets/thumbnail/${data.cityID.toString()}.png`}
+              onError={(e: any) => (
+                (e.target.onError = null),
+                (e.target.src = "assets/thumbnail/102.png")
+              )}
             />
             {/* <p>test</p> */}
           </Box>

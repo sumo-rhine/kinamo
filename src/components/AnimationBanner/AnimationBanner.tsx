@@ -34,13 +34,32 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
       <Box sx={{ position: "absolute" }}>
         {/* <Fade in={loading} timeout={4000}> */}
         <Box className={classes.banner}>
-          <img alt="img" className={classes.parks} src={parks_path} />
-          <img alt="img" className={classes.pois} src={pois_path} />
+          <img
+            alt="img"
+            className={classes.parks}
+            src={`/assets/banner/${id.toString()}_parks.png`}
+            onError={(e: any) => (
+              (e.target.onError = null),
+              (e.target.src = "/assets/banner/102_parks.png")
+            )}
+          />
+          <img
+            alt="img"
+            className={classes.pois}
+            src={`/assets/banner/${id.toString()}_pois.png`}
+            onError={(e: any) => (
+              (e.target.onError = null),
+              (e.target.src = "/assets/banner/102_pois.png")
+            )}
+          />
           <img
             alt="img"
             className={classes.streets}
-            src={streets_path}
-            // onLoad={onLoadHandler}
+            src={`/assets/banner/${id.toString()}_streets.png`}
+            onError={(e: any) => (
+              (e.target.onError = null),
+              (e.target.src = "/assets/banner/102_streets.png")
+            )}
           />
         </Box>
         {/* </Fade> */}

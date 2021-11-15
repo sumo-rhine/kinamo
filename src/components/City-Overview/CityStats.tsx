@@ -36,7 +36,7 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
             style={{
               position: "absolute",
               zIndex: 2,
-              // height: 800,
+              height: 600,
               // overflow: "hidden",
               // boxShadow: "0 2px 4px silver",
               // left: 40,
@@ -44,11 +44,16 @@ const CityStats: React.FC<CityStatsProps> = (props) => {
               // opacity: 0.8,
             }}
             alt="img"
-            src={
-              props.city.id === 826
-                ? "/assets/thumbnail/826.png"
-                : "/assets/thumbnail/102_crop.png"
-            }
+            src={`/assets/thumbnail/${props.city.id.toString()}.png`}
+            onError={(e: any) => (
+              (e.target.onError = null),
+              (e.target.src = "/assets/thumbnail/102.png")
+            )}
+            // src={
+            //   props.city.id === 826
+            //     ? "/assets/thumbnail/826.png"
+            //     : "/assets/thumbnail/102_crop.png"
+            // }
           />
         </Box>
       </Box>
