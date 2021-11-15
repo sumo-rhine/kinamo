@@ -128,7 +128,7 @@ const AboutScoring = () => {
     setSpeedLimitBarWidth(((newValue as number) - minSpeedLimit) * (100 / 66));
     const speedLimitRankingNew =
       (speedLimitBarWidth as number) / ratingInPercent;
-    setSpeedLimitRank(speedLimitRankingNew === 0 ? 1 : speedLimitRankingNew);
+    setSpeedLimitRank(speedLimitRankingNew < 0.2 ? 1 : speedLimitRankingNew);
   };
 
   const handleSliderChangeBicycleAccidents = (
@@ -140,7 +140,7 @@ const AboutScoring = () => {
     const bicycleAccidentsRankNew =
       (newValue as number) * (36 / maxBicycleAccidents);
     setBicycleAccidentsRating(
-      bicycleAccidentsRankNew === 0 ? 1 : bicycleAccidentsRankNew
+      bicycleAccidentsRankNew < 0.2 ? 1 : bicycleAccidentsRankNew
     );
   };
 
@@ -303,7 +303,7 @@ const AboutScoring = () => {
                   <Slider
                     defaultValue={initSpeedLimit}
                     aria-label="Small"
-                    valueLabelDisplay="auto"
+                    // valueLabelDisplay="auto"
                     onChange={handleSliderChangeSpeedLimit}
                     getAriaValueText={valueTextSpeedLimit}
                     min={minSpeedLimit}
@@ -389,7 +389,7 @@ const AboutScoring = () => {
                   <Slider
                     defaultValue={initBicycleAccidents}
                     aria-label="Small"
-                    valueLabelDisplay="auto"
+                    // valueLabelDisplay="auto"
                     onChange={handleSliderChangeBicycleAccidents}
                     step={maxBicycleAccidents / 100}
                     min={minBicycleAccidents}
