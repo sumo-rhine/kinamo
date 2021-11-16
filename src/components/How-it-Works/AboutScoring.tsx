@@ -379,7 +379,7 @@ const AboutScoring = () => {
                 variant="h6"
                 fontWeight="fontWeightLight"
               >
-                Bike-sharing Fahrrädern pro 1000 Einwohner
+                Bike-sharing Fahrräder pro 1000 Einwohner
               </Typography>
               <Box sx={{ display: "flex" }}>
                 <Typography pr={3} variant="h3" fontWeight="fontWeightLight">
