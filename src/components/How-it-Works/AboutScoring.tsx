@@ -10,11 +10,11 @@ const AboutScoring = () => {
   const barWidthFactor = 3;
   const nCities = 36;
   const ratingInPercent = 100 / nCities;
-  const initBicycleAccidents = 4;
+  const initBicycleAccidents = 2;
   const maxSpeedLimit = 88;
   const minSpeedLimit = 22;
-  const maxBicycleAccidents = 11.7;
-  const minBicycleAccidents = 0.05;
+  const maxBicycleAccidents = 5.87;
+  const minBicycleAccidents = 0;
 
   // const initSpeedLimitBarWidth = (initSpeedLimit - minSpeedLimit) * (100 / 66);
   // const initBicycleAccidentsBarWidth;
@@ -64,28 +64,28 @@ const AboutScoring = () => {
     //   label: "30%",
     // },
     {
-      value: 3,
-      label: "3",
+      value: 1.4,
+      label: "1.4",
     },
     // {
     //   value: 50,
     //   label: "50%",
     // },
     {
-      value: 6,
-      label: "6",
+      value: 2.8,
+      label: "2.8",
     },
     // {
     //   value: 70,
     //   label: "70%",
     // },
     {
-      value: 9,
-      label: "9",
+      value: 4.4,
+      label: "4.4",
     },
     {
       value: maxBicycleAccidents,
-      label: "11.7",
+      label: "5.9",
     },
   ];
 
@@ -117,7 +117,7 @@ const AboutScoring = () => {
   );
 
   const [bicycleAccidentsBarWidth, setBicycleAccidentsBarWidth] = useState(
-    initBicycleAccidents * (100 / maxBicycleAccidents) // speed limit goes from 22 ro 88
+    initBicycleAccidents * (100 / maxBicycleAccidents)
   );
 
   const handleSliderChangeSpeedLimit = (
@@ -153,7 +153,7 @@ const AboutScoring = () => {
       </Typography>
       <Typography mt={4} fontWeight="fontWeightLight" variant="h6">
         Betrachten wir als Beispiel einen Indikator, der nur aus zwei Kennzahlen
-        besteht: Anteil 30er Zonen und Unfälle mit Fahrradfahrenden
+        besteht: Anteil 30er Zonen und Anzahl Bike-sharing Fahrräder.
       </Typography>
       <Typography pb={4} fontWeight="fontWeightLight" variant="h6">
         Indem du den blauen Regler der beiden Kennzahlen verschiebst, kannst du
@@ -379,7 +379,7 @@ const AboutScoring = () => {
                 variant="h6"
                 fontWeight="fontWeightLight"
               >
-                Unfälle mit Fahrradfahrern pro 1000 Einwohner
+                Bike-sharing Fahrrädern pro 1000 Einwohner
               </Typography>
               <Box sx={{ display: "flex" }}>
                 <Typography pr={3} variant="h3" fontWeight="fontWeightLight">
@@ -387,6 +387,7 @@ const AboutScoring = () => {
                 </Typography>
                 <Box mt={2} mr={11} sx={{ width: 200 }}>
                   <Slider
+                    // track="inverted"
                     defaultValue={initBicycleAccidents}
                     aria-label="Small"
                     // valueLabelDisplay="auto"
