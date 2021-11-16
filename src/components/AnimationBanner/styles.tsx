@@ -47,24 +47,20 @@ const useStyles = makeStyles({
   "@keyframes animation_streets": {
     "0%": {
       transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-180deg) ",
-      filter:
-        "saturate(1%) contrast(10%) drop-shadow(250px 250px 250px #0000ff)",
-      opacity: 1,
+      filter: "contrast(2%) drop-shadow(250px 250px 250px #0000ff)",
+      // opacity: 1,
     },
     "33%": {
       transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-120deg) ",
-      filter:
-        "saturate(20%) contrast(20%) drop-shadow(150px 150px 150px #ADD8E6)",
+      filter: "contrast(10%) drop-shadow(150px 150px 150px #ADD8E6)",
     },
     "66%": {
       transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-80deg) ",
-      filter:
-        "saturate(20%) contrast(30%) drop-shadow(250px 250px 250px #0000ff)",
+      filter: "contrast(20%) drop-shadow(250px 250px 250px #0000ff)",
     },
     "100%": {
       transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-20deg) ",
-      filter:
-        "saturate(1%) contrast(20%) drop-shadow(150px 150px 150px #ADD8E6)",
+      filter: "contrast(10%) drop-shadow(150px 150px 150px #ADD8E6)",
     },
   },
 
