@@ -6,8 +6,7 @@ const DividerOverview: React.FC = () => {
   return (
     <Box
       sx={{
-        width: "100%",
-        height: 200,
+        minHeight: 200,
         backgroundColor: "#383C45",
         display: "flex",
         alignItems: "center",
@@ -71,6 +70,7 @@ const DividerOverview: React.FC = () => {
               transitionDuration: "1.7s",
               // boxShadow: "0 2px 4px silver",
             }}
+            display={{ lg: "none", xl: "block" }}
           >
             <Box
               style={{

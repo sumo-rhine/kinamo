@@ -24,7 +24,7 @@ const SelectCityTabs: React.FC<CityModalProps> = (props) => {
   return (
     <Box
       sx={{
-        width: "80%",
+        // width: "80%",
         typography: "body1",
         display: "flex",
         alignItems: "center",
@@ -38,6 +38,7 @@ const SelectCityTabs: React.FC<CityModalProps> = (props) => {
             onChange={handleChange}
             aria-label="lab API tabs example"
             orientation="vertical"
+            // orientation={window.innerWidth > 1400 ? "vertical" : "horizontal"}
             centered
           >
             <Tab sx={{ width: 200 }} label="Deutschland" value="Deutschland" />
@@ -60,7 +61,7 @@ const SelectCityTabs: React.FC<CityModalProps> = (props) => {
                 {
                   <Button
                     onClick={props.closeHandler}
-                    size="large"
+                    // size="small"
                     component={Link}
                     to={`/city/${city.id}`}
                   >

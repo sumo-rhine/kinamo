@@ -12,13 +12,6 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import Tab from "@mui/material/Tab";
 
-// import { AboutProps } from "./About.model";
-// const steps = [
-//   "Was ist KINaMo?",
-//   "Indikatoren und Kennzahlen",
-//   "Interaktives Beispiel zur Indikatorenberechnung",
-// ];
-
 interface AboutKinamoTabsProps {
   cities: City[];
 }
@@ -50,30 +43,39 @@ const AboutKinamoTabs: React.FC<AboutKinamoTabsProps> = (props) => {
   return (
     <TabContext value={activeStep}>
       <Box
-        pb={9}
-        sx={{
-          display: "flex",
-          justifyContent: "flex-start",
-          minHeight: 600,
-          width: "100%",
-        }}
+        // pb={9}
+        sx={
+          {
+            // display: "flex",
+            // justifyContent: "flex-start",
+            // minHeight: 600,
+            // width: "100%",
+          }
+        }
+        ml={{ lg: 2, xl: 20 }}
+        mr={{ lg: 2, xl: 20 }}
+        // px={{ sm: 1, md: 20 }}
       >
-        <Box mt={40} ml={10} sx={{ width: 250 }}>
+        <Box
+          mt={6}
+          sx={{
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "center",
+          }}
+        >
           <TabList
             onChange={handleChange}
             aria-label="Was ist KINaMo"
-            orientation="vertical"
+            orientation="horizontal"
             centered
           >
             <Tab label="Was ist KINaMo?" value="kinamo" />
             <Tab label="Indikatoren und Kennzahlen" value="indicators" />
-            <Tab
-              label="Interaktives Beispiel zur Indikatorenberechnung"
-              value="scoring"
-            />
+            <Tab label="Indikatorenberechnung" value="scoring" />
           </TabList>
         </Box>
-        <Box mt={5} ml={10} sx={{ width: "75%" }}>
+        <Box mt={5} sx={{}}>
           {(() => {
             if (activeStep === "kinamo") {
               return (

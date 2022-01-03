@@ -104,6 +104,7 @@ const columns: GridColDef[] = [
     headerName: "Fußgänger Freundlichkeit",
     renderCell: cellRenderer,
     flex: 1,
+    minWidth: 120,
     headerAlign: "center",
     renderHeader: () => (
       <Box
@@ -135,6 +136,7 @@ const columns: GridColDef[] = [
     headerName: "Fahrrad Freundlichkeit",
     renderCell: cellRenderer,
     flex: 1,
+    minWidth: 120,
     headerAlign: "center",
     renderHeader: () => (
       <Box
@@ -166,6 +168,7 @@ const columns: GridColDef[] = [
     headerName: "ÖPNV",
     renderCell: cellRenderer,
     flex: 1,
+    minWidth: 120,
     headerAlign: "center",
     renderHeader: () => (
       <Box
@@ -197,6 +200,7 @@ const columns: GridColDef[] = [
     headerName: "Auto",
     renderCell: cellRenderer,
     flex: 1,
+    minWidth: 120,
     headerAlign: "center",
     renderHeader: () => (
       <Box
@@ -228,6 +232,7 @@ const columns: GridColDef[] = [
     headerName: "Angebote",
     renderCell: cellRenderer,
     flex: 1,
+    minWidth: 120,
     headerAlign: "center",
     renderHeader: () => (
       <Box
@@ -259,6 +264,7 @@ const columns: GridColDef[] = [
     headerName: "Erreichbarkeit",
     renderCell: cellRenderer,
     flex: 1,
+    minWidth: 120,
     headerAlign: "center",
     renderHeader: () => (
       <Box
@@ -290,6 +296,7 @@ const columns: GridColDef[] = [
     headerName: "Regionale Anbindung",
     renderCell: cellRenderer,
     flex: 1,
+    minWidth: 120,
     headerAlign: "center",
     renderHeader: () => (
       <Box
@@ -321,6 +328,7 @@ const columns: GridColDef[] = [
     headerName: "Landnutzung",
     renderCell: cellRenderer,
     flex: 1,
+    minWidth: 120,
     headerAlign: "center",
     renderHeader: () => (
       <Box
@@ -352,6 +360,7 @@ const columns: GridColDef[] = [
     headerName: "Emissionen",
     renderCell: cellRenderer,
     flex: 1,
+    minWidth: 120,
     headerAlign: "center",
     renderHeader: () => (
       <Box
@@ -383,6 +392,7 @@ const columns: GridColDef[] = [
     headerName: "Lärm Belastung",
     renderCell: cellRenderer,
     flex: 1,
+    minWidth: 120,
     headerAlign: "center",
     renderHeader: () => (
       <Box
@@ -414,6 +424,7 @@ const columns: GridColDef[] = [
     headerName: "Verkehrs Sicherheit",
     renderCell: cellRenderer,
     flex: 1,
+    minWidth: 120,
     headerAlign: "center",
     renderHeader: () => (
       <Box
@@ -445,6 +456,7 @@ const columns: GridColDef[] = [
     headerName: "Verkehrs Verhalten",
     renderCell: cellRenderer,
     flex: 1,
+    minWidth: 120,
     headerAlign: "center",
     renderHeader: () => (
       <Box
@@ -502,7 +514,7 @@ const XCityTable: React.FC<CityTableProps> = (props) => {
       // mt={4}
       sx={{
         width: "100%",
-        height: 700,
+        height: 600,
         display: "flex",
         justifyContent: "space-around",
       }}
@@ -511,12 +523,17 @@ const XCityTable: React.FC<CityTableProps> = (props) => {
         sortingOrder={["desc", "asc"]}
         // columnThreshold={20}
         headerHeight={100}
+        // headerWidth={200}
         disableColumnSelector={true}
         disableColumnMenu={true}
         hideFooter={true}
         // hideFooterPagination={true}
         columns={columns}
         rows={rows}
+        //TODO #115
+        // #
+        // pinnedColumns={{ left: ["city"] }}
+        // initialState={{ pinnedColumns: { left: "city" } }}
       />
     </Box>
   );

@@ -20,7 +20,7 @@ const LandingPage: React.FC = () => {
 
   return (
     <Box>
-      {window.innerWidth! > 1400 ? (
+      {window.innerWidth! >= 1200 ? (
         <Box>
           <div id="top" />
           <Header cityName="wähle deine Kommune"></Header>

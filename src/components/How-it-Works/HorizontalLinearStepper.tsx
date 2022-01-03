@@ -52,14 +52,14 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
     <Box
       pb={9}
       sx={{
-        display: "flex",
-        justifyContent: "flex-start",
-        minHeight: 600,
+        // display: "flex",
+        // justifyContent: "flex-start",
+        // minHeight: 600,
         width: "100%",
       }}
     >
-      <Box mt={40} ml={10} sx={{ width: 300 }}>
-        <Stepper activeStep={activeStep} orientation="vertical" nonLinear>
+      <Box mt={40} ml={10} sx={{}}>
+        <Stepper activeStep={activeStep} orientation="horizontal" nonLinear>
           {steps.map((label) => (
             <Step key={label}>
               <StepLabel>
@@ -72,26 +72,26 @@ const HorizontalLinearStepper: React.FC<HorizontalLinearStepperProps> = (
             </Step>
           ))}
         </Stepper>
-        <Box sx={{ display: "flex", justifyContent: "flex-start" }}>
-          <Stack mt={10} direction="row" spacing={2}>
-            <Button
-              variant="outlined"
-              disabled={activeStep < 1}
-              onClick={handleBack}
-              sx={{ borderRadius: 0 }}
-            >
-              Zurück
-            </Button>
-            <Button
-              sx={{ borderRadius: 0 }}
-              variant="outlined"
-              disabled={activeStep > 1}
-              onClick={handleNext}
-            >
-              Weiter
-            </Button>
-          </Stack>
-        </Box>
+        {/* <Box sx={{ display: "flex", justifyContent: "flex-start" }}> */}
+        <Stack mt={10} direction="row" spacing={2}>
+          <Button
+            variant="outlined"
+            disabled={activeStep < 1}
+            onClick={handleBack}
+            sx={{ borderRadius: 0 }}
+          >
+            Zurück
+          </Button>
+          <Button
+            sx={{ borderRadius: 0 }}
+            variant="outlined"
+            disabled={activeStep > 1}
+            onClick={handleNext}
+          >
+            Weiter
+          </Button>
+        </Stack>
+        {/* </Box> */}
       </Box>
       <Box mt={10} ml={10} sx={{ width: "70%" }}>
         {(() => {

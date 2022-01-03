@@ -296,12 +296,12 @@ const AboutIndicators: React.FC<AboutProps> = (props) => {
                                 id="panel1a-header"
                               >
                                 <Typography
-                                  variant="h6"
+                                  // variant="h6"
                                   fontWeight="fontWeightLight"
                                 >
                                   <Box>
                                     <Typography
-                                      variant="h6"
+                                      // variant="h6"
                                       fontWeight="fontWeightLight"
                                     >
                                       {keyFigure.short_name}

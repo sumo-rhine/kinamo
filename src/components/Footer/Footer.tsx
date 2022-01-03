@@ -3,14 +3,13 @@ import { HashLink } from "react-router-hash-link";
 const Footer = () => {
   return (
     <Box sx={{ width: "100%" }}>
-      <Box
+      {/* <Box
         sx={{
           backgroundColor: "#383C45",
           height: 20,
         }}
       >
-        {/* <Box>Partner</Box> */}
-      </Box>
+      </Box> */}
 
       <Box sx={{ display: "flex", justifyContent: "space-around" }}>
         <Box m={2}>
