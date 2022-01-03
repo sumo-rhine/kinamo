@@ -5,14 +5,14 @@ import Paper from "@mui/material/Paper";
 const AboutSuMoProject = () => {
   return (
     // <Paper>
-    <Box sx={{ width: 1200 }}>
+    <Box sx={{}}>
       <Typography variant="h4" fontWeight="fontWeightLight">
         KINaMo -
         <Box fontWeight="bold" display="inline">
           {" "}
           K
         </Box>
-        ommunalen
+        ommunales
         <Box fontWeight="bold" display="inline">
           {" "}
           I

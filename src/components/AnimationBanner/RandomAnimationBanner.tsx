@@ -115,7 +115,7 @@ const RandomAnimationBanner: React.FC = (props) => {
             {" "}
             Mo
           </Box>
-          bilität .
+          bilität
         </Typography>
       </Box>
     </Box>

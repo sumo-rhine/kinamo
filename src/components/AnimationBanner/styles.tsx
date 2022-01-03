@@ -47,7 +47,7 @@ const useStyles = makeStyles({
   "@keyframes animation_streets": {
     "0%": {
       transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-180deg) ",
-      filter: "contrast(2%) drop-shadow(250px 250px 250px #0000ff)",
+      filter: "contrast(2%) drop-shadow(250px 250px 250px #ADD8E6)",
       // opacity: 1,
     },
     "33%": {
@@ -56,7 +56,7 @@ const useStyles = makeStyles({
     },
     "66%": {
       transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-80deg) ",
-      filter: "contrast(20%) drop-shadow(250px 250px 250px #0000ff)",
+      filter: "contrast(20%) drop-shadow(250px 250px 250px #ADD8E6)",
     },
     "100%": {
       transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-20deg) ",
@@ -68,13 +68,13 @@ const useStyles = makeStyles({
     "0%": {
       transform: "rotateX(40deg) rotateY(-1deg) rotateZ(-180deg)",
       filter:
-        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(100px 100px 100px yellow)",
+        "saturate(50%) contrast(0%) hue-rotate(-180deg) drop-shadow(100px 100px 100px yellow)",
       opacity: 0.1,
     },
     "33%": {
       transform: "rotateX(40deg) rotateY(-2deg) rotateZ(-120deg)",
       filter:
-        "saturate(50%) contrast(50%) hue-rotate(-180deg) drop-shadow(100px 100px 100px yellow)",
+        "saturate(50%) contrast(20%) hue-rotate(-180deg) drop-shadow(100px 100px 100px yellow)",
       opacity: 0.5,
     },
     "66%": {
