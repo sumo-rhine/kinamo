@@ -17,7 +17,7 @@ const LandingPage: React.FC = () => {
   //   setWindowWidth(window.innerWidth);
   //   // console.log(windowWidth);
   // }, []);
-
+  //
   return (
     <Box>
       {window.innerWidth! >= 1200 ? (
