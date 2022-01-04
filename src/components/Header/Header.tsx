@@ -118,10 +118,12 @@ const Header: React.FC<CityNameProps> = (props) => {
               borderRadius: 30,
             }}
           >
-            <SelectCityModalButton
-              color={color}
-              cityName={props.cityName}
-            ></SelectCityModalButton>
+            {props.selectable && (
+              <SelectCityModalButton
+                color={color}
+                cityName={props.cityName}
+              ></SelectCityModalButton>
+            )}
             {/* <Button
               size="large"
               className={classes.button}

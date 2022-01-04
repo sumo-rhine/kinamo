@@ -23,7 +23,7 @@ const LandingPage: React.FC = () => {
       {window.innerWidth! >= 1200 ? (
         <Box>
           <div id="top" />
-          <Header cityName="wähle deine Kommune"></Header>
+          <Header cityName="wähle deine Kommune" selectable={true}></Header>
           <RandomAnimationBanner></RandomAnimationBanner>
           <CityStepper />
           <About value={active} setter={setActive} />

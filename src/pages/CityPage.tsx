@@ -61,7 +61,7 @@ const CityPage: React.FC<CityPageProps> = (props) => {
   return (
     <Box>
       <div id="top" />
-      <Header cityName={city?.city} />
+      <Header cityName={city?.city} selectable={true} />
       {
         /* Switch the city variable - if null, no city is (yet) loaded */
         city ? (

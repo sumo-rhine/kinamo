@@ -9,7 +9,6 @@ const randomInt = (min: number, max: number) => {
 };
 
 const RandomAnimationBanner: React.FC = (props) => {
-  const [index, setIndex] = useState(0);
   const [id, setId] = useState(102);
   const [loading, setLoading] = useState(true);
   const city_list = [102, 483, 1502, 4, 1341];
@@ -18,18 +17,12 @@ const RandomAnimationBanner: React.FC = (props) => {
     const interval = setInterval(() => {
       setLoading(false);
       // console.log("trigger false");
+
       setTimeout(function () {
         // console.log("trigger next image");
-        if (index > 4) {
-          setIndex(index + 1);
-          setId(city_list[index]);
-        } else {
-          setIndex(0);
-          setId(city_list[index]);
-        }
-        //do what you need here
+        setId(city_list[randomInt(0, 4)]);
         setTimeout(function () {
-          // console.log("trigger true");
+          console.log("trigger true");
           setLoading(true);
         }, 1500);
       }, 1000);
@@ -37,17 +30,6 @@ const RandomAnimationBanner: React.FC = (props) => {
     }, 30000);
     return () => clearInterval(interval);
   }, []);
-
-  // const city_list = [4, 102, 483, 1341, 1502];
-
-  // const pois_path =
-  //   "assets/banner/" + city_list[index].toString() + "_pois.png";
-  // const streets_path =
-  //   "assets/banner/" + city_list[index].toString() + "_streets.png";
-  // const parks_path =
-  //   "assets/banner/" + city_list[index].toString() + "_parks.png";
-
-  // console.log("path of random animation banner: ", parks_path);
 
   return (
     <Box
@@ -60,19 +42,10 @@ const RandomAnimationBanner: React.FC = (props) => {
       }}
     >
       <Box sx={{ position: "absolute" }}>
-        {/* TODO #117 Fade error - <Fade in={loading} timeout={1000}> */}
+        {/* TODO #117 Fade error -  */}
+        {/* <Fade in={loading} timeout={1000}> */}
         <Animation id={id}></Animation>
         {/* </Fade> */}
-        {/* <Box className={classes.banner}> */}
-        {/* <img alt="img" className={classes.parks} src={parks_path} /> */}
-        {/* <img alt="img" className={classes.pois} src={pois_path} /> */}
-        {/* <img */}
-        {/* alt="img" */}
-        {/* className={classes.streets} */}
-        {/* src={streets_path} */}
-        {/* // onLoad={onLoadHandler} */}
-        {/* /> */}
-        {/* </Box> */}
       </Box>
       <Box
         mt={15}
