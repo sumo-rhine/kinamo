@@ -1,10 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
-  font: {
-    color: "white",
-  },
-
   banner: {
     position: "relative",
     perspective: "2000px",
@@ -14,7 +10,8 @@ const useStyles = makeStyles({
   // },
   streets: {
     top: "-400px",
-    left: "200px",
+    left: "-200px",
+    //TODO #116 left: { lg: "-200px", xl: "200px" },
     position: "absolute",
     // boxShadow: "0px 0px 5px #fff",
     // filter: "drop-shadow(16px 16px 10px grey)",
@@ -25,7 +22,7 @@ const useStyles = makeStyles({
   },
   pois: {
     top: "-400px",
-    left: "200px",
+    left: "-200px",
     position: "absolute",
     width: "1600px",
     backgroundColor: "transparent",
@@ -35,7 +32,7 @@ const useStyles = makeStyles({
   },
   parks: {
     top: "-400px",
-    left: "200px",
+    left: "-200px",
     position: "absolute",
     width: "1600px",
     backgroundColor: "transparent",

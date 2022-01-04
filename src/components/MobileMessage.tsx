@@ -1,19 +1,20 @@
 import { Box } from "@mui/material";
 import Typography from "@mui/material/Typography";
+import RandomAnimationBanner from "../components/AnimationBanner/RandomAnimationBanner";
 
 const MobileMessage = () => {
   return (
     <Box
       sx={{
         width: "100%",
-        height: "100vh",
-        display: "flex",
+        // height: "100vh",
+        // display: "flex",
         backgroundColor: "black",
         color: "white",
       }}
     >
-      <Box>
-        {/* <img
+      <RandomAnimationBanner></RandomAnimationBanner>
+      {/* <img
           style={{keyFigureDescription
             position: "absolute",
             zIndex: 2,
@@ -26,8 +27,7 @@ const MobileMessage = () => {
           }}
           alt="img"
           src="/assets/thumbnail/102_crop.png" */}
-        {/* /> */}
-      </Box>
+      {/* /> */}
       <Box sx={{}}>
         <Typography
           mt={10}
