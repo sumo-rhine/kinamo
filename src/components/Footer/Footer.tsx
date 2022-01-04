@@ -1,15 +1,15 @@
-import { Typography, Box, Link, Button } from "@mui/material";
+import { Typography, Box, Link, Button, Divider } from "@mui/material";
 import { HashLink } from "react-router-hash-link";
 const Footer = () => {
   return (
     <Box sx={{ width: "100%" }}>
-      {/* <Box
+      <Box
         sx={{
           backgroundColor: "#383C45",
-          height: 20,
+          height: 5,
         }}
-      >
-      </Box> */}
+      ></Box>
+      {/* <Divider></Divider> */}
 
       <Box sx={{ display: "flex", justifyContent: "space-around" }}>
         <Box m={2}>

@@ -514,10 +514,11 @@ const XCityTable: React.FC<CityTableProps> = (props) => {
       // mt={4}
       sx={{
         width: "100%",
-        height: 600,
+        // height: 650,
         display: "flex",
         justifyContent: "space-around",
       }}
+      height={{ lg: 600, xl: 730 }}
     >
       <DataGrid
         sortingOrder={["desc", "asc"]}
@@ -530,9 +531,9 @@ const XCityTable: React.FC<CityTableProps> = (props) => {
         // hideFooterPagination={true}
         columns={columns}
         rows={rows}
-        //TODO #115
+        //TODO #115 pinnedColumns={{ left: ["city"] }}
         // #
-        // pinnedColumns={{ left: ["city"] }}
+        //
         // initialState={{ pinnedColumns: { left: "city" } }}
       />
     </Box>

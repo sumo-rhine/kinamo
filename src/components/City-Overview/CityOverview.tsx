@@ -12,12 +12,13 @@ const CityOverview: React.FC<CityOverviewProps> = (props) => {
     <Box
       pt={10}
       pb={10}
+      // ml={2}
+      // mr={2}
       sx={{
         width: "100%",
         backgroundColor: "#F8F8F8",
         display: "flex",
         zIndex: 1,
-
         justifyContent: "space-around",
       }}
     >

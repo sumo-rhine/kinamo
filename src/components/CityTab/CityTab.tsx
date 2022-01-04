@@ -39,7 +39,7 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
         pt={4}
         sx={{ width: "100%", backgroundColor: "#F8F8F8", minHeight: 600 }}
       >
-        <Box p={4}>
+        <Box>
           <TabContext value={indicator}>
             <Box sx={{ borderBottom: 0, borderColor: "divider" }}>
               <TabList
@@ -223,7 +223,7 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                         pt={4}
                         pl={3}
                         pb={3}
-                        sx={{ width: 1400 }}
+                        // sx={{ width: 1400 }}
                         fontWeight="fontWeightLight"
                         variant="h6"
                       >
@@ -241,18 +241,20 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                   <Box
                     mt={3}
                     mb={3}
-                    ml={6}
-                    mr={6}
+                    // ml={6}
+                    // mr={6}
                     sx={{
                       display: "flex",
                       flexWrap: "wrap",
+                      // justifyContent: "center",
                     }}
                   >
                     {(city.indicators as any)[ind].keyFigures.map(
                       (keyFigure: any) => (
                         <Box
                           m={2}
-                          sx={{ width: 500, boxShadow: "0 2px 4px silver" }}
+                          sx={{ boxShadow: "0 2px 4px silver" }}
+                          width={{ lg: 500, xl: 500 }}
                         >
                           <KeyFigureCard
                             description={keyFigure.long_name}
@@ -264,7 +266,7 @@ const CityTab: React.FC<CityTabProps> = ({ city, changeTab }) => {
                             definition={keyFigure.definition}
                             data_source={keyFigure.data_source}
                             concept_definition={keyFigure.concept_definition}
-                            padding={2}
+                            padding={1}
                             elevation={5}
                             bar={true}
                             infoIcon={true}
