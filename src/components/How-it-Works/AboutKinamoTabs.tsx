@@ -61,14 +61,13 @@ const AboutKinamoTabs: React.FC<AboutKinamoTabsProps> = (props) => {
           sx={{
             display: "flex",
             alignItems: "flex-start",
-            justifyContent: "center",
+            // justifyContent: "center",
           }}
         >
           <TabList
             onChange={handleChange}
             aria-label="Was ist KINaMo"
             orientation="horizontal"
-            centered
           >
             <Tab label="Was ist KINaMo?" value="kinamo" />
             <Tab label="Indikatoren und Kennzahlen" value="indicators" />
