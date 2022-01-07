@@ -35,7 +35,7 @@ const MobileMessage = () => {
           alt="img"
           src="/assets/thumbnail/102_crop.png" */}
       {/* /> */}
-      <Box p={8} zIndex={3} position={"relative"}>
+      <Box p={4} zIndex={3} position={"relative"}>
         <Typography align="center" variant="h5" fontWeight="fontWeightLight">
           Entdecke
           <Box fontWeight="Medium" display="inline">
@@ -47,7 +47,7 @@ const MobileMessage = () => {
         <Typography
           align="center"
           pt={5}
-          variant="h4"
+          variant="h5"
           fontWeight="fontWeightLight"
         >
           <Box fontWeight="Medium" display="inline">
@@ -78,16 +78,16 @@ const MobileMessage = () => {
         <Typography
           pt={10}
           align="center"
-          variant="h4"
+          variant="h6"
           fontWeight="fontWeightLight"
         >
           Bitte besuchen sie die Seite mit einem Desktop Gerät erneut.
         </Typography>
-        <Box pt={15}>
+        <Box pt={3}>
           <Typography
             // p={10}
             align="center"
-            variant="h5"
+            // variant="h6"
             fontWeight="fontWeightLight"
           >
             KINaMo ist noch nicht für Mobile Endgeräte optimiert.
