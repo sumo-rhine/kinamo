@@ -76,7 +76,7 @@ const MobileMessage = () => {
           bilität
         </Typography>
         <Typography
-          pt={10}
+          pt={5}
           align="center"
           variant="h6"
           fontWeight="fontWeightLight"
