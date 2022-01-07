@@ -46,7 +46,7 @@ const MobileMessage = () => {
         </Typography>
         <Typography
           align="center"
-          pt={5}
+          pt={4}
           variant="h5"
           fontWeight="fontWeightLight"
         >
@@ -83,7 +83,7 @@ const MobileMessage = () => {
         >
           Bitte besuchen sie die Seite mit einem Desktop Gerät erneut.
         </Typography>
-        <Box pt={3}>
+        <Box pt={2}>
           <Typography
             // p={10}
             align="center"
@@ -94,7 +94,7 @@ const MobileMessage = () => {
           </Typography>
 
           <Typography
-            mt={5}
+            mt={2}
             align="center"
             variant="h6"
             fontWeight="fontWeightLight"
