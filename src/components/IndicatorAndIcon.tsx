@@ -6,7 +6,9 @@ import { HashLink } from "react-router-hash-link";
 
 interface IndicatorAndIconProps {
   name: string;
-  tabChanger: (indicator: string | undefined) => void;
+  tabChanger?: (indicator: string | undefined) => void;
+  clickable: boolean;
+  pt: number;
 }
 
 export const getIconPath = (name: string): any => {
@@ -72,24 +74,30 @@ export const getIconPath = (name: string): any => {
 const IndicatorAndIcon: React.FC<IndicatorAndIconProps> = (props) => {
   const data = getIconPath(props.name);
   return (
-    <Box pt={4}>
+    <Box pt={props.pt}>
       <Button
         sx={{ borderRadius: 0 }}
-        variant="outlined"
+        variant={props.clickable ? "outlined" : "text"}
         component={HashLink}
         to="#city-tab"
         smooth={true}
-        onClick={() => props.tabChanger(props.name)}
+        onClick={() => {
+          if (props.tabChanger) props.tabChanger(props.name);
+        }}
+        disabled={!props.clickable}
       >
         <Box
           sx={{
             display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "flex-end",
+            // flexDirection: "column",
+            alignItems: "flex-end",
+            // justifyContent: "flex-end",
           }}
         >
-          <Icon style={{ fontSize: 25 }}>
+          <Typography color="text.secondary" variant="subtitle1" mr={1}>
+            {data.name.toUpperCase()}
+          </Typography>
+          <Icon style={{ fontSize: 35 }}>
             <img
               style={{
                 height: "80%",
@@ -99,9 +107,6 @@ const IndicatorAndIcon: React.FC<IndicatorAndIconProps> = (props) => {
               src={data.IconSrc}
             />
           </Icon>
-          <Typography color="text.secondary" variant="subtitle2" ml={1}>
-            {data.name.toUpperCase()}
-          </Typography>
         </Box>
       </Button>
     </Box>

@@ -124,6 +124,8 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       <IndicatorAndIcon
                         name={(best1 as KeyFigure).indicator}
                         tabChanger={props.tabChanger}
+                        clickable={true}
+                        pt={4}
                       />
                     </Box>
                   </Box>
@@ -145,6 +147,8 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       <IndicatorAndIcon
                         name={(best2 as KeyFigure).indicator}
                         tabChanger={props.tabChanger}
+                        clickable={true}
+                        pt={4}
                       />
                     </Box>
                   </Box>
@@ -174,6 +178,8 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       <IndicatorAndIcon
                         name={(worst1 as KeyFigure).indicator}
                         tabChanger={props.tabChanger}
+                        clickable={true}
+                        pt={4}
                       />
                     </Box>
                   </Box>
@@ -195,6 +201,8 @@ export const KeyFigureBanner: React.FC<KeyFigureProps> = (props) => {
                       <IndicatorAndIcon
                         name={(worst2 as KeyFigure).indicator}
                         tabChanger={props.tabChanger}
+                        clickable={true}
+                        pt={4}
                       />
                     </Box>
                   </Box>

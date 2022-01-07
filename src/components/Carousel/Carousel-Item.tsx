@@ -3,6 +3,7 @@ import { Button, Box, CardMedia, Typography } from "@mui/material";
 import { City } from "../../models/FullDataset";
 import { HashLink } from "react-router-hash-link";
 import Stack from "@mui/material/Stack";
+import IndicatorAndIcon from "../IndicatorAndIcon";
 
 interface CarouselItemProps {
   city: City;
@@ -18,6 +19,7 @@ interface CityInfoData {
   keyFigureUnit: string;
   keyFigurePoints: number;
   MaxKeyFigurePoints: number;
+  indicator: string;
 }
 
 const CarouselItem: React.FC<CarouselItemProps> = (props) => {
@@ -37,6 +39,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
             fig.points - (fig.max_points + 1)
           );
           cityInfo["MaxKeyFigurePoints"] = fig.max_points;
+          cityInfo["indicator"] = name;
         }
       });
     });
@@ -63,16 +66,30 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
       >
         <Box pt={10}>
           <Box>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              {/* <Typography
+                pt={0.5}
+                // pr={1}
+                // variant="subtitle2"
+                variant="h6"
+                color="text.secondary"
+                fontWeight="fontWeightLight"
+              >
+                Top Kenzzahl
+              </Typography> */}
+              <IndicatorAndIcon
+                name={data.indicator}
+                clickable={false}
+                pt={0}
+                // tabChanger={data.indicator}
+              ></IndicatorAndIcon>
+            </Box>
             <Typography
-              pb={0.5}
-              // variant="subtitle2"
-              variant="h6"
-              color="text.secondary"
+              pl={0.6}
+              pb={5}
+              variant="h4"
               fontWeight="fontWeightLight"
             >
-              Top Kenzzahl
-            </Typography>
-            <Typography pb={5} variant="h4" fontWeight="fontWeightLight">
               {data?.cityName}
             </Typography>
 
@@ -110,6 +127,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
               {/* <Box mb={0.4}></Box> */}
               {/* <KeyFigureBar points={data.keyFigurePoints}></KeyFigureBar> */}
             </Box>
+
             <Box pt={5}>
               <Stack direction="row" spacing={2}>
                 <Button
