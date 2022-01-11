@@ -1,21 +1,38 @@
 import useStyles from "./styles";
 import { Box } from "@mui/material";
 import Fade from "@mui/material/Fade";
+import { useEffect, useState } from "react";
+
 interface AnimationProps {
   id: number;
-  isLoading: boolean;
 }
 
 const Animation: React.FC<AnimationProps> = (props) => {
+  const [loading, setLoading] = useState(true);
+  const [id, setID] = useState(props.id);
+
+  useEffect(() => {
+    setLoading(false);
+    console.log("set loading: false");
+    setTimeout(() => {
+      console.log("set id");
+      setID(props.id);
+    }, 1000);
+    setTimeout(() => {
+      console.log("set loading: true");
+      setLoading(true);
+    }, 3000);
+  }, [props.id]);
+
   const classes = useStyles();
   return (
-    <Box sx={{ position: "absolute" }}>
-      <Fade in={props.isLoading} timeout={1000}>
+    <Fade in={loading} timeout={1000}>
+      <Box sx={{ position: "absolute" }}>
         <Box className={classes.banner}>
           <img
             alt="img"
             className={classes.parks}
-            src={`/assets/banner/${props.id.toString()}_parks.png`}
+            src={`/assets/banner/${id.toString()}_parks.png`}
             onError={(e: any) => (
               (e.target.onError = null),
               (e.target.src = "/assets/banner/102_parks.png")
@@ -24,7 +41,7 @@ const Animation: React.FC<AnimationProps> = (props) => {
           <img
             alt="img"
             className={classes.pois}
-            src={`/assets/banner/${props.id.toString()}_pois.png`}
+            src={`/assets/banner/${id.toString()}_pois.png`}
             onError={(e: any) => (
               (e.target.onError = null),
               (e.target.src = "/assets/banner/102_pois.png")
@@ -33,15 +50,15 @@ const Animation: React.FC<AnimationProps> = (props) => {
           <img
             alt="img"
             className={classes.streets}
-            src={`/assets/banner/${props.id.toString()}_streets.png`}
+            src={`/assets/banner/${id.toString()}_streets.png`}
             onError={(e: any) => (
               (e.target.onError = null),
               (e.target.src = "/assets/banner/102_streets.png")
             )}
           />
         </Box>
-      </Fade>
-    </Box>
+      </Box>
+    </Fade>
   );
 };
 

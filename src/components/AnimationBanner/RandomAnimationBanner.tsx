@@ -9,24 +9,13 @@ const randomInt = (min: number, max: number) => {
 
 const RandomAnimationBanner: React.FC = (props) => {
   const [id, setId] = useState(102);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const city_list = [102, 483, 1502, 4, 1341];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setLoading(false);
-      // console.log("trigger false");
-
-      setTimeout(function () {
-        // console.log("trigger next image");
-        setId(city_list[randomInt(0, 4)]);
-        setTimeout(function () {
-          console.log("trigger true");
-          setLoading(true);
-        }, 1500);
-      }, 1000);
-      // setLoading(true);
-    }, 30000);
+      setId(city_list[randomInt(0, 4)]);
+    }, 10000);
     return () => clearInterval(interval);
   }, []);
 
@@ -43,7 +32,7 @@ const RandomAnimationBanner: React.FC = (props) => {
       <Box sx={{ position: "absolute" }}>
         {/* TODO #117 Fade error -  */}
         {/* <Fade in={loading} timeout={1000}> */}
-        <Animation id={id} isLoading={loading}></Animation>
+        <Animation id={id}></Animation>
         {/* </Fade> */}
       </Box>
       <Box

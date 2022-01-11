@@ -9,7 +9,7 @@ interface CityStatsProps {
 }
 
 const CityStats: React.FC<CityStatsProps> = (props) => {
-  console.log(props.city);
+  // console.log(props.city);
   return (
     <Box
       sx={{
