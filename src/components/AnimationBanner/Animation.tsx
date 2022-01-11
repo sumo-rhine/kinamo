@@ -13,13 +13,13 @@ const Animation: React.FC<AnimationProps> = (props) => {
 
   useEffect(() => {
     setLoading(false);
-    console.log("set loading: false");
+    // console.log("set loading: false");
     setTimeout(() => {
-      console.log("set id");
+      // console.log("set id");
       setID(props.id);
     }, 1000);
     setTimeout(() => {
-      console.log("set loading: true");
+      // console.log("set loading: true");
       setLoading(true);
     }, 3000);
   }, [props.id]);
