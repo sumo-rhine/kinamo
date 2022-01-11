@@ -19,7 +19,7 @@ const MobileMessage = () => {
     >
       <Header cityName="" selectable={false}></Header>
       <Box zIndex={0} position={"absolute"}>
-        <Animation id={102}></Animation>
+        <Animation id={102} isLoading={false}></Animation>
       </Box>
       {/* <img
           style={{keyFigureDescription

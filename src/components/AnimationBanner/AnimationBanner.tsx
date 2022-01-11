@@ -16,7 +16,7 @@ const AnimationBanner: React.FC<CityIdProps> = (props) => {
         overflow: "hidden",
       }}
     >
-      <Animation id={props.city.id}></Animation>
+      <Animation id={props.city.id} isLoading={false}></Animation>
       <Box
         mt={30}
         ml={15}

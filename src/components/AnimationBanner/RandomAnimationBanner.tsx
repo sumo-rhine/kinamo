@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import Fade from "@mui/material/Fade";
+
 import Animation from "./Animation";
 
 const randomInt = (min: number, max: number) => {
@@ -42,9 +42,9 @@ const RandomAnimationBanner: React.FC = (props) => {
     >
       <Box sx={{ position: "absolute" }}>
         {/* TODO #117 Fade error -  */}
-        <Fade in={loading} timeout={1000}>
-          <Animation id={id}></Animation>
-        </Fade>
+        {/* <Fade in={loading} timeout={1000}> */}
+        <Animation id={id} isLoading={loading}></Animation>
+        {/* </Fade> */}
       </Box>
       <Box
         mt={15}
