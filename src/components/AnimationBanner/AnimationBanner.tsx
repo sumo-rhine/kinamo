@@ -1,4 +1,3 @@
-import useStyles from "./styles";
 import { Box, Typography } from "@mui/material";
 import { City } from "../../models/FullDataset";
 import Animation from "./Animation";

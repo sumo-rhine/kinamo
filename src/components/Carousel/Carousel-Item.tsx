@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Button, Box, CardMedia, Typography } from "@mui/material";
+import { Button, Box, Typography } from "@mui/material";
 import { City } from "../../models/FullDataset";
 import { HashLink } from "react-router-hash-link";
 import Stack from "@mui/material/Stack";

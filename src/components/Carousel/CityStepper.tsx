@@ -7,7 +7,6 @@ import Slide from "@mui/material/Slide";
 import CarouselItem from "./Carousel-Item";
 import { AppState } from "../../models/AppState";
 import { City } from "../../models/FullDataset";
-import Typography from "@mui/material/Typography";
 import CircularProgress from "@mui/material/CircularProgress";
 
 // import { Slider } from "@mui/material";
