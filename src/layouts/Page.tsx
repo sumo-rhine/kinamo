@@ -5,6 +5,7 @@ import PageViewRoute from "../components/PageViewRoute";
 import LandingPage from "../pages/LandingPage";
 import CityPage from "../pages/CityPage";
 import Impressum from "../pages/Impressum";
+import Contact from "../pages/Contact";
 // import TestPage from "../pages/TestPage";
 import SamplePage from "../pages/SamplePage";
 
@@ -34,6 +35,11 @@ const Page: React.FC = () => (
         title="Impressum"
         path="/impressum"
         render={() => <Impressum />}
+      />
+      <PageViewRoute
+        title="Contact"
+        path="/contact"
+        render={() => <Contact />}
       />
 
       {/* DEV ONLY: we can keep the test page, but maybe use a different url */}

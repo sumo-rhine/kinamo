@@ -105,13 +105,12 @@ const Footer = () => {
           </Button>
         </Box>
         <Box>
-          <Button>
-            <Link
-              sx={{ color: "white" }}
-              href="mailto:janusch.jehle@uni-freiburg.de"
-            >
-              Kontakt
-            </Link>
+          <Button
+            sx={{ color: "white" }}
+            component={HashLink}
+            to="/contact#top"
+          >
+            Kontakt
           </Button>
         </Box>
       </Box>
