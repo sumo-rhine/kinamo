@@ -57,7 +57,7 @@ const RandomAnimationBanner: React.FC = (props) => {
           </Typography>
         </Box>
 
-        <Typography pt={5} ml={1} variant="h4" fontWeight="fontWeightLight">
+        <Typography pt={9} ml={1} variant="h4" fontWeight="fontWeightLight">
           <Box fontWeight="Medium" display="inline">
             {" "}
             KINaMo -
