@@ -148,7 +148,7 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
           </Box>
         </Box>
         <Box>
-          <Fade in={props.loading} timeout={1000}>
+          <Fade in={props.loading} timeout={2000}>
             <Box pt={15}>
               <img
                 style={{ width: 500, height: 400 }}
