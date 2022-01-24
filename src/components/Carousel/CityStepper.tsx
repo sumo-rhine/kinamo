@@ -26,6 +26,7 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
   const [slideDirection, setSlideDirection] = useState<"left" | "right">(
     "right"
   );
+  const [loading, setLoading] = useState(true);
 
   const handleRandom = () => {
     setSlideDirection("left");
@@ -38,6 +39,7 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
   };
   useEffect(() => {
     // console.log(slideIn);
+    setLoading(false);
     setIndex(0);
     setSlideIn(true);
     setCities(props.cities);
@@ -52,17 +54,18 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
     // 500ms later the Transition is started AGAIN:
     // in = true == fly in; from the right
     setTimeout(() => {
+      setLoading(true);
       setIndex(index + 1);
       setSlideDirection("right");
       setSlideIn(true);
     }, 500);
   };
-  useEffect(() => {
-    // console.log(slideIn);
-    setIndex(0);
-    setSlideIn(true);
-    setCities(props.cities);
-  }, [props]);
+  // useEffect(() => {
+  //   // console.log(slideIn);
+  //   setIndex(0);
+  //   setSlideIn(true);
+  //   setCities(props.cities);
+  // }, [props]);
 
   const handleBack = () => {
     // exit action -> fly out to the right
@@ -71,6 +74,7 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
 
     // 500ms later in action -> fly in from left
     setTimeout(() => {
+      setLoading(true);
       setIndex(index - 1);
       setSlideDirection("left");
       setSlideIn(true);
@@ -120,7 +124,11 @@ const CityStepper: React.FC<CityStepperProps> = (props) => {
           </Box>
           <Slide direction={slideDirection} in={slideIn}>
             <Box sx={{ width: 1 }}>
-              <CarouselItem city={cities[index]} nextHandler={handleRandom} />
+              <CarouselItem
+                loading={loading}
+                city={cities[index]}
+                nextHandler={handleRandom}
+              />
             </Box>
           </Slide>
           <Box

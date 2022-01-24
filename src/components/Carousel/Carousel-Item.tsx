@@ -4,10 +4,12 @@ import { City } from "../../models/FullDataset";
 import { HashLink } from "react-router-hash-link";
 import Stack from "@mui/material/Stack";
 import IndicatorAndIcon from "../IndicatorAndIcon";
+import Fade from "@mui/material/Fade";
 
 interface CarouselItemProps {
   city: City;
   nextHandler: any;
+  loading: boolean;
 }
 
 interface CityInfoData {
@@ -146,17 +148,19 @@ const CarouselItem: React.FC<CarouselItemProps> = (props) => {
           </Box>
         </Box>
         <Box>
-          <Box pt={15}>
-            <img
-              style={{ width: 500, height: 400 }}
-              src={`assets/thumbnail/${data.cityID.toString()}.png`}
-              onError={(e: any) => (
-                (e.target.onError = null),
-                (e.target.src = "assets/thumbnail/102.png")
-              )}
-            />
-            {/* <p>test</p> */}
-          </Box>
+          <Fade in={props.loading} timeout={1000}>
+            <Box pt={15}>
+              <img
+                style={{ width: 500, height: 400 }}
+                src={`assets/thumbnail/${data.cityID.toString()}.png`}
+                onError={(e: any) => (
+                  (e.target.onError = null),
+                  (e.target.src = "assets/thumbnail/102.png")
+                )}
+              />
+              {/* <p>test</p> */}
+            </Box>
+          </Fade>
         </Box>
       </Box>
     );
