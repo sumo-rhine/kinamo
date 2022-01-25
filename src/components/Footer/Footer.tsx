@@ -113,6 +113,15 @@ const Footer = () => {
             Kontakt
           </Button>
         </Box>
+        <Box>
+          <Button
+            sx={{ color: "white" }}
+            component={HashLink}
+            to="/privacy#top"
+          >
+            Datenschutzerklärung
+          </Button>
+        </Box>
       </Box>
     </Box>
   );
