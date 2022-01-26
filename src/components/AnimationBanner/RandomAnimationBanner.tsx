@@ -76,7 +76,7 @@ const RandomAnimationBanner: React.FC = (props) => {
             {" "}
             Na
           </Box>
-          chaltige
+          chhaltige
           <Box fontWeight="Medium" display="inline">
             {" "}
             Mo

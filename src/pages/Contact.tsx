@@ -31,7 +31,7 @@ const Contact = () => {
             //   sx={{ color: "white" }}
             href="mailto:barbara.koch@uni-freiburg.de"
           >
-            barbara.koch@uni-freiburg.de
+            barbara.koch@felis.uni-freiburg.de
           </Link>
         </Box>
 
@@ -44,7 +44,7 @@ const Contact = () => {
             //   sx={{ color: "white" }}
             href="mailto:janusch.jehle@uni-freiburg.de"
           >
-            janusch.jehle@uni-freiburg.de
+            janusch.jehle@felis.uni-freiburg.de
           </Link>
         </Box>
         {/* <a href="mailto:janusch.jehle@uni-freiburg.de"></a> */}
