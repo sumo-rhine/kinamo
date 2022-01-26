@@ -8,6 +8,7 @@ import Impressum from "../pages/Impressum";
 import Contact from "../pages/Contact";
 // import TestPage from "../pages/TestPage";
 import SamplePage from "../pages/SamplePage";
+import DataPrivacy from "../pages/DataPrivacy";
 
 /**
  * The Page component is a slim wrapper around the usual page navigation that
@@ -35,6 +36,11 @@ const Page: React.FC = () => (
         title="Impressum"
         path="/impressum"
         render={() => <Impressum />}
+      />
+      <PageViewRoute
+        title="Datenschutzerklärung"
+        path="/privacy"
+        render={() => <DataPrivacy />}
       />
       <PageViewRoute
         title="Contact"
