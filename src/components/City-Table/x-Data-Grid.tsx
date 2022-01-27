@@ -98,6 +98,7 @@ const columns: GridColDef[] = [
     headerName: "Kommune",
     renderCell: cityCellRenderer,
     flex: 1.5,
+    minWidth: 120,
   },
   {
     field: "walkability",
