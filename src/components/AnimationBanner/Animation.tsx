@@ -34,7 +34,8 @@ const Animation: React.FC<AnimationProps> = (props) => {
             className={classes.parks}
             src={`/assets/banner/${id.toString()}_park.png`}
             onError={(e: any) => (
-              (e.target.onError = null), (e.target.src = "")
+              (e.target.onError = null),
+              (e.target.src = "/assets/banner/102_park.png")
             )}
           />
           <img
