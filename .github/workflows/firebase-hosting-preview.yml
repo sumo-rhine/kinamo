@@ -28,3 +28,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_KINAMO_3EC0E }}'
           projectId: kinamo-3ec0e
           expires: 14d
+          channelId: preview
