@@ -12,7 +12,11 @@ jobs:
       - uses: actions/checkout@v2
 
       # build
-      - run: npm ci && npm run build
+      - name: Build
+        run: npm i && npm run build
+        # TODO: we should set this to true and only deploy if there are no warnings...
+        env:
+          CI: false
 
       # deploy preview channel
       - uses: FirebaseExtended/action-hosting-deploy@v0
