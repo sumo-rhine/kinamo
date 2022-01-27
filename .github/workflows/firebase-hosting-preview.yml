@@ -16,7 +16,10 @@ jobs:
 
       # build
       # - run: npm ci && npm run build
-      - run: npm i && npm run build
+      - name: build
+        run: npm i && npm run build
+        env:
+          CI: false
 
       # deploy preview channel
       - uses: FirebaseExtended/action-hosting-deploy@v0
