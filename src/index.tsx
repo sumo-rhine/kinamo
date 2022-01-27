@@ -11,8 +11,14 @@ import { Provider } from "react-redux";
 import store from "./store/store";
 
 // initialize Firebase Analytics
-import * as analytics from "./analytics";
-analytics.init();
+// import * as analytics from "./analytics";
+// analytics.init();
+
+// initialize the firebase app
+import firebase from "firebase/app";
+import config from "./firebase-config";
+firebase.initializeApp(config);
+
 
 ReactDOM.render(
   <Provider store={store}>

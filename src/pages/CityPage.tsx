@@ -12,6 +12,8 @@ import CityTab from "../components/CityTab/CityTab";
 import { KeyFigureBanner } from "../components/KeyFigureBanner/KeyFigureBanner";
 import CityTabDivider from "../components/CityTab/CityTabDivider";
 import Footer from "../components/Footer/Footer";
+import * as analytics from "../analytics";
+
 // import AboutProps from "../components/How-it-Works/About.model";
 interface CityPageProps {
   cities: City[];
@@ -55,6 +57,7 @@ const CityPage: React.FC<CityPageProps> = (props) => {
   // i.e. the user selects a new city from the within the cityPage
   useEffect(() => {
     filterCity();
+    if (city) analytics.event(city?.city);
   }, [cityId, props]);
 
   // return the page
